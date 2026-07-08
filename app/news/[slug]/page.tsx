@@ -9,7 +9,7 @@ const newsDetailQuery = groq`
   summary,
   publishedAt,
   body,
-  "image": coverImage.asset->url
+  "image": coverImage.asset->url + "?w=1200&h=630&fit=crop&auto=format"
 }
 `;
 
