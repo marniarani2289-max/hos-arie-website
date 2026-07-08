@@ -1,3 +1,4 @@
+import type {Metadata} from "next";
 import {groq} from "next-sanity";
 import {PortableText} from "@portabletext/react";
 import {sanityFetch} from "../../../sanity/lib/live";
@@ -25,7 +26,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{slug: string}>;
-}) {
+}): Promise<Metadata> {
   const {slug} = await params;
   const news = await getNews(slug);
 
@@ -35,29 +36,32 @@ export async function generateMetadata({
     };
   }
 
+  const imageUrl = news.image || "https://www.hossibarani.com/og-image.jpg";
+
   return {
+    metadataBase: new URL("https://www.hossibarani.com"),
     title: news.title,
     description: news.summary,
     openGraph: {
       title: news.title,
       description: news.summary,
+      url: `https://www.hossibarani.com/news/${slug}`,
+      siteName: "Dr. Hos Arie Sibarani | Legal Scholar",
       type: "article",
-      images: news.image
-        ? [
-            {
-              url: news.image,
-              width: 1200,
-              height: 630,
-              alt: news.title,
-            },
-          ]
-        : [],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: news.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: news.title,
       description: news.summary,
-      images: news.image ? [news.image] : [],
+      images: [imageUrl],
     },
   };
 }
