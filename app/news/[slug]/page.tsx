@@ -1,14 +1,16 @@
+import Image from "next/image";
 import {groq} from "next-sanity";
 import {PortableText} from "@portabletext/react";
 import {sanityFetch} from "../../../sanity/lib/live";
 
 const newsDetailQuery = groq`
-  *[_type == "news" && slug.current == $slug][0]{
-    title,
-    summary,
-    publishedAt,
-    body
-  }
+*[_type == "news" && slug.current == $slug][0]{
+  title,
+  summary,
+  publishedAt,
+  body,
+  "image": coverImage.asset->url
+}
 `;
 
 export default async function NewsDetailPage({
@@ -43,6 +45,18 @@ export default async function NewsDetailPage({
         <p className="mt-6 text-xl leading-8 text-gray-600">
           {news.summary}
         </p>
+
+        {news.image && (
+          <div className="mt-10 overflow-hidden rounded-3xl">
+            <Image
+              src={news.image}
+              alt={news.title}
+              width={1600}
+              height={900}
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        )}
 
         <div className="mt-12 prose prose-lg max-w-none">
           <PortableText value={news.body} />
