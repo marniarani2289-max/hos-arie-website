@@ -12,6 +12,8 @@ import Ideas from "./components/Ideas";
 import News from "./components/News";
 import DigitalArchive from "./components/DigitalArchive";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>
