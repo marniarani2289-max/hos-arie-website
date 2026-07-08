@@ -9,7 +9,7 @@ const newsDetailQuery = groq`
   summary,
   publishedAt,
   body,
-  "image": coverImage.asset->url + "?w=1200&h=630&fit=crop&auto=format"
+  "image": coverImage.asset->url
 }
 `;
 
@@ -30,13 +30,11 @@ export async function generateMetadata({
   const {slug} = await params;
   const news = await getNews(slug);
 
-  if (!news) {
-    return {
-      title: "News not found",
-    };
-  }
+  if (!news) return {title: "News not found"};
 
-  const imageUrl = news.image || "https://www.hossibarani.com/og-image.jpg";
+  const imageUrl = news.image
+    ? `${news.image}?w=1200&h=630&fit=crop&auto=format`
+    : "https://www.hossibarani.com/hos-arie.jpg";
 
   return {
     metadataBase: new URL("https://www.hossibarani.com"),
@@ -74,9 +72,11 @@ export default async function NewsDetailPage({
   const {slug} = await params;
   const news = await getNews(slug);
 
-  if (!news) {
-    return <main className="p-20">News not found.</main>;
-  }
+  if (!news) return <main className="p-20">News not found.</main>;
+
+  const imageUrl = news.image
+    ? `${news.image}?w=1200&h=630&fit=crop&auto=format`
+    : "";
 
   return (
     <main className="bg-white px-8 py-24 text-gray-900">
@@ -93,10 +93,10 @@ export default async function NewsDetailPage({
           {news.summary}
         </p>
 
-        {news.image && (
+        {imageUrl && (
           <div className="mt-10 overflow-hidden rounded-3xl">
             <img
-              src={news.image}
+              src={imageUrl}
               alt={news.title}
               className="h-auto w-full object-cover"
             />
