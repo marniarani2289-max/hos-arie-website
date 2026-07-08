@@ -1,30 +1,23 @@
-export default function News() {
-  const news = [
-    {
-      date: "2026",
-      category: "Media Commentary",
-      title: "Raja Ali Haji and the Future of Malay Civilization",
-      source: "Public Scholarship",
-      description:
-        "Commentary on Raja Ali Haji, Malay intellectual heritage, language, ethics, and civilizational identity.",
-    },
-    {
-      date: "2026",
-      category: "Conference News",
-      title: "Presenting Malay Ethical Constitutionalism",
-      source: "International Conference",
-      description:
-        "Academic presentation on ethical governance, constitutional accountability, and Malay constitutional thought.",
-    },
-    {
-      date: "2026",
-      category: "Research Update",
-      title: "Developing a Research Agenda on Raja Ali Haji",
-      source: "Raja Ali Haji Research Network",
-      description:
-        "Building a long-term research platform on manuscripts, constitutional thought, Malay studies, and public scholarship.",
-    },
-  ];
+import {groq} from "next-sanity";
+import {sanityFetch} from "../../sanity/lib/live";
+
+const newsQuery = groq`
+  *[_type == "news"] | order(date desc) {
+    title,
+    category,
+    date,
+    source,
+    description,
+    link
+  }
+`;
+
+export default async function News() {
+  const {data} = await sanityFetch({
+    query: newsQuery,
+  });
+
+  const news = Array.isArray(data) ? data : [];
 
   return (
     <section id="news" className="bg-white px-8 py-28">
@@ -38,12 +31,11 @@ export default function News() {
         </h2>
 
         <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-          Selected news, media commentary, academic updates, and public
-          scholarship activities.
+          Selected news, media commentary, academic updates, and public scholarship activities.
         </p>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {news.map((item) => (
+          {news.map((item: any) => (
             <article
               key={item.title}
               className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
@@ -70,12 +62,15 @@ export default function News() {
                 {item.description}
               </p>
 
-              <a
-                href="#"
-                className="mt-8 inline-flex font-semibold text-gray-900 hover:text-amber-700"
-              >
-                Read More →
-              </a>
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  className="mt-8 inline-flex font-semibold text-gray-900 hover:text-amber-700"
+                >
+                  Read More →
+                </a>
+              )}
             </article>
           ))}
         </div>
