@@ -5,6 +5,7 @@ import {bookType} from './bookType'
 import {eventType} from './eventType'
 import {mediaType} from './mediaType'
 import {galleryType} from './galleryType'
+import {researchProjectType} from './researchProjectType'
 
 export const schemaTypes = [
   newsType,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   eventType,
   mediaType,
   galleryType,
+  researchProjectType,
 ]
