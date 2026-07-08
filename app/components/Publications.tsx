@@ -1,42 +1,31 @@
-export default function Publications() {
-  const publications = [
-    {
-      year: "2026",
-      type: "Conference Paper",
-      title:
-        "Beyond Western Constitutionalism: Raja Ali Haji’s Theory of Constitutional Accountability and Ethical Governance in the Malay World",
-      venue: "Comparative Constitutional Studies",
-      keywords: ["Raja Ali Haji", "Constitutionalism", "Malay World"],
-      status: "Manuscript in progress",
-    },
-    {
-      year: "2026",
-      type: "Journal Article",
-      title:
-        "Malay Ethical Constitutionalism: Authority, Justice, and Moral Governance in the Nineteenth-Century Malay World",
-      venue: "Legal Theory and Malay Intellectual History",
-      keywords: ["Ethical Governance", "Justice", "Constitutional Theory"],
-      status: "Draft article",
-    },
-    {
-      year: "2026",
-      type: "Journal Article",
-      title:
-        "Vicarious Liability, Corrective Justice, and Institutional Responsibility in Indonesian Civil Law",
-      venue: "Private Law and Tort Theory",
-      keywords: ["Vicarious Liability", "Corrective Justice", "Civil Law"],
-      status: "Ongoing research",
-    },
-    {
-      year: "2026",
-      type: "Environmental Law Paper",
-      title:
-        "Benefit Sharing as a Legal Instrument for Protecting Indonesia’s Marine Genetic Resources",
-      venue: "Environmental Law and Marine Governance",
-      keywords: ["Benefit Sharing", "Marine Genetic Resources", "Indonesia"],
-      status: "Abstract stage",
-    },
-  ];
+import {groq} from "next-sanity";
+import {sanityFetch} from "../../sanity/lib/live";
+
+const publicationsQuery = groq`
+  *[_type == "publication"] | order(year desc) {
+    title,
+    journal,
+    year,
+    authors,
+    abstract,
+    doi,
+    link,
+    "pdfUrl": pdf.asset->url
+  }
+`;
+
+function renderAbstract(abstract: any[] = []) {
+  return abstract
+    ?.map((block) =>
+      block.children?.map((child: any) => child.text).join("")
+    )
+    .join("\n\n");
+}
+
+export default async function Publications() {
+  const {data: publications} = await sanityFetch({
+    query: publicationsQuery,
+  });
 
   return (
     <section id="publications" className="bg-gray-950 px-8 py-28 text-white">
@@ -45,17 +34,14 @@ export default function Publications() {
           Publications
         </p>
 
-        <h2 className="mt-4 text-5xl font-extrabold">
-          Selected Publications
-        </h2>
+        <h2 className="mt-4 text-5xl font-extrabold">Selected Publications</h2>
 
         <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-300">
-          Selected journal articles, conference papers, manuscripts, and
-          ongoing research projects.
+          Selected journal articles, conference papers, manuscripts, and ongoing research projects.
         </p>
 
         <div className="mt-12 space-y-6">
-          {publications.map((item) => (
+          {publications?.map((item: any) => (
             <article
               key={item.title}
               className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-amber-500/50 hover:bg-white/10"
@@ -63,40 +49,45 @@ export default function Publications() {
               <div className="flex flex-wrap gap-3 text-sm font-semibold text-amber-400">
                 <span>{item.year}</span>
                 <span>•</span>
-                <span>{item.type}</span>
-                <span>•</span>
-                <span>{item.status}</span>
+                <span>{item.journal}</span>
               </div>
 
               <h3 className="mt-4 text-2xl font-bold leading-snug">
                 {item.title}
               </h3>
 
-              <p className="mt-3 text-gray-400">{item.venue}</p>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {item.keywords.map((keyword) => (
-                  <span
-                    key={keyword}
-                    className="rounded-full border border-white/10 px-3 py-1 text-sm text-gray-300"
-                  >
-                    {keyword}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-3 text-gray-400">{item.authors}</p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="rounded-xl bg-white px-5 py-3 font-semibold text-gray-950">
-                  Abstract
-                </button>
+                <details className="w-full">
+                  <summary className="inline-block cursor-pointer rounded-xl bg-white px-5 py-3 font-semibold text-gray-950">
+                    Abstract
+                  </summary>
 
-                <button className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10">
-                  PDF
-                </button>
+                  <p className="mt-5 whitespace-pre-line leading-8 text-gray-300">
+                    {renderAbstract(item.abstract)}
+                  </p>
+                </details>
 
-                <button className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10">
-                  Citation
-                </button>
+                {item.pdfUrl && (
+                  <a
+                    href={item.pdfUrl}
+                    target="_blank"
+                    className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10"
+                  >
+                    PDF
+                  </a>
+                )}
+
+                {item.doi && (
+                  <a
+                    href={item.doi}
+                    target="_blank"
+                    className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10"
+                  >
+                    DOI
+                  </a>
+                )}
               </div>
             </article>
           ))}
