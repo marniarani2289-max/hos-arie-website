@@ -23,7 +23,7 @@ function renderAbstract(abstract: any[] = []) {
 }
 
 export default async function Publications() {
-  const {data: publications} = await sanityFetch({
+  const {data} = await sanityFetch({
     query: publicationsQuery,
   });
 
@@ -41,7 +41,7 @@ export default async function Publications() {
         </p>
 
         <div className="mt-12 space-y-6">
-          {publications?.map((item: any) => (
+          {publications.map((item: any) => (
             <article
               key={item.title}
               className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-amber-500/50 hover:bg-white/10"
