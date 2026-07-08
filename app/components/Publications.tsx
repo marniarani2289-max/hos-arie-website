@@ -27,6 +27,8 @@ export default async function Publications() {
     query: publicationsQuery,
   });
 
+  const publications = Array.isArray(data) ? data : [];
+
   return (
     <section id="publications" className="bg-gray-950 px-8 py-28 text-white">
       <div className="mx-auto max-w-7xl">
