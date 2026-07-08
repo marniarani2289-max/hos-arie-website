@@ -12,19 +12,63 @@ const newsDetailQuery = groq`
 }
 `;
 
+async function getNews(slug: string) {
+  const {data} = await sanityFetch({
+    query: newsDetailQuery,
+    params: {slug},
+  });
+
+  return data as any;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{slug: string}>;
+}) {
+  const {slug} = await params;
+  const news = await getNews(slug);
+
+  if (!news) {
+    return {
+      title: "News not found",
+    };
+  }
+
+  return {
+    title: news.title,
+    description: news.summary,
+    openGraph: {
+      title: news.title,
+      description: news.summary,
+      type: "article",
+      images: news.image
+        ? [
+            {
+              url: news.image,
+              width: 1200,
+              height: 630,
+              alt: news.title,
+            },
+          ]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: news.title,
+      description: news.summary,
+      images: news.image ? [news.image] : [],
+    },
+  };
+}
+
 export default async function NewsDetailPage({
   params,
 }: {
   params: Promise<{slug: string}>;
 }) {
   const {slug} = await params;
-
-  const {data} = await sanityFetch({
-    query: newsDetailQuery,
-    params: {slug},
-  });
-
-  const news = data as any;
+  const news = await getNews(slug);
 
   if (!news) {
     return <main className="p-20">News not found.</main>;
