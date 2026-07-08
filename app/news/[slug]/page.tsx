@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {groq} from "next-sanity";
 import {PortableText} from "@portabletext/react";
 import {sanityFetch} from "../../../sanity/lib/live";
@@ -48,11 +47,9 @@ export default async function NewsDetailPage({
 
         {news.image && (
           <div className="mt-10 overflow-hidden rounded-3xl">
-            <Image
+            <img
               src={news.image}
               alt={news.title}
-              width={1600}
-              height={900}
               className="h-auto w-full object-cover"
             />
           </div>
