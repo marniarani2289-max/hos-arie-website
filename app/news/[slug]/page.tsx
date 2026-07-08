@@ -14,11 +14,13 @@ const newsDetailQuery = groq`
 export default async function NewsDetailPage({
   params,
 }: {
-  params: {slug: string};
+  params: Promise<{slug: string}>;
 }) {
+  const {slug} = await params;
+
   const {data} = await sanityFetch({
     query: newsDetailQuery,
-    params: {slug: params.slug},
+    params: {slug},
   });
 
   const news = data as any;
