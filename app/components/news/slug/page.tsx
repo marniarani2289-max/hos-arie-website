@@ -1,9 +1,9 @@
 import {groq} from "next-sanity";
 import {PortableText} from "@portabletext/react";
-import {sanityFetch} from "../../../../sanity/lib/live";
+import {sanityFetch} from "../../../sanity/lib/live";
 
 const newsDetailQuery = groq`
-  *[_type == "news" && slug.current == $slug][0] {
+  *[_type == "news" && slug.current == $slug][0]{
     title,
     summary,
     publishedAt,
@@ -21,8 +21,10 @@ export default async function NewsDetailPage({
     params: {slug: params.slug},
   });
 
-  if (!data) {
-    return <div className="p-20">News not found.</div>;
+  const news = data as any;
+
+  if (!news) {
+    return <main className="p-20">News not found.</main>;
   }
 
   return (
@@ -33,15 +35,15 @@ export default async function NewsDetailPage({
         </p>
 
         <h1 className="mt-6 text-5xl font-extrabold leading-tight">
-          {data.title}
+          {news.title}
         </h1>
 
         <p className="mt-6 text-xl leading-8 text-gray-600">
-          {data.summary}
+          {news.summary}
         </p>
 
         <div className="mt-12 prose prose-lg max-w-none">
-          <PortableText value={data.body} />
+          <PortableText value={news.body} />
         </div>
       </article>
     </main>
