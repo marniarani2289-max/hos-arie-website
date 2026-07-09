@@ -12,64 +12,40 @@ export default function Image() {
     (
       <div
         style={{
-          width: "100%",
-          height: "100%",
+          width: "1200px",
+          height: "630px",
           background: "#0f172a",
           color: "white",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px",
-          fontFamily: "Arial",
+          fontFamily: "Arial, sans-serif",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            fontSize: 28,
-            color: "#f59e0b",
-            letterSpacing: 6,
-          }}
-        >
+        <div style={{display: "flex", color: "#f59e0b", fontSize: 28, letterSpacing: 6}}>
           DR. HOS ARIE SIBARANI
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 72,
-              fontWeight: 800,
-              lineHeight: 1.05,
-            }}
-          >
+        <div style={{display: "flex", flexDirection: "column"}}>
+          <div style={{display: "flex", fontSize: 76, fontWeight: 800, lineHeight: 1.05}}>
             Legal Scholar
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              marginTop: 24,
-              fontSize: 34,
-              color: "#cbd5e1",
-            }}
-          >
-            Constitutional Theory • Malay Ethical Constitutionalism • Raja Ali Haji
+          <div style={{display: "flex", marginTop: 28, fontSize: 34, color: "#cbd5e1"}}>
+            Constitutional Theory
+          </div>
+
+          <div style={{display: "flex", marginTop: 10, fontSize: 34, color: "#cbd5e1"}}>
+            Malay Ethical Constitutionalism
+          </div>
+
+          <div style={{display: "flex", marginTop: 10, fontSize: 34, color: "#cbd5e1"}}>
+            Raja Ali Haji Studies
           </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            fontSize: 26,
-            color: "#fbbf24",
-          }}
-        >
+        <div style={{display: "flex", fontSize: 26, color: "#fbbf24"}}>
           www.hossibarani.com
         </div>
       </div>
