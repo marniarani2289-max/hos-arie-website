@@ -18,34 +18,63 @@ export default function Image() {
           color: "white",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
           padding: "64px",
           fontFamily: "Arial, sans-serif",
         }}
       >
-        <div style={{display: "flex", color: "#f59e0b", fontSize: 28, letterSpacing: 6}}>
+        <div
+          style={{
+            display: "flex",
+            fontSize: "28px",
+            color: "#f59e0b",
+            letterSpacing: "6px",
+          }}
+        >
           DR. HOS ARIE SIBARANI
         </div>
 
-        <div style={{display: "flex", flexDirection: "column"}}>
-          <div style={{display: "flex", fontSize: 76, fontWeight: 800, lineHeight: 1.05}}>
-            Legal Scholar
-          </div>
-
-          <div style={{display: "flex", marginTop: 28, fontSize: 34, color: "#cbd5e1"}}>
-            Constitutional Theory
-          </div>
-
-          <div style={{display: "flex", marginTop: 10, fontSize: 34, color: "#cbd5e1"}}>
-            Malay Ethical Constitutionalism
-          </div>
-
-          <div style={{display: "flex", marginTop: 10, fontSize: 34, color: "#cbd5e1"}}>
-            Raja Ali Haji Studies
-          </div>
+        <div
+          style={{
+            display: "flex",
+            fontSize: "76px",
+            fontWeight: 800,
+            lineHeight: 1.05,
+            marginTop: "120px",
+          }}
+        >
+          Legal Scholar
         </div>
 
-        <div style={{display: "flex", fontSize: 26, color: "#fbbf24"}}>
+        <div
+          style={{
+            display: "flex",
+            fontSize: "34px",
+            color: "#cbd5e1",
+            marginTop: "28px",
+          }}
+        >
+          Constitutional Theory • Malay Ethical Constitutionalism
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            fontSize: "34px",
+            color: "#cbd5e1",
+            marginTop: "12px",
+          }}
+        >
+          Raja Ali Haji Studies • Legal Thought
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            fontSize: "26px",
+            color: "#fbbf24",
+            marginTop: "auto",
+          }}
+        >
           www.hossibarani.com
         </div>
       </div>
