@@ -1,4 +1,6 @@
-import {ImageResponse} from "next/og";
+import { ImageResponse } from "next/og";
+
+export const runtime = "edge";
 
 export const size = {
   width: 1200,
@@ -7,27 +9,29 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
         style={{
+          display: "flex",
           width: "1200px",
           height: "630px",
-          background: "#0f172a",
-          color: "white",
-          display: "flex",
+          backgroundColor: "#0f172a",
+          color: "#ffffff",
           flexDirection: "column",
-          padding: "64px",
-          fontFamily: "Arial, sans-serif",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          padding: "80px",
         }}
       >
         <div
           style={{
             display: "flex",
-            fontSize: "28px",
+            fontSize: 26,
             color: "#f59e0b",
-            letterSpacing: "6px",
+            fontWeight: 700,
+            marginBottom: 30,
           }}
         >
           DR. HOS ARIE SIBARANI
@@ -36,10 +40,10 @@ export default function Image() {
         <div
           style={{
             display: "flex",
-            fontSize: "76px",
+            fontSize: 72,
             fontWeight: 800,
-            lineHeight: 1.05,
-            marginTop: "120px",
+            lineHeight: 1.1,
+            marginBottom: 24,
           }}
         >
           Legal Scholar
@@ -48,9 +52,9 @@ export default function Image() {
         <div
           style={{
             display: "flex",
-            fontSize: "34px",
+            fontSize: 34,
             color: "#cbd5e1",
-            marginTop: "28px",
+            marginBottom: 40,
           }}
         >
           Constitutional Theory • Malay Ethical Constitutionalism
@@ -59,26 +63,16 @@ export default function Image() {
         <div
           style={{
             display: "flex",
-            fontSize: "34px",
-            color: "#cbd5e1",
-            marginTop: "12px",
-          }}
-        >
-          Raja Ali Haji Studies • Legal Thought
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            fontSize: "26px",
+            fontSize: 28,
             color: "#fbbf24",
-            marginTop: "auto",
           }}
         >
           www.hossibarani.com
         </div>
       </div>
     ),
-    size
+    {
+      ...size,
+    }
   );
 }
