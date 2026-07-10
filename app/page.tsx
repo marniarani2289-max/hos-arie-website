@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import Ideas from "./components/Ideas";
 import News from "./components/News";
 import DigitalArchive from "./components/DigitalArchive";
+import CurrentResearch from "@/app/components/CurrentResearch";
 
 export const dynamic = "force-dynamic";
 
