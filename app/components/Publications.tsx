@@ -1,98 +1,150 @@
-import {groq} from "next-sanity";
-import {sanityFetch} from "../../sanity/lib/live";
+type Publication = {
+  year: string;
+  title: string;
+  type: string;
+  outlet: string;
+  description?: string;
+  href?: string;
+  featured?: boolean;
+};
 
-const publicationsQuery = groq`
-  *[_type == "publication"] | order(year desc) {
-    title,
-    journal,
-    year,
-    authors,
-    abstract,
-    doi,
-    link,
-    "pdfUrl": pdf.asset->url
-  }
-`;
+const publications: Publication[] = [
+  {
+    year: "2026",
+    title:
+      "Reconstructing Indigenous Constitutionalism in Indonesia: Raja Ali Haji, Colonial Modernity and Constitutional Governance in the Malay World",
+    type: "Research Project",
+    outlet: "Ibrahim Sjarief Assegaf Fellowship Proposal",
+    description:
+      "A legal-constitutional reconstruction of Raja Ali Haji’s political thought and its contribution to indigenous and comparative constitutionalism.",
+    href: "/raja-ali-haji",
+    featured: true,
+  },
+  {
+    year: "2026",
+    title: "Malay Ethical Constitutionalism",
+    type: "Working Paper",
+    outlet: "Comparative Constitutional Theory",
+    description:
+      "A conceptual framework grounded in Malay political institutions, Islamic legal traditions, ethical governance, and constitutional accountability.",
+    href: "/#research",
+    featured: true,
+  },
+  {
+    year: "2025",
+    title:
+      "The Riau-Lingga Sultanate in the Perspective of Maqasid al-Shariah",
+    type: "Doctoral Research",
+    outlet: "UIN Sultan Thaha Saifuddin Jambi",
+    description:
+      "Research on Muqaddimah fi Intizam Waza'if al-Malik, Tsamarat al-Muhimmah, and Gurindam Dua Belas.",
+  },
+  {
+    year: "2025",
+    title: "Raja Ali Haji and Constitutional Accountability",
+    type: "Conference Paper",
+    outlet: "Malay Constitutional Thought",
+    description:
+      "An examination of justice, consultation, ethical leadership, public responsibility, and the limits of political power.",
+  },
+  {
+    year: "2025",
+    title: "Vicarious Liability and Corrective Justice",
+    type: "Research Article",
+    outlet: "Private Law and Civil Liability",
+    description:
+      "A comparative inquiry into attribution, employer liability, and corrective justice in civil law.",
+  },
+];
 
-function renderAbstract(abstract: any[] = []) {
-  return abstract
-    ?.map((block) =>
-      block.children?.map((child: any) => child.text).join("")
-    )
-    .join("\n\n");
-}
-
-export default async function Publications() {
-  const {data} = await sanityFetch({
-    query: publicationsQuery,
-  });
-
-  const publications = Array.isArray(data) ? data : [];
-
+export default function Publications() {
   return (
-    <section id="publications" className="bg-gray-950 px-8 py-28 text-white">
+    <section
+      id="publications"
+      className="border-y border-slate-200 bg-stone-50 px-6 py-20 md:px-8 md:py-28"
+    >
       <div className="mx-auto max-w-7xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
-          Publications
-        </p>
+        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
+              Selected Publications
+            </p>
 
-        <h2 className="mt-4 text-5xl font-extrabold">Selected Publications</h2>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+              Research and Scholarly Writing
+            </h2>
 
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-300">
-          Selected journal articles, conference papers, manuscripts, and ongoing research projects.
-        </p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              Selected research projects, working papers, conference papers,
+              and scholarly writing on constitutional theory, Raja Ali Haji,
+              Malay intellectual history, private law, and governance.
+            </p>
 
-        <div className="mt-12 space-y-6">
-          {publications.map((item: any) => (
-            <article
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-amber-500/50 hover:bg-white/10"
+            <a
+              href="/academic-cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex rounded-xl bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-amber-700"
             >
-              <div className="flex flex-wrap gap-3 text-sm font-semibold text-amber-400">
-                <span>{item.year}</span>
-                <span>•</span>
-                <span>{item.journal}</span>
-              </div>
+              View Full Academic CV
+            </a>
+          </div>
 
-              <h3 className="mt-4 text-2xl font-bold leading-snug">
-                {item.title}
-              </h3>
-
-              <p className="mt-3 text-gray-400">{item.authors}</p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <details className="w-full">
-                  <summary className="inline-block cursor-pointer rounded-xl bg-white px-5 py-3 font-semibold text-gray-950">
-                    Abstract
-                  </summary>
-
-                  <p className="mt-5 whitespace-pre-line leading-8 text-gray-300">
-                    {renderAbstract(item.abstract)}
+          <div className="divide-y divide-slate-300 border-y border-slate-300">
+            {publications.map((publication) => (
+              <article
+                key={`${publication.year}-${publication.title}`}
+                className="grid gap-5 py-8 md:grid-cols-[80px_1fr_auto] md:items-start"
+              >
+                <div>
+                  <p className="text-sm font-bold text-amber-700">
+                    {publication.year}
                   </p>
-                </details>
+                </div>
 
-                {item.pdfUrl && (
-                  <a
-                    href={item.pdfUrl}
-                    target="_blank"
-                    className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10"
-                  >
-                    PDF
-                  </a>
-                )}
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      {publication.type}
+                    </p>
 
-                {item.doi && (
-                  <a
-                    href={item.doi}
-                    target="_blank"
-                    className="rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10"
-                  >
-                    DOI
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+                    {publication.featured && (
+                      <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="mt-3 text-xl font-bold leading-8 text-slate-950 md:text-2xl">
+                    {publication.title}
+                  </h3>
+
+                  <p className="mt-2 font-medium text-slate-700">
+                    {publication.outlet}
+                  </p>
+
+                  {publication.description && (
+                    <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+                      {publication.description}
+                    </p>
+                  )}
+                </div>
+
+                <div className="md:pt-8">
+                  {publication.href ? (
+                    <a
+                      href={publication.href}
+                      className="inline-flex font-semibold text-amber-700 transition hover:text-amber-900"
+                    >
+                      Read →
+                    </a>
+                  ) : (
+                    <span className="text-sm text-slate-400">Forthcoming</span>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

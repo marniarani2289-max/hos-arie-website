@@ -14,22 +14,10 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
-      <Hero />
-
-      <ResearchProgramme />
-
-      <Publications />
-
-      <AcademicCV />
-
-      <Projects />
-
-      <News />
-
-      <Contact />
-
-      <Footer />
+<Hero />
+<ResearchProgramme />
+<Publications />
+<AcademicCV />
     </>
   );
 }
