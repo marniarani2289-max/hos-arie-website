@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import { sanityFetch } from "../../../sanity/lib/live";
+import type { Metadata } from "next";
 
 const opinionQuery = groq`
   *[
@@ -16,6 +17,65 @@ const opinionQuery = groq`
     "image": coverImage.asset->url
   }
 `;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { data } = await sanityFetch({
+    query: opinionQuery,
+    params: { slug },
+  });
+
+  const opinion = data as any;
+
+  if (!opinion) {
+    return {
+      title: "Opinion",
+    };
+  }
+
+  const title = opinion.title;
+  const description =
+    opinion.summary ??
+    "Academic opinion by Dr. Hos Arie Rhamadhan Sibarani.";
+
+  return {
+    title,
+    description,
+
+    authors: [
+      {
+        name: "Dr. Hos Arie Rhamadhan Sibarani",
+      },
+    ],
+
+    keywords: [
+      "Constitutional Law",
+      "Malay Ethical Constitutionalism",
+      "Raja Ali Haji",
+      "Constitutional Theory",
+      "Indonesia",
+      "Governance",
+    ],
+
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      images: opinion.image ? [opinion.image] : [],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: opinion.image ? [opinion.image] : [],
+    },
+  };
+}
 
 export default async function OpinionDetailPage({
   params,
