@@ -2,22 +2,24 @@ import Link from "next/link";
 import { groq } from "next-sanity";
 import { sanityFetch } from "../../sanity/lib/live";
 
-const newsQuery = groq`
-*[_type == "news"] | order(publishedAt desc){
+const opinionQuery = groq`
+*[_type == "opinion"]
+| order(publishedAt desc){
   title,
   slug,
   summary,
+  topic,
   publishedAt,
   "coverImage": coverImage.asset->url
 }
 `;
 
 export default async function News() {
-  const { data } = await sanityFetch({
-    query: newsQuery,
-  });
+const { data } = await sanityFetch({
+  query: opinionQuery,
+});
 
-  const news = Array.isArray(data) ? data : [];
+  const opinions = Array.isArray(data) ? data : [];
 
   return (
     <section id="news" className="bg-white px-8 py-28">
@@ -37,7 +39,7 @@ export default async function News() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
 
-          {news.map((item: any) => (
+          href={`/opinions/${item.slug.current}`}
 
             <article
               key={item.slug.current}
