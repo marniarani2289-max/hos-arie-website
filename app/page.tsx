@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ResearchProgramme from "./components/ResearchProgramme";
 import Publications from "./components/Publications";
+import Opinions from "./components/Opinions";
 import About from "./components/About";
 import AcademicCV from "./components/AcademicCV";
 import Contact from "./components/Contact";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <ResearchProgramme />
         <Publications />
+        <Opinions />
         <About />
         <AcademicCV />
         <Contact />
