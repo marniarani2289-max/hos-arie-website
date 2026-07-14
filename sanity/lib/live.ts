@@ -1,9 +1,8 @@
-// Querying with "sanityFetch" will keep content automatically updated
-// Before using it, import and render "<SanityLive />" in your layout, see
-// https://github.com/sanity-io/next-sanity#live-content-api for more information.
+// Querying with "sanityFetch" keeps content automatically updated.
+// Import and render <SanityLive /> in the root layout to enable live updates.
+
 import { defineLive } from "next-sanity/live";
-import { client } from './client'
-import { sanityFetch } from "../sanity/lib/live";
+import { client } from "./client";
 
 export const { sanityFetch, SanityLive } = defineLive({
   client,
