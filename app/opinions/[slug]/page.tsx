@@ -75,24 +75,14 @@ export default async function OpinionDetailPage({
         month: "long",
         year: "numeric",
       })
-    : null;
+    : "Publication date unavailable";
 
   return (
     <main className="bg-white px-6 py-20 text-slate-900 md:px-8 md:py-28">
       <article className="mx-auto max-w-5xl">
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          <span className="font-semibold uppercase tracking-[0.25em] text-amber-700">
-            Opinion
-          </span>
-
-          {opinion.topic && (
-            <span className="text-slate-500">{opinion.topic}</span>
-          )}
-
-          {formattedDate && (
-            <span className="text-slate-500">{formattedDate}</span>
-          )}
-        </div>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
+          Opinion
+        </p>
 
         <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-6xl">
           {opinion.title}
@@ -104,18 +94,56 @@ export default async function OpinionDetailPage({
           </p>
         )}
 
-        {opinion.image && (
-          <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
-            <img
-              src={opinion.image}
-              alt={opinion.title ?? "Opinion cover image"}
-              className="h-auto w-full object-cover"
-            />
+        <div className="mt-10 grid gap-8 border-y border-slate-200 py-7 sm:grid-cols-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Author
+            </p>
+
+            <p className="mt-2 font-semibold text-slate-950">
+              Dr. Hos Arie Rhamadhan Sibarani
+            </p>
           </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Published
+            </p>
+
+            <p className="mt-2 font-semibold text-slate-950">
+              {formattedDate}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Topic
+            </p>
+
+            <p className="mt-2 font-semibold text-slate-950">
+              {opinion.topic || "Law and Public Affairs"}
+            </p>
+          </div>
+        </div>
+
+        {opinion.image && (
+          <figure className="mt-12">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
+              <img
+                src={opinion.image}
+                alt={opinion.title ?? "Opinion cover image"}
+                className="h-[280px] w-full object-cover sm:h-[380px] lg:h-[460px]"
+              />
+            </div>
+
+            <figcaption className="mt-3 text-sm leading-6 text-slate-500">
+              Cover image for this opinion.
+            </figcaption>
+          </figure>
         )}
 
         <div className="mt-16 border-t border-slate-200 pt-12">
-          <div className="article-content prose prose-lg max-w-none prose-headings:text-slate-950 prose-p:text-slate-700 prose-a:text-amber-700">
+          <div className="article-content prose prose-lg max-w-none prose-headings:text-slate-950 prose-p:text-slate-700 prose-a:text-amber-700 prose-blockquote:border-amber-700 prose-blockquote:text-slate-700">
             {opinion.body ? (
               <PortableText value={opinion.body} />
             ) : (
@@ -123,6 +151,42 @@ export default async function OpinionDetailPage({
             )}
           </div>
         </div>
+
+        <aside className="mt-16 rounded-3xl border border-slate-200 bg-stone-50 p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+            About the Author
+          </p>
+
+          <h2 className="mt-3 text-2xl font-bold text-slate-950">
+            Dr. Hos Arie Rhamadhan Sibarani
+          </h2>
+
+          <p className="mt-4 max-w-3xl leading-8 text-slate-600">
+            Constitutional law scholar whose research focuses on Raja Ali Haji,
+            Malay Ethical Constitutionalism, indigenous constitutionalism, and
+            comparative constitutional theory.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/academic-cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-amber-700"
+            >
+              Academic CV
+            </a>
+
+            <a
+              href="https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-800 transition hover:border-amber-700 hover:text-amber-800"
+            >
+              Google Scholar
+            </a>
+          </div>
+        </aside>
 
         <div className="mt-16 border-t border-slate-200 pt-8">
           <a
