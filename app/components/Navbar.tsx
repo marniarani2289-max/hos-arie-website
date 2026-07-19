@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   return (
