@@ -1,25 +1,19 @@
-import Hero from "./components/Hero";
-import About from "./components/About";
-import ResearchProgramme from "./components/ResearchProgramme";
-import Publications from "./components/Publications";
-import Books from "./components/Books";
-import Opinions from "./components/Opinions";
-import DigitalArchive from "./components/DigitalArchive";
-import AcademicCV from "./components/AcademicCV";
-import Contact from "./components/Contact";
+import HeroV2 from "./components/home/HeroV2";
+import AcademicProfile from "./components/home/AcademicProfile";
+import ResearchAreas from "./components/home/ResearchAreas";
+import FeaturedResearch from "./components/home/FeaturedResearch";
+import SelectedWork from "./components/home/SelectedWork";
+import CollaborationCTA from "./components/home/CollaborationCTA";
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <About />
-      <ResearchProgramme />
-      <Publications />
-      <Books />
-      <Opinions />
-      <DigitalArchive />
-      <AcademicCV />
-      <Contact />
-    </>
+    <main className="bg-white">
+      <HeroV2 />
+      <AcademicProfile />
+      <ResearchAreas />
+      <FeaturedResearch />
+      <SelectedWork />
+      <CollaborationCTA />
+    </main>
   );
 }
