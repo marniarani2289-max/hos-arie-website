@@ -18,19 +18,11 @@ const selectedWorks = [
     href: "/research",
   },
   {
-    type: "Private Law Research",
-    year: "2026",
-    title: "Vicarious Liability in Indonesian Civil Law",
-    description:
-      "A critical examination of responsibility arising from employment, agency, institutional activity, and organisational relationships.",
-    href: "/research",
-  },
-  {
-    type: "Comparative Legal Theory",
+    type: "Comparative Constitutional Theory",
     year: "2026",
     title: "Indigenous Constitutionalism and Global Legal Thought",
     description:
-      "A comparative inquiry into constitutional traditions developed beyond the dominant Western legal canon.",
+      "A comparative inquiry into constitutional traditions developed beyond the dominant Western constitutional canon.",
     href: "/research",
   },
 ];
@@ -51,8 +43,9 @@ export default function SelectedWork() {
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
               Selected projects representing the main directions of my current
-              research in constitutional law, Malay intellectual history,
-              indigenous constitutionalism, and private law.
+              research in constitutional law, constitutional theory, Malay
+              intellectual history, indigenous constitutionalism, and Raja Ali
+              Haji studies.
             </p>
           </div>
 
