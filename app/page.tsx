@@ -3,6 +3,7 @@ import AcademicProfile from "./components/home/AcademicProfile";
 import ResearchAreas from "./components/home/ResearchAreas";
 import FeaturedResearch from "./components/home/FeaturedResearch";
 import SelectedWork from "./components/home/SelectedWork";
+import Opinions from "./components/Opinions";
 import CollaborationCTA from "./components/home/CollaborationCTA";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <ResearchAreas />
       <FeaturedResearch />
       <SelectedWork />
+      <Opinions />
       <CollaborationCTA />
     </main>
   );
