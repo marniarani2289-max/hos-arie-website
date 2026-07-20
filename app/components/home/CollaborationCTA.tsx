@@ -86,10 +86,10 @@ export default function CollaborationCTA() {
                   Research Focus
                 </p>
 
-                <p className="mt-4 leading-7 text-slate-300">
-                  Constitutional Law • Malay Intellectual History •
-                  Indigenous Constitutionalism • Raja Ali Haji Studies •
-                  Private Law • Comparative Legal Theory
+                <p className="mt-6 text-2xl leading-relaxed text-slate-200">
+                  Constitutional Law • Constitutional Theory •
+                  Malay Intellectual History • Malay Ethical Constitutionalism •
+                  Raja Ali Haji Studies • Indigenous Constitutionalism
                 </p>
               </div>
 
