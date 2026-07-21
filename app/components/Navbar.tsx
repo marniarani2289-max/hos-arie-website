@@ -10,6 +10,7 @@ const navigation = [
   { name: "Publications", href: "/publications" },
   { name: "Books", href: "/#books" },
   { name: "Opinions", href: "/opinions" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Digital Archive", href: "/#digital-archive" },
   { name: "Raja Ali Haji", href: "/raja-ali-haji" },
 ];
