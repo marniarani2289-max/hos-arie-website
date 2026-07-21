@@ -8,9 +8,9 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Research", href: "/research" },
   { name: "Publications", href: "/publications" },
-  { name: "Books", href: "/books" },
+  { name: "Books", href: "/#books" },
   { name: "Opinions", href: "/opinions" },
-  { name: "Digital Archive", href: "/digital-archive" },
+  { name: "Digital Archive", href: "/#digital-archive" },
   { name: "Raja Ali Haji", href: "/raja-ali-haji" },
 ];
 
@@ -42,7 +42,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="/contact"
+            href="/#contact"
             className="rounded-lg bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-700"
           >
             Contact
@@ -54,6 +54,7 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="rounded-lg border border-slate-300 px-3 py-2 text-sm xl:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={open}
         >
           Menu
         </button>
@@ -67,14 +68,14 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="font-medium text-slate-700 hover:text-amber-700"
+                className="font-medium text-slate-700 transition hover:text-amber-700"
               >
                 {item.name}
               </Link>
             ))}
 
             <Link
-              href="/contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex w-fit rounded-lg bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white"
             >
