@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import FooterV3 from "./components/layout/FooterV3";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  variable: "--font-libre",
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -20,10 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white text-slate-800 antialiased">
+      <body
+        className={`${inter.variable} ${libreBaskerville.variable} bg-white text-slate-800 antialiased`}
+      >
         <Navbar />
         {children}
-        <Footer />
+        <FooterV3 />
       </body>
     </html>
   );

@@ -1,26 +1,38 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Props = {
+type ButtonLinkProps = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "darkOutline";
+  newTab?: boolean;
+  className?: string;
 };
 
 export default function ButtonLink({
   href,
   children,
   variant = "primary",
-}: Props) {
-  const style =
-    variant === "primary"
-      ? "bg-slate-950 text-white hover:bg-amber-700"
-      : "border border-slate-300 bg-white text-slate-900 hover:border-amber-700 hover:text-amber-700";
+  newTab = false,
+  className = "",
+}: ButtonLinkProps) {
+  const variants = {
+    primary:
+      "border-amber-500 bg-amber-500 text-slate-950 hover:border-amber-400 hover:bg-amber-400",
+
+    secondary:
+      "border-white bg-white text-slate-950 hover:border-amber-400 hover:bg-amber-400",
+
+    darkOutline:
+      "border-white/20 bg-white/5 text-white hover:border-amber-400 hover:bg-amber-400 hover:text-slate-950",
+  };
 
   return (
     <Link
       href={href}
-      className={`inline-flex rounded-xl px-6 py-3 text-sm font-semibold transition ${style}`}
+      target={newTab ? "_blank" : undefined}
+      rel={newTab ? "noopener noreferrer" : undefined}
+      className={`inline-flex items-center justify-center rounded-xl border px-6 py-3 text-sm font-semibold transition duration-300 ${variants[variant]} ${className}`}
     >
       {children}
     </Link>
