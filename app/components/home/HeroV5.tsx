@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Badge from "../shared/Badge";
 import ButtonLink from "../shared/ButtonLink";
 import Container from "../shared/Container";
@@ -28,7 +29,7 @@ const academicHighlights = [
   },
 ];
 
-export default function HeroV4() {
+export default function HeroV5() {
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
       {/* Decorative background */}
@@ -36,7 +37,7 @@ export default function HeroV4() {
         className="pointer-events-none absolute inset-0 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.12),transparent_34%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.14),transparent_34%)]" />
 
         <div className="absolute -right-40 -top-48 h-[520px] w-[520px] rounded-full border border-amber-400/10" />
 
@@ -47,8 +48,8 @@ export default function HeroV4() {
 
       <Container>
         <div className="relative py-20 sm:py-24 lg:py-28">
-          <div className="grid items-center gap-14 xl:grid-cols-[1.1fr_0.9fr]">
-            {/* Main academic identity */}
+          <div className="grid items-center gap-14 xl:grid-cols-[1.08fr_0.92fr]">
+            {/* Left content */}
             <div>
               <div className="inline-flex items-center gap-3 rounded-full border border-amber-400/20 bg-amber-400/5 px-4 py-2">
                 <span
@@ -90,10 +91,7 @@ export default function HeroV4() {
                   </span>
                 </ButtonLink>
 
-                <ButtonLink
-                  href="/publications"
-                  variant="secondary"
-                >
+                <ButtonLink href="/publications" variant="secondary">
                   View Publications
                 </ButtonLink>
 
@@ -139,35 +137,39 @@ export default function HeroV4() {
               </div>
             </div>
 
-            {/* Research profile panel */}
+            {/* Right profile panel */}
             <div className="relative">
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 blur-xl" />
 
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/90 shadow-2xl shadow-black/30 backdrop-blur">
-                {/* Academic identity card */}
-                <div className="border-b border-white/10 p-7 sm:p-9">
-                  <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-                    <div className="flex h-24 w-24 flex-none items-center justify-center rounded-3xl border border-amber-400/20 bg-gradient-to-br from-amber-400/20 to-slate-950">
-                      <span className="font-academic text-3xl font-bold text-amber-300">
-                        HAS
-                      </span>
-                    </div>
+                {/* Portrait */}
+                <div className="relative aspect-[4/5] overflow-hidden border-b border-white/10">
+                  <Image
+                    src="/images/profile/hos-arie.png"
+                    
+                    alt="Dr. Hos Arie Sibarani"
+                    fill
+                    priority
+                    sizes="(max-width: 1280px) 100vw, 42vw"
+                    className="object-cover object-top"
+                  />
 
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-400">
-                        Academic Profile
-                      </p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
 
-                      <h2 className="font-academic mt-3 text-2xl font-bold text-white">
-                        Scholarship rooted in Penyengat
-                      </h2>
+                  <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">
+                      Academic Profile
+                    </p>
 
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
-                        Connecting Malay intellectual history with current
-                        debates in constitutional law, governance, ethics, and
-                        public responsibility.
-                      </p>
-                    </div>
+                    <h2 className="font-academic mt-3 text-3xl font-bold text-white">
+                      Scholarship rooted in Penyengat
+                    </h2>
+
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
+                      Connecting Malay intellectual history with contemporary
+                      debates in constitutional law, governance, ethics, and
+                      public responsibility.
+                    </p>
                   </div>
                 </div>
 
@@ -189,10 +191,7 @@ export default function HeroV4() {
 
                   <div className="mt-7 flex flex-wrap gap-3">
                     {researchThemes.map((theme) => (
-                      <Badge
-                        key={theme}
-                        variant="dark"
-                      >
+                      <Badge key={theme} variant="dark">
                         {theme}
                       </Badge>
                     ))}
