@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Container from "../shared/Container";
+import Container from "./shared/Container";
 
 const researchAreas = [
   "Constitutional Theory",
