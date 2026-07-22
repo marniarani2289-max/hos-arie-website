@@ -2,30 +2,30 @@ const researchAreas = [
   {
     title: "Constitutional Theory",
     description:
-      "Constitutional Accountability, Constitutional Justice, Ethical Governance, Constitutional Interpretation, and Constitutional Institutions.",
+      "Constitutional Accountability, Constitutional Justice, Ethical Governance, Constitutional Interpretation, Constitutional Institutions, and the Limits of Public Authority.",
     direction:
-      "Developing constitutional theory that places justice, accountability, ethical authority, and public responsibility at the centre of constitutional government.",
+      "Developing constitutional theory that places justice, accountability, ethical authority, institutional integrity, and public responsibility at the centre of constitutional government.",
   },
   {
     title: "Malay Constitutional Thought",
     description:
       "Raja Ali Haji, Malay Ethical Constitutionalism, Malay Political Thought, Malay Intellectual History, and Constitutional Ideas in the Malay World.",
     direction:
-      "Reconstructing the legal, political, ethical, and constitutional dimensions of Malay intellectual traditions.",
+      "Reconstructing the legal, political, ethical, and constitutional dimensions of Malay intellectual traditions as a distinctive contribution to constitutional scholarship.",
   },
   {
-    title: "Indigenous Constitutionalism",
+    title: "Indigenous & Comparative Constitutionalism",
     description:
-      "Indigenous Constitutionalism, Comparative Constitutional Theory, Decolonising Constitutional Knowledge, Legal Traditions, and Global Constitutional Dialogue.",
+      "Indigenous Constitutionalism, Comparative Constitutional Theory, Decolonising Constitutional Knowledge, Non-Western Legal Traditions, and Global Constitutional Dialogue.",
     direction:
-      "Connecting local constitutional traditions with comparative constitutional law and wider debates on decolonising legal knowledge.",
+      "Connecting indigenous and non-Western constitutional traditions with comparative constitutional law and wider debates on decolonising legal knowledge.",
   },
   {
-    title: "Governance, Ethics & Responsibility",
+    title: "Constitutional Governance & Public Ethics",
     description:
-      "Institutional Responsibility, Public Ethics, Vicarious Liability, Administrative Accountability, Environmental Governance, and Civil Liability.",
+      "Constitutional Governance, Public Ethics, Democratic Accountability, Institutional Integrity, Responsible Leadership, and the Ethical Exercise of Public Authority.",
     direction:
-      "Examining how institutions, public authorities, and organisations should be held responsible for the consequences of their actions and activities.",
+      "Examining how constitutional institutions, public authorities, and political leaders can be guided by ethical responsibility, accountability, integrity, and the public interest.",
   },
 ];
 
@@ -41,15 +41,15 @@ const foundations = [
 const researchPathway = [
   {
     title: "Intellectual Sources",
-    text: "Malay and Jawi manuscripts, legal texts, historical archives, judicial decisions, and contemporary governance problems.",
+    text: "Malay and Jawi manuscripts, constitutional texts, historical archives, intellectual traditions, and contemporary questions of constitutional governance.",
   },
   {
     title: "Conceptual Reconstruction",
-    text: "Reconstructing ideas of authority, responsibility, justice, ethics, consultation, and accountability.",
+    text: "Reconstructing ideas of authority, responsibility, justice, ethics, consultation, accountability, and legitimate government.",
   },
   {
     title: "Constitutional Framework",
-    text: "Connecting constitutional theory, governance, institutional responsibility, legal history, and public ethics.",
+    text: "Connecting Malay constitutional thought with constitutional theory, public ethics, indigenous constitutionalism, and comparative constitutional law.",
   },
   {
     title: "Global Contribution",
@@ -70,14 +70,15 @@ export default function ResearchAreas() {
           </p>
 
           <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-            Building constitutional and legal theory from the Malay world
+            Building constitutional theory from the Malay world
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
             My research connects constitutional theory, Malay intellectual
-            history, indigenous constitutionalism, governance, ethics, and
-            institutional responsibility through a broader concern with
-            justice, accountability, and civilizational knowledge.
+            history, indigenous constitutionalism, comparative constitutional
+            law, constitutional governance, and public ethics through a broader
+            concern with justice, accountability, legitimate authority, and
+            civilizational knowledge.
           </p>
         </div>
 
@@ -175,10 +176,11 @@ export default function ResearchAreas() {
           </h3>
 
           <p className="mt-5 max-w-3xl leading-7 text-slate-600">
-            The research programme begins with texts, archives, judicial
-            decisions, and contemporary governance problems. It then
-            reconstructs their underlying concepts before connecting them with
-            wider debates in constitutional and legal theory.
+            The research programme begins with manuscripts, constitutional
+            texts, archives, intellectual traditions, and contemporary
+            questions of constitutional governance. It then reconstructs their
+            underlying concepts before connecting them with wider debates in
+            constitutional and legal theory.
           </p>
 
           <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
