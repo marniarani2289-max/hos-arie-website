@@ -1,165 +1,129 @@
 import Link from "next/link";
+import Card from "../shared/Card";
+import Container from "../shared/Container";
+import SectionHeading from "../shared/SectionHeading";
 
-const programmeDetails = [
+const featuredResearch = [
   {
-    label: "Research Stage",
-    value: "Conceptual and Comparative Development",
+    category: "Flagship Programme",
+    title: "Malay Ethical Constitutionalism",
+    description:
+      "A reconstruction of constitutional thought from the Malay intellectual tradition, especially the works of Raja Ali Haji, with emphasis on amanah, adab, justice, consultation, accountability, and public responsibility.",
+    themes: [
+      "Raja Ali Haji",
+      "Constitutional Ethics",
+      "Indigenous Constitutionalism",
+    ],
+    href: "/research/malay-ethical-constitutionalism",
+    status: "Ongoing",
   },
   {
-    label: "Primary Thinker",
-    value: "Raja Ali Haji",
+    category: "Constitutional Thought",
+    title: "Raja Ali Haji and Constitutional Accountability",
+    description:
+      "This research examines Raja Ali Haji as a constitutional thinker and reconstructs his ideas concerning the duties of rulers, limits of authority, consultation, justice, and ethical governance.",
+    themes: [
+      "Malay Intellectual History",
+      "Accountability",
+      "Ethical Governance",
+    ],
+    href: "/raja-ali-haji",
+    status: "Current Research",
   },
   {
-    label: "Primary Texts",
-    value:
-      "Tsamarat al-Muhimmah, Muqaddimah fi Intizam Waza’if al-Malik, and Gurindam Dua Belas",
+    category: "Governance & Responsibility",
+    title: "Institutional Responsibility and Accountability",
+    description:
+      "Exploring institutional responsibility, public accountability, governance ethics, and the legal principles governing organisational responsibility across constitutional institutions and public governance.",
+    themes: [
+      "Institutional Responsibility",
+      "Governance Ethics",
+      "Public Accountability",
+    ],
+    href: "/research",
+    status: "Research Programme",
   },
-  {
-    label: "Historical Context",
-    value: "Nineteenth-Century Riau–Lingga Malay World",
-  },
-  {
-    label: "Scholarly Contribution",
-    value: "Indigenous and Comparative Constitutional Theory",
-  },
-];
-
-const corePrinciples = [
-  "Authority as moral trust",
-  "Ethical limitation of power",
-  "Justice and public welfare",
-  "Consultation and accountability",
-  "Language, character, and constitutional order",
 ];
 
 export default function FeaturedResearch() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-        <div className="mb-12 max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
-            Featured Research
-          </p>
+    <section className="bg-white py-24 sm:py-28">
+      <Container>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow="Featured Research"
+            title="Selected research programmes"
+            description="Current projects that define my academic agenda across constitutional theory, Malay intellectual history, indigenous constitutionalism, governance, ethics, and institutional responsibility."
+          />
 
-          <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-            A flagship programme in Malay constitutional thought
-          </h2>
-
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            The principal research programme reconstructs constitutional ideas
-            from Raja Ali Haji&apos;s writings and positions the Malay world
-            within contemporary global constitutional scholarship.
-          </p>
+          <Link
+            href="/research"
+            className="inline-flex w-fit items-center text-sm font-semibold text-amber-700 transition hover:text-amber-900"
+          >
+            View all research
+            <span className="ml-2" aria-hidden="true">
+              →
+            </span>
+          </Link>
         </div>
 
-        <div className="overflow-hidden rounded-[2.25rem] bg-slate-950 text-white shadow-2xl">
-          <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative overflow-hidden p-8 md:p-12 lg:p-16">
-              <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full border border-amber-400/10" />
-              <div className="absolute -left-10 -top-10 h-48 w-48 rounded-full border border-amber-400/20" />
-
-              <div className="relative">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-amber-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-400 ring-1 ring-inset ring-amber-400/20">
-                    Flagship Research Programme
+        <div className="mt-14 grid gap-7 lg:grid-cols-3">
+          {featuredResearch.map((project, index) => (
+            <Card key={project.title}>
+              <article className="flex h-full flex-col">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
+                    {project.category}
                   </span>
 
-                  <span className="rounded-full bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300 ring-1 ring-inset ring-emerald-400/20">
-                    Active
+                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
+                    {project.status}
                   </span>
                 </div>
 
-                <h3 className="mt-8 text-4xl font-bold tracking-tight md:text-6xl">
-                  Malay Ethical Constitutionalism
+                <div className="mt-7 flex items-center gap-4">
+                  <span className="font-academic text-4xl font-bold text-amber-700/20">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="h-px flex-1 bg-slate-200" />
+                </div>
+
+                <h3 className="font-academic mt-7 text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
+                  {project.title}
                 </h3>
 
-                <p className="mt-7 max-w-3xl text-xl leading-9 text-slate-300">
-                  Recovering an indigenous constitutional tradition from Raja
-                  Ali Haji&apos;s writings and the political-intellectual world
-                  of the Riau–Lingga Sultanate.
+                <p className="mt-5 flex-1 leading-7 text-slate-600">
+                  {project.description}
                 </p>
 
-                <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-400">
-                  This programme examines how authority, justice, consultation,
-                  public responsibility, ethical conduct, and limitation of
-                  power were understood within the nineteenth-century Malay
-                  world.
-                </p>
-
-                <div className="mt-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.26em] text-amber-400">
-                    Core Principles
-                  </p>
-
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {corePrinciples.map((principle) => (
-                      <div
-                        key={principle}
-                        className="rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-4"
-                      >
-                        <p className="leading-7 text-slate-300">
-                          {principle}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {project.themes.map((theme) => (
+                    <span
+                      key={theme}
+                      className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-800"
+                    >
+                      {theme}
+                    </span>
+                  ))}
                 </div>
 
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <div className="mt-8 border-t border-slate-200 pt-6">
                   <Link
-                    href="/research/malay-ethical-constitutionalism"
-                    className="inline-flex items-center justify-center rounded-xl bg-amber-600 px-7 py-4 font-semibold text-white transition hover:bg-amber-500"
+                    href={project.href}
+                    className="inline-flex items-center text-sm font-semibold text-slate-950 transition hover:text-amber-700"
                   >
-                    Explore the Full Research Project
-                  </Link>
-
-                  <Link
-                    href="/research"
-                    className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-7 py-4 font-semibold text-white transition hover:border-amber-400 hover:text-amber-400"
-                  >
-                    View All Research
+                    Explore project
+                    <span className="ml-2" aria-hidden="true">
+                      →
+                    </span>
                   </Link>
                 </div>
-              </div>
-            </div>
-
-            <aside className="border-t border-slate-800 bg-slate-900 p-8 md:p-12 lg:border-l lg:border-t-0 lg:p-14">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-amber-400">
-                Programme Profile
-              </p>
-
-              <dl className="mt-8">
-                {programmeDetails.map((detail) => (
-                  <div
-                    key={detail.label}
-                    className="border-t border-slate-800 py-6 first:border-t-0 first:pt-0"
-                  >
-                    <dt className="text-sm text-slate-500">
-                      {detail.label}
-                    </dt>
-
-                    <dd className="mt-2 text-lg font-semibold leading-8 text-white">
-                      {detail.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-
-              <div className="mt-8 rounded-2xl border border-amber-400/20 bg-amber-500/10 p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">
-                  Long-Term Objective
-                </p>
-
-                <p className="mt-4 leading-7 text-slate-300">
-                  To establish Malay Ethical Constitutionalism as a recognised
-                  contribution to indigenous, comparative, and global
-                  constitutional theory.
-                </p>
-              </div>
-            </aside>
-          </div>
+              </article>
+            </Card>
+          ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
