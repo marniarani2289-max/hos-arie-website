@@ -1,4 +1,4 @@
-import HeroV5 from "./components/home/HeroV5";
+import HeroV6 from "./components/home/HeroV6";
 import ResearchIdentity from "./components/home/ResearchIdentity";
 import FlagshipProgramme from "./components/home/FlagshipProgramme";
 import FeaturedResearch from "./components/home/FeaturedResearch";
@@ -9,7 +9,7 @@ import CollaborationCTA from "./components/home/CollaborationCTA";
 export default function Home() {
   return (
     <main>
-      <HeroV5 />
+      <HeroV6 />
       <ResearchIdentity />
       <FlagshipProgramme />
       <FeaturedResearch />
