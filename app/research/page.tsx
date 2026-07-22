@@ -6,8 +6,39 @@ import { researchProgrammes } from "./data/researchProgrammes";
 
 export const metadata: Metadata = {
   title: "Research",
+
   description:
-    "Explore the research programmes of Dr. Hos Arie Sibarani in constitutional law, Malay constitutional thought, Raja Ali Haji studies, indigenous constitutionalism, and Indonesian private law.",
+    "Explore the research programmes of Dr. Hos Arie Sibarani in constitutional theory, Malay Ethical Constitutionalism, Raja Ali Haji studies, indigenous constitutionalism, governance, and institutional responsibility.",
+
+  alternates: {
+    canonical: "/research",
+  },
+
+  openGraph: {
+    title: "Research | Dr. Hos Arie Sibarani",
+    description:
+      "Research programmes in constitutional theory, Malay constitutional thought, indigenous constitutionalism, Raja Ali Haji studies, governance, ethics, and institutional responsibility.",
+    url: "https://www.hossibarani.com/research",
+    siteName: "Dr. Hos Arie Sibarani",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Research | Dr. Hos Arie Sibarani",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Research | Dr. Hos Arie Sibarani",
+    description:
+      "Research in constitutional theory, Malay Ethical Constitutionalism, Raja Ali Haji studies, indigenous constitutionalism, and institutional responsibility.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const researchMethods = [

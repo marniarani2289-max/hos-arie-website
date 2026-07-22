@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
+
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import FooterV3 from "./components/layout/FooterV3";
+import PersonSchema from "./components/seo/PersonSchema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,18 +15,86 @@ const inter = Inter({
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-libre",
   weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.hossibarani.com"),
+
   title: {
-    default: "Dr. Hos Arie Sibarani",
+    default: "Dr. Hos Arie Sibarani | Constitutional Law Scholar",
     template: "%s | Dr. Hos Arie Sibarani",
   },
+
   description:
-    "Constitutional law scholar and researcher of Malay constitutional thought, Raja Ali Haji, and indigenous constitutionalism.",
+    "Official academic website of Dr. Hos Arie Sibarani, a constitutional law scholar researching Malay constitutional thought, Raja Ali Haji, indigenous constitutionalism, governance, and institutional responsibility.",
+
+  keywords: [
+    "Hos Arie Sibarani",
+    "Constitutional Law",
+    "Malay Constitutional Thought",
+    "Malay Ethical Constitutionalism",
+    "Raja Ali Haji",
+    "Indigenous Constitutionalism",
+    "Comparative Constitutional Law",
+    "Governance",
+    "Legal Theory",
+    "Indonesia",
+  ],
+
+  authors: [
+    {
+      name: "Dr. Hos Arie Sibarani",
+      url: "https://www.hossibarani.com",
+    },
+  ],
+
+  creator: "Dr. Hos Arie Sibarani",
+  publisher: "Dr. Hos Arie Sibarani",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "Dr. Hos Arie Sibarani",
+    description:
+      "Constitutional Law Scholar and Researcher of Malay Constitutional Thought.",
+    url: "https://www.hossibarani.com",
+    siteName: "Dr. Hos Arie Sibarani",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Hos Arie Sibarani",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr. Hos Arie Sibarani",
+    description:
+      "Constitutional Law Scholar and Researcher of Malay Constitutional Thought.",
+    images: ["/og-image.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -45,6 +115,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${libreBaskerville.variable} min-w-[320px] overflow-x-hidden bg-white text-slate-800 antialiased`}
       >
+        <PersonSchema />
+
         <Navbar />
 
         <main>{children}</main>
