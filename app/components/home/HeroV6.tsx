@@ -26,7 +26,7 @@ export default function HeroV6() {
       </div>
 
       <Container>
-        <div className="relative py-16 sm:py-20 lg:flex lg:min-h-[calc(100vh-108px)] lg:items-center lg:py-16">
+        <div className="relative py-12 sm:py-16 lg:flex lg:min-h-[calc(100vh-96px)] lg:items-center lg:py-14">
           <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
             {/* Left content */}
             <div className="order-1">
@@ -45,7 +45,7 @@ export default function HeroV6() {
                 Dr. Hos Arie Sibarani
               </p>
 
-              <h1 className="font-academic mt-5 max-w-4xl text-5xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+              <h1 className="font-academic mt-5 max-w-4xl text-[2.75rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
                 Constitutional thought from the Malay world
               </h1>
 
@@ -62,7 +62,7 @@ export default function HeroV6() {
                 scholarship.
               </p>
 
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <ButtonLink href="/research">
                   Explore Research
                   <span className="ml-2" aria-hidden="true">

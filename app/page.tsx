@@ -8,7 +8,7 @@ import CollaborationCTA from "./components/home/CollaborationCTA";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <HeroV6 />
       <ResearchIdentity />
       <FlagshipProgramme />
@@ -16,6 +16,6 @@ export default function Home() {
       <SelectedWork />
       <BooksMonographs />
       <CollaborationCTA />
-    </main>
+    </>
   );
 }

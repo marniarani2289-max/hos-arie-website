@@ -32,7 +32,7 @@ export default function ButtonLink({
       href={href}
       target={newTab ? "_blank" : undefined}
       rel={newTab ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center justify-center rounded-xl border px-6 py-3 text-sm font-semibold transition duration-300 ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-11 w-full items-center justify-center rounded-xl border px-6 py-3 text-center text-sm font-semibold transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:w-auto ${variants[variant]} ${className}`}
     >
       {children}
     </Link>

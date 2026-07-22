@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     "Constitutional law scholar and researcher of Malay constitutional thought, Raja Ali Haji, and indigenous constitutionalism.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#020617",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,10 +43,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${libreBaskerville.variable} bg-white text-slate-800 antialiased`}
+        className={`${inter.variable} ${libreBaskerville.variable} min-w-[320px] overflow-x-hidden bg-white text-slate-800 antialiased`}
       >
         <Navbar />
-        {children}
+
+        <main>{children}</main>
+
         <FooterV3 />
       </body>
     </html>
