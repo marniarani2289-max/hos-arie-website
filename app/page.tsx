@@ -1,4 +1,4 @@
-import HeroV3 from "./components/home/HeroV3";
+import HeroV4 from "./components/home/HeroV4";
 import ResearchIdentity from "./components/home/ResearchIdentity";
 import FlagshipProgramme from "./components/home/FlagshipProgramme";
 import FeaturedResearch from "./components/home/FeaturedResearch";
