@@ -105,3 +105,30 @@ export default function GalleryPage() {
     </main>
   );
 }
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+
+  description:
+    "Academic activities, international seminars, lectures, research programmes, institutional engagements, and public events involving Dr. Hos Arie Sibarani.",
+
+  alternates: {
+    canonical: "/gallery",
+  },
+
+  openGraph: {
+    title: "Academic Gallery | Dr. Hos Arie Sibarani",
+    description:
+      "Photographs and documentation of academic lectures, seminars, research activities, and institutional engagements.",
+    url: "/gallery",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Academic Gallery | Dr. Hos Arie Sibarani",
+    description:
+      "Academic lectures, research activities, seminars, and institutional engagements.",
+  },
+};

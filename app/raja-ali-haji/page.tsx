@@ -71,13 +71,6 @@ const researchResources = [
   "Indigenous constitutionalism and legal pluralism",
 ];
 
-export const metadata = {
-  title:
-    "Raja Ali Haji and Malay Constitutional Thought | Dr. Hos Arie Sibarani",
-  description:
-    "Research on Raja Ali Haji, the Riau-Lingga Sultanate, Malay Ethical Constitutionalism, political authority, accountability, justice, and constitutional governance.",
-};
-
 export default function RajaAliHajiPage() {
   return (
     <main className="bg-white text-slate-900">
@@ -403,3 +396,30 @@ function SectionLabel({
     </p>
   );
 }
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Raja Ali Haji",
+
+  description:
+    "Research on Raja Ali Haji as a constitutional thinker, including his ideas on authority, justice, consultation, accountability, language, ethics, and Malay governance.",
+
+  alternates: {
+    canonical: "/raja-ali-haji",
+  },
+
+  openGraph: {
+    title: "Raja Ali Haji and Malay Constitutional Thought",
+    description:
+      "Discover Raja Ali Haji's constitutional ideas and their contribution to Malay Ethical Constitutionalism and global constitutional theory.",
+    url: "/raja-ali-haji",
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Raja Ali Haji and Malay Constitutional Thought",
+    description:
+      "Research on authority, justice, consultation, accountability, and ethical governance in the works of Raja Ali Haji.",
+  },
+};
