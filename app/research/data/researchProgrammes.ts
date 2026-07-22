@@ -32,7 +32,7 @@ export const researchProgrammes: ResearchProgramme[] = [
     number: "02",
     title: "Raja Ali Haji and Malay Intellectual History",
     shortTitle: "Raja Ali Haji Studies",
-    category: "Interdisciplinary Research Programme",
+    category: "Malay Constitutional Studies",
     status: "Developing",
     description:
       "An interdisciplinary examination of Raja Ali Haji’s contributions to law, government, ethics, language, education, history, and Malay intellectual civilisation.",
@@ -49,7 +49,7 @@ export const researchProgrammes: ResearchProgramme[] = [
     number: "03",
     title: "Indigenous and Comparative Constitutionalism",
     shortTitle: "Indigenous Constitutionalism",
-    category: "Comparative Constitutional Research",
+    category: "Comparative Constitutional Studies",
     status: "Developing",
     description:
       "A comparative programme examining constitutional traditions developed outside the dominant Western canon, particularly in Southeast Asia and the Islamic world.",
@@ -63,20 +63,19 @@ export const researchProgrammes: ResearchProgramme[] = [
     ],
   },
   {
-    number: "04",
-    title: "Vicarious Liability in Indonesian Private Law",
-    shortTitle: "Vicarious Liability",
-    category: "Private Law Research Programme",
-    status: "Active",
-    description:
-      "A critical study of judicial patterns in attributing civil responsibility for acts committed by employees, agents, institutional actors, and organisational personnel.",
-    contribution:
-      "Develops a clearer normative account of attribution, corrective justice, organisational responsibility, and Article 1367 of the Indonesian Civil Code.",
-    href: "/research/vicarious-liability",
-    topics: [
-      "Vicarious Liability",
-      "Corrective Justice",
-      "Indonesian Civil Law",
-    ],
-  },
-];
+  number: "04",
+  title: "Constitutional Governance and Public Ethics",
+  shortTitle: "Public Ethics",
+  category: "Governance Research Programme",
+  status: "Active",
+  description:
+    "A research programme examining constitutional governance, ethical leadership, institutional accountability, democratic integrity, and the exercise of public authority in modern constitutional states.",
+  contribution:
+    "Develops a normative framework connecting constitutional governance, public ethics, accountability, institutional integrity, and responsible leadership within contemporary constitutional theory.",
+  href: "/research/constitutional-governance",
+  topics: [
+    "Constitutional Governance",
+    "Public Ethics",
+    "Institutional Accountability",
+  ],
+},
