@@ -111,7 +111,7 @@ export default function HeroV6() {
                 <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 blur-xl" />
 
                 <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
-                  <div className="relative h-[440px] sm:h-[540px] lg:h-[680px] xl:h-[720px]">
+                  <div className="relative h-[420px] min-[400px]:h-[470px] sm:h-[540px] lg:h-[680px] xl:h-[720px]">
                     <Image
                       src="/images/profile/hos-arie.png"
                       alt="Dr. Hos Arie Sibarani wearing traditional Malay attire"
@@ -132,7 +132,7 @@ export default function HeroV6() {
                         Scholarship rooted in Penyengat
                       </h2>
 
-                      <p className="mt-4 max-w-lg text-sm leading-7 text-slate-300 sm:text-base">
+                      <p className="mt-4 hidden max-w-lg text-sm leading-7 text-slate-300 sm:block sm:text-base">
                         Connecting Malay intellectual history with contemporary
                         debates in constitutional law, governance, ethics, and
                         public responsibility.
