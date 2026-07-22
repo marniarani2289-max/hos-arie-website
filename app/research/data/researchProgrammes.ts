@@ -63,19 +63,20 @@ export const researchProgrammes: ResearchProgramme[] = [
     ],
   },
   {
-  number: "04",
-  title: "Constitutional Governance and Public Ethics",
-  shortTitle: "Public Ethics",
-  category: "Governance Research Programme",
-  status: "Active",
-  description:
-    "A research programme examining constitutional governance, ethical leadership, institutional accountability, democratic integrity, and the exercise of public authority in modern constitutional states.",
-  contribution:
-    "Develops a normative framework connecting constitutional governance, public ethics, accountability, institutional integrity, and responsible leadership within contemporary constitutional theory.",
-  href: "/research/constitutional-governance",
-  topics: [
-    "Constitutional Governance",
-    "Public Ethics",
-    "Institutional Accountability",
-  ],
-},
+    number: "04",
+    title: "Constitutional Governance and Public Ethics",
+    shortTitle: "Public Ethics",
+    category: "Governance Research Programme",
+    status: "Active",
+    description:
+      "A research programme examining constitutional governance, ethical leadership, institutional accountability, democratic integrity, and the exercise of public authority in modern constitutional states.",
+    contribution:
+      "Develops a normative framework connecting constitutional governance, public ethics, accountability, institutional integrity, and responsible leadership within contemporary constitutional theory.",
+    href: "/research/constitutional-governance",
+    topics: [
+      "Constitutional Governance",
+      "Public Ethics",
+      "Institutional Accountability",
+    ],
+  },
+];
