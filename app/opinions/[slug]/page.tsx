@@ -21,8 +21,10 @@ type PageProps = {
 
 const siteUrl = "https://www.hossibarani.com";
 const authorName = "Dr. Hos Arie Rhamadhan Sibarani";
+
 const defaultDescription =
   "Academic opinion by Dr. Hos Arie Rhamadhan Sibarani.";
+
 const defaultImage = `${siteUrl}/opengraph-image.png`;
 
 const opinionQuery = groq`
@@ -190,7 +192,7 @@ export default async function OpinionDetailPage({
         slug={slug}
       />
 
-      <main className="bg-white px-6 py-20 text-slate-900 md:px-8 md:py-28">
+      <main className="min-h-screen bg-white px-6 py-20 text-slate-900 md:px-8 md:py-28">
         <article className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
             Opinion
@@ -240,15 +242,15 @@ export default async function OpinionDetailPage({
 
           {opinion.image && (
             <figure className="mt-12">
-              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
+              <div className="flex w-full items-center justify-center overflow-hidden rounded-3xl border border-slate-200 bg-white p-2 shadow-sm sm:p-4 md:p-5">
                 <img
                   src={opinion.image}
                   alt={opinion.title || "Opinion cover image"}
-                  className="h-[280px] w-full object-cover sm:h-[380px] lg:h-[460px]"
+                  className="h-auto max-h-[850px] w-full object-contain"
                 />
               </div>
 
-              <figcaption className="mt-3 text-sm leading-6 text-slate-500">
+              <figcaption className="mt-3 text-center text-sm leading-6 text-slate-500">
                 Cover image for this opinion.
               </figcaption>
             </figure>

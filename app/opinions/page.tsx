@@ -1,13 +1,5 @@
-import Opinions from "../components/Opinions";
-
-export default function OpinionsPage() {
-  return (
-    <main className="bg-white">
-      <Opinions />
-    </main>
-  );
-}
 import type { Metadata } from "next";
+import Opinions from "../components/Opinions";
 
 export const metadata: Metadata = {
   title: "Opinions",
@@ -34,3 +26,11 @@ export const metadata: Metadata = {
       "Essays and commentary on law, governance, ethics, education, and Malay civilisation.",
   },
 };
+
+export default function OpinionsPage() {
+  return (
+    <main className="min-h-screen bg-white">
+      <Opinions />
+    </main>
+  );
+}
