@@ -152,15 +152,15 @@ function FeaturedOpinion({
           </Link>
         </div>
 
-        <div className="order-1 min-h-72 bg-slate-100 lg:order-2">
+        <div className="order-1 flex min-h-72 items-center justify-center bg-slate-950 p-4 lg:order-2 lg:p-6">
           {opinion.coverImage ? (
             <img
               src={opinion.coverImage}
               alt={opinion.title}
-              className="h-full min-h-72 w-full object-cover"
+              className="h-auto max-h-[520px] w-full rounded-xl object-contain"
             />
           ) : (
-            <div className="flex h-full min-h-72 items-center justify-center bg-gradient-to-br from-slate-950 to-slate-800 px-8 text-center">
+            <div className="flex h-full min-h-72 w-full items-center justify-center rounded-xl bg-gradient-to-br from-slate-950 to-slate-800 px-8 text-center">
               <p className="max-w-sm text-2xl font-bold leading-9 text-white">
                 Constitutional law, public reasoning, and the Malay intellectual
                 tradition.
@@ -180,15 +180,15 @@ function OpinionCard({
 }) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-      <div className="h-56 overflow-hidden bg-slate-100">
+      <div className="flex h-56 items-center justify-center overflow-hidden bg-slate-950 p-3">
         {opinion.coverImage ? (
           <img
             src={opinion.coverImage}
             alt={opinion.title}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
           />
         ) : (
-          <div className="flex h-full items-center justify-center bg-gradient-to-br from-amber-50 to-stone-100 p-8 text-center">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-amber-50 to-stone-100 p-8 text-center">
             <p className="text-lg font-bold leading-7 text-slate-800">
               {opinion.topic || "Opinion & Commentary"}
             </p>
