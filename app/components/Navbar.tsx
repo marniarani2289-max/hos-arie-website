@@ -8,12 +8,13 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Research", href: "/research" },
+  { name: "JMCS", href: "/journal" },
   { name: "Publications", href: "/publications" },
   { name: "Books", href: "/#books" },
   { name: "Opinions", href: "/opinions" },
-  { name: "Gallery", href: "/gallery" },
   { name: "Digital Archive", href: "/#digital-archive" },
   { name: "Raja Ali Haji", href: "/raja-ali-haji" },
+  { name: "Gallery", href: "/gallery" },
 ];
 
 export default function Navbar() {

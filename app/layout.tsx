@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, Libre_Baskerville } from "next/font/google";
 
 import "./globals.css";
@@ -122,6 +123,27 @@ export default function RootLayout({
         <main>{children}</main>
 
         <FooterV3 />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-P9LZS36GGV"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+              window.dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-P9LZS36GGV', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
