@@ -13,7 +13,7 @@ const navigation = [
   { name: "Books", href: "/#books" },
   { name: "Opinions", href: "/opinions" },
   { name: "Digital Archive", href: "/#digital-archive" },
-  { name: "Raja Ali Haji", href: "/raja-ali-haji" },
+  { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
   { name: "Gallery", href: "/gallery" },
 ];
 
@@ -21,29 +21,27 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-
-        {/* Logo */}
-
-        <Link href="/" className="max-w-sm">
-          <h1 className="text-lg font-bold tracking-tight text-slate-950 sm:text-xl lg:text-2xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+      <nav className="mx-auto flex min-h-20 max-w-[90rem] items-center justify-between gap-6 px-5 py-3 sm:px-6 lg:px-8">
+        <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
+          <p className="font-academic text-lg font-bold tracking-tight text-slate-950 sm:text-xl xl:text-2xl">
             Dr. Hos Arie Sibarani
-          </h1>
-
-          <p className="mt-1 hidden text-[10px] uppercase tracking-[0.25em] text-amber-700 md:block">
+          </p>
+          <p className="mt-1 hidden text-[9px] uppercase tracking-[0.22em] text-amber-700 md:block xl:text-[10px]">
             Constitutional Law • Malay Constitutional Thought
           </p>
         </Link>
 
-        {/* Desktop */}
-
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex 2xl:gap-7">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-slate-700 transition hover:text-amber-700"
+              className={`text-sm font-medium text-slate-700 transition hover:text-amber-700 ${
+                item.name === "Raja Ali Haji Institute"
+                  ? "max-w-[7.5rem] text-center leading-tight"
+                  : "whitespace-nowrap"
+              }`}
             >
               {item.name}
             </Link>
@@ -51,44 +49,37 @@ export default function Navbar() {
 
           <Link
             href="/#contact"
-            className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
+            className="whitespace-nowrap rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
           >
             Contact
           </Link>
         </div>
 
-        {/* Mobile Button */}
-
         <button
           type="button"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle navigation"
+          onClick={() => setOpen((current) => !current)}
+          aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300 transition hover:bg-slate-100 lg:hidden"
+          aria-controls="mobile-navigation"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-300 text-slate-900 transition hover:bg-slate-100 xl:hidden"
         >
-          {open ? (
-            <X size={22} />
-          ) : (
-            <Menu size={22} />
-          )}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-
       <div
-        className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 lg:hidden ${
-          open ? "max-h-[700px]" : "max-h-0"
+        id="mobile-navigation"
+        className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 xl:hidden ${
+          open ? "max-h-[850px]" : "max-h-0 border-t-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-5">
-
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-5 sm:px-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100 hover:text-amber-700"
+              className="rounded-lg px-3 py-3 text-base font-medium text-slate-700 transition hover:bg-amber-50 hover:text-amber-800"
             >
               {item.name}
             </Link>

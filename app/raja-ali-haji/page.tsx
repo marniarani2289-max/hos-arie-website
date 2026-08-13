@@ -1,425 +1,367 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  FileText,
+  GraduationCap,
+  Landmark,
+  Library,
+  Network,
+  PlayCircle,
+  ScrollText,
+  Users,
+} from "lucide-react";
 
-const majorWorks = [
-  {
-    title: "Tsamarat al-Muhimmah",
+export const metadata: Metadata = {
+  title: "Raja Ali Haji Institute",
+  description:
+    "Raja Ali Haji Institute is a centre for informal learning, research, and the development of Raja Ali Haji's thought and Malay civilisation.",
+  keywords: [
+    "Raja Ali Haji Institute",
+    "Raja Ali Haji",
+    "Malay thought",
+    "Malay civilisation",
+    "Malay constitutional thought",
+    "Malay Ethical Constitutionalism",
+    "informal learning",
+    "digital archive",
+  ],
+  alternates: { canonical: "/raja-ali-haji" },
+  openGraph: {
+    title: "Raja Ali Haji Institute",
     description:
-      "A political and ethical work addressing the responsibilities of rulers, justice, public administration, and the proper exercise of authority.",
+      "A centre for Raja Ali Haji studies, informal learning, research, and Malay civilisation.",
+    url: "https://www.hossibarani.com/raja-ali-haji",
+    type: "website",
+  },
+};
+
+const pillars = [
+  {
+    icon: GraduationCap,
+    label: "Learning",
+    title: "Open and Informal Learning",
+    description:
+      "Accessible courses, public lectures, guided readings, and scholarly conversations that bring Raja Ali Haji's intellectual legacy to wider audiences.",
   },
   {
-    title: "Muqaddimah fi Intizam Waza'if al-Malik",
+    icon: Landmark,
+    label: "Research",
+    title: "An Intellectual Research Centre",
     description:
-      "A concise treatise concerning royal duties, the organisation of government, leadership, and the ethical obligations attached to political office.",
+      "Original and collaborative research on Raja Ali Haji, Malay constitutional thought, ethical governance, language, literature, and civilisation.",
   },
   {
-    title: "Gurindam Dua Belas",
+    icon: Library,
+    label: "Knowledge Centre",
+    title: "A Living Digital Repository",
     description:
-      "A celebrated work of Malay ethical thought containing reflections on personal conduct, public responsibility, leadership, and social order.",
-  },
-  {
-    title: "Tuhfat al-Nafis",
-    description:
-      "An important historical account of the Malay world that provides insight into political authority, dynastic relations, conflict, and governance.",
+      "A growing home for manuscripts, commentaries, modules, recordings, bibliographies, and research resources for future generations.",
   },
 ];
 
-const constitutionalThemes = [
+const courses = [
   {
     number: "01",
-    title: "Legitimate Authority",
+    category: "Foundation Course",
+    title: "Introducing Raja Ali Haji's Intellectual World",
     description:
-      "Political authority is not sustained by status alone. It depends upon justice, proper conduct, public responsibility, and fidelity to ethical obligations.",
+      "An accessible introduction to Raja Ali Haji, the Riau-Lingga world, his principal works, and the continuing relevance of his ideas.",
+    lessons: "6 learning sessions",
   },
   {
     number: "02",
-    title: "Justice and the Limits of Power",
+    category: "Ethics and Character",
+    title: "Gurindam Dua Belas: Ethics for Public Life",
     description:
-      "Rulers are expected to exercise power within moral and legal limits. Arbitrary rule weakens legitimacy and undermines the purpose of government.",
+      "A guided reading of Gurindam Dua Belas as a framework for personal character, leadership, social responsibility, and public ethics.",
+    lessons: "6 learning sessions",
   },
   {
     number: "03",
-    title: "Consultation",
+    category: "Governance and Law",
+    title: "Malay Ethical Constitutionalism",
     description:
-      "Consultation reflects the importance of deliberation, counsel, and shared responsibility in the exercise of political authority.",
-  },
-  {
-    number: "04",
-    title: "Accountability",
-    description:
-      "Public office carries obligations. Political leaders may be judged by the manner in which they fulfil their duties and protect the public interest.",
-  },
-  {
-    number: "05",
-    title: "Ethical Leadership",
-    description:
-      "Personal character, integrity, knowledge, and restraint are presented as essential foundations of good government.",
-  },
-  {
-    number: "06",
-    title: "Public Welfare",
-    description:
-      "Government exists not merely to preserve political hierarchy, but to uphold justice, social order, and the welfare of the community.",
+      "A study of authority, consultation, accountability, justice, and the ethical limits of power in Raja Ali Haji's political writings.",
+    lessons: "8 learning sessions",
   },
 ];
 
-const researchResources = [
-  "Primary political writings of Raja Ali Haji",
-  "Studies on the Riau-Lingga Sultanate",
-  "Malay manuscript traditions",
-  "Islamic political and constitutional thought",
-  "Comparative constitutional theory",
-  "Indigenous constitutionalism and legal pluralism",
+const thoughtAreas = [
+  "Ethical authority and legitimate government",
+  "Consultation and shared responsibility",
+  "Accountability and the duties of public office",
+  "Justice and the moral limits of power",
+  "Language, literature, and Malay intellectual history",
+  "Islam, character, and public civilisation",
 ];
 
-export default function RajaAliHajiPage() {
+const programmes = [
+  {
+    icon: PlayCircle,
+    title: "Online Courses",
+    text: "Structured courses with video lessons, readings, reflections, discussions, progress tracking, and digital certificates.",
+  },
+  {
+    icon: Users,
+    title: "Public Lectures",
+    text: "Open lectures and conversations with scholars, cultural thinkers, writers, and community leaders from across the Malay world.",
+  },
+  {
+    icon: ScrollText,
+    title: "Manuscript Studies",
+    text: "Reading groups and learning resources dedicated to Malay-Jawi texts, transcription, interpretation, and intellectual history.",
+  },
+  {
+    icon: Network,
+    title: "Research Network",
+    text: "Collaborative projects, fellowships, visiting scholars, and institutional partnerships that connect local knowledge with global scholarship.",
+  },
+];
+
+const archiveItems = [
+  { icon: ScrollText, label: "Primary Texts", value: "Manuscripts and editions" },
+  { icon: FileText, label: "Research Library", value: "Articles and working papers" },
+  { icon: PlayCircle, label: "Media Archive", value: "Lectures and conversations" },
+  { icon: BookOpen, label: "Learning Resources", value: "Modules and reading guides" },
+];
+
+function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <main className="bg-white text-slate-900">
-      <section className="border-b border-slate-200 bg-gradient-to-b from-amber-50 to-white px-6 py-20 md:px-8 md:py-28">
+    <p className={`text-xs font-bold uppercase tracking-[0.28em] ${light ? "text-amber-300" : "text-amber-700"}`}>
+      {children}
+    </p>
+  );
+}
+
+export default function RajaAliHajiInstitutePage() {
+  return (
+    <div className="bg-white text-slate-900">
+      <section className="relative isolate overflow-hidden bg-slate-950 px-5 py-20 text-white sm:px-6 md:py-28 lg:px-8 lg:py-32">
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_85%_15%,rgba(180,83,9,0.22),transparent_28%),radial-gradient(circle_at_10%_85%,rgba(30,41,59,0.9),transparent_36%)]" />
+        <div className="absolute -right-28 -top-36 -z-10 h-[32rem] w-[32rem] rounded-full border border-amber-500/15" />
+        <div className="absolute -right-12 -top-20 -z-10 h-[22rem] w-[22rem] rounded-full border border-amber-500/10" />
+
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-700">
-            Raja Ali Haji Studies
-          </p>
+          <div className="inline-flex items-center gap-3 rounded-full border border-amber-400/25 bg-amber-300/5 px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-amber-400" />
+            <Eyebrow light>A Living Lab of Malay Civilisation</Eyebrow>
+          </div>
 
-          <div className="mt-6 grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+          <div className="mt-8 grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <h1 className="max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-7xl">
-                Raja Ali Haji and Malay Constitutional Thought
+              <p className="font-academic text-xl text-amber-300 sm:text-2xl">Raja Ali Haji Institute</p>
+              <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+                Learning from Raja Ali Haji. Shaping the future of Malay thought.
               </h1>
-
-              <p className="mt-7 max-w-4xl text-xl leading-9 text-slate-600">
-                Recovering Raja Ali Haji as a constitutional thinker whose
-                writings offer a distinctive account of authority, justice,
-                consultation, accountability, public responsibility, and
-                ethical governance in the nineteenth-century Malay world.
+              <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl sm:leading-9">
+                A centre for informal learning, research, and knowledge dedicated
+                to developing Raja Ali Haji&apos;s intellectual legacy and bringing
+                Malay thought into contemporary and global conversations.
               </p>
-
-              <div className="mt-9 flex flex-wrap gap-4">
-                <Link
-                  href="#constitutional-thought"
-                  className="rounded-xl bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-slate-800"
-                >
-                  Explore His Constitutional Thought
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link href="#courses" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
+                  Explore Learning Programmes <ArrowRight size={18} />
                 </Link>
-
-                <Link
-                  href="/#research"
-                  className="rounded-xl border border-slate-300 bg-white px-6 py-4 font-semibold text-slate-900 transition hover:border-amber-700 hover:text-amber-800"
-                >
-                  View Current Research
+                <Link href="#about-institute" className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 px-6 py-4 font-semibold text-white transition hover:border-amber-300/50 hover:bg-white/10">
+                  Discover the Institute
                 </Link>
               </div>
             </div>
 
-            <aside className="border-l-4 border-amber-700 pl-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-                Research Proposition
-              </p>
-
-              <p className="mt-4 text-lg italic leading-8 text-slate-700">
-                Raja Ali Haji should be read not only as a linguist, historian,
-                and literary figure, but also as a constitutional thinker of
-                the Malay world.
+            <aside className="border-l border-amber-400/40 pl-6 lg:mb-2 lg:pl-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">Our proposition</p>
+              <p className="mt-4 font-academic text-xl leading-9 text-slate-200">
+                Raja Ali Haji is not only a figure of the past. His works remain
+                a living source for ethics, governance, language, identity, and civilisation.
               </p>
             </aside>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-20 md:px-8 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.75fr_1.25fr]">
+      <section id="about-institute" className="scroll-mt-24 px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
-            <SectionLabel>Biography</SectionLabel>
-
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950">
-              Scholar, Statesman and Malay Intellectual
+            <Eyebrow>About the Institute</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">
+              A public home for Raja Ali Haji&apos;s intellectual legacy
             </h2>
           </div>
-
           <div className="space-y-6 text-lg leading-8 text-slate-600">
             <p>
-              Raja Ali Haji was one of the most influential intellectual
-              figures of the nineteenth-century Malay world. He is widely
-              recognised for his contributions to Malay language, literature,
-              historiography, Islamic learning, and political thought.
+              Raja Ali Haji Institute is an independent intellectual platform
+              established to study, teach, preserve, and develop the thought of
+              Raja Ali Haji. It connects historical texts with the questions of
+              our time through open education, serious research, and public scholarship.
             </p>
-
             <p>
-              He lived and worked within the political environment of the
-              Riau-Lingga Sultanate during a period of significant regional and
-              colonial transformation. The expansion of Dutch colonial
-              authority altered existing arrangements of sovereignty,
-              administration, and political legitimacy across the Malay world.
+              The Institute is designed as a meeting place for students,
+              teachers, researchers, public leaders, cultural communities, and
+              anyone seeking to understand the ethical and intellectual
+              foundations of Malay civilisation.
             </p>
-
-            <p>
-              Raja Ali Haji responded to these changes not only through
-              historical and literary writing, but also through sustained
-              reflection on government. His works addressed the responsibilities
-              of rulers, the organisation of authority, justice, consultation,
-              public conduct, and the moral foundations of political
-              legitimacy.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-950 px-6 py-20 text-white md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionLabel dark>Historical Context</SectionLabel>
-
-          <div className="mt-6 grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
-                The Riau-Lingga Sultanate under Colonial Pressure
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-lg leading-8 text-slate-300">
-              <p>
-                Raja Ali Haji wrote during a period in which political
-                institutions in the Malay world faced increasing pressure from
-                European colonial expansion. The Anglo-Dutch Treaty of 1824
-                reshaped regional sovereignty and divided earlier political and
-                cultural networks.
-              </p>
-
-              <p>
-                Within the Riau-Lingga Sultanate, authority was exercised
-                through a complex relationship among the Sultan, the Yang
-                Dipertuan Muda, religious scholars, court officials, and
-                colonial authorities.
-              </p>
-
-              <p>
-                This context makes Raja Ali Haji&apos;s writings particularly
-                important. They can be read as reflections on how indigenous
-                political institutions sought to preserve legitimacy, justice,
-                order, and ethical government under conditions of political
-                uncertainty.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="constitutional-thought"
-        className="px-6 py-20 md:px-8 md:py-24"
-      >
-        <div className="mx-auto max-w-7xl">
-          <SectionLabel>Constitutional Thought</SectionLabel>
-
-          <div className="mt-5 max-w-4xl">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              Core Constitutional Themes
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Raja Ali Haji did not write a modern constitution. His works,
-              however, contain coherent normative reflections on the
-              legitimate exercise of authority, the duties of rulers, and the
-              ethical limits of political power.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
-            {constitutionalThemes.map((theme) => (
-              <article
-                key={theme.title}
-                className="grid grid-cols-[50px_1fr] gap-5 border-t border-slate-200 pt-7"
-              >
-                <p className="text-sm font-bold text-amber-700">
-                  {theme.number}
-                </p>
-
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-950">
-                    {theme.title}
-                  </h3>
-
-                  <p className="mt-3 leading-7 text-slate-600">
-                    {theme.description}
-                  </p>
+            <div className="grid gap-4 pt-3 sm:grid-cols-2">
+              {["Rooted in the Malay world", "Open to global scholarship", "Scholarly yet accessible", "Past knowledge, future relevance"].map((item) => (
+                <div key={item} className="flex items-start gap-3 text-base font-semibold text-slate-800">
+                  <CheckCircle2 className="mt-0.5 shrink-0 text-amber-700" size={20} />
+                  <span>{item}</span>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-stone-50 px-6 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionLabel>Major Works</SectionLabel>
-
-          <div className="mt-5 max-w-4xl">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              Principal Texts
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              The research examines Raja Ali Haji&apos;s principal writings as
-              sources of political, ethical, historical, and constitutional
-              reflection.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {majorWorks.map((work) => (
-              <article
-                key={work.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
-              >
-                <h3 className="text-2xl font-bold italic text-slate-950">
-                  {work.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-slate-600">
-                  {work.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-20 md:px-8 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <SectionLabel>Research Framework</SectionLabel>
-
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950">
-              Malay Ethical Constitutionalism
-            </h2>
-          </div>
-
-          <div>
-            <p className="text-lg leading-8 text-slate-600">
-              My research reconstructs Raja Ali Haji&apos;s constitutional
-              reasoning through the proposed framework of{" "}
-              <strong className="font-semibold text-slate-950">
-                Malay Ethical Constitutionalism
-              </strong>
-              . The concept describes a tradition of constitutional reasoning
-              shaped by the interaction of Islamic legal principles, Malay
-              political institutions, ethical leadership, consultation,
-              accountability, and public responsibility.
-            </p>
-
-            <div className="mt-8 border-l-4 border-amber-700 pl-6">
-              <p className="text-xl italic leading-9 text-slate-700">
-                The Malay world should be understood not merely as a recipient
-                of constitutional ideas, but as a site of constitutional
-                reasoning and intellectual innovation.
-              </p>
-            </div>
-
-            <Link
-              href="/#research"
-              className="mt-9 inline-flex rounded-xl bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-amber-700"
-            >
-              Read the Research Programme
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-slate-50 px-6 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionLabel>Research Resources</SectionLabel>
-
-          <div className="mt-6 grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="text-4xl font-bold tracking-tight text-slate-950">
-                Areas of Continuing Research
-              </h2>
-
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                This page will continue to develop as a scholarly portal for
-                research on Raja Ali Haji, Malay political thought, legal
-                history, and constitutional governance.
-              </p>
-            </div>
-
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {researchResources.map((resource) => (
-                <li
-                  key={resource}
-                  className="border-b border-slate-300 pb-4 leading-7 text-slate-700"
-                >
-                  {resource}
-                </li>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-amber-700 px-6 py-16 text-white md:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-center">
+      <section className="border-y border-stone-200 bg-stone-50 px-5 py-20 sm:px-6 md:py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <Eyebrow>Our Three Pillars</Eyebrow>
+          <div className="mt-5 flex max-w-4xl flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Learn. Research. Preserve.</h2>
+            <p className="max-w-xl leading-7 text-slate-600">Three connected functions transform intellectual heritage into a living and accessible body of knowledge.</p>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+              return (
+                <article key={pillar.label} className="group border border-stone-200 bg-white p-7 transition hover:-translate-y-1 hover:border-amber-600/40 hover:shadow-xl hover:shadow-slate-900/5 sm:p-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-amber-700"><Icon size={24} /></div>
+                  <p className="mt-8 text-xs font-bold uppercase tracking-[0.22em] text-amber-700">{pillar.label}</p>
+                  <h3 className="mt-3 text-2xl font-bold text-slate-950">{pillar.title}</h3>
+                  <p className="mt-4 leading-7 text-slate-600">{pillar.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
+          <div className="lg:sticky lg:top-28">
+            <Eyebrow>Centre of Thought</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Raja Ali Haji for the contemporary world</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">The Institute approaches Raja Ali Haji as a multidimensional thinker whose works connect ethics, government, law, religion, language, history, and public life.</p>
+            <div className="mt-8 border-l-4 border-amber-700 pl-6">
+              <p className="font-academic text-xl italic leading-9 text-slate-700">The Malay world is not merely a recipient of ideas, but a source of intellectual and constitutional innovation.</p>
+            </div>
+          </div>
+          <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-2">
+            {thoughtAreas.map((area, index) => (
+              <div key={area} className="bg-white p-7 sm:min-h-48">
+                <p className="text-sm font-bold text-amber-700">{String(index + 1).padStart(2, "0")}</p>
+                <h3 className="mt-8 text-xl font-bold leading-8 text-slate-950">{area}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="courses" className="scroll-mt-24 bg-slate-950 px-5 py-20 text-white sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <Eyebrow light>Informal Learning</Eyebrow>
+              <h2 className="mt-5 max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl">Learn deeply, without the boundaries of a formal classroom</h2>
+            </div>
+            <div className="max-w-lg">
+              <p className="leading-7 text-slate-300">Short, flexible, intellectually rigorous programmes designed for learners from different educational and professional backgrounds.</p>
+              <span className="mt-5 inline-flex rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Learning platform coming soon</span>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {courses.map((course) => (
+              <article key={course.number} className="flex min-h-[26rem] flex-col border border-white/10 bg-white/[0.04] p-7 transition hover:border-amber-400/40 hover:bg-white/[0.07] sm:p-8">
+                <div className="flex items-center justify-between gap-5">
+                  <span className="font-academic text-3xl text-amber-300">{course.number}</span>
+                  <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300">Coming Soon</span>
+                </div>
+                <p className="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-amber-300">{course.category}</p>
+                <h3 className="mt-4 text-2xl font-bold leading-9">{course.title}</h3>
+                <p className="mt-4 leading-7 text-slate-300">{course.description}</p>
+                <div className="mt-auto flex items-center gap-2 border-t border-white/10 pt-6 text-sm text-slate-400"><CalendarDays size={17} /> {course.lessons}</div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <Eyebrow>Institute Programmes</Eyebrow>
+          <h2 className="mt-5 max-w-4xl text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">An intellectual ecosystem beyond the classroom</h2>
+          <div className="mt-12 grid gap-x-10 gap-y-5 md:grid-cols-2">
+            {programmes.map((programme) => {
+              const Icon = programme.icon;
+              return (
+                <article key={programme.title} className="grid grid-cols-[3rem_1fr] gap-5 border-t border-slate-200 py-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-950 text-amber-300"><Icon size={22} /></div>
+                  <div><h3 className="text-2xl font-bold text-slate-950">{programme.title}</h3><p className="mt-3 leading-7 text-slate-600">{programme.text}</p></div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="overflow-hidden bg-amber-50 px-5 py-20 sm:px-6 md:py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-100">
-              Academic Collaboration
-            </p>
-
-            <h2 className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
-              Research collaboration on Raja Ali Haji and Malay constitutional
-              thought is welcome.
-            </h2>
+            <Eyebrow>Digital Knowledge Centre</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Preserving knowledge. Expanding access.</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">The Institute will develop a curated digital environment where primary texts, scholarship, teaching materials, and public conversations can be discovered together.</p>
+            <Link href="/#digital-archive" className="mt-8 inline-flex items-center gap-2 font-bold text-amber-800 transition hover:text-slate-950">Visit the existing Digital Archive <ArrowRight size={18} /></Link>
           </div>
-
-          <Link
-            href="/#contact"
-            className="inline-flex w-fit rounded-xl bg-white px-6 py-4 font-semibold text-amber-800 transition hover:bg-amber-50"
-          >
-            Contact Me
-          </Link>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {archiveItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.label} className="border border-amber-900/10 bg-white p-7 shadow-sm">
+                  <Icon className="text-amber-700" size={25} />
+                  <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-amber-700">{item.label}</p>
+                  <p className="mt-2 font-academic text-xl font-bold text-slate-950">{item.value}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
-    </main>
+
+      <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+          <div><Eyebrow>Roadmap 2026–2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
+          <div>
+            {[
+              ["2026", "Foundation", "Public institute page, inaugural lectures, foundational courses, and learning community."],
+              ["2027", "Learning Platform", "Dedicated LMS, structured course pathways, learner accounts, and digital certificates."],
+              ["2028", "Research and Fellowship", "Collaborative projects, visiting scholars, fellowships, and working-paper series."],
+              ["2029–2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
+            ].map(([year, title, text]) => (
+              <article key={year} className="grid gap-3 border-t border-slate-200 py-7 sm:grid-cols-[7rem_11rem_1fr] sm:gap-6">
+                <p className="font-academic text-xl font-bold text-amber-700">{year}</p><h3 className="font-bold text-slate-950">{title}</h3><p className="leading-7 text-slate-600">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 pb-20 sm:px-6 md:pb-28 lg:px-8">
+        <div className="relative mx-auto max-w-7xl overflow-hidden bg-slate-950 px-7 py-12 text-white sm:px-12 sm:py-16 lg:px-16">
+          <div className="absolute -right-24 -top-36 h-80 w-80 rounded-full border border-amber-400/15" />
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <Eyebrow light>Build the Institute with Us</Eyebrow>
+              <h2 className="mt-5 max-w-4xl text-3xl font-bold tracking-tight sm:text-5xl">Connect scholarship, community, and the future of Malay civilisation.</h2>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">We welcome scholars, educators, cultural institutions, and partners interested in courses, research, archives, lectures, and collaborative programmes.</p>
+            </div>
+            <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">Start a Conversation <ArrowRight size={18} /></Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
-
-function SectionLabel({
-  children,
-  dark = false,
-}: {
-  children: React.ReactNode;
-  dark?: boolean;
-}) {
-  return (
-    <p
-      className={`text-sm font-semibold uppercase tracking-[0.26em] ${
-        dark ? "text-amber-400" : "text-amber-700"
-      }`}
-    >
-      {children}
-    </p>
-  );
-}
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Raja Ali Haji",
-
-  description:
-    "Research on Raja Ali Haji as a constitutional thinker, including his ideas on authority, justice, consultation, accountability, language, ethics, and Malay governance.",
-
-  alternates: {
-    canonical: "/raja-ali-haji",
-  },
-
-  openGraph: {
-    title: "Raja Ali Haji and Malay Constitutional Thought",
-    description:
-      "Discover Raja Ali Haji's constitutional ideas and their contribution to Malay Ethical Constitutionalism and global constitutional theory.",
-    url: "/raja-ali-haji",
-    type: "article",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Raja Ali Haji and Malay Constitutional Thought",
-    description:
-      "Research on authority, justice, consultation, accountability, and ethical governance in the works of Raja Ali Haji.",
-  },
-};
