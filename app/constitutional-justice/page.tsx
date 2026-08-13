@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -102,6 +103,23 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   return <p className={`text-xs font-bold uppercase tracking-[0.27em] ${light ? "text-amber-300" : "text-rose-900"}`}>{children}</p>;
 }
 
+function JusticeIllustration() {
+  return (
+    <div className="relative mx-auto w-full max-w-[31rem] lg:mr-0">
+      <div className="absolute inset-x-12 bottom-8 h-3/4 rounded-full bg-amber-400/10 blur-3xl" />
+      <Image
+        src="/images/lady-justice-cji.png"
+        alt="Lady Justice holding balanced scales and a sword"
+        width={1024}
+        height={1536}
+        priority
+        className="relative h-auto w-full object-contain drop-shadow-[0_28px_50px_rgba(0,0,0,0.45)]"
+        sizes="(max-width: 1023px) 70vw, 32vw"
+      />
+    </div>
+  );
+}
+
 export default function ConstitutionalJusticePage() {
   return (
     <div className="bg-white text-slate-900">
@@ -135,13 +153,16 @@ export default function ConstitutionalJusticePage() {
               </div>
             </div>
 
-            <aside className="border-l border-amber-400/40 pl-6 lg:pl-8">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-amber-300">Core commitment</p>
-              <p className="mt-4 font-academic text-xl leading-9 text-slate-200">
-                Constitutional justice requires legal knowledge, independence,
-                ethical judgment, institutional responsibility, and fidelity to
-                the dignity and rights of every citizen.
-              </p>
+            <aside className="space-y-8">
+              <JusticeIllustration />
+              <div className="border-l border-amber-400/40 pl-6 lg:pl-8">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-amber-300">Core commitment</p>
+                <p className="mt-4 font-academic text-xl leading-9 text-slate-200">
+                  Constitutional justice requires legal knowledge, independence,
+                  ethical judgment, institutional responsibility, and fidelity to
+                  the dignity and rights of every citizen.
+                </p>
+              </div>
             </aside>
           </div>
         </div>
