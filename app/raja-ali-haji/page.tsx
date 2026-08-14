@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -173,13 +174,29 @@ export default function RajaAliHajiInstitutePage() {
               </div>
             </div>
 
-            <aside className="border-l border-amber-400/40 pl-6 lg:mb-2 lg:pl-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">Our proposition</p>
-              <p className="mt-4 font-academic text-xl leading-9 text-slate-200">
-                Raja Ali Haji is not only a figure of the past. His works remain
-                a living source for ethics, governance, language, identity, and civilisation.
-              </p>
-            </aside>
+            <div className="flex flex-col items-center gap-8 lg:items-stretch">
+              <div className="relative mx-auto w-full max-w-[25rem]">
+                <div className="absolute inset-12 rounded-full bg-amber-500/10 blur-3xl" />
+                <Image
+                  src="/images/raja-ali-haji-logo-hero-v2.png"
+                  alt="Raja Ali Haji Institute Jawi emblem"
+                  width={1200}
+                  height={1200}
+                  priority
+                  className="relative h-auto w-full drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+                />
+              </div>
+
+              <aside className="border-l border-amber-400/40 pl-6 lg:pl-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+                  Our proposition
+                </p>
+                <p className="mt-4 font-academic text-xl leading-9 text-slate-200">
+                  Raja Ali Haji is not only a figure of the past. His works remain
+                  a living source for ethics, governance, language, identity, and civilisation.
+                </p>
+              </aside>
+            </div>
           </div>
         </div>
       </section>
@@ -333,13 +350,13 @@ export default function RajaAliHajiInstitutePage() {
 
       <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-          <div><Eyebrow>Roadmap 2026–2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
+          <div><Eyebrow>Roadmap 2026â€“2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
           <div>
             {[
               ["2026", "Foundation", "Public institute page, inaugural lectures, foundational courses, and learning community."],
               ["2027", "Learning Platform", "Dedicated LMS, structured course pathways, learner accounts, and digital certificates."],
               ["2028", "Research and Fellowship", "Collaborative projects, visiting scholars, fellowships, and working-paper series."],
-              ["2029–2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
+              ["2029â€“2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
             ].map(([year, title, text]) => (
               <article key={year} className="grid gap-3 border-t border-slate-200 py-7 sm:grid-cols-[7rem_11rem_1fr] sm:gap-6">
                 <p className="font-academic text-xl font-bold text-amber-700">{year}</p><h3 className="font-bold text-slate-950">{title}</h3><p className="leading-7 text-slate-600">{text}</p>
@@ -365,3 +382,7 @@ export default function RajaAliHajiInstitutePage() {
     </div>
   );
 }
+
+
+
+
