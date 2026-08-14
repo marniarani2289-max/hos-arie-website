@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -68,11 +68,13 @@ const pillars = [
 const courses = [
   {
     number: "01",
-    category: "Foundation Course",
-    title: "Introducing Raja Ali Haji's Intellectual World",
+    category: "Open Learning Programme",
+    title: "Foundations of Raja Ali Haji's Thought",
     description:
-      "An accessible introduction to Raja Ali Haji, the Riau-Lingga world, his principal works, and the continuing relevance of his ideas.",
-    lessons: "6 learning sessions",
+      "A structured introduction to Raja Ali Haji, the Riau-Lingga world, Gurindam Dua Belas, his principal works, and the continuing relevance of his ideas.",
+    lessons: "2 of 8 modules available",
+    status: "Open Now",
+    href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
   },
   {
     number: "02",
@@ -81,6 +83,8 @@ const courses = [
     description:
       "A guided reading of Gurindam Dua Belas as a framework for personal character, leadership, social responsibility, and public ethics.",
     lessons: "6 learning sessions",
+    status: "Planned",
+    href: null,
   },
   {
     number: "03",
@@ -89,6 +93,8 @@ const courses = [
     description:
       "A study of authority, consultation, accountability, justice, and the ethical limits of power in Raja Ali Haji's political writings.",
     lessons: "8 learning sessions",
+    status: "Planned",
+    href: null,
   },
 ];
 
@@ -165,7 +171,7 @@ export default function RajaAliHajiInstitutePage() {
                 Malay thought into contemporary and global conversations.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="#courses" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
+                <Link href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
                   Explore Learning Programmes <ArrowRight size={18} />
                 </Link>
                 <Link href="#about-institute" className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 px-6 py-4 font-semibold text-white transition hover:border-amber-300/50 hover:bg-white/10">
@@ -287,22 +293,30 @@ export default function RajaAliHajiInstitutePage() {
             </div>
             <div className="max-w-lg">
               <p className="leading-7 text-slate-300">Short, flexible, intellectually rigorous programmes designed for learners from different educational and professional backgrounds.</p>
-              <span className="mt-5 inline-flex rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Learning platform coming soon</span>
+              <span className="mt-5 inline-flex rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">Learning platform now open</span>
             </div>
           </div>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {courses.map((course) => (
-              <article key={course.number} className="flex min-h-[26rem] flex-col border border-white/10 bg-white/[0.04] p-7 transition hover:border-amber-400/40 hover:bg-white/[0.07] sm:p-8">
+            {courses.map((course) => {
+              const content = <>
                 <div className="flex items-center justify-between gap-5">
                   <span className="font-academic text-3xl text-amber-300">{course.number}</span>
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300">Coming Soon</span>
+                  <span className={`rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] ${course.href ? "border-emerald-300/40 bg-emerald-300/10 text-emerald-300" : "border-white/10 text-slate-300"}`}>{course.status}</span>
                 </div>
                 <p className="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-amber-300">{course.category}</p>
                 <h3 className="mt-4 text-2xl font-bold leading-9">{course.title}</h3>
                 <p className="mt-4 leading-7 text-slate-300">{course.description}</p>
-                <div className="mt-auto flex items-center gap-2 border-t border-white/10 pt-6 text-sm text-slate-400"><CalendarDays size={17} /> {course.lessons}</div>
-              </article>
-            ))}
+                <div className="mt-auto border-t border-white/10 pt-6">
+                  <div className="flex items-center gap-2 text-sm text-slate-400"><CalendarDays size={17} /> {course.lessons}</div>
+                  {course.href && <span className="mt-5 inline-flex items-center gap-2 font-semibold text-amber-300">Start Learning <ArrowRight size={17} /></span>}
+                </div>
+              </>;
+              return course.href ? (
+                <Link key={course.number} href={course.href} className="flex min-h-[26rem] flex-col border border-amber-400/30 bg-white/[0.06] p-7 transition hover:-translate-y-1 hover:border-amber-300 hover:bg-white/[0.09] sm:p-8">{content}</Link>
+              ) : (
+                <article key={course.number} className="flex min-h-[26rem] flex-col border border-white/10 bg-white/[0.04] p-7 sm:p-8">{content}</article>
+              );
+            })}
           </div>
         </div>
       </section>
