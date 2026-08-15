@@ -42,26 +42,30 @@ const modules = [
   {
     number: "05",
     title: "Tsamarat al-Muhimmah: Tanggung Jawab Pejabat",
-    duration: "Segera",
-    available: false,
+    duration: "120–150 menit",
+    href: `${BASE}/module-5`,
+    available: true,
   },
   {
     number: "06",
     title: "Musyawarah dan Tanggung Jawab Bersama",
-    duration: "Segera",
-    available: false,
+    duration: "120–150 menit",
+    href: `${BASE}/module-6`,
+    available: true,
   },
   {
     number: "07",
     title: "Keadilan dan Batas Moral Kekuasaan",
-    duration: "Segera",
-    available: false,
+    duration: "120–150 menit",
+    href: `${BASE}/module-7`,
+    available: true,
   },
   {
     number: "08",
     title: "Relevansi Pemikiran Raja Ali Haji bagi Dunia Kontemporer",
-    duration: "Segera",
-    available: false,
+    duration: "150–180 menit",
+    href: `${BASE}/module-8`,
+    available: true,
   },
 ];
 
@@ -101,8 +105,8 @@ export default function PemikiranRajaAliHajiProgrammePage() {
               </h2>
             </div>
             <p className="text-lg leading-8 text-slate-600">
-              Modul dibuka bertahap. Saat ini Modul 1 sampai Modul 4 sudah tersedia
-              dan dapat dipelajari secara mandiri.
+              Seluruh Modul 1 sampai Modul 8 sudah tersedia dan dapat dipelajari
+              secara mandiri.
             </p>
           </div>
 
