@@ -27,7 +27,11 @@ export async function signIn(formData: FormData) {
     email: String(formData.get("email") || "").trim(),
     password: String(formData.get("password") || ""),
   });
-  redirect(error ? `/login?error=${encodeURIComponent(error.message)}` : "/dashboard");
+  const requestedNext = String(formData.get("next") || "");
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+    ? requestedNext
+    : "/dashboard";
+  redirect(error ? `/login?error=${encodeURIComponent(error.message)}&next=${encodeURIComponent(safeNext)}` : safeNext);
 }
 
 export async function signOut() {

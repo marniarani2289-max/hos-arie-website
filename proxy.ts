@@ -17,7 +17,21 @@ export async function proxy(request: NextRequest) {
       },
     },
   );
-  await supabase.auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  const protectedModule = /^\/raja-ali-haji\/programmes\/pemikiran-raja-ali-haji\/module-\d+(?:\/|$)/.test(
+    request.nextUrl.pathname,
+  );
+
+  if (protectedModule && !user) {
+    const loginUrl = request.nextUrl.clone();
+    const destination = `${request.nextUrl.pathname}${request.nextUrl.search}`;
+    loginUrl.pathname = "/login";
+    loginUrl.search = "";
+    loginUrl.searchParams.set("next", destination);
+    return NextResponse.redirect(loginUrl);
+  }
+
   return response;
 }
 
