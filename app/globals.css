@@ -292,3 +292,11 @@ h3,
     scroll-behavior: auto !important;
   }
 }
+@media print {
+  body > * { visibility: hidden; }
+  .certificate-shell, .certificate-shell * { visibility: visible; }
+  .certificate-shell { position: absolute; inset: 0; padding: 0 !important; background: white !important; }
+  .certificate { width: 297mm; height: 210mm; max-width: none !important; box-shadow: none !important; }
+  .no-print { display: none !important; }
+  @page { size: A4 landscape; margin: 0; }
+}

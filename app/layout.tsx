@@ -7,6 +7,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import FooterV3 from "./components/layout/FooterV3";
 import PersonSchema from "./components/seo/PersonSchema";
+import ProgressSync from "./components/learning/ProgressSync";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -117,6 +118,7 @@ export default function RootLayout({
         className={`${inter.variable} ${libreBaskerville.variable} min-w-[320px] overflow-x-hidden bg-white text-slate-800 antialiased`}
       >
         <PersonSchema />
+        <ProgressSync />
 
         <Navbar />
 

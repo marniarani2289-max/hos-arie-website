@@ -90,6 +90,10 @@ export default function PemikiranRajaAliHajiProgrammePage() {
             Jalur belajar mandiri melalui bacaan, podcast, refleksi, esai, dan kuis.
             Kemajuan tersimpan pada perangkat yang digunakan.
           </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/register" className="rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">Daftar untuk sertifikat</Link>
+            <Link href="/dashboard" className="rounded-xl border border-white/30 px-6 py-4 font-bold text-white hover:border-amber-400">Dashboard peserta</Link>
+          </div>
         </div>
       </section>
 
