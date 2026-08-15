@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -72,7 +72,7 @@ const courses = [
     title: "Foundations of Raja Ali Haji's Thought",
     description:
       "A structured introduction to Raja Ali Haji, the Riau-Lingga world, Gurindam Dua Belas, his principal works, and the continuing relevance of his ideas.",
-    lessons: "2 of 8 modules available",
+    lessons: "8 of 8 modules available",
     status: "Open Now",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
   },

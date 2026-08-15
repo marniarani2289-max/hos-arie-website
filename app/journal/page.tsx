@@ -238,6 +238,245 @@ export default function JournalPage() {
         </div>
       </section>
 
+            {/* EDITORIAL TEAM */}
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+
+          {/* SECTION HEADER */}
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-amber-700">
+              Editorial Team
+            </p>
+
+            <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
+              Editorial Leadership
+            </h2>
+
+            <p className="mt-6 text-base leading-8 text-slate-600">
+              The Journal of Malay Constitutional Studies is supported by
+              scholars from Indonesia, Malaysia, and the Netherlands, reflecting
+              the journal&apos;s commitment to international and comparative
+              constitutional scholarship.
+            </p>
+          </div>
+
+          {/* EDITORIAL LEADERSHIP */}
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+
+            {/* EDITOR-IN-CHIEF */}
+            <article className="border border-slate-200 bg-white p-8 md:p-10">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-700">
+                Editor-in-Chief
+              </p>
+
+              <div className="mt-8 flex items-start gap-6">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-[#0b1930] font-serif text-xl font-bold text-amber-300">
+                  HS
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl font-bold leading-snug text-slate-950">
+                    Dr. Hos Arie Rhamadhan Sibarani, S.H., M.H.
+                  </h3>
+
+                  <p className="mt-3 text-sm font-semibold text-amber-700">
+                    Editor-in-Chief
+                  </p>
+
+                  <p className="mt-5 text-sm leading-7 text-slate-600">
+                    Raja Ali Haji Research Network
+                  </p>
+
+                  <p className="text-sm leading-7 text-slate-500">
+                    Indonesia
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            {/* MANAGING EDITOR */}
+            <article className="border border-slate-200 bg-white p-8 md:p-10">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-700">
+                Managing Editor
+              </p>
+
+              <div className="mt-8 flex items-start gap-6">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-[#0b1930] font-serif text-xl font-bold text-amber-300">
+                  MR
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl font-bold leading-snug text-slate-950">
+                    Marniarani, S.H., M.H.
+                  </h3>
+
+                  <p className="mt-3 text-sm font-semibold text-amber-700">
+                    Managing Editor
+                  </p>
+
+                  <p className="mt-5 text-sm leading-7 text-slate-600">
+                    Universitas Maritim Raja Ali Haji
+                  </p>
+
+                  <p className="text-sm leading-7 text-slate-500">
+                    Indonesia
+                  </p>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          {/* EDITORIAL BOARD */}
+          <div className="mt-20">
+            <div className="border-b border-slate-300 pb-6">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-amber-700">
+                Editorial Board
+              </p>
+
+              <h2 className="mt-4 font-serif text-3xl font-bold text-slate-950">
+                Members of the Editorial Board
+              </h2>
+            </div>
+
+            <div className="grid border-l border-t border-slate-300 md:grid-cols-2 lg:grid-cols-3">
+
+              {/* ASRIZAL */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  01
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Dr. Asrizal, S.H., M.H.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Sekolah Tinggi Agama Islam Negeri Sultan Abdurrahman
+                  Kepulauan Riau
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Indonesia
+                </p>
+              </article>
+
+              {/* TAUFIK */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  02
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Dr. Taufik
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Universitas Islam Negeri Sultan Thaha Saifuddin Jambi
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Indonesia
+                </p>
+              </article>
+
+              {/* LUKMANUL HAKIM */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  03
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Dr. Lukmanul Hakim
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Universiti Teknologi MARA
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Malaysia
+                </p>
+              </article>
+
+              {/* SURYADI */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  04
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Dr. Suryadi
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Universiteit Leiden
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Netherlands
+                </p>
+              </article>
+
+              {/* DENI KAMALUDIN YUSUP */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  05
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Prof. Dr. Deni Kamaludin Yusup, S.Ag., M.Ag.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Universitas Islam Negeri Sunan Gunung Djati Bandung
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Indonesia
+                </p>
+              </article>
+
+              {/* YUSDIANTO */}
+              <article className="border-b border-r border-slate-300 bg-white p-8">
+                <span className="text-xs font-bold tracking-[0.2em] text-amber-700">
+                  06
+                </span>
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-slate-950">
+                  Dr. Yusdianto, S.H., M.H.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Universitas Lampung
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Indonesia
+                </p>
+              </article>
+
+            </div>
+
+            {/* OJS EDITORIAL TEAM */}
+            <div className="mt-10">
+              <a
+                href="https://journal.hossibarani.com/jmcs/about/editorialTeam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border border-slate-950 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-950 hover:text-white"
+              >
+                View Editorial Team on OJS
+                <span className="ml-3" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      
       {/* JOURNAL ACCESS */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div className="grid gap-px bg-slate-300 md:grid-cols-3">

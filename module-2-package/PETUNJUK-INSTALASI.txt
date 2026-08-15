@@ -1,0 +1,16 @@
+PEMASANGAN PODCAST MODUL 2
+
+1. Tutup server pengembangan dengan Ctrl+C jika sedang berjalan.
+2. Salin ModuleTwoLearning.tsx ke:
+   app/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-2/ModuleTwoLearning.tsx
+   Pilih Replace the file in the destination.
+3. Salin folder public ke folder utama proyek. Izinkan Windows menggabungkan
+   folder tersebut. Audio akan berada di:
+   public/audio/algoritma-moral-gurindam-dua-belas.m4a
+4. Jalankan kembali dari terminal proyek:
+   npm run dev
+5. Buka Modul 2 dan pilih Podcast.
+
+Pemutar akan menandai podcast selesai secara otomatis ketika audio mencapai
+akhir. Pengguna juga dapat mencentang konfirmasi setelah benar-benar selesai
+mendengarkan. Tombol Lanjut ke refleksi baru aktif setelah konfirmasi selesai.
