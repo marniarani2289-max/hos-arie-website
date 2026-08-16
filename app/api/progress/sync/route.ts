@@ -37,5 +37,20 @@ export async function POST(request: Request) {
     if (progressError) return NextResponse.json({ error: progressError.message }, { status: 400 });
   }
   await supabase.rpc("issue_certificate_if_eligible", { target_enrollment: enrollment.id });
-  return NextResponse.json({ synced: true });
+  const { count: completedModules } = await supabase
+    .from("module_progress")
+    .select("id", { count: "exact", head: true })
+    .eq("enrollment_id", enrollment.id)
+    .eq("completed", true)
+    .gte("quiz_score", 70);
+  const { data: certificate } = await supabase
+    .from("certificates")
+    .select("certificate_number")
+    .eq("enrollment_id", enrollment.id)
+    .maybeSingle();
+  return NextResponse.json({
+    synced: true,
+    completedModules: completedModules ?? 0,
+    certificateNumber: certificate?.certificate_number ?? null,
+  });
 }

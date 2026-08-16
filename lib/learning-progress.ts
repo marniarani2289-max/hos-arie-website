@@ -27,6 +27,7 @@ export async function saveModuleProgress(
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ modules: [{ moduleNumber, data: cloudData }] }),
+      keepalive: true,
     });
 
     return response.ok;
