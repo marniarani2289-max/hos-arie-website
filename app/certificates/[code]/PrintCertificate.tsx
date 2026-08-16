@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
 
@@ -16,9 +17,12 @@ export default function PrintCertificate({ verifyUrl }: { verifyUrl: string }) {
       <button
         type="button"
         onClick={() => window.print()}
-        className="no-print fixed right-6 top-6 z-10 rounded-lg bg-amber-400 px-6 py-3 font-bold text-slate-950 shadow-lg"
+        aria-label="Unduh sertifikat sebagai PDF"
+        title="Unduh sertifikat sebagai PDF"
+        className="no-print fixed right-4 top-24 z-[100] inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-3 font-bold text-slate-950 shadow-xl transition hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 sm:right-6"
       >
-        Unduh / Cetak PDF
+        <Download aria-hidden="true" size={20} />
+        Unduh Sertifikat PDF
       </button>
 
       <div className="relative z-[1] mt-auto flex flex-col items-center pt-10">
