@@ -3,13 +3,18 @@ import { createClient } from "@/lib/supabase/server";
 
 type Payload = { moduleNumber: number; data: Record<string, unknown> };
 const words = (value: unknown) => typeof value === "string" ? value.trim().split(/\s+/).filter(Boolean).length : 0;
+const wordCount = (data: Record<string, unknown>, field: "reflection" | "essay") => {
+  const reported = Number(data[`${field}Words`]);
+  return Number.isFinite(reported) ? reported : words(data[field]);
+};
 
 function normalise(item: Payload) {
   const d = item.data;
   const score = Number(item.moduleNumber === 1 ? d.quizScore : d.score) || 0;
+  const essayMinimum = item.moduleNumber === 1 ? 400 : item.moduleNumber === 8 ? 600 : 500;
   const requirements = item.moduleNumber === 1
-    ? [d.readingDone, d.podcastDone, words(d.reflection) >= 100, words(d.essay) >= 400, score >= 70]
-    : [d.readingDone, d.analysisDone, d.podcastDone, words(d.reflection) >= 100, words(d.essay) >= 500, score >= 70];
+    ? [d.readingDone, d.podcastDone, wordCount(d, "reflection") >= 100, wordCount(d, "essay") >= 400, score >= 70]
+    : [d.readingDone, d.analysisDone, d.podcastDone, wordCount(d, "reflection") >= 100, wordCount(d, "essay") >= essayMinimum, score >= 70];
   return {
     module_number: item.moduleNumber,
     quiz_score: score,

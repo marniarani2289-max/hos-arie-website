@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, BookOpen, CheckCircle2, ChevronDown, ChevronUp, Clock, ExternalLink, FileText, Headphones, RotateCcw, Save } from "lucide-react";
+import { saveModuleProgress } from "@/lib/learning-progress";
 
 type AnswerMap = Record<number, string>;
 const STORAGE_KEY = "rahi-module-3-v1";
@@ -78,7 +79,7 @@ export default function ModuleThreeLearning() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => { try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) { const d = JSON.parse(raw); setReflection(d.reflection ?? ""); setEssay(d.essay ?? ""); setAnswers(d.answers ?? {}); setScore(d.score ?? null); setReadingDone(Boolean(d.readingDone)); setAnalysisDone(Boolean(d.analysisDone)); setPodcastDone(Boolean(d.podcastDone)); } } finally { setHydrated(true); } }, []);
-  useEffect(() => { if (!hydrated) return; const id = window.setTimeout(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify({ reflection, essay, answers, score, readingDone, analysisDone, podcastDone })); setSaved(true); window.setTimeout(() => setSaved(false), 1200); }, 500); return () => window.clearTimeout(id); }, [reflection, essay, answers, score, readingDone, analysisDone, podcastDone, hydrated]);
+  useEffect(() => { if (!hydrated) return; const id = window.setTimeout(() => { void saveModuleProgress(STORAGE_KEY, 3, { reflection, essay, answers, score, readingDone, analysisDone, podcastDone }).then(() => { setSaved(true); window.setTimeout(() => setSaved(false), 1200); }); }, 500); return () => window.clearTimeout(id); }, [reflection, essay, answers, score, readingDone, analysisDone, podcastDone, hydrated]);
 
   const reflectionWords = useMemo(() => countWords(reflection), [reflection]);
   const essayWords = useMemo(() => countWords(essay), [essay]);

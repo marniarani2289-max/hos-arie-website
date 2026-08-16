@@ -22,8 +22,15 @@ export default function ProgressSync() {
     }
     void sync();
     window.addEventListener("storage", sync);
+    window.addEventListener("online", sync);
+    window.addEventListener("focus", sync);
     const timer = window.setInterval(sync, 30000);
-    return () => { window.removeEventListener("storage", sync); window.clearInterval(timer); };
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("online", sync);
+      window.removeEventListener("focus", sync);
+      window.clearInterval(timer);
+    };
   }, []);
   return null;
 }
