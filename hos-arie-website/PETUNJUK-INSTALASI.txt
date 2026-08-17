@@ -1,0 +1,15 @@
+MODUL 4 — KATA, MAKNA, DAN DUNIA MELAYU
+
+1. Hentikan localhost dengan Ctrl+C.
+2. Salin folder module-4 ke:
+   app/raja-ali-haji/programmes/pemikiran-raja-ali-haji/
+3. Pastikan hasil akhirnya menjadi:
+   app/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-4/page.tsx
+   app/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-4/ModuleFourLearning.tsx
+4. Jalankan npm run build.
+5. Jika berhasil, jalankan npm run dev.
+6. Buka:
+   http://localhost:3000/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-4
+
+Podcast Modul 4 sudah terpasang. Pastikan berkas audio berada di:
+public/audio/raja-ali-haji-penawar-kekacauan-era-digital.m4a
