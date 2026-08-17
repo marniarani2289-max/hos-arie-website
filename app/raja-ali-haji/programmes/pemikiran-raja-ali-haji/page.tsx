@@ -88,7 +88,8 @@ export default function PemikiranRajaAliHajiProgrammePage() {
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Jalur belajar mandiri melalui bacaan, podcast, refleksi, esai, dan kuis.
-            Kemajuan tersimpan pada perangkat yang digunakan.
+            Masuk sebagai peserta agar kemajuan setiap modul tersimpan aman di
+            akun Anda dan dapat dilanjutkan dari perangkat lain.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/register" className="rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">Daftar untuk sertifikat</Link>

@@ -1,4 +1,11 @@
-import Image from "next/image";
+import {
+  Archive,
+  BookOpen,
+  Building2,
+  GraduationCap,
+  Landmark,
+  Presentation,
+} from "lucide-react";
 
 const galleryItems = [
   {
@@ -6,42 +13,42 @@ const galleryItems = [
     category: "International Conferences",
     description:
       "Presenting research and engaging in international academic dialogue.",
-    image: "/gallery/conference-1.jpg",
+    icon: Presentation,
   },
   {
     title: "Visiting Lecture",
     category: "Visiting Lectures",
     description:
       "Academic exchange on constitutional law and Malay intellectual history.",
-    image: "/gallery/visiting-lecture-1.jpg",
+    icon: GraduationCap,
   },
   {
     title: "Research Activity",
     category: "Research Activities",
     description:
       "Archival and field research supporting long-term scholarly projects.",
-    image: "/gallery/research-1.jpg",
+    icon: Archive,
   },
   {
     title: "Raja Ali Haji Studies",
     category: "Raja Ali Haji Studies",
     description:
       "Research and public engagement concerning Raja Ali Haji's intellectual legacy.",
-    image: "/gallery/raja-ali-haji-1.jpg",
+    icon: BookOpen,
   },
   {
     title: "Public Seminar",
     category: "Public Lectures",
     description:
       "Sharing constitutional and educational ideas with wider audiences.",
-    image: "/gallery/seminar-1.jpg",
+    icon: Landmark,
   },
   {
     title: "Institutional Leadership",
     category: "Institutional Leadership",
     description:
       "Leadership, collaboration, and public service in education and academia.",
-    image: "/gallery/leadership-1.jpg",
+    icon: Building2,
   },
 ];
 
@@ -69,36 +76,41 @@ export default function GalleryPage() {
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryItems.map((item) => (
-              <article
-                key={item.title}
-                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
+            {galleryItems.map((item, index) => {
+              const Icon = item.icon;
 
-                <div className="p-7">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
-                    {item.category}
-                  </p>
+              return (
+                <article
+                  key={item.title}
+                  className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-slate-950">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(217,119,6,0.32),transparent_32%),linear-gradient(145deg,#020617,#1e293b)]" />
+                    <div className="absolute -bottom-20 -left-16 h-56 w-56 rounded-full border border-amber-400/15" />
+                    <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-amber-300/30 bg-white/5 text-amber-300 transition duration-500 group-hover:scale-110 group-hover:bg-amber-400/10">
+                      <Icon size={42} strokeWidth={1.5} />
+                    </div>
+                    <span className="absolute bottom-5 right-6 text-xs font-bold tracking-[0.3em] text-white/35">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
 
-                  <h2 className="mt-3 text-xl font-bold text-slate-950">
-                    {item.title}
-                  </h2>
+                  <div className="p-7">
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
+                      {item.category}
+                    </p>
 
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+                    <h2 className="mt-3 text-xl font-bold text-slate-950">
+                      {item.title}
+                    </h2>
+
+                    <p className="mt-4 text-sm leading-7 text-slate-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

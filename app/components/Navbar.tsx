@@ -50,7 +50,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="/#contact"
+            href="/contact"
             className="whitespace-nowrap rounded-xl bg-slate-950 px-5 py-3 text-[13px] font-semibold text-white transition hover:bg-amber-700"
           >
             Contact
@@ -87,7 +87,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
           >

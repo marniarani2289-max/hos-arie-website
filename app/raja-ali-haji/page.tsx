@@ -172,7 +172,10 @@ export default function RajaAliHajiInstitutePage() {
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
-                  Explore Learning Programmes <ArrowRight size={18} />
+                  Mulai Belajar <ArrowRight size={18} />
+                </Link>
+                <Link href="/login" className="inline-flex items-center rounded-xl border border-amber-300/50 bg-amber-300/10 px-6 py-4 font-semibold text-amber-100 transition hover:bg-amber-300/20">
+                  Masuk Peserta
                 </Link>
                 <Link href="#about-institute" className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 px-6 py-4 font-semibold text-white transition hover:border-amber-300/50 hover:bg-white/10">
                   Discover the Institute

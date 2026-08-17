@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section id="contact" className="bg-gray-950 px-8 py-24 text-white">
+    <section id="contact" className="scroll-mt-24 bg-gray-950 px-5 py-24 text-white sm:px-8">
       <div className="mx-auto max-w-7xl">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
           Contact
@@ -16,7 +16,12 @@ export default function Contact() {
         </p>
 
         <div className="mt-10 space-y-3 text-gray-300">
-          <p>Email: riesib8@gmail.com</p>
+          <p>
+            Email:{" "}
+            <a className="font-semibold text-amber-400 hover:text-amber-300" href="mailto:riesib8@gmail.com">
+              riesib8@gmail.com
+            </a>
+          </p>
           <p>Location: Indonesia</p>
           <p>Research Areas: Law, Constitutional Theory, Malay Civilization</p>
         </div>

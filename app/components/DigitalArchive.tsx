@@ -27,7 +27,7 @@ export default function DigitalArchive() {
   ];
 
   return (
-    <section id="archive" className="bg-gray-950 px-8 py-28 text-white">
+    <section id="digital-archive" className="scroll-mt-24 bg-gray-950 px-5 py-24 text-white sm:px-8 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
           Digital Archive
@@ -61,12 +61,9 @@ export default function DigitalArchive() {
                 {item.description}
               </p>
 
-              <a
-                href="#"
-                className="mt-8 inline-flex font-semibold text-amber-400 hover:text-amber-300"
-              >
-                Explore Archive →
-              </a>
+              <p className="mt-8 inline-flex rounded-full border border-amber-400/25 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300">
+                Collection in development
+              </p>
             </article>
           ))}
         </div>
