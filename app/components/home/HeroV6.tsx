@@ -26,7 +26,7 @@ export default function HeroV6() {
       </div>
 
       <Container>
-        <div className="relative py-12 sm:py-16 lg:flex lg:min-h-[calc(100vh-96px)] lg:items-center lg:py-14">
+        <div className="relative py-12 sm:py-16 lg:flex lg:min-h-[680px] lg:items-center lg:py-14">
           <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
             {/* Left content */}
             <div className="order-1">
@@ -55,23 +55,21 @@ export default function HeroV6() {
               </p>
 
               <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                My research reconstructs Raja Ali Haji&apos;s ideas on
-                authority, justice, consultation, accountability, and ethical
-                governance. It develops Malay Ethical Constitutionalism as a
-                contribution to indigenous and comparative constitutional
-                scholarship.
+                Research, public scholarship, and structured learning on
+                constitutional law, Raja Ali Haji, and indigenous traditions
+                of ethical government.
               </p>
 
               <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                <ButtonLink href="/research">
-                  Explore Research
+                <ButtonLink href="/start">
+                  Choose Your Path
                   <span className="ml-2" aria-hidden="true">
                     →
                   </span>
                 </ButtonLink>
 
-                <ButtonLink href="/publications" variant="secondary">
-                  View Publications
+                <ButtonLink href="/research" variant="secondary">
+                  Explore Research
                 </ButtonLink>
 
                 <ButtonLink
@@ -111,7 +109,7 @@ export default function HeroV6() {
                 <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 blur-xl" />
 
                 <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
-                  <div className="relative h-[420px] min-[400px]:h-[470px] sm:h-[540px] lg:h-[680px] xl:h-[720px]">
+                  <div className="relative h-[380px] min-[400px]:h-[430px] sm:h-[500px] lg:h-[570px] xl:h-[600px]">
                     <Image
                       src="/images/profile/hos-arie.png"
                       alt="Dr. Hos Arie Sibarani wearing traditional Malay attire"

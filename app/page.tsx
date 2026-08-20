@@ -1,25 +1,12 @@
+import type { Metadata } from "next";
 import HeroV6 from "./components/home/HeroV6";
-import ResearchIdentity from "./components/home/ResearchIdentity";
-import FlagshipProgramme from "./components/home/FlagshipProgramme";
-import FeaturedResearch from "./components/home/FeaturedResearch";
-import SelectedWork from "./components/home/SelectedWork";
-import BooksMonographs from "./components/BooksMonographs";
-import CollaborationCTA from "./components/home/CollaborationCTA";
-import DigitalArchive from "./components/DigitalArchive";
-import Contact from "./components/Contact";
+import HomeHighlights from "./components/home/HomeHighlights";
+import PathwayChooser from "./components/home/PathwayChooser";
+
+export const metadata: Metadata = { title: "Constitutional Law, Research, and Learning", description: "Explore the research, learning programmes, and collaboration pathways of Dr. Hos Arie Sibarani and the Raja Ali Haji Institute." };
 
 export default function Home() {
   return (
-    <>
-      <HeroV6 />
-      <ResearchIdentity />
-      <FlagshipProgramme />
-      <FeaturedResearch />
-      <SelectedWork />
-      <BooksMonographs />
-      <DigitalArchive />
-      <CollaborationCTA />
-      <Contact />
-    </>
+    <><HeroV6 /><PathwayChooser compact /><HomeHighlights /></>
   );
 }

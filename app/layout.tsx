@@ -113,7 +113,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-content-language="en-id">
       <body
         className={`${inter.variable} ${libreBaskerville.variable} min-w-[320px] overflow-x-hidden bg-white text-slate-800 antialiased`}
       >
