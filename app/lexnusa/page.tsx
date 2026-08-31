@@ -1,119 +1,48 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, CheckCircle2, FileSearch, Globe2, Scale, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, BrainCircuit, CheckCircle2, Download, FileSearch, Globe2, Scale, ShieldCheck, Sparkles, UserRoundCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "LexNusa Legal AI | Legal Intelligence & AI Evaluation",
-  description: "LexNusa Legal AI combines human legal judgment, structured analytical reasoning, and AI-ready intelligence for LegalTech teams, AI companies, researchers, law firms, and international organizations.",
+  description: "Human-led legal intelligence, Legal AI evaluation, benchmark development, case-law mapping, and Indonesia & ASEAN legal research.",
   alternates: { canonical: "/lexnusa" },
-  openGraph: {
-    title: "LexNusa Legal AI",
-    description: "Human Legal Judgment. AI-Ready Intelligence.",
-    url: "https://www.hossibarani.com/lexnusa",
-    type: "website",
-  },
 };
 
 const services = [
-  { icon: FileSearch, title: "Legal Research Intelligence", text: "Human-led legal and comparative research transformed into concise memoranda, authority maps, and decision-ready intelligence." },
-  { icon: Scale, title: "Case Law & Doctrine Mapping", text: "Structured mapping of judicial decisions, legal tests, doctrinal patterns, and comparative developments across jurisdictions." },
-  { icon: BrainCircuit, title: "Legal AI Output Evaluation", text: "Human verification of AI-generated legal answers for accuracy, reasoning, citations, jurisdiction, hallucination risk, and usefulness." },
-  { icon: ShieldCheck, title: "Legal AI Dataset & Benchmark Development", text: "Evaluation datasets, gold-standard answers, error taxonomies, scoring rubrics, benchmark design, and quality-assurance workflows." },
-  { icon: Globe2, title: "Indonesia & ASEAN Legal Intelligence", text: "Research and analytical support for organizations navigating Indonesia, ASEAN, and comparative-law questions." },
+  { icon: FileSearch, title: "Legal Research Intelligence", price: "$150–500", text: "Focused legal or comparative research transformed into concise memoranda, authority maps, and decision-ready intelligence." },
+  { icon: Scale, title: "Case Law & Doctrine Mapping", price: "$300–1,000", text: "Structured mapping of judicial decisions, legal tests, doctrinal patterns, and comparative developments." },
+  { icon: BrainCircuit, title: "Legal AI Output Evaluation", price: "$300–1,500", text: "Human verification of AI legal outputs for accuracy, reasoning, citations, jurisdiction, hallucination risk, and usefulness." },
+  { icon: ShieldCheck, title: "Legal AI Dataset & Benchmark Development", price: "$750–3,000+", text: "Gold-standard answers, evaluation datasets, error taxonomies, scoring rubrics, benchmark design, and QA workflows." },
+  { icon: Globe2, title: "Indonesia & ASEAN Legal Intelligence", price: "$500–2,500+", text: "Research and analytical support for organizations navigating Indonesia, ASEAN, and comparative-law questions." },
 ];
 
-const dimensions = [
-  ["Legal Accuracy", "25"], ["Authority & Citation Integrity", "15"], ["Issue Identification", "10"],
-  ["Legal Reasoning", "20"], ["Jurisdictional Alignment", "10"], ["Hallucination & Fabrication Control", "10"],
-  ["Professional Usefulness", "10"],
-];
-
-const work = [
-  { eyebrow: "FLAGSHIP METHODOLOGY", title: "LEX-EVAL™ v1.0", text: "A 100-point human-led framework combining seven evaluation dimensions, error taxonomy, severity levels, and Critical Legal Failure rules." },
-  { eyebrow: "BENCHMARK", title: "LEX-EVAL™ Benchmark v1.1", text: "An empirical benchmark architecture for comparing real Legal-AI outputs under controlled prompts, tool conditions, and human scoring." },
-  { eyebrow: "RESEARCH", title: "Comparative Legal Intelligence", text: "Case-law, doctrine, and regulatory mapping designed for professional research, AI training, and structured legal data workflows." },
-];
+const dimensions = [["Legal Accuracy","25"],["Authority & Citation Integrity","15"],["Issue Identification","10"],["Legal Reasoning","20"],["Jurisdictional Alignment","10"],["Hallucination & Fabrication Control","10"],["Professional Usefulness","10"]];
 
 export default function LexNusaPage() {
-  return (
-    <div className="bg-[#FAFAF8] text-[#0D1B2A]">
-      <section className="relative overflow-hidden bg-[#0D1B2A] text-white">
-        <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_75%_25%,#0E6B6F_0,transparent_35%),radial-gradient(circle_at_90%_80%,#C9A24B_0,transparent_20%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-10 lg:py-28">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#C9A24B]/50 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#E2C77E]">
-              <Sparkles size={15} /> Boutique Legal Intelligence & AI Evaluation
-            </div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#C9A24B]">LexNusa Legal AI</p>
-            <h1 className="max-w-4xl font-academic text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">Human Legal Judgment.<br/><span className="text-[#69C2C1]">AI-Ready Intelligence.</span></h1>
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">We help AI companies, LegalTech teams, law firms, researchers, and international organizations transform complex legal information into reliable research, structured datasets, and human-verified AI outputs.</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#services" className="inline-flex items-center gap-2 rounded-xl bg-[#C9A24B] px-5 py-3.5 font-bold text-[#0D1B2A] transition hover:bg-[#E2C77E]">Explore Services <ArrowRight size={18}/></a>
-              <Link href="/contact?subject=LexNusa%20Pilot%20Project" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/5 px-5 py-3.5 font-bold text-white transition hover:bg-white/10">Request a Pilot</Link>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-300">
-              {["Reliable", "Structured", "Verifiable", "AI-Ready"].map((x) => <span key={x} className="inline-flex items-center gap-2"><CheckCircle2 size={16} className="text-[#69C2C1]"/>{x}</span>)}
-            </div>
-          </div>
-          <div className="self-end rounded-3xl border border-white/15 bg-white/[0.06] p-6 shadow-2xl backdrop-blur sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#C9A24B]">Regional Expertise</p>
-            <h2 className="mt-3 font-academic text-3xl font-bold">Indonesia & ASEAN</h2>
-            <p className="mt-4 leading-7 text-slate-300">Legal reasoning, comparative research, structured analysis, and AI evaluation built for regional questions and international Legal-AI workflows.</p>
-            <div className="mt-7 grid grid-cols-2 gap-3 text-sm">
-              {["Legal Research", "AI Evaluation", "Case Mapping", "Benchmarking"].map((x)=><div key={x} className="rounded-xl border border-white/10 bg-[#07121F] px-4 py-3 font-semibold">{x}</div>)}
-            </div>
-          </div>
-        </div>
-      </section>
+  return <div className="bg-[#FAFAF8] text-[#0D1B2A]">
+    <section className="relative overflow-hidden bg-[#0D1B2A] text-white">
+      <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_75%_25%,#0E6B6F_0,transparent_35%),radial-gradient(circle_at_90%_80%,#C9A24B_0,transparent_20%)]" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-10 lg:py-28">
+        <div><div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#C9A24B]/50 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[.22em] text-[#E2C77E]"><Sparkles size={15}/> Boutique Legal Intelligence & AI Evaluation</div><p className="mb-3 text-sm font-bold uppercase tracking-[.28em] text-[#C9A24B]">LexNusa Legal AI</p><h1 className="font-academic text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl">Human Legal Judgment.<br/><span className="text-[#69C2C1]">AI-Ready Intelligence.</span></h1><p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">We help AI companies, LegalTech teams, law firms, researchers, and international organizations turn complex legal information into reliable research, structured datasets, and human-verified AI outputs.</p><div className="mt-9 flex flex-wrap gap-3"><a href="#pilot" className="inline-flex items-center gap-2 rounded-xl bg-[#C9A24B] px-5 py-3.5 font-bold text-[#0D1B2A]">Request a Pilot <ArrowRight size={18}/></a><a href="#portfolio" className="rounded-xl border border-white/25 bg-white/5 px-5 py-3.5 font-bold">See Evidence</a></div></div>
+        <div className="self-end rounded-3xl border border-white/15 bg-white/[.06] p-8"><p className="text-xs font-bold uppercase tracking-[.22em] text-[#C9A24B]">Regional Expertise</p><h2 className="mt-3 font-academic text-3xl font-bold">Indonesia & ASEAN</h2><p className="mt-4 leading-7 text-slate-300">A specialist bridge between substantive legal reasoning and modern AI/data workflows.</p><div className="mt-7 grid grid-cols-2 gap-3 text-sm">{["Legal Research","AI Evaluation","Case Mapping","Benchmarking"].map(x=><div key={x} className="rounded-xl border border-white/10 bg-[#07121F] px-4 py-3 font-semibold">{x}</div>)}</div></div>
+      </div>
+    </section>
 
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-9 sm:grid-cols-3 sm:px-8 lg:px-10">
-          {[['LEGAL EXCELLENCE','Human judgment remains the final quality gate.'],['INTELLIGENT SYSTEMS','Structured methods designed for AI workflows.'],['HUMAN JUDGMENT','Context, authority, reasoning, and professional responsibility.']].map(([a,b])=><div key={a}><p className="text-xs font-black tracking-[0.2em] text-[#0E6B6F]">{a}</p><p className="mt-2 text-sm leading-6 text-slate-600">{b}</p></div>)}
-        </div>
-      </section>
+    <section className="border-b border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-6 px-5 py-9 sm:grid-cols-4 sm:px-8 lg:px-10">{[["HUMAN-LED","Legal judgment is the final quality gate."],["AUDITABLE","Structured scoring and traceable findings."],["REGIONAL","Indonesia & ASEAN expertise."],["CLIENT-SAFE","Research, QA and analytical support."]].map(([a,b])=><div key={a}><p className="text-xs font-black tracking-[.18em] text-[#0E6B6F]">{a}</p><p className="mt-2 text-sm leading-6 text-slate-600">{b}</p></div>)}</div></section>
 
-      <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
-        <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0E6B6F]">What We Do</p>
-        <h2 className="mt-3 max-w-3xl font-academic text-4xl font-bold tracking-tight sm:text-5xl">Legal intelligence built for an AI-enabled world.</h2>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">LexNusa sits between substantive legal reasoning and modern AI/data workflows—where legal quality must remain auditable, structured, and professionally useful.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({icon:Icon,title,text})=><article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div className="mb-5 inline-flex rounded-xl bg-[#E7F3F2] p-3 text-[#0E6B6F]"><Icon size={23}/></div><h3 className="font-academic text-xl font-bold">{title}</h3><p className="mt-3 leading-7 text-slate-600">{text}</p></article>)}
-        </div>
-      </section>
+    <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"><p className="text-xs font-black uppercase tracking-[.22em] text-[#0E6B6F]">Services & Project Ranges</p><h2 className="mt-3 font-academic text-4xl font-bold sm:text-5xl">Start focused. Scale after evidence.</h2><p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Indicative fixed-project ranges help teams scope a first engagement quickly. Final pricing depends on volume, jurisdiction, source verification, turnaround, and review depth.</p><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{services.map(({icon:Icon,title,price,text})=><article key={title} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><div className="mb-5 inline-flex w-fit rounded-xl bg-[#E7F3F2] p-3 text-[#0E6B6F]"><Icon size={23}/></div><h3 className="font-academic text-xl font-bold">{title}</h3><p className="mt-2 text-lg font-black text-[#C09435]">{price}</p><p className="mt-3 flex-1 leading-7 text-slate-600">{text}</p><a href="#pilot" className="mt-6 inline-flex items-center gap-2 font-bold text-[#0E6B6F]">Scope a pilot <ArrowRight size={16}/></a></article>)}</div></section>
 
-      <section id="lex-eval" className="bg-[#EEF4F3]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-10">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0E6B6F]">Proprietary Evaluation Methodology</p>
-            <h2 className="mt-3 font-academic text-5xl font-bold">LEX-EVAL™</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">A human-led Legal AI Evaluation Framework designed to distinguish polished language from actual legal reliability.</p>
-            <div className="mt-7 rounded-2xl border-l-4 border-[#C9A24B] bg-white p-6 font-academic text-xl font-bold italic shadow-sm">“High linguistic quality is not evidence of legal reliability.”</div>
-            <p className="mt-7 leading-7 text-slate-600">LEX-EVAL™ combines a 100-point quality score with error taxonomy, severity classification, and a Critical Legal Failure override. A high aggregate score cannot neutralize a fabricated authority, materially wrong law, wrong jurisdiction, obsolete authority, material fact distortion, or unsafe professional reliance.</p>
-          </div>
-          <div className="rounded-3xl bg-[#0D1B2A] p-6 text-white shadow-xl sm:p-8">
-            <div className="flex items-end justify-between border-b border-white/15 pb-5"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A24B]">LEX-EVAL™ v1.0</p><h3 className="mt-1 text-2xl font-bold">100-Point Architecture</h3></div><div className="text-4xl font-black text-[#69C2C1]">100</div></div>
-            <div className="mt-4 space-y-2">{dimensions.map(([name,weight])=><div key={name} className="flex items-center justify-between gap-5 rounded-xl bg-white/[0.06] px-4 py-3"><span className="text-sm text-slate-200">{name}</span><span className="font-black text-[#E2C77E]">{weight}</span></div>)}</div>
-          </div>
-        </div>
-      </section>
+    <section id="lex-eval" className="bg-[#EEF4F3]"><div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-10"><div><p className="text-xs font-black uppercase tracking-[.22em] text-[#0E6B6F]">Proprietary Evaluation Methodology</p><h2 className="mt-3 font-academic text-5xl font-bold">LEX-EVAL™</h2><p className="mt-5 text-lg leading-8 text-slate-600">A human-led 100-point Legal AI Evaluation Framework designed to distinguish polished language from actual legal reliability.</p><div className="mt-7 rounded-2xl border-l-4 border-[#C9A24B] bg-white p-6 font-academic text-xl font-bold italic shadow-sm">“High linguistic quality is not evidence of legal reliability.”</div><div className="mt-7 flex flex-wrap gap-3"><a href="/lexnusa/lex-eval-sample" className="inline-flex items-center gap-2 rounded-xl bg-[#0D1B2A] px-5 py-3 font-bold text-white"><Download size={18}/> Download LEX-EVAL Sample</a><a href="#portfolio" className="rounded-xl border border-[#0E6B6F]/30 bg-white px-5 py-3 font-bold text-[#0E6B6F]">View Benchmark</a></div></div><div className="rounded-3xl bg-[#0D1B2A] p-8 text-white"><div className="flex items-end justify-between border-b border-white/15 pb-5"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#C9A24B]">LEX-EVAL™ v1.0</p><h3 className="mt-1 text-2xl font-bold">100-Point Architecture</h3></div><div className="text-4xl font-black text-[#69C2C1]">100</div></div><div className="mt-4 space-y-2">{dimensions.map(([n,w])=><div key={n} className="flex justify-between gap-5 rounded-xl bg-white/[.06] px-4 py-3"><span className="text-sm text-slate-200">{n}</span><span className="font-black text-[#E2C77E]">{w}</span></div>)}</div></div></div></section>
 
-      <section id="work" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
-        <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0E6B6F]">Featured Work</p>
-        <h2 className="mt-3 font-academic text-4xl font-bold sm:text-5xl">From methodology to measurable evidence.</h2>
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">{work.map((x)=><article key={x.title} className="rounded-2xl border border-slate-200 bg-white p-7"><p className="text-[11px] font-black tracking-[0.18em] text-[#C09435]">{x.eyebrow}</p><h3 className="mt-3 font-academic text-2xl font-bold">{x.title}</h3><p className="mt-4 leading-7 text-slate-600">{x.text}</p></article>)}</div>
-      </section>
+    <section id="portfolio" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"><p className="text-xs font-black uppercase tracking-[.22em] text-[#0E6B6F]">Featured Evidence</p><div className="mt-4 grid gap-8 lg:grid-cols-[1.2fr_.8fr]"><article className="rounded-3xl bg-[#0D1B2A] p-8 text-white sm:p-10"><p className="text-xs font-black tracking-[.2em] text-[#C9A24B]">PORTFOLIO #1 · CONTROLLED DEMONSTRATION BENCHMARK</p><h2 className="mt-4 font-academic text-4xl font-bold">Evaluating AI-Generated Legal Answers</h2><p className="mt-4 text-xl font-semibold text-[#69C2C1]">A LEX-EVAL™ Benchmark</p><p className="mt-6 max-w-3xl leading-8 text-slate-300">20 controlled legal questions, 20 synthetic AI outputs, seven evaluation dimensions, 100-point scoring, error classification, Critical Legal Failure analysis, and gold-standard correction examples.</p><div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">{[["20","Questions"],["20","Outputs"],["7","Dimensions"],["100","Points"]].map(([a,b])=><div key={b} className="rounded-xl bg-white/[.07] p-4"><p className="text-2xl font-black text-[#E2C77E]">{a}</p><p className="text-xs text-slate-300">{b}</p></div>)}</div><p className="mt-6 text-sm leading-6 text-slate-400">Client-safe demonstration: synthetic outputs, no confidential client data, and no claim about any named AI model.</p></article><div className="rounded-3xl border border-slate-200 bg-white p-8"><ShieldCheck className="text-[#0E6B6F]" size={34}/><h3 className="mt-5 font-academic text-2xl font-bold">What a client receives</h3><div className="mt-5 space-y-4">{["Item-level human evaluation","Authority and citation verification","Error and severity classification","Corrected / gold-standard answers","Aggregate benchmark analytics"].map(x=><p key={x} className="flex gap-3 text-slate-600"><CheckCircle2 className="mt-1 shrink-0 text-[#0E6B6F]" size={18}/>{x}</p>)}</div><a href="#pilot" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#C9A24B] px-5 py-3 font-black">Build a benchmark <ArrowRight size={17}/></a></div></div></section>
 
-      <section className="bg-[#0E6B6F] text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:px-10">
-          <div><p className="text-xs font-black uppercase tracking-[0.22em] text-[#F2D994]">Work With LexNusa</p><h2 className="mt-3 max-w-3xl font-academic text-4xl font-bold">Start with a focused pilot project.</h2><p className="mt-4 max-w-3xl text-lg leading-8 text-teal-50">Legal-AI evaluation, research intelligence, case-law mapping, benchmark design, or Indonesia & ASEAN legal research.</p></div>
-          <Link href="/contact?subject=LexNusa%20Pilot%20Project" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C9A24B] px-6 py-4 font-black text-[#0D1B2A] hover:bg-[#E2C77E]">Request a Pilot <ArrowRight size={18}/></Link>
-        </div>
-      </section>
+    <section className="bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:px-10"><div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl bg-slate-100"><Image src="/hos-arie.jpg" alt="Dr. Hos Arie Sibarani" fill className="object-cover" sizes="(max-width:1024px) 384px, 360px"/></div><div><p className="text-xs font-black uppercase tracking-[.22em] text-[#0E6B6F]">Founder Profile</p><h2 className="mt-3 font-academic text-4xl font-bold">Dr. Hos Arie Sibarani, S.H., M.H.</h2><p className="mt-2 text-lg font-bold text-[#C09435]">Founder & Legal AI Strategist</p><p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">A legal researcher and academic working at the intersection of substantive legal reasoning, comparative law, structured analytical methods, and artificial intelligence. LexNusa is built around a simple principle: AI can accelerate legal work, but professional reliability still requires human legal judgment.</p><div className="mt-7 grid gap-4 sm:grid-cols-2">{["20+ years of legal teaching and research experience","Doctoral-level legal and constitutional research","Indonesia & ASEAN comparative perspective","Human-led Legal AI evaluation methodology"].map(x=><div key={x} className="flex gap-3 rounded-xl border border-slate-200 p-4"><UserRoundCheck className="shrink-0 text-[#0E6B6F]" size={20}/><span className="text-sm font-semibold leading-6">{x}</span></div>)}</div><Link href="/about" className="mt-7 inline-flex items-center gap-2 font-bold text-[#0E6B6F]">View founder profile <ArrowRight size={17}/></Link></div></div></section>
 
-      <section className="mx-auto max-w-7xl px-5 py-12 text-sm leading-6 text-slate-500 sm:px-8 lg:px-10">
-        <p><strong className="text-slate-700">Scope note.</strong> LexNusa provides legal research, analytical, Legal-AI evaluation, dataset, and benchmark support. International work outside applicable professional licensing is undertaken as research and analytical support and does not constitute jurisdiction-specific legal representation.</p>
-        <p className="mt-3">LEX-EVAL™ is a claimed methodology and brand identifier of LexNusa Legal AI; the ™ symbol does not represent registered-trademark status.</p>
-      </section>
-    </div>
-  );
+    <section className="bg-[#EEF4F3]"><div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10"><p className="text-center text-xs font-black uppercase tracking-[.22em] text-[#0E6B6F]">Trust & Credentials</p><h2 className="mx-auto mt-3 max-w-3xl text-center font-academic text-4xl font-bold">Built for professional review, not black-box confidence.</h2><div className="mt-9 grid gap-5 md:grid-cols-3">{[["Methodology","LEX-EVAL™ combines weighted scoring, error taxonomy, severity levels, and Critical Legal Failure rules."],["Quality Assurance","Source traceability, calibrated review, and human verification are designed into the workflow."],["Professional Scope","Legal research, analytical, AI-evaluation, dataset, and benchmark support with clear jurisdictional boundaries."]].map(([a,b])=><div key={a} className="rounded-2xl bg-white p-6 shadow-sm"><h3 className="font-academic text-xl font-bold">{a}</h3><p className="mt-3 leading-7 text-slate-600">{b}</p></div>)}</div></div></section>
+
+    <section id="pilot" className="bg-[#0E6B6F] text-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:px-10"><div><p className="text-xs font-black uppercase tracking-[.22em] text-[#F2D994]">Request a Pilot</p><h2 className="mt-3 font-academic text-4xl font-bold">Test the workflow on a focused project first.</h2><p className="mt-5 text-lg leading-8 text-teal-50">Tell us what you are building, evaluating, researching, or benchmarking. A focused paid pilot lets both sides validate scope, quality, and workflow before scaling.</p><div className="mt-7 space-y-3 text-sm">{["Legal AI evaluation","Legal research intelligence","Case-law / doctrine mapping","Dataset or benchmark development","Indonesia & ASEAN research"].map(x=><p key={x} className="flex items-center gap-2"><CheckCircle2 size={17}/>{x}</p>)}</div></div><form action="/contact" method="get" className="rounded-3xl bg-white p-7 text-[#0D1B2A] shadow-xl"><input type="hidden" name="subject" value="LexNusa Pilot Project"/><div className="grid gap-5 sm:grid-cols-2"><label className="text-sm font-bold">Name<input name="name" required className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal outline-none focus:border-[#0E6B6F]" placeholder="Your name"/></label><label className="text-sm font-bold">Organization<input name="organization" className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal outline-none focus:border-[#0E6B6F]" placeholder="Company / team"/></label><label className="text-sm font-bold sm:col-span-2">Work email<input name="email" type="email" required className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal outline-none focus:border-[#0E6B6F]" placeholder="you@company.com"/></label><label className="text-sm font-bold sm:col-span-2">Project type<select name="project" className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal"><option>Legal AI Output Evaluation</option><option>Legal Research Intelligence</option><option>Case Law & Doctrine Mapping</option><option>Legal AI Dataset & Benchmark</option><option>Indonesia & ASEAN Legal Intelligence</option></select></label><label className="text-sm font-bold sm:col-span-2">What do you need?<textarea name="message" required rows={5} className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-normal outline-none focus:border-[#0E6B6F]" placeholder="Briefly describe the problem, jurisdiction, volume, and desired deliverable."/></label></div><button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C9A24B] px-5 py-4 font-black text-[#0D1B2A]">Continue to Pilot Request <ArrowRight size={18}/></button><p className="mt-3 text-xs leading-5 text-slate-500">No confidential documents are required at this stage. The form continues to the site contact workflow.</p></form></div></section>
+
+    <section className="mx-auto max-w-7xl px-5 py-12 text-sm leading-6 text-slate-500 sm:px-8 lg:px-10"><p><strong className="text-slate-700">Scope note.</strong> LexNusa provides legal research, analytical, Legal-AI evaluation, dataset, and benchmark support. International work outside applicable professional licensing is undertaken as research and analytical support and does not constitute jurisdiction-specific legal representation.</p><p className="mt-3">LEX-EVAL™ is a claimed methodology and brand identifier; ™ does not represent registered-trademark status. Service ranges are indicative and are not binding quotations.</p></section>
+  </div>;
 }
