@@ -1,0 +1,12 @@
+"use client";
+
+import { Mail, ShieldCheck } from "lucide-react";
+
+type Props = { name?: string; organization?: string; email?: string; project?: string; message?: string };
+
+export default function LexNusaPilotLead({ name="", organization="", email="", project="Legal AI Output Evaluation", message="" }: Props) {
+  const subject = `LexNusa Pilot Request — ${project}`;
+  const body = `LEXNUSA PILOT REQUEST\n\nName: ${name}\nOrganization: ${organization || "—"}\nWork email: ${email}\nProject type: ${project}\n\nProject brief:\n${message}\n\nSubmitted from: https://www.hossibarani.com/lexnusa`;
+  const mailto = `mailto:riesib8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return <section className="bg-[#0D1B2A] px-5 py-20 text-white sm:px-8"><div className="mx-auto max-w-3xl"><p className="text-xs font-black uppercase tracking-[.22em] text-[#C9A24B]">LexNusa Legal AI</p><h1 className="mt-3 font-academic text-4xl font-bold">Your pilot request is ready to send.</h1><p className="mt-5 text-lg leading-8 text-slate-300">For the current launch workflow, the final step opens a pre-addressed email containing the details you entered. This avoids silently losing a lead while the automated transactional-email backend is being configured.</p><div className="mt-8 rounded-2xl bg-white p-6 text-[#0D1B2A]"><div className="grid gap-4 text-sm sm:grid-cols-2"><p><strong>Name</strong><br/>{name || "—"}</p><p><strong>Organization</strong><br/>{organization || "—"}</p><p><strong>Work email</strong><br/>{email || "—"}</p><p><strong>Project type</strong><br/>{project}</p></div><div className="mt-5 border-t pt-5"><strong className="text-sm">Project brief</strong><p className="mt-2 whitespace-pre-wrap leading-7 text-slate-600">{message || "—"}</p></div><a href={mailto} className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C9A24B] px-5 py-4 font-black text-[#0D1B2A]"><Mail size={19}/> Send Pilot Request by Email</a><p className="mt-3 text-center text-xs text-slate-500">Recipient: riesib8@gmail.com · Please press Send in your email application.</p></div><div className="mt-6 flex gap-3 rounded-xl border border-white/15 bg-white/[.05] p-4 text-sm leading-6 text-slate-300"><ShieldCheck className="mt-1 shrink-0 text-[#69C2C1]" size={19}/><p>Do not send privileged or highly confidential documents at the first-contact stage. Initial scoping can be completed from a short project description.</p></div></div></section>;
+}
