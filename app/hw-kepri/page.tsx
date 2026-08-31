@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight, BookOpenCheck, ClipboardList,
@@ -56,7 +57,23 @@ export default function HwKepriDigitalHub() {
     <section className="relative isolate overflow-hidden bg-[#073b2c] px-5 py-16 text-white sm:px-6 md:py-20 lg:px-8">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_82%_18%,rgba(217,170,67,.22),transparent_24%),radial-gradient(circle_at_8%_92%,rgba(16,185,129,.18),transparent_34%)]"/>
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-wrap items-center justify-between gap-4"><div className="inline-flex items-center gap-3 rounded-full border border-emerald-200/20 bg-white/5 px-4 py-2"><span className="h-2 w-2 rounded-full bg-amber-400"/><Eyebrow light>Kwartir Wilayah Kepulauan Riau</Eyebrow></div><span className="rounded-lg bg-emerald-950/50 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-emerald-100">Pusat Digital HW Kepri</span></div>
+        <div className="flex flex-wrap items-center justify-between gap-5">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/logo-hw-resmi.png"
+              alt="Lambang resmi Gerakan Kepanduan Hizbul Wathan"
+              width={72}
+              height={72}
+              priority
+              className="h-14 w-14 shrink-0 sm:h-[72px] sm:w-[72px]"
+            />
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[.24em] text-emerald-200 sm:text-xs">Gerakan Kepanduan Hizbul Wathan</p>
+              <p className="mt-1 font-academic text-lg font-bold leading-tight text-white sm:text-2xl">Kwartir Wilayah Kepulauan Riau</p>
+            </div>
+          </div>
+          <span className="rounded-lg bg-emerald-950/50 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-emerald-100">Pusat Digital HW Kepri</span>
+        </div>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
           <div><p className="font-academic text-xl text-amber-300 sm:text-2xl">Hizbul Wathan Kepulauan Riau</p><h1 className="mt-4 max-w-4xl text-4xl font-bold leading-[1.06] tracking-tight sm:text-6xl">Informasi terhubung.<br/><span className="text-emerald-200">Gerakan semakin kokoh.</span></h1><p className="mt-6 max-w-3xl text-lg leading-8 text-emerald-50/80">Pusat informasi, administrasi, kaderisasi, dan konsolidasi untuk membangun Pandu Kepulauan yang berakidah, terampil, tangguh, dan mengabdi.</p></div>
           <div className="grid grid-cols-2 gap-3"><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><p className="font-academic text-4xl font-bold text-amber-300">4</p><p className="mt-2 text-sm text-emerald-50/70">Fungsi pusat digital</p></div><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><p className="font-academic text-4xl font-bold text-amber-300">7</p><p className="mt-2 text-sm text-emerald-50/70">Kabupaten/kota sasaran</p></div><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><p className="font-academic text-4xl font-bold text-amber-300">5</p><p className="mt-2 text-sm text-emerald-50/70">Program unggulan</p></div><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><p className="font-academic text-4xl font-bold text-amber-300">90</p><p className="mt-2 text-sm text-emerald-50/70">Hari praktik kader</p></div></div>
