@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About LexNusa | LexNusa Legal AI",
+  title: { absolute: "About LexNusa | LexNusa Legal AI" },
   description: "LexNusa is a boutique Legal Intelligence & AI Evaluation agency combining human legal judgment, structured analytical reasoning, and AI-ready data with Indonesia & ASEAN expertise.",
   alternates: { canonical: "/lexnusa/about" },
 };
