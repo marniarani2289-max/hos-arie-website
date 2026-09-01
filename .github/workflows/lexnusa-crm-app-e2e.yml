@@ -1,3 +1,4 @@
+# Trigger-only change to run isolated LexNusa CRM v1.3 application E2E
 name: LexNusa CRM Application E2E
 
 on:
