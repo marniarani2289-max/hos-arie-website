@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { signIn } from "@/app/auth/actions";
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; next?: string; success?: string }> }) {
   const { error, next, success } = await searchParams;
@@ -7,7 +6,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
     <p className="text-xs font-bold uppercase tracking-[.28em] text-amber-400">Learning platform</p><h1 className="mt-4 text-4xl font-black">Masuk</h1>
     {success === "password-updated" && <p className="mt-6 border border-emerald-400/40 bg-emerald-950/40 p-4 text-emerald-100">Kata sandi berhasil diperbarui. Silakan masuk dengan kata sandi baru.</p>}
     {error && <p className="mt-6 border border-red-400/40 bg-red-950/40 p-4 text-red-100">{error}</p>}
-    <form action={signIn} className="mt-8 grid gap-5">
+    <form action="/auth/sign-in" method="post" className="mt-8 grid gap-5">
       <input type="hidden" name="next" value={next || "/dashboard"} />
       <label className="grid gap-2 text-sm font-bold">Email<input className="bg-white px-4 py-3 font-normal text-slate-950" name="email" type="email" required /></label>
       <label className="grid gap-2 text-sm font-bold">Kata sandi<input className="bg-white px-4 py-3 font-normal text-slate-950" name="password" type="password" required /></label>
