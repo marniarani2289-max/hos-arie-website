@@ -1,6 +1,8 @@
 -- LexNusa CRM v1.2 reconstructed baseline for local reproducibility.
 -- Reconstructed from current application dependencies only; contains no Production data.
 
+create extension if not exists pgcrypto;
+
 create table if not exists public.lexnusa_admins (
   user_id uuid primary key references auth.users(id) on delete cascade,
   email text,
