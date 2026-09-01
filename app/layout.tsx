@@ -6,6 +6,7 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import FooterV3 from "./components/layout/FooterV3";
+import FooterVisibility from "./components/layout/FooterVisibility";
 import PersonSchema from "./components/seo/PersonSchema";
 import ProgressSync from "./components/learning/ProgressSync";
 
@@ -124,7 +125,9 @@ export default function RootLayout({
 
         <main>{children}</main>
 
-        <FooterV3 />
+        <FooterVisibility>
+          <FooterV3 />
+        </FooterVisibility>
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-P9LZS36GGV"
