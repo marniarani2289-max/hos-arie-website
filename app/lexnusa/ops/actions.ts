@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { requireLexNusaAdmin } from "./admin";
 
 const statuses = new Set(["new", "contacted", "qualified", "won", "lost", "spam"]);
@@ -63,6 +64,7 @@ export async function updateLead(formData: FormData) {
   const estimatedRaw = String(formData.get("estimated_value") || "").trim();
   const currencyRaw = String(formData.get("currency") || "USD").trim().toUpperCase();
   const ownerRaw = String(formData.get("owner_user_id") || "").trim();
+  const returnToRaw = String(formData.get("return_to") || "").trim();
 
   if (!Number.isSafeInteger(id) || id < 1 || !statuses.has(status)) return;
   const currency = currencies.has(currencyRaw) ? currencyRaw : "USD";
@@ -103,6 +105,9 @@ export async function updateLead(formData: FormData) {
 
   revalidatePath("/lexnusa/ops");
   revalidatePath(`/lexnusa/ops/${id}`);
+
+  const safeReturnTo = returnToRaw.startsWith("/lexnusa/ops") && !returnToRaw.startsWith("//") ? returnToRaw : "";
+  if (safeReturnTo) redirect(safeReturnTo);
 }
 
 export async function addManualActivity(formData: FormData) {
