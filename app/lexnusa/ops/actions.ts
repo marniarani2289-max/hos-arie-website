@@ -40,6 +40,20 @@ async function addActivity(
   if (error) console.error("LexNusa CRM activity log failed", error);
 }
 
+export async function quickUpdateStatus(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const id = Number(formData.get("id"));
+  const status = String(formData.get("status") || "");
+  if (!Number.isSafeInteger(id) || id < 1 || !statuses.has(status)) return;
+  const { data: before } = await admin.from("lexnusa_pilot_leads").select("status").eq("id", id).maybeSingle();
+  if (!before || before.status === status) return;
+  const { error } = await admin.from("lexnusa_pilot_leads").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
+  if (error) throw new Error("Could not update LexNusa lead status.");
+  await addActivity(admin, id, user.id, "status_changed", `Status changed from ${before.status} to ${status}`, { from: before.status, to: status });
+  revalidatePath("/lexnusa/ops");
+  revalidatePath(`/lexnusa/ops/${id}`);
+}
+
 export async function updateLead(formData: FormData) {
   const { admin, user } = await requireLexNusaAdmin();
   const id = Number(formData.get("id"));
