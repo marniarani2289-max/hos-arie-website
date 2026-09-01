@@ -32,7 +32,7 @@ try {
   await page.getByLabel(/^Fee/i).fill('1250');
   const currency = page.getByLabel(/Currency/i);
   if (await currency.count()) await currency.selectOption('USD');
-  await page.getByRole('button', { name: /Create Proposal/i }).click();
+  await page.getByRole('button', { name: /Create Draft Proposal/i }).click();
   await page.waitForURL(/\/lexnusa\/ops\/proposals\/\d+/);
 
   // Gates 4-5: generated number and proposal detail.
