@@ -37,11 +37,6 @@ async function createProposal(title, fee) {
   return Number(match[1]);
 }
 
-async function clickLifecycle(label) {
-  await page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') }).click();
-  await page.waitForLoadState('networkidle');
-}
-
 async function proposalRow(id) {
   const { data, error } = await admin
     .from('lexnusa_proposals')
@@ -50,6 +45,27 @@ async function proposalRow(id) {
     .single();
   if (error) throw error;
   return data;
+}
+
+async function waitForProposalStatus(id, expectedStatus, timeoutMs = 10000) {
+  const startedAt = Date.now();
+  let lastStatus = null;
+  while (Date.now() - startedAt < timeoutMs) {
+    const row = await proposalRow(id);
+    lastStatus = row.status;
+    if (lastStatus === expectedStatus) return row;
+    await page.waitForTimeout(150);
+  }
+  throw new Error(`Timed out waiting for proposal ${id} status ${expectedStatus}; last status was ${lastStatus}`);
+}
+
+async function clickLifecycle(label, proposalId, expectedStatus) {
+  const button = page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') });
+  await button.waitFor({ state: 'visible' });
+  await button.click();
+  const row = await waitForProposalStatus(proposalId, expectedStatus);
+  await page.reload({ waitUntil: 'networkidle' });
+  return row;
 }
 
 try {
@@ -62,29 +78,24 @@ try {
   assert.match(await page.textContent('body'), /draft/i);
   console.log('STAGE2_GATE_2_DRAFT_PASS');
 
-  await clickLifecycle('Mark as Sent');
-  let accepted = await proposalRow(acceptedId);
+  let accepted = await clickLifecycle('Mark as Sent', acceptedId, 'sent');
   assert.equal(accepted.status, 'sent');
   assert.ok(accepted.sent_at, 'sent_at must be persisted');
   console.log('STAGE2_GATE_3_SENT_PASS');
 
-  await clickLifecycle('Under Review');
-  accepted = await proposalRow(acceptedId);
+  accepted = await clickLifecycle('Under Review', acceptedId, 'under_review');
   assert.equal(accepted.status, 'under_review');
   console.log('STAGE2_GATE_4_UNDER_REVIEW_PASS');
 
-  await clickLifecycle('Start Negotiation');
-  accepted = await proposalRow(acceptedId);
+  accepted = await clickLifecycle('Start Negotiation', acceptedId, 'negotiation');
   assert.equal(accepted.status, 'negotiation');
   console.log('STAGE2_GATE_5_NEGOTIATION_PASS');
 
-  await clickLifecycle('Accept');
-  accepted = await proposalRow(acceptedId);
+  accepted = await clickLifecycle('Accept', acceptedId, 'accepted');
   assert.equal(accepted.status, 'accepted');
   assert.ok(accepted.accepted_at, 'accepted_at must be persisted');
   assert.match(await page.textContent('body'), /terminal lifecycle state/i);
   assert.equal(await page.getByRole('button', { name: /Mark as Sent|Under Review|Start Negotiation|Accept|Reject|Expire/i }).count(), 0);
-  await page.reload({ waitUntil: 'networkidle' });
   assert.match(await page.textContent('body'), /accepted/i);
   console.log('STAGE2_GATE_6_ACCEPTED_TERMINAL_PASS');
 
@@ -99,17 +110,15 @@ try {
 
   // Gates 8-9: independent rejection path + terminal protection and reason persistence.
   const rejectedId = await createProposal('Stage 2 Rejected Lifecycle Proposal', 950);
-  await clickLifecycle('Mark as Sent');
+  await clickLifecycle('Mark as Sent', rejectedId, 'sent');
   await page.getByLabel(/Rejection reason/i).fill('Synthetic E2E rejection reason');
-  await clickLifecycle('Reject');
+  const rejected = await clickLifecycle('Reject', rejectedId, 'rejected');
 
-  const rejected = await proposalRow(rejectedId);
   assert.equal(rejected.status, 'rejected');
   assert.ok(rejected.rejected_at, 'rejected_at must be persisted');
   assert.equal(rejected.lost_reason, 'Synthetic E2E rejection reason');
   assert.match(await page.textContent('body'), /terminal lifecycle state/i);
   assert.equal(await page.getByRole('button', { name: /Mark as Sent|Under Review|Start Negotiation|Accept|Reject|Expire/i }).count(), 0);
-  await page.reload({ waitUntil: 'networkidle' });
   assert.match(await page.textContent('body'), /rejected/i);
   console.log('STAGE2_GATE_8_REJECTED_TERMINAL_PASS');
 
