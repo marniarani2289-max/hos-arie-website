@@ -5,6 +5,15 @@ import { redirect } from "next/navigation";
 import { requireLexNusaAdmin } from "./admin";
 
 const currencies = new Set(["USD", "IDR", "SGD", "MYR"]);
+const proposalTransitions: Record<string, Set<string>> = {
+  draft: new Set(["sent"]),
+  sent: new Set(["under_review", "accepted", "rejected", "expired"]),
+  under_review: new Set(["negotiation", "accepted", "rejected", "expired"]),
+  negotiation: new Set(["accepted", "rejected", "expired"]),
+  accepted: new Set(),
+  rejected: new Set(),
+  expired: new Set(),
+};
 
 async function addActivity(
   admin: Awaited<ReturnType<typeof requireLexNusaAdmin>>["admin"],
@@ -78,10 +87,63 @@ export async function createProposal(formData: FormData) {
     valid_until,
   });
 
-  // Keep pipeline value aligned with the current proposal value at creation time.
   await admin.from("lexnusa_pilot_leads").update({ estimated_value: fee, currency, updated_at: new Date().toISOString() }).eq("id", leadId);
 
   revalidatePath("/lexnusa/ops");
   revalidatePath(`/lexnusa/ops/${leadId}`);
   redirect(`/lexnusa/ops/proposals/${proposal.id}`);
+}
+
+export async function updateProposalStatus(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const proposalId = Number(formData.get("proposal_id"));
+  const requestedStatus = String(formData.get("status") || "").trim();
+  const reason = String(formData.get("reason") || "").trim().slice(0, 2000);
+
+  if (!Number.isSafeInteger(proposalId) || proposalId < 1) throw new Error("Invalid proposal.");
+
+  const { data: proposal, error: loadError } = await admin
+    .from("lexnusa_proposals")
+    .select("id,lead_id,proposal_no,status")
+    .eq("id", proposalId)
+    .maybeSingle();
+  if (loadError || !proposal) throw new Error("Could not load LexNusa proposal.");
+
+  const allowed = proposalTransitions[proposal.status];
+  if (!allowed || !allowed.has(requestedStatus)) {
+    throw new Error(`Invalid proposal transition: ${proposal.status} → ${requestedStatus}`);
+  }
+
+  const now = new Date().toISOString();
+  const patch: Record<string, unknown> = { status: requestedStatus, updated_at: now };
+  if (requestedStatus === "sent") patch.sent_at = now;
+  if (requestedStatus === "accepted") patch.accepted_at = now;
+  if (requestedStatus === "rejected") {
+    patch.rejected_at = now;
+    patch.lost_reason = reason || null;
+  }
+
+  const { error: updateError } = await admin.from("lexnusa_proposals").update(patch).eq("id", proposalId);
+  if (updateError) throw new Error("Could not update proposal status.");
+
+  const activityType = requestedStatus === "sent"
+    ? "proposal_sent"
+    : requestedStatus === "accepted"
+      ? "proposal_accepted"
+      : requestedStatus === "rejected"
+        ? "proposal_rejected"
+        : "proposal_status_changed";
+
+  await addActivity(
+    admin,
+    proposal.lead_id,
+    user.id,
+    activityType,
+    `Proposal ${proposal.proposal_no} moved from ${proposal.status} to ${requestedStatus}`,
+    { proposal_id: proposalId, proposal_no: proposal.proposal_no, from: proposal.status, to: requestedStatus, reason: reason || null },
+  );
+
+  revalidatePath("/lexnusa/ops");
+  revalidatePath(`/lexnusa/ops/${proposal.lead_id}`);
+  revalidatePath(`/lexnusa/ops/proposals/${proposalId}`);
 }
