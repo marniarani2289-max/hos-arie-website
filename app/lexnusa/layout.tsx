@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LexNusaPublicHeader from "./LexNusaPublicHeader";
 import PilotFormBridge from "./PilotFormBridge";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function LexNusaLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
+      <LexNusaPublicHeader />
       {children}
       <PilotFormBridge />
     </>
