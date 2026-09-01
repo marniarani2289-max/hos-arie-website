@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -11,8 +12,12 @@ const groups = [
 ] as const;
 
 export default function NavbarClient({ participant }: { participant: Participant }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  if (pathname === "/lexnusa") return null;
+
   return <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
     <nav className="mx-auto flex min-h-16 max-w-[96rem] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
       <Link href="/" className="shrink-0" onClick={close}><p className="font-academic text-lg font-bold tracking-tight text-slate-950 sm:text-xl">Dr. Hos Arie Sibarani</p><p className="mt-0.5 hidden text-[8px] uppercase tracking-[0.18em] text-amber-700 sm:block">Constitutional Law • Malay Constitutional Thought</p></Link>
