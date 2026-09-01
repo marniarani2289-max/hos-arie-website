@@ -16,7 +16,7 @@ export default function NavbarClient({ participant }: { participant: Participant
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
-  if (pathname === "/lexnusa") return null;
+  if (pathname.startsWith("/lexnusa")) return null;
 
   return <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
     <nav className="mx-auto flex min-h-16 max-w-[96rem] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
