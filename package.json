@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "e2e:crm": "node tests/lexnusa-crm-e2e.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.7.0",
