@@ -4,7 +4,8 @@
 insert into auth.users (
   id, instance_id, aud, role, email, encrypted_password,
   email_confirmed_at, raw_app_meta_data, raw_user_meta_data,
-  created_at, updated_at
+  created_at, updated_at, confirmation_token, email_change,
+  email_change_token_new, recovery_token
 )
 values (
   '11111111-1111-4111-8111-111111111111'::uuid,
@@ -13,9 +14,40 @@ values (
   crypt('LocalOnly-DoNotUse-123!', gen_salt('bf')),
   now(), '{"provider":"email","providers":["email"]}'::jsonb,
   '{"display_name":"LexNusa Local Admin"}'::jsonb,
-  now(), now()
+  now(), now(), '', '', '', ''
 )
-on conflict (id) do nothing;
+on conflict (id) do update set
+  email = excluded.email,
+  encrypted_password = excluded.encrypted_password,
+  email_confirmed_at = excluded.email_confirmed_at,
+  raw_app_meta_data = excluded.raw_app_meta_data,
+  raw_user_meta_data = excluded.raw_user_meta_data,
+  updated_at = excluded.updated_at,
+  confirmation_token = '',
+  email_change = '',
+  email_change_token_new = '',
+  recovery_token = '';
+
+insert into auth.identities (
+  id, user_id, provider_id, identity_data, provider,
+  last_sign_in_at, created_at, updated_at
+)
+values (
+  '11111111-1111-4111-8111-111111111111'::uuid,
+  '11111111-1111-4111-8111-111111111111'::uuid,
+  '11111111-1111-4111-8111-111111111111',
+  jsonb_build_object(
+    'sub', '11111111-1111-4111-8111-111111111111',
+    'email', 'lexnusa-admin@example.invalid',
+    'email_verified', true,
+    'phone_verified', false
+  ),
+  'email', now(), now(), now()
+)
+on conflict (provider, provider_id) do update set
+  user_id = excluded.user_id,
+  identity_data = excluded.identity_data,
+  updated_at = excluded.updated_at;
 
 insert into public.lexnusa_admins (user_id, email, display_name)
 values ('11111111-1111-4111-8111-111111111111'::uuid, 'lexnusa-admin@example.invalid', 'LexNusa Local Admin')
