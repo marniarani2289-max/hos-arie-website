@@ -23,6 +23,12 @@ function parseJakartaDate(value: string) {
   return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
 }
 
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'\"]/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
+  })[char] || char);
+}
+
 async function addActivity(
   admin: Awaited<ReturnType<typeof requireLexNusaAdmin>>["admin"],
   leadId: number,
@@ -119,6 +125,95 @@ export async function prepareFollowUpEmail(formData: FormData) {
   await addActivity(admin, id, user.id, "email_prepared", "LexNusa follow-up email template prepared", { email: lead.email, status: lead.status });
   revalidatePath(`/lexnusa/ops/${id}`);
   redirect(`/lexnusa/ops/${id}/email`);
+}
+
+export async function sendFollowUpEmail(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const id = Number(formData.get("id"));
+  const subject = String(formData.get("subject") || "").trim().slice(0, 300);
+  const message = String(formData.get("message") || "").trim().slice(0, 10000);
+  const statusAfterRaw = String(formData.get("status_after") || "").trim();
+  const nextFollowUpRaw = String(formData.get("next_follow_up_at") || "").trim();
+
+  if (!Number.isSafeInteger(id) || id < 1 || !subject || !message) return;
+  if (statusAfterRaw && !statuses.has(statusAfterRaw)) return;
+
+  const { data: lead } = await admin
+    .from("lexnusa_pilot_leads")
+    .select("id,name,email,status,follow_up_at")
+    .eq("id", id)
+    .maybeSingle();
+  if (!lead) return;
+
+  const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.LEXNUSA_LEAD_FROM_EMAIL;
+  const replyTo = process.env.LEXNUSA_LEAD_NOTIFY_EMAIL;
+  if (!resendKey || !from) {
+    console.error("LexNusa CRM direct email: Resend configuration missing.");
+    redirect(`/lexnusa/ops/${id}/email?error=config`);
+  }
+
+  const html = `<div style="font-family:Arial,sans-serif;line-height:1.65;color:#0D1B2A;white-space:pre-wrap">${escapeHtml(message).replace(/\n/g, "<br/>")}</div>`;
+
+  let response: Response;
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: [lead.email],
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        subject,
+        text: message,
+        html,
+      }),
+    });
+  } catch (error) {
+    console.error("LexNusa CRM direct email exception", error);
+    redirect(`/lexnusa/ops/${id}/email?error=send`);
+  }
+
+  if (!response.ok) {
+    console.error("LexNusa CRM direct email failed", await response.text());
+    redirect(`/lexnusa/ops/${id}/email?error=send`);
+  }
+
+  const payload = await response.json().catch(() => null) as { id?: string } | null;
+  const sentAt = new Date().toISOString();
+  const next_follow_up_at = nextFollowUpRaw ? parseJakartaDate(nextFollowUpRaw) : lead.follow_up_at;
+  const status_after = statusAfterRaw || lead.status;
+
+  const { error: updateError } = await admin.from("lexnusa_pilot_leads").update({
+    status: status_after,
+    follow_up_at: next_follow_up_at,
+    updated_at: sentAt,
+  }).eq("id", id);
+  if (updateError) console.error("LexNusa CRM direct email post-send update failed", updateError);
+
+  await addActivity(admin, id, user.id, "email_sent", `Follow-up email sent to ${lead.email}`, {
+    recipient: lead.email,
+    subject,
+    provider: "resend",
+    provider_id: payload?.id || null,
+    sent_at: sentAt,
+    status_before: lead.status,
+    status_after,
+    previous_follow_up_at: lead.follow_up_at,
+    next_follow_up_at,
+  });
+
+  if (lead.status !== status_after) {
+    await addActivity(admin, id, user.id, "status_changed", `Status changed from ${lead.status} to ${status_after} after follow-up email`, { from: lead.status, to: status_after, source: "email_send" });
+  }
+  if ((lead.follow_up_at || null) !== (next_follow_up_at || null)) {
+    await addActivity(admin, id, user.id, "follow_up_changed", next_follow_up_at ? "Next follow-up scheduled after email" : "Follow-up cleared after email", { from: lead.follow_up_at, to: next_follow_up_at, source: "email_send" });
+  }
+
+  revalidatePath("/lexnusa/ops");
+  revalidatePath(`/lexnusa/ops/${id}`);
+  revalidatePath(`/lexnusa/ops/${id}/email`);
+  redirect(`/lexnusa/ops/${id}?email=sent`);
 }
 
 export async function markFollowUpEmailSent(formData: FormData) {
