@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LexNusaPublicFooter from "./LexNusaPublicFooter";
 import LexNusaPublicHeader from "./LexNusaPublicHeader";
 import PilotFormBridge from "./PilotFormBridge";
 
@@ -25,6 +26,7 @@ export default function LexNusaLayout({ children }: Readonly<{ children: React.R
     <>
       <LexNusaPublicHeader />
       {children}
+      <LexNusaPublicFooter />
       <PilotFormBridge />
     </>
   );
