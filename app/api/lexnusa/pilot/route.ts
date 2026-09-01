@@ -42,15 +42,9 @@ export async function POST(request: NextRequest) {
   const website = clean(formData.get("website"), 200);
   const consent = clean(formData.get("consent"), 20);
 
-  // Honeypot: behave like success so automated bots receive no useful signal.
   if (website) return redirectTo(request, "/lexnusa/request-received");
-
-  if (!name || !email || !message || consent !== "accepted" || !allowedProjects.has(project)) {
-    return redirectTo(request, "/lexnusa/pilot?error=invalid");
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return redirectTo(request, "/lexnusa/pilot?error=invalid");
-  }
+  if (!name || !email || !message || consent !== "accepted" || !allowedProjects.has(project)) return redirectTo(request, "/lexnusa/pilot?error=invalid");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return redirectTo(request, "/lexnusa/pilot?error=invalid");
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -60,8 +54,6 @@ export async function POST(request: NextRequest) {
   }
 
   const supabase = createClient(url, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
-
-  // Five submissions per 15-minute window per hashed IP+email fingerprint.
   const { data: rateAllowed, error: rateError } = await supabase.rpc("lexnusa_check_rate_limit", {
     p_key: clientFingerprint(request, email), p_limit: 5, p_window_seconds: 900,
   });
@@ -88,6 +80,14 @@ export async function POST(request: NextRequest) {
     console.error("LexNusa lead capture: database insert failed", error);
     return redirectTo(request, "/lexnusa/pilot?error=failed");
   }
+
+  const { error: activityError } = await supabase.from("lexnusa_lead_activities").insert({
+    lead_id: data.id,
+    activity_type: "created",
+    summary: "Lead created from Request a Pilot",
+    details: { source: "lexnusa-landing", project_type: project },
+  });
+  if (activityError) console.error("LexNusa lead capture: activity creation failed", activityError);
 
   const resendKey = process.env.RESEND_API_KEY;
   const notifyTo = process.env.LEXNUSA_LEAD_NOTIFY_EMAIL;
