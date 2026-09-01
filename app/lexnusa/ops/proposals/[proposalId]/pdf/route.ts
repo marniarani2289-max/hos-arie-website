@@ -57,7 +57,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ pro
   });
   if (activityError) console.error("LexNusa proposal PDF activity log failed", activityError);
 
-  return new NextResponse(pdf, {
+  return new NextResponse(new Uint8Array(pdf), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
