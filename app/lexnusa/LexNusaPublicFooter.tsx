@@ -23,9 +23,11 @@ function LexNusaMark() {
   );
 }
 
+const footerRoutes = ["/lexnusa", "/lexnusa/services", "/lexnusa/lex-eval", "/lexnusa/evidence", "/lexnusa/about", "/lexnusa/lex-eval-sample"];
+
 export default function LexNusaPublicFooter() {
   const pathname = usePathname();
-  if (pathname !== "/lexnusa") return null;
+  if (!footerRoutes.some(route => pathname === route || (route === "/lexnusa/lex-eval-sample" && pathname.startsWith(route)))) return null;
 
   return (
     <footer className="border-t border-white/10 bg-[#071421] text-slate-300">
@@ -34,62 +36,31 @@ export default function LexNusaPublicFooter() {
           <div>
             <Link href="/lexnusa" aria-label="LexNusa Legal AI home" className="inline-flex items-center gap-3">
               <LexNusaMark />
-              <div className="border-l border-[#C9A24B]/55 pl-4">
-                <div className="font-academic text-2xl font-bold tracking-[.09em] leading-none">
-                  <span className="text-white">LEX</span><span className="text-[#D3A94F]">NUSA</span>
-                </div>
-                <div className="mt-2 text-[9px] font-black uppercase tracking-[.32em] text-[#65B9BB]">Legal AI Intelligence</div>
-              </div>
+              <div className="border-l border-[#C9A24B]/55 pl-4"><div className="font-academic text-2xl font-bold tracking-[.09em] leading-none"><span className="text-white">LEX</span><span className="text-[#D3A94F]">NUSA</span></div><div className="mt-2 text-[9px] font-black uppercase tracking-[.32em] text-[#65B9BB]">Legal AI Intelligence</div></div>
             </Link>
-
-            <p className="mt-6 max-w-xl text-base leading-7 text-slate-400">
-              Boutique Legal Intelligence & AI Evaluation combining human legal judgment, structured analytical reasoning, and AI-ready data with regional expertise in Indonesia and ASEAN.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-[.14em] text-slate-300">
-              {[
-                "Reliable",
-                "Structured",
-                "Verifiable",
-                "AI-Ready",
-              ].map((item) => (
-                <span key={item} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[.04] px-3 py-2">
-                  <CheckCircle2 size={13} className="text-[#65B9BB]" /> {item}
-                </span>
-              ))}
-            </div>
+            <p className="mt-6 max-w-xl text-base leading-7 text-slate-400">Boutique Legal Intelligence & AI Evaluation combining human legal judgment, structured analytical reasoning, and AI-ready data with regional expertise in Indonesia and ASEAN.</p>
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-[.14em] text-slate-300">{["Reliable","Structured","Verifiable","AI-Ready"].map(item => <span key={item} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[.04] px-3 py-2"><CheckCircle2 size={13} className="text-[#65B9BB]" /> {item}</span>)}</div>
           </div>
 
           <div>
             <h3 className="font-academic text-lg font-bold text-white">Explore LexNusa</h3>
             <nav className="mt-5 space-y-3 text-sm" aria-label="LexNusa footer navigation">
-              <Link href="/lexnusa#services" className="block transition hover:text-[#E0B85D]">Services</Link>
-              <Link href="/lexnusa#lex-eval" className="block transition hover:text-[#E0B85D]">LEX-EVAL™</Link>
-              <Link href="/lexnusa#portfolio" className="block transition hover:text-[#E0B85D]">Evidence</Link>
+              <Link href="/lexnusa/services" className="block transition hover:text-[#E0B85D]">Services</Link>
+              <Link href="/lexnusa/lex-eval" className="block transition hover:text-[#E0B85D]">LEX-EVAL™</Link>
+              <Link href="/lexnusa/evidence" className="block transition hover:text-[#E0B85D]">Evidence & Portfolio</Link>
               <Link href="/lexnusa/lex-eval-sample" className="block transition hover:text-[#E0B85D]">LEX-EVAL Sample</Link>
-              <Link href="/about" className="block transition hover:text-[#E0B85D]">Founder Profile</Link>
+              <Link href="/lexnusa/about" className="block transition hover:text-[#E0B85D]">About LexNusa</Link>
             </nav>
           </div>
 
           <div>
             <h3 className="font-academic text-lg font-bold text-white">Start a Project</h3>
-            <p className="mt-5 text-sm leading-6 text-slate-400">
-              Begin with a focused paid pilot to validate scope, quality, and workflow before scaling.
-            </p>
-            <Link href="/lexnusa/pilot" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#C9A24B] px-4 py-3 text-sm font-black text-[#071421] transition hover:bg-[#DCB961]">
-              Request a Pilot <ArrowRight size={16} />
-            </Link>
-            <p className="mt-5 inline-flex items-center gap-2 text-xs text-slate-500">
-              <Mail size={14} /> Secure server-side client intake
-            </p>
+            <p className="mt-5 text-sm leading-6 text-slate-400">Begin with a focused paid pilot to validate scope, quality, and workflow before scaling.</p>
+            <Link href="/lexnusa/pilot" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#C9A24B] px-4 py-3 text-sm font-black text-[#071421] transition hover:bg-[#DCB961]">Request a Pilot <ArrowRight size={16} /></Link>
+            <p className="mt-5 inline-flex items-center gap-2 text-xs text-slate-500"><Mail size={14} /> Secure server-side client intake</p>
           </div>
         </div>
-
-        <div className="flex flex-col gap-4 border-t border-white/10 py-8 text-xs leading-5 text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} LexNusa Legal AI. All rights reserved.</p>
-          <p>Human Legal Judgment. AI-Ready Intelligence.</p>
-          <p>Research · Evaluation · Benchmarking · Indonesia & ASEAN</p>
-        </div>
+        <div className="flex flex-col gap-4 border-t border-white/10 py-8 text-xs leading-5 text-slate-500 md:flex-row md:items-center md:justify-between"><p>© {new Date().getFullYear()} LexNusa Legal AI. All rights reserved.</p><p>Human Legal Judgment. AI-Ready Intelligence.</p><p>Research · Evaluation · Benchmarking · Indonesia & ASEAN</p></div>
       </div>
     </footer>
   );
