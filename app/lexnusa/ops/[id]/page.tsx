@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireLexNusaAdmin, formatJakarta, formatMoney } from "../admin";
-import { addManualActivity, updateLead } from "../actions";
+import { addManualActivity, prepareFollowUpEmail, updateLead } from "../actions";
 
 export const metadata: Metadata = { title: "Lead Detail | LexNusa CRM", robots: { index: false, follow: false } };
 
@@ -39,7 +39,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
   const ownerMap = new Map(admins.map(a => [a.user_id, a.display_name || a.email || "Admin"]));
 
   return <main className="min-h-screen bg-[#0D1B2A] px-5 py-14 text-white sm:px-8"><div className="mx-auto max-w-6xl">
-    <div className="flex flex-wrap items-start justify-between gap-5"><div><Link href="/lexnusa/ops" className="text-sm text-slate-300 underline">← Back to CRM</Link><p className="mt-5 text-xs font-black uppercase tracking-[.22em] text-[#C9A24B]">LEX-{lead.id} · {lead.project_type}</p><h1 className="mt-2 text-4xl font-black sm:text-5xl">{lead.name}</h1><p className="mt-3 text-slate-300">{lead.organization || "No organization"} · {lead.email}</p></div><a href={`mailto:${lead.email}?subject=${encodeURIComponent(`LexNusa Pilot LEX-${lead.id}`)}`} className="rounded-xl bg-[#C9A24B] px-5 py-3 font-black text-[#0D1B2A]">Email Client</a></div>
+    <div className="flex flex-wrap items-start justify-between gap-5"><div><Link href="/lexnusa/ops" className="text-sm text-slate-300 underline">← Back to CRM</Link><p className="mt-5 text-xs font-black uppercase tracking-[.22em] text-[#C9A24B]">LEX-{lead.id} · {lead.project_type}</p><h1 className="mt-2 text-4xl font-black sm:text-5xl">{lead.name}</h1><p className="mt-3 text-slate-300">{lead.organization || "No organization"} · {lead.email}</p></div><form action={prepareFollowUpEmail}><input type="hidden" name="id" value={lead.id}/><button className="rounded-xl bg-[#C9A24B] px-5 py-3 font-black text-[#0D1B2A]">Email Client</button></form></div>
 
     <section className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
       <div className="rounded-2xl bg-white p-6 text-[#0D1B2A]"><h2 className="text-xl font-black">Client Brief</h2><p className="mt-4 whitespace-pre-wrap rounded-xl bg-slate-50 p-4 text-sm leading-7 text-slate-700">{lead.message}</p><div className="mt-5 grid gap-4 sm:grid-cols-2"><Meta label="Created" value={formatJakarta(lead.created_at)}/><Meta label="Last updated" value={formatJakarta(lead.updated_at)}/><Meta label="Notification" value={`${lead.notification_status}${lead.notified_at ? ` · ${formatJakarta(lead.notified_at)}` : ""}`}/><Meta label="Consent" value={lead.consent_at ? `Recorded · ${lead.consent_version || "versioned"}` : "Legacy lead"}/><Meta label="Source" value={lead.source}/><Meta label="Current value" value={formatMoney(lead.estimated_value, lead.currency)}/></div></div>
@@ -54,7 +54,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
       </div></form>
     </section>
 
-    <section className="mt-8 rounded-2xl bg-white p-6 text-[#0D1B2A]"><div className="flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-2xl font-black">Activity History</h2><p className="mt-1 text-sm text-slate-500">A chronological audit trail of CRM actions.</p></div></div>
+    <section className="mt-8 rounded-2xl bg-white p-6 text-[#0D1B2A]"><div className="flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-2xl font-black">Activity History</h2><p className="mt-1 text-sm text-slate-500">A chronological audit trail of CRM actions, including follow-up email preparation and sent confirmation.</p></div></div>
       <form action={addManualActivity} className="mt-5 flex gap-3"><input type="hidden" name="id" value={lead.id}/><input name="summary" required maxLength={1000} placeholder="Add call note, meeting outcome, next step..." className="min-w-0 flex-1 rounded-lg border border-slate-300 px-4 py-3"/><button className="rounded-lg bg-[#0E6B6F] px-5 py-3 font-bold text-white">Add Activity</button></form>
       <div className="mt-6 grid gap-3">{activities.length === 0 ? <p className="text-sm text-slate-500">No activity recorded yet.</p> : activities.map(activity => <div key={activity.id} className="grid gap-2 rounded-xl border border-slate-200 p-4 sm:grid-cols-[170px_1fr]"><div className="text-xs text-slate-500"><p>{formatJakarta(activity.created_at)}</p><p className="mt-1 font-bold uppercase tracking-wider text-[#0E6B6F]">{activity.activity_type.replaceAll("_", " ")}</p></div><div><p className="font-semibold">{activity.summary}</p><p className="mt-1 text-xs text-slate-500">{activity.actor_user_id ? ownerMap.get(activity.actor_user_id) || "Authorized admin" : "System"}</p></div></div>)}</div>
     </section>
