@@ -1,0 +1,64 @@
+name: NPM Dependency Audit Maintenance
+
+on:
+  push:
+    branches:
+      - maintenance/npm-audit-2026-09-01
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/npm-audit-maintenance.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Capture full audit
+        run: npm audit --json > /tmp/audit-full.json || true
+
+      - name: Capture production-only audit
+        run: npm audit --omit=dev --json > /tmp/audit-prod.json || true
+
+      - name: Summarize audit
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const pkg = require('./package.json');
+          const full = JSON.parse(fs.readFileSync('/tmp/audit-full.json','utf8'));
+          const prod = JSON.parse(fs.readFileSync('/tmp/audit-prod.json','utf8'));
+          const directProd = new Set(Object.keys(pkg.dependencies || {}));
+          const directDev = new Set(Object.keys(pkg.devDependencies || {}));
+          const prodVulns = new Set(Object.keys(prod.vulnerabilities || {}));
+
+          function viaText(via) {
+            return (via || []).map(x => typeof x === 'string' ? x : `${x.source || ''}:${x.title || ''}`).join(' | ');
+          }
+
+          console.log('=== FULL AUDIT METADATA ===');
+          console.log(JSON.stringify(full.metadata, null, 2));
+          console.log('=== PROD-ONLY AUDIT METADATA ===');
+          console.log(JSON.stringify(prod.metadata, null, 2));
+          console.log('=== VULNERABILITY INVENTORY ===');
+          for (const [name,v] of Object.entries(full.vulnerabilities || {}).sort((a,b) => a[0].localeCompare(b[0]))) {
+            const directType = directProd.has(name) ? 'direct-runtime' : directDev.has(name) ? 'direct-dev' : 'transitive';
+            const exposure = prodVulns.has(name) ? 'production-path' : 'dev-only-path';
+            const fix = typeof v.fixAvailable === 'object' ? JSON.stringify(v.fixAvailable) : String(v.fixAvailable);
+            console.log(JSON.stringify({name,severity:v.severity,isDirect:v.isDirect,directType,exposure,range:v.range,fixAvailable:fix,via:viaText(v.via),effects:v.effects,nodes:v.nodes}, null, 2));
+          }
+          NODE
