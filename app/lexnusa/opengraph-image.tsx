@@ -12,7 +12,7 @@ export default function Image() {
       <div style={{ marginTop: 8, fontSize: 64, lineHeight: 1.05, fontWeight: 800, color: "#69C2C1" }}>AI-Ready Intelligence.</div>
       <div style={{ marginTop: 42, fontSize: 28, color: "#D5DEE8" }}>Boutique Legal Intelligence & AI Evaluation</div>
       <div style={{ marginTop: 18, fontSize: 23, color: "#D5DEE8" }}>Indonesia & ASEAN · LEX-EVAL™ · Legal AI Benchmarking</div>
-      <div style={{ marginTop: 46, display: "flex", width: "fit-content", borderRadius: 14, background: "#0E6B6F", padding: "15px 24px", fontSize: 21, fontWeight: 700 }}>www.hossibarani.com/lexnusa</div>
+      <div style={{ marginTop: 46, display: "flex", alignSelf: "flex-start", borderRadius: 14, background: "#0E6B6F", padding: "15px 24px", fontSize: 21, fontWeight: 700 }}>www.hossibarani.com/lexnusa</div>
     </div>,
     size
   );
