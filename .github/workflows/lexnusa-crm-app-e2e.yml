@@ -11,6 +11,8 @@ on:
       - 'lib/supabase/**'
       - 'supabase/**'
       - 'tests/lexnusa-crm-e2e.mjs'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/lexnusa-crm-app-e2e.yml'
   pull_request:
     branches:
@@ -38,11 +40,8 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install application dependencies
+      - name: Install application and E2E dependencies
         run: npm ci
-
-      - name: Install Playwright test dependency locally
-        run: npm install --no-save --package-lock=false playwright@1.55.0
 
       - name: Setup Supabase CLI
         uses: supabase/setup-cli@v1
@@ -93,4 +92,4 @@ jobs:
 
       - name: Destroy isolated Supabase environment
         if: always()
-        run: supabase stop --no-backup
+        run: supabase stop --no-backup || true
