@@ -8,6 +8,7 @@ const serviceRole = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const captureBase = process.env.LEXNUSA_EMAIL_CAPTURE_BASE_URL || 'http://127.0.0.1:4010';
 const email = 'lexnusa-admin@example.invalid';
 const password = 'LocalOnly-DoNotUse-123!';
+const recipient = 'qualified@example.invalid';
 
 if (!serviceRole) throw new Error('SUPABASE_SERVICE_ROLE_KEY is required for Stage 3 E2E verification.');
 const admin = createClient(supabaseUrl, serviceRole, { auth: { persistSession: false } });
@@ -70,18 +71,15 @@ async function activitiesForProposal(proposalId) {
 }
 
 try {
-  // Gate 1: local synthetic admin login.
   await login();
   console.log('STAGE3_GATE_1_ADMIN_LOGIN_PASS');
 
-  // Gate 2: create a draft commercial proposal.
   const proposalId = await createProposal();
   let proposal = await proposalRow(proposalId);
   assert.equal(proposal.status, 'draft');
   assert.match(await page.textContent('body'), /Commercial Delivery/i);
   console.log('STAGE3_GATE_2_DRAFT_COMMERCIAL_PROPOSAL_PASS');
 
-  // Gate 3: authenticated PDF download is a real PDF with expected filename.
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('link', { name: /Download Proposal PDF/i }).click();
   const download = await downloadPromise;
@@ -94,20 +92,18 @@ try {
   assert.match(download.suggestedFilename(), /^LEX-P-\d{4}-\d+-LexNusa-Proposal\.pdf$/);
   console.log('STAGE3_GATE_3_PROPOSAL_PDF_PASS');
 
-  // Gate 4: PDF generation timestamp and activity audit persist.
   proposal = await waitFor(async () => {
     const row = await proposalRow(proposalId);
     return row.pdf_generated_at ? row : null;
   }, 'PDF generation timestamp was not persisted');
   assert.ok(proposal.pdf_generated_at);
-  let activity = await waitFor(async () => {
+  const activity = await waitFor(async () => {
     const rows = await activitiesForProposal(proposalId);
     return rows.find((row) => row.activity_type === 'proposal_pdf_generated') || null;
   }, 'PDF audit activity was not persisted');
   assert.match(activity.summary, /PDF generated/i);
   console.log('STAGE3_GATE_4_PDF_AUDIT_PASS');
 
-  // Gate 5: send proposal through the local capture endpoint.
   await page.getByLabel(/Email subject/i).fill('Stage 3 E2E Proposal Delivery');
   await page.getByLabel(/Email message/i).fill('Synthetic proposal delivery for isolated Stage 3 E2E verification.');
   await page.getByRole('button', { name: /Send Proposal \+ PDF/i }).click();
@@ -115,12 +111,11 @@ try {
   assert.match(await page.textContent('body'), /email sent successfully/i);
   console.log('STAGE3_GATE_5_SEND_PROPOSAL_PASS');
 
-  // Gate 6: captured email has the expected recipient and a valid PDF attachment.
   const captured = await waitFor(async () => {
     const response = await fetch(`${captureBase}/last`);
     return response.ok ? response.json() : null;
   }, 'Proposal email was not captured');
-  assert.deepEqual(captured.to, ['qa.client@example.invalid']);
+  assert.deepEqual(captured.to, [recipient]);
   assert.equal(captured.subject, 'Stage 3 E2E Proposal Delivery');
   assert.equal(captured.attachments?.length, 1);
   assert.match(captured.attachments[0].filename, /^LEX-P-\d{4}-\d+-LexNusa-Proposal\.pdf$/);
@@ -128,7 +123,6 @@ try {
   assert.ok(attachmentBytes.subarray(0, 8).toString('latin1').startsWith('%PDF-1.4'));
   console.log('STAGE3_GATE_6_EMAIL_ATTACHMENT_PASS');
 
-  // Gate 7: successful delivery advances draft -> sent and stores delivery metadata.
   proposal = await waitFor(async () => {
     const row = await proposalRow(proposalId);
     return row.status === 'sent' && row.last_emailed_at ? row : null;
@@ -137,11 +131,10 @@ try {
   assert.ok(proposal.sent_at);
   assert.ok(proposal.pdf_generated_at);
   assert.ok(proposal.last_emailed_at);
-  assert.equal(proposal.last_email_to, 'qa.client@example.invalid');
+  assert.equal(proposal.last_email_to, recipient);
   assert.equal(proposal.last_email_provider_id, 'e2e-proposal-email-001');
   console.log('STAGE3_GATE_7_DELIVERY_STATE_PASS');
 
-  // Gate 8: proposal email + lifecycle transition audit entries persist.
   const auditRows = await waitFor(async () => {
     const rows = await activitiesForProposal(proposalId);
     const hasEmail = rows.some((row) => row.activity_type === 'proposal_email_sent');
@@ -151,7 +144,6 @@ try {
   assert.ok(auditRows.some((row) => row.activity_type === 'proposal_email_sent' && row.details?.provider_id === 'e2e-proposal-email-001'));
   console.log('STAGE3_GATE_8_EMAIL_AUDIT_TRAIL_PASS');
 
-  // Gate 9: lifecycle continues normally after commercial delivery.
   await page.getByRole('button', { name: /^Under Review$/i }).click();
   proposal = await waitFor(async () => {
     const row = await proposalRow(proposalId);
