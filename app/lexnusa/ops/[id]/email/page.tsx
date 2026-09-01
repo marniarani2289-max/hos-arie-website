@@ -8,10 +8,9 @@ export const metadata: Metadata = { title: "Direct Follow-up Email | LexNusa CRM
 
 type Lead = { id:number; name:string; organization:string|null; email:string; project_type:string; status:string; follow_up_at:string|null; estimated_value:number|null; currency:string };
 
-function firstName(name:string) {
-  const normalized = name.trim();
-  if (!normalized || /^lexnusa\b/i.test(normalized)) return "there";
-  return normalized.split(/\s+/)[0];
+function salutationName(name:string) {
+  const normalized = name.replace(/\s+/g, " ").trim();
+  return normalized || "Client";
 }
 
 function toDateTimeLocal(value: string | null) {
@@ -32,7 +31,7 @@ export default async function FollowUpEmailPage({ params, searchParams }: { para
   const lead = data as Lead;
 
   const subject = `LexNusa follow-up — ${lead.project_type} (LEX-${lead.id})`;
-  const body = `Dear ${firstName(lead.name)},\n\nThank you for your interest in LexNusa Legal AI regarding ${lead.project_type}.\n\nI am following up on your pilot request (LEX-${lead.id}). We would be pleased to refine the scope, expected deliverables, timeline, and review requirements with you before proceeding.\n\nIf convenient, please reply with any additional context on jurisdiction, volume, preferred turnaround time, and the intended use of the work product. Please do not send privileged or highly confidential documents until handling arrangements have been agreed.\n\nKind regards,\nLexNusa Legal AI\nHuman Legal Judgment. AI-Ready Intelligence.`;
+  const body = `Dear ${salutationName(lead.name)},\n\nThank you for your interest in LexNusa Legal AI regarding ${lead.project_type}.\n\nI am following up on your pilot request (LEX-${lead.id}). We would be pleased to refine the scope, expected deliverables, timeline, and review requirements with you before proceeding.\n\nIf convenient, please reply with any additional context on jurisdiction, volume, preferred turnaround time, and the intended use of the work product. Please do not send privileged or highly confidential documents until handling arrangements have been agreed.\n\nKind regards,\nLexNusa Legal AI\nHuman Legal Judgment. AI-Ready Intelligence.`;
   const defaultStatus = lead.status === "new" ? "contacted" : lead.status;
 
   return <main className="min-h-screen bg-[#0D1B2A] px-5 py-14 text-white sm:px-8"><div className="mx-auto max-w-5xl">
@@ -48,7 +47,7 @@ export default async function FollowUpEmailPage({ params, searchParams }: { para
       <div className="rounded-2xl bg-white p-6 text-[#0D1B2A]">
         <label className="text-xs font-black uppercase tracking-wider text-slate-400">Subject<input name="subject" required maxLength={300} defaultValue={subject} className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-base font-bold normal-case tracking-normal"/></label>
         <label className="mt-6 block text-xs font-black uppercase tracking-wider text-slate-400">Message<textarea name="message" required maxLength={10000} rows={18} defaultValue={body} className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 font-sans text-sm font-normal normal-case leading-7 tracking-normal text-slate-700"/></label>
-        <p className="mt-3 text-xs text-slate-500">Recipient: {lead.email}. The salutation is personalized from the lead name and can be edited before sending.</p>
+        <p className="mt-3 text-xs text-slate-500">Recipient: {lead.email}. The salutation is populated from the lead name and can be edited before sending.</p>
       </div>
 
       <aside className="rounded-2xl border border-white/10 bg-white/5 p-6">
