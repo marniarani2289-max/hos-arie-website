@@ -110,6 +110,29 @@ export async function updateLead(formData: FormData) {
   if (safeReturnTo) redirect(safeReturnTo);
 }
 
+export async function prepareFollowUpEmail(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const id = Number(formData.get("id"));
+  if (!Number.isSafeInteger(id) || id < 1) return;
+  const { data: lead } = await admin.from("lexnusa_pilot_leads").select("id,name,email,project_type,status").eq("id", id).maybeSingle();
+  if (!lead) return;
+  await addActivity(admin, id, user.id, "email_prepared", "LexNusa follow-up email template prepared", { email: lead.email, status: lead.status });
+  revalidatePath(`/lexnusa/ops/${id}`);
+  redirect(`/lexnusa/ops/${id}/email`);
+}
+
+export async function markFollowUpEmailSent(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const id = Number(formData.get("id"));
+  if (!Number.isSafeInteger(id) || id < 1) return;
+  const { data: lead } = await admin.from("lexnusa_pilot_leads").select("id,email,follow_up_at").eq("id", id).maybeSingle();
+  if (!lead) return;
+  await addActivity(admin, id, user.id, "email_sent_manual", "Follow-up email marked as sent", { email: lead.email, follow_up_at: lead.follow_up_at });
+  revalidatePath("/lexnusa/ops");
+  revalidatePath(`/lexnusa/ops/${id}`);
+  redirect(`/lexnusa/ops/${id}`);
+}
+
 export async function addManualActivity(formData: FormData) {
   const { admin, user } = await requireLexNusaAdmin();
   const id = Number(formData.get("id"));
