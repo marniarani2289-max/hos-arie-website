@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, FileCheck2, FlaskConical, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Evidence & Portfolio | LexNusa Legal AI",
+  title: { absolute: "Evidence & Portfolio | LexNusa Legal AI" },
   description: "Evidence, benchmark demonstrations, methodologies, and client-safe work samples from LexNusa Legal AI.",
   alternates: { canonical: "/lexnusa/evidence" },
 };
