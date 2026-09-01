@@ -27,9 +27,9 @@ jobs:
     permissions:
       contents: read
     env:
-      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
       NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
-      E2E_BASE_URL: http://127.0.0.1:3000
+      E2E_BASE_URL: http://localhost:3000
 
     steps:
       - name: Checkout
@@ -64,10 +64,10 @@ jobs:
 
       - name: Start Next.js local E2E server
         run: |
-          npm run dev -- --hostname 127.0.0.1 --port 3000 > /tmp/lexnusa-next.log 2>&1 &
+          npm run dev -- --hostname 0.0.0.0 --port 3000 > /tmp/lexnusa-next.log 2>&1 &
           echo $! > /tmp/lexnusa-next.pid
           for i in {1..120}; do
-            if curl --fail --silent http://127.0.0.1:3000/login >/dev/null; then
+            if curl --fail --silent http://localhost:3000/login >/dev/null; then
               echo "Next.js local E2E server is ready"
               exit 0
             fi
