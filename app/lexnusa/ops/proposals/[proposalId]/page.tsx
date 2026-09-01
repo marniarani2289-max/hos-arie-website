@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireLexNusaAdmin, formatMoney, formatJakarta } from "../../admin";
+import { updateProposalStatus } from "../../proposal-actions";
 
 export const metadata: Metadata = { title: "Proposal Detail | LexNusa CRM v1.3", robots: { index: false, follow: false } };
 
 type Proposal = {
   id:number; created_at:string; updated_at:string; lead_id:number; proposal_no:string; title:string; scope:string; deliverables:string; timeline:string;
   fee:number; currency:string; valid_until:string|null; terms:string|null; status:string; sent_at:string|null; accepted_at:string|null; rejected_at:string|null; lost_reason:string|null;
+};
+
+const nextStatuses: Record<string, Array<{ value:string; label:string }>> = {
+  draft: [{ value:"sent", label:"Mark as Sent" }],
+  sent: [{ value:"under_review", label:"Under Review" }, { value:"accepted", label:"Accept" }, { value:"rejected", label:"Reject" }, { value:"expired", label:"Expire" }],
+  under_review: [{ value:"negotiation", label:"Start Negotiation" }, { value:"accepted", label:"Accept" }, { value:"rejected", label:"Reject" }, { value:"expired", label:"Expire" }],
+  negotiation: [{ value:"accepted", label:"Accept" }, { value:"rejected", label:"Reject" }, { value:"expired", label:"Expire" }],
 };
 
 export default async function ProposalDetailPage({ params }: { params: Promise<{ proposalId:string }> }) {
@@ -20,9 +28,10 @@ export default async function ProposalDetailPage({ params }: { params: Promise<{
   if (!proposalRow) notFound();
   const proposal = proposalRow as Proposal;
   const { data: lead } = await admin.from("lexnusa_pilot_leads").select("id,name,organization,email,project_type,status").eq("id", proposal.lead_id).maybeSingle();
+  const transitions = nextStatuses[proposal.status] || [];
 
   return <main className="min-h-screen bg-[#0D1B2A] px-5 py-14 text-white sm:px-8"><div className="mx-auto max-w-6xl">
-    <div className="flex flex-wrap items-start justify-between gap-5"><div><Link href={`/lexnusa/ops/${proposal.lead_id}`} className="text-sm text-slate-300 underline">← Back to Lead</Link><p className="mt-6 text-xs font-black uppercase tracking-[.22em] text-[#C9A24B]">CRM v1.3 · {proposal.proposal_no}</p><h1 className="mt-2 text-4xl font-black sm:text-5xl">{proposal.title}</h1><p className="mt-3 text-slate-300">{lead?.name || `Lead LEX-${proposal.lead_id}`} · Draft proposal workspace</p></div><span className="rounded-full border border-[#C9A24B]/40 bg-[#C9A24B]/10 px-4 py-2 text-sm font-black uppercase tracking-wider text-[#E4C876]">{proposal.status.replaceAll("_", " ")}</span></div>
+    <div className="flex flex-wrap items-start justify-between gap-5"><div><Link href={`/lexnusa/ops/${proposal.lead_id}`} className="text-sm text-slate-300 underline">← Back to Lead</Link><p className="mt-6 text-xs font-black uppercase tracking-[.22em] text-[#C9A24B]">CRM v1.3 · {proposal.proposal_no}</p><h1 className="mt-2 text-4xl font-black sm:text-5xl">{proposal.title}</h1><p className="mt-3 text-slate-300">{lead?.name || `Lead LEX-${proposal.lead_id}`} · Proposal lifecycle workspace</p></div><span className="rounded-full border border-[#C9A24B]/40 bg-[#C9A24B]/10 px-4 py-2 text-sm font-black uppercase tracking-wider text-[#E4C876]">{proposal.status.replaceAll("_", " ")}</span></div>
 
     <section className="mt-8 grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
       <article className="rounded-2xl bg-white p-6 text-[#0D1B2A] sm:p-8">
@@ -33,8 +42,9 @@ export default async function ProposalDetailPage({ params }: { params: Promise<{
       </article>
       <aside className="rounded-2xl border border-white/10 bg-white/5 p-6">
         <h2 className="text-xl font-black">Proposal Summary</h2>
-        <dl className="mt-5 grid gap-5 text-sm"><Meta label="Proposal number" value={proposal.proposal_no}/><Meta label="Status" value={proposal.status.replaceAll("_", " ")}/><Meta label="Fee" value={formatMoney(proposal.fee, proposal.currency)}/><Meta label="Valid until" value={proposal.valid_until || "Not set"}/><Meta label="Created" value={formatJakarta(proposal.created_at)}/><Meta label="Last updated" value={formatJakarta(proposal.updated_at)}/><Meta label="Client" value={lead?.name || "Unknown"}/><Meta label="Client email" value={lead?.email || "—"}/><Meta label="Lead status" value={lead?.status || "—"}/></dl>
-        <div className="mt-7 rounded-xl border border-white/10 bg-[#142235] p-4 text-xs leading-5 text-slate-300">Stage 1 intentionally creates a controlled Draft only. Proposal sending, negotiation, acceptance/rejection, quotation rendering, and revenue conversion are activated in the next CRM v1.3 stages after Preview validation.</div>
+        <dl className="mt-5 grid gap-5 text-sm"><Meta label="Proposal number" value={proposal.proposal_no}/><Meta label="Status" value={proposal.status.replaceAll("_", " ")}/><Meta label="Fee" value={formatMoney(proposal.fee, proposal.currency)}/><Meta label="Valid until" value={proposal.valid_until || "Not set"}/><Meta label="Created" value={formatJakarta(proposal.created_at)}/><Meta label="Last updated" value={formatJakarta(proposal.updated_at)}/><Meta label="Sent" value={proposal.sent_at ? formatJakarta(proposal.sent_at) : "—"}/><Meta label="Accepted" value={proposal.accepted_at ? formatJakarta(proposal.accepted_at) : "—"}/><Meta label="Rejected" value={proposal.rejected_at ? formatJakarta(proposal.rejected_at) : "—"}/><Meta label="Client" value={lead?.name || "Unknown"}/><Meta label="Client email" value={lead?.email || "—"}/><Meta label="Lead status" value={lead?.status || "—"}/></dl>
+
+        {transitions.length > 0 ? <section className="mt-7 border-t border-white/10 pt-6"><h3 className="text-sm font-black uppercase tracking-wider text-[#E4C876]">Lifecycle Actions</h3><p className="mt-2 text-xs leading-5 text-slate-300">Stage 2 uses controlled forward-only transitions. Every change is written to Activity History.</p><div className="mt-4 grid gap-3">{transitions.map((transition) => <form key={transition.value} action={updateProposalStatus} className="grid gap-2"><input type="hidden" name="proposal_id" value={proposal.id}/><input type="hidden" name="status" value={transition.value}/>{transition.value === "rejected" ? <><label htmlFor={`reason-${proposal.id}`} className="text-xs font-bold text-slate-300">Rejection reason</label><input id={`reason-${proposal.id}`} name="reason" maxLength={2000} className="rounded-lg border border-white/15 bg-[#142235] px-3 py-2 text-sm text-white" placeholder="Optional reason"/></> : null}<button type="submit" className="rounded-lg border border-[#C9A24B]/50 bg-[#C9A24B]/10 px-4 py-2 text-left text-sm font-bold text-[#F0D98B] hover:bg-[#C9A24B]/20">{transition.label}</button></form>)}</div></section> : <div className="mt-7 rounded-xl border border-white/10 bg-[#142235] p-4 text-xs leading-5 text-slate-300">This proposal is in a terminal lifecycle state. No further forward transition is available.</div>}
       </aside>
     </section>
   </div></main>;
