@@ -3,7 +3,7 @@ import Link from "next/link";
 import { requireLexNusaAdmin, formatJakarta, formatMoney } from "./admin";
 import { prepareFollowUpEmail, quickUpdateStatus } from "./actions";
 
-export const metadata: Metadata = { title: "LexNusa Follow-up Operations", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "LexNusa Follow-up Operations v1.2", robots: { index: false, follow: false } };
 
 type Lead = {
   id: number;
@@ -91,7 +91,7 @@ export default async function LexNusaOpsPage({ searchParams }: { searchParams: P
 
   return <main className="min-h-screen bg-[#0D1B2A] px-5 py-14 text-white sm:px-8"><div className="mx-auto max-w-7xl">
     <div className="flex flex-wrap items-end justify-between gap-5">
-      <div><p className="text-xs font-black uppercase tracking-[.24em] text-[#C9A24B]">LexNusa Legal AI · Private Operations</p><h1 className="mt-3 text-4xl font-black sm:text-5xl">Follow-up Operations v1.1</h1><p className="mt-4 max-w-3xl text-slate-300">Run LexNusa as a daily follow-up system: prioritize overdue work, prepare client emails, and keep every action auditable.</p></div>
+      <div><p className="text-xs font-black uppercase tracking-[.24em] text-[#C9A24B]">LexNusa Legal AI · Private Operations</p><h1 className="mt-3 text-4xl font-black sm:text-5xl">Follow-up Operations v1.2</h1><p className="mt-4 max-w-3xl text-slate-300">Run LexNusa as a daily follow-up system: prioritize overdue work, prepare client emails, and keep every action auditable.</p></div>
       <Link href="/lexnusa/pilot" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-bold hover:bg-white/10">Open Pilot Form</Link>
     </div>
 
