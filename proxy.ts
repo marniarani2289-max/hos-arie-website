@@ -19,11 +19,10 @@ export async function proxy(request: NextRequest) {
   );
   const { data: { user } } = await supabase.auth.getUser();
 
-  const protectedModule = /^\/raja-ali-haji\/programmes\/pemikiran-raja-ali-haji\/module-\d+(?:\/|$)/.test(
-    request.nextUrl.pathname,
-  );
+  const protectedModule = /^\/raja-ali-haji\/programmes\/pemikiran-raja-ali-haji\/module-\d+(?:\/|$)/.test(request.nextUrl.pathname);
+  const lexnusaOps = request.nextUrl.pathname.startsWith("/lexnusa/ops");
 
-  if (protectedModule && !user) {
+  if ((protectedModule || lexnusaOps) && !user) {
     const loginUrl = request.nextUrl.clone();
     const destination = `${request.nextUrl.pathname}${request.nextUrl.search}`;
     loginUrl.pathname = "/login";
