@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ShieldAlert } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "LEX-EVAL™ | LexNusa Legal AI",
+  title: { absolute: "LEX-EVAL™ | LexNusa Legal AI" },
   description: "LEX-EVAL™ is LexNusa's human-led 100-point Legal AI Evaluation Framework for legal accuracy, authority integrity, reasoning, hallucination control, and professional usefulness.",
   alternates: { canonical: "/lexnusa/lex-eval" },
 };
