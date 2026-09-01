@@ -23,9 +23,19 @@ function LexNusaMark() {
   );
 }
 
+const navItems = [
+  ["Home", "/lexnusa"],
+  ["Services", "/lexnusa/services"],
+  ["LEX-EVAL™", "/lexnusa/lex-eval"],
+  ["Evidence", "/lexnusa/evidence"],
+  ["About", "/lexnusa/about"],
+] as const;
+
 export default function LexNusaPublicHeader() {
   const pathname = usePathname();
-  if (pathname !== "/lexnusa") return null;
+  if (!pathname.startsWith("/lexnusa") || pathname.startsWith("/lexnusa/ops")) return null;
+
+  const isActive = (href: string) => href === "/lexnusa" ? pathname === href : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071421]/95 text-white shadow-[0_10px_30px_rgba(0,0,0,.18)] backdrop-blur">
@@ -33,19 +43,13 @@ export default function LexNusaPublicHeader() {
         <Link href="/lexnusa" aria-label="LexNusa Legal AI home" className="group flex min-w-0 items-center gap-2.5">
           <LexNusaMark />
           <div className="min-w-0 border-l border-[#C9A24B]/55 pl-3">
-            <div className="font-academic text-[21px] font-bold tracking-[.09em] leading-none sm:text-[25px]">
-              <span className="text-white">LEX</span><span className="text-[#D3A94F]">NUSA</span>
-            </div>
+            <div className="font-academic text-[21px] font-bold tracking-[.09em] leading-none sm:text-[25px]"><span className="text-white">LEX</span><span className="text-[#D3A94F]">NUSA</span></div>
             <div className="mt-1.5 whitespace-nowrap text-[8px] font-black uppercase tracking-[.32em] text-[#65B9BB] sm:text-[9px]">Legal AI Intelligence</div>
           </div>
         </Link>
 
         <nav aria-label="LexNusa navigation" className="hidden items-center gap-7 text-sm font-semibold text-slate-200 lg:flex">
-          <Link href="/lexnusa" className="text-[#E0B85D] transition hover:text-white">Home</Link>
-          <Link href="/lexnusa#services" className="transition hover:text-[#E0B85D]">Services</Link>
-          <Link href="/lexnusa#lex-eval" className="transition hover:text-[#E0B85D]">LEX-EVAL™</Link>
-          <Link href="/lexnusa#portfolio" className="transition hover:text-[#E0B85D]">Evidence</Link>
-          <Link href="/about" className="transition hover:text-[#E0B85D]">About</Link>
+          {navItems.map(([label, href]) => <Link key={href} href={href} className={isActive(href) ? "text-[#E0B85D] transition hover:text-white" : "transition hover:text-[#E0B85D]"}>{label}</Link>)}
         </nav>
 
         <Link href="/lexnusa/pilot" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#C9A24B] px-3.5 py-2.5 text-xs font-black text-[#071421] transition hover:bg-[#DCB961] sm:px-5 sm:py-3 sm:text-sm">
