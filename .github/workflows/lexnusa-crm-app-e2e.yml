@@ -1,0 +1,96 @@
+# Trigger-only change to run isolated LexNusa CRM v1.3 application E2E
+name: LexNusa CRM Application E2E
+
+on:
+  push:
+    branches:
+      - feature/lexnusa-crm-v1-3
+    paths:
+      - 'app/lexnusa/ops/**'
+      - 'app/auth/**'
+      - 'app/login/**'
+      - 'lib/supabase/**'
+      - 'supabase/**'
+      - 'tests/lexnusa-crm-e2e.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/lexnusa-crm-app-e2e.yml'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  application-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      E2E_BASE_URL: http://localhost:3000
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install application and E2E dependencies
+        run: npm ci
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start isolated local Supabase
+        run: supabase start
+
+      - name: Rebuild database from migrations and synthetic seed
+        run: supabase db reset --local
+
+      - name: Export local Supabase keys
+        shell: bash
+        run: |
+          eval "$(supabase status -o env)"
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$ANON_KEY" >> "$GITHUB_ENV"
+          echo "SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY" >> "$GITHUB_ENV"
+
+      - name: Start Next.js local E2E server
+        run: |
+          npm run dev -- --hostname localhost --port 3000 > /tmp/lexnusa-next.log 2>&1 &
+          echo $! > /tmp/lexnusa-next.pid
+          for i in {1..120}; do
+            if curl --fail --silent http://localhost:3000/login >/dev/null; then
+              echo "Next.js local E2E server is ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/lexnusa-next.log
+          exit 1
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run nine-gate CRM browser E2E
+        run: node tests/lexnusa-crm-e2e.mjs
+
+      - name: Show Next.js log on failure
+        if: failure()
+        run: cat /tmp/lexnusa-next.log || true
+
+      - name: Stop Next.js
+        if: always()
+        run: |
+          if [ -f /tmp/lexnusa-next.pid ]; then kill "$(cat /tmp/lexnusa-next.pid)" || true; fi
+
+      - name: Destroy isolated Supabase environment
+        if: always()
+        run: supabase stop --no-backup || true

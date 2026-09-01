@@ -1,0 +1,88 @@
+name: LexNusa CRM Local Migration QA
+
+on:
+  push:
+    branches:
+      - feature/lexnusa-crm-v1-3
+    paths:
+      - 'supabase/**'
+      - '.github/workflows/lexnusa-crm-local-qa.yml'
+  workflow_dispatch:
+
+jobs:
+  migration-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start isolated local Supabase
+        run: supabase start
+
+      - name: Rebuild database from migrations and seed
+        run: supabase db reset --local
+
+      - name: CRM schema and seed smoke tests
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h 127.0.0.1 -p 54322 -U postgres -d postgres -v ON_ERROR_STOP=1 <<'SQL'
+          do $$
+          declare
+            generated_no text;
+            rls_enabled boolean;
+          begin
+            if to_regclass('public.lexnusa_pilot_leads') is null then
+              raise exception 'lexnusa_pilot_leads missing';
+            end if;
+            if to_regclass('public.lexnusa_lead_activities') is null then
+              raise exception 'lexnusa_lead_activities missing';
+            end if;
+            if to_regclass('public.lexnusa_admins') is null then
+              raise exception 'lexnusa_admins missing';
+            end if;
+            if to_regclass('public.lexnusa_proposals') is null then
+              raise exception 'lexnusa_proposals missing';
+            end if;
+
+            if not exists (select 1 from public.lexnusa_pilot_leads where id = 900001 and status = 'qualified') then
+              raise exception 'qualified synthetic seed missing';
+            end if;
+            if not exists (select 1 from public.lexnusa_pilot_leads where id = 900002 and status = 'contacted') then
+              raise exception 'contacted synthetic seed missing';
+            end if;
+
+            select public.lexnusa_next_proposal_no() into generated_no;
+            if generated_no !~ '^LEX-P-[0-9]{4}-[0-9]{3,}$' then
+              raise exception 'proposal number format invalid: %', generated_no;
+            end if;
+
+            select relrowsecurity into rls_enabled
+            from pg_class where oid = 'public.lexnusa_proposals'::regclass;
+            if not rls_enabled then
+              raise exception 'RLS not enabled on lexnusa_proposals';
+            end if;
+
+            insert into public.lexnusa_lead_activities
+              (lead_id, actor_user_id, activity_type, summary, details)
+            values
+              (900001, null, 'proposal_created', 'QA activity vocabulary check', '{}'::jsonb);
+          end $$;
+
+          begin;
+          insert into public.lexnusa_proposals
+            (lead_id, proposal_no, title, scope, deliverables, timeline, fee, currency, status)
+          values
+            (900001, 'LEX-P-QA-001', 'QA Proposal', 'QA scope', 'QA deliverables', '7 days', 750, 'USD', 'draft');
+          rollback;
+          SQL
+
+      - name: Stop local Supabase
+        if: always()
+        run: supabase stop --no-backup
