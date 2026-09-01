@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BrainCircuit, FileSearch, Globe2, Scale, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services | LexNusa Legal AI",
+  title: { absolute: "Services | LexNusa Legal AI" },
   description: "Legal research intelligence, Legal AI evaluation, case-law mapping, benchmark development, and Indonesia & ASEAN legal intelligence.",
   alternates: { canonical: "/lexnusa/services" },
 };
