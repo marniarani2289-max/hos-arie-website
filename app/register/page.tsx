@@ -17,6 +17,7 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
         <label className="grid gap-2 text-sm font-bold">Latar belakang peserta<select className="border border-stone-300 bg-white px-4 py-3 font-normal outline-none focus:border-amber-700" name="participantCategory" required defaultValue=""><option value="" disabled>Pilih kategori</option><option value="dosen">Dosen</option><option value="mahasiswa">Mahasiswa</option><option value="asn">ASN</option><option value="komunitas">Komunitas</option><option value="lainnya">Lainnya</option></select></label>
         <input type="hidden" name="pilotCohort" value="RAHI-PILOT-01" />
         <Field name="email" label="Email" type="email" />
+        <Field name="whatsappNumber" label="Nomor WhatsApp aktif (contoh: 62812... )" type="tel" />
         <Field name="password" label="Kata sandi (minimal 8 karakter)" type="password" minLength={8} />
         <button className="bg-slate-950 px-6 py-4 font-bold text-white hover:bg-amber-700">Daftar Pilot Cohort 1</button>
       </form>
