@@ -10,6 +10,7 @@ export async function signUp(formData: FormData) {
   const fullName = String(formData.get("fullName") || "").trim();
   const institution = String(formData.get("institution") || "").trim();
   const participantCategory = String(formData.get("participantCategory") || "").trim();
+  const whatsappNumber = String(formData.get("whatsappNumber") || "").replace(/[^0-9+]/g, "").trim();
   const pilotCohort = String(formData.get("pilotCohort") || "").trim();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const { error } = await supabase.auth.signUp({
@@ -22,6 +23,7 @@ export async function signUp(formData: FormData) {
         institution,
         participant_category: participantCategory,
         pilot_cohort: pilotCohort,
+        whatsapp_number: whatsappNumber,
       },
     },
   });
