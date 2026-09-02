@@ -2,11 +2,7 @@ import Image from "next/image";
 import ButtonLink from "../shared/ButtonLink";
 import Container from "../shared/Container";
 
-const researchFields = [
-  "Constitutional Law",
-  "Malay Constitutional Thought",
-  "Indigenous Constitutionalism",
-];
+const researchFields = ["Authority", "Justice", "Accountability", "Limitation of Power"];
 
 export default function HeroV6() {
   return (
@@ -37,7 +33,7 @@ export default function HeroV6() {
                 />
 
                 <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-300 sm:text-xs">
-                  Constitutional Law Scholar
+                  From Penyengat to Global Constitutional Scholarship
                 </span>
               </div>
 
@@ -45,45 +41,44 @@ export default function HeroV6() {
                 Dr. Hos Arie Sibarani
               </p>
 
-              <h1 className="font-academic mt-5 max-w-4xl text-[2.75rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-                Constitutional thought from the Malay world
+              <h1 className="font-academic mt-5 max-w-4xl text-[2.65rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-6xl lg:text-[4.5rem] xl:text-[4.9rem]">
+                Bringing Malay constitutional thought into global scholarship
               </h1>
 
               <p className="mt-7 max-w-3xl text-xl font-medium leading-9 text-amber-300 sm:text-2xl">
-                Recovering indigenous constitutional ideas and bringing
-                Penyengat into global constitutional theory.
+                Reconstructing Raja Ali Haji&apos;s ideas of authority, justice,
+                accountability, and ethical government.
               </p>
 
               <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                Research, public scholarship, and structured learning on
-                constitutional law, Raja Ali Haji, and indigenous traditions
-                of ethical government.
+                Explore an original constitutional framework, learn through the
+                Raja Ali Haji Institute, or build a research and institutional
+                collaboration.
               </p>
 
               <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                <ButtonLink href="/start">
-                  Choose Your Path
+                <ButtonLink href="/research/malay-ethical-constitutionalism">
+                  Explore the Framework
                   <span className="ml-2" aria-hidden="true">
                     →
                   </span>
                 </ButtonLink>
 
-                <ButtonLink href="/research" variant="secondary">
-                  Explore Research
+                <ButtonLink href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" variant="secondary">
+                  Start Learning
                 </ButtonLink>
 
                 <ButtonLink
-                  href="/academic-cv.pdf"
+                  href="/start#collaborate"
                   variant="darkOutline"
-                  newTab
                 >
-                  Academic CV
+                  Collaborate
                 </ButtonLink>
               </div>
 
               <div className="mt-10 border-t border-white/10 pt-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                  Research Fields
+                  Core Constitutional Principles
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
@@ -123,17 +118,17 @@ export default function HeroV6() {
 
                     <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-300 sm:text-xs">
-                        Academic Profile
+                        Signature Research Programme
                       </p>
 
                       <h2 className="font-academic mt-3 max-w-md text-3xl font-bold leading-tight text-white sm:text-4xl">
-                        Scholarship rooted in Penyengat
+                        Malay Ethical Constitutionalism
                       </h2>
 
                       <p className="mt-4 hidden max-w-lg text-sm leading-7 text-slate-300 sm:block sm:text-base">
-                        Connecting Malay intellectual history with contemporary
-                        debates in constitutional law, governance, ethics, and
-                        public responsibility.
+                        Connecting classical Malay texts with contemporary
+                        constitutional theory, ethical leadership, and public
+                        responsibility.
                       </p>
                     </div>
                   </div>
