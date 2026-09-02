@@ -2,28 +2,31 @@ import Link from "next/link";
 
 const selectedWorks = [
   {
-    type: "Flagship Research Programme",
+    type: "Public Research Framework",
     year: "2026",
     title: "Malay Ethical Constitutionalism",
     description:
-      "An original framework reconstructing constitutional thought from Raja Ali Haji’s writings and the political-intellectual tradition of the Malay world.",
+      "A documented research programme with primary sources, methodology, five constitutional principles, progress, and planned scholarly outputs.",
     href: "/research/malay-ethical-constitutionalism",
+    action: "Open the framework",
   },
   {
-    type: "Constitutional Research",
+    type: "Completed Learning Programme",
     year: "2026",
-    title: "Raja Ali Haji and Constitutional Accountability",
+    title: "Program Dasar Pemikiran Raja Ali Haji",
     description:
-      "A study of authority, ethical government, duties of rulers, consultation, justice, accountability, and public responsibility.",
-    href: "/research",
+      "Eight available self-paced modules combining readings, podcasts, reflection, essays, quizzes, saved progress, and certification.",
+    href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
+    action: "Review all modules",
   },
   {
-    type: "Comparative Constitutional Theory",
-    year: "2026",
-    title: "Indigenous Constitutionalism and Global Legal Thought",
+    type: "Published Doctoral Research",
+    year: "2025",
+    title: "The Riau-Lingga Sultanate in the Perspective of Maqasid al-Shariah",
     description:
-      "A comparative inquiry into constitutional traditions developed beyond the dominant Western constitutional canon.",
-    href: "/research",
+      "Doctoral research examining Raja Ali Haji’s principal works as sources of ethical, political, legal, and governmental thought.",
+    href: "/publications",
+    action: "View publication record",
   },
 ];
 
@@ -34,18 +37,16 @@ export default function SelectedWork() {
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-4xl">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
-              Selected Work
+              Verifiable Work
             </p>
 
             <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              Current research and scholarly projects
+              Work that can be opened, reviewed, and verified
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Selected projects representing the main directions of my current
-              research in constitutional law, constitutional theory, Malay
-              intellectual history, indigenous constitutionalism, and Raja Ali
-              Haji studies.
+              Publicly accessible research, completed learning materials, and
+              documented academic work—not claims without an evidence trail.
             </p>
           </div>
 
@@ -88,7 +89,7 @@ export default function SelectedWork() {
                 href={work.href}
                 className="inline-flex items-center whitespace-nowrap font-semibold text-slate-900 transition group-hover:text-amber-700"
               >
-                Read More
+                {work.action}
                 <span className="ml-2 transition group-hover:translate-x-1">
                   →
                 </span>
@@ -97,37 +98,7 @@ export default function SelectedWork() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-white p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
-              Research Orientation
-            </p>
-
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-950">
-              Constitutional, comparative, and interdisciplinary
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
-              Current Priority
-            </p>
-
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-950">
-              International publication and framework development
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
-              Long-Term Direction
-            </p>
-
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-950">
-              Global recognition of Malay constitutional thought
-            </p>
-          </div>
-        </div>
+        <div className="mt-12 rounded-3xl bg-slate-950 p-8 text-white md:flex md:items-center md:justify-between md:gap-10 md:p-10"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Build the next serious work together</p><h3 className="font-academic mt-3 text-3xl font-bold">Research, teaching, and institutional collaboration</h3><p className="mt-4 leading-7 text-slate-300">For universities, research networks, government institutions, journals, and public-learning partners seeking a substantive collaboration.</p></div><Link href="/start#collaborate" className="mt-7 inline-flex shrink-0 rounded-xl bg-amber-400 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-300 md:mt-0">Propose a collaboration →</Link></div>
       </div>
     </section>
   );
