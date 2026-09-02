@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireLexNusaAdmin } from "./admin";
+import { proposalPdfFilename, renderProposalPdf } from "@/lib/lexnusa/proposal-pdf";
 
 const currencies = new Set(["USD", "IDR", "SGD", "MYR"]);
 const proposalTransitions: Record<string, Set<string>> = {
@@ -14,6 +15,13 @@ const proposalTransitions: Record<string, Set<string>> = {
   rejected: new Set(),
   expired: new Set(),
 };
+const emailableProposalStatuses = new Set(["draft", "sent", "under_review", "negotiation"]);
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'\"]/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
+  })[char] || char);
+}
 
 async function addActivity(
   admin: Awaited<ReturnType<typeof requireLexNusaAdmin>>["admin"],
@@ -146,4 +154,134 @@ export async function updateProposalStatus(formData: FormData) {
   revalidatePath("/lexnusa/ops");
   revalidatePath(`/lexnusa/ops/${proposal.lead_id}`);
   revalidatePath(`/lexnusa/ops/proposals/${proposalId}`);
+}
+
+export async function sendProposalEmail(formData: FormData) {
+  const { admin, user } = await requireLexNusaAdmin();
+  const proposalId = Number(formData.get("proposal_id"));
+  const subject = String(formData.get("subject") || "").trim().slice(0, 300);
+  const message = String(formData.get("message") || "").trim().slice(0, 10000);
+  if (!Number.isSafeInteger(proposalId) || proposalId < 1 || !subject || !message) return;
+
+  const { data: proposal, error: proposalError } = await admin
+    .from("lexnusa_proposals")
+    .select("id,lead_id,proposal_no,title,scope,deliverables,timeline,fee,currency,valid_until,terms,status,created_at,sent_at")
+    .eq("id", proposalId)
+    .maybeSingle();
+  if (proposalError || !proposal) throw new Error("Could not load LexNusa proposal.");
+  if (!emailableProposalStatuses.has(proposal.status)) {
+    redirect(`/lexnusa/ops/proposals/${proposalId}?email=terminal`);
+  }
+
+  const { data: lead, error: leadError } = await admin
+    .from("lexnusa_pilot_leads")
+    .select("id,name,organization,email")
+    .eq("id", proposal.lead_id)
+    .maybeSingle();
+  if (leadError || !lead?.email) throw new Error("Could not load proposal recipient.");
+
+  const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.LEXNUSA_LEAD_FROM_EMAIL;
+  const replyTo = process.env.LEXNUSA_LEAD_NOTIFY_EMAIL;
+  const emailApiUrl = process.env.LEXNUSA_EMAIL_API_URL || "https://api.resend.com/emails";
+  if (!resendKey || !from) {
+    console.error("LexNusa proposal delivery: email configuration missing.");
+    redirect(`/lexnusa/ops/proposals/${proposalId}?email=config`);
+  }
+
+  const feeLabel = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: proposal.currency,
+    maximumFractionDigits: 0,
+  }).format(Number(proposal.fee));
+  const pdf = renderProposalPdf({
+    proposalNo: proposal.proposal_no,
+    title: proposal.title,
+    clientName: lead.name,
+    organization: lead.organization,
+    email: lead.email,
+    scope: proposal.scope,
+    deliverables: proposal.deliverables,
+    timeline: proposal.timeline,
+    feeLabel,
+    validUntil: proposal.valid_until,
+    terms: proposal.terms,
+    createdAt: new Date(proposal.created_at).toLocaleString("en-GB", { timeZone: "Asia/Jakarta", dateStyle: "medium" }),
+  });
+  const filename = proposalPdfFilename(proposal.proposal_no);
+  const html = `<div style="font-family:Arial,sans-serif;line-height:1.65;color:#0D1B2A"><div style="white-space:pre-wrap">${escapeHtml(message).replace(/\n/g, "<br/>")}</div><p style="margin-top:24px;color:#64748b;font-size:12px">Proposal ${escapeHtml(proposal.proposal_no)} is attached as PDF.</p></div>`;
+
+  let response: Response;
+  try {
+    response = await fetch(emailApiUrl, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: [lead.email],
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        subject,
+        text: `${message}\n\nProposal ${proposal.proposal_no} is attached as PDF.`,
+        html,
+        attachments: [{ filename, content: pdf.toString("base64") }],
+      }),
+    });
+  } catch (error) {
+    console.error("LexNusa proposal delivery exception", error);
+    await addActivity(admin, proposal.lead_id, user.id, "proposal_email_failed", `Proposal ${proposal.proposal_no} email delivery failed`, {
+      proposal_id: proposalId, proposal_no: proposal.proposal_no, recipient: lead.email, subject, reason: "exception",
+    });
+    redirect(`/lexnusa/ops/proposals/${proposalId}?email=send`);
+  }
+
+  if (!response.ok) {
+    const providerError = (await response.text().catch(() => "")).slice(0, 1000);
+    console.error("LexNusa proposal delivery failed", providerError);
+    await addActivity(admin, proposal.lead_id, user.id, "proposal_email_failed", `Proposal ${proposal.proposal_no} email delivery failed`, {
+      proposal_id: proposalId, proposal_no: proposal.proposal_no, recipient: lead.email, subject, provider: "resend", provider_status: response.status,
+    });
+    redirect(`/lexnusa/ops/proposals/${proposalId}?email=send`);
+  }
+
+  const payload = await response.json().catch(() => null) as { id?: string } | null;
+  const sentAt = new Date().toISOString();
+  const statusAfter = proposal.status === "draft" ? "sent" : proposal.status;
+  const patch: Record<string, unknown> = {
+    status: statusAfter,
+    pdf_generated_at: sentAt,
+    last_emailed_at: sentAt,
+    last_email_to: lead.email,
+    last_email_provider_id: payload?.id || null,
+    updated_at: sentAt,
+  };
+  if (proposal.status === "draft") patch.sent_at = sentAt;
+
+  const { error: updateError } = await admin.from("lexnusa_proposals").update(patch).eq("id", proposalId);
+  if (updateError) throw new Error("Proposal email was sent but CRM delivery state could not be updated.");
+
+  await addActivity(admin, proposal.lead_id, user.id, "proposal_pdf_generated", `Proposal ${proposal.proposal_no} PDF generated for email delivery`, {
+    proposal_id: proposalId, proposal_no: proposal.proposal_no, generated_at: sentAt, source: "email_delivery",
+  });
+  await addActivity(admin, proposal.lead_id, user.id, "proposal_email_sent", `Proposal ${proposal.proposal_no} emailed to ${lead.email}`, {
+    proposal_id: proposalId,
+    proposal_no: proposal.proposal_no,
+    recipient: lead.email,
+    subject,
+    attachment: filename,
+    provider: "resend",
+    provider_id: payload?.id || null,
+    sent_at: sentAt,
+    status_before: proposal.status,
+    status_after: statusAfter,
+  });
+  if (proposal.status === "draft") {
+    await addActivity(admin, proposal.lead_id, user.id, "proposal_sent", `Proposal ${proposal.proposal_no} moved from draft to sent via email delivery`, {
+      proposal_id: proposalId, proposal_no: proposal.proposal_no, from: "draft", to: "sent", source: "proposal_email",
+    });
+  }
+
+  revalidatePath("/lexnusa/ops");
+  revalidatePath(`/lexnusa/ops/${proposal.lead_id}`);
+  revalidatePath(`/lexnusa/ops/proposals/${proposalId}`);
+  redirect(`/lexnusa/ops/proposals/${proposalId}?email=sent`);
 }

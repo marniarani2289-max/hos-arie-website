@@ -1,0 +1,128 @@
+name: LexNusa CRM Stage 3 Delivery E2E
+
+on:
+  push:
+    branches:
+      - feature/lexnusa-crm-v1-3-stage-3
+    paths:
+      - 'app/lexnusa/ops/**'
+      - 'app/auth/**'
+      - 'app/login/**'
+      - 'lib/lexnusa/**'
+      - 'lib/supabase/**'
+      - 'supabase/**'
+      - 'tests/lexnusa-crm-stage3-e2e.mjs'
+      - 'tests/lexnusa-email-capture-server.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/lexnusa-crm-stage3-e2e.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'app/lexnusa/ops/**'
+      - 'lib/lexnusa/**'
+      - 'supabase/**'
+      - 'tests/lexnusa-crm-stage3-e2e.mjs'
+      - 'tests/lexnusa-email-capture-server.mjs'
+      - '.github/workflows/lexnusa-crm-stage3-e2e.yml'
+  workflow_dispatch:
+
+jobs:
+  stage3-delivery-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      E2E_BASE_URL: http://localhost:3000
+      RESEND_API_KEY: e2e-local-only-key
+      LEXNUSA_LEAD_FROM_EMAIL: LexNusa E2E <e2e@example.invalid>
+      LEXNUSA_LEAD_NOTIFY_EMAIL: ops@example.invalid
+      LEXNUSA_EMAIL_API_URL: http://127.0.0.1:4010/emails
+      LEXNUSA_EMAIL_CAPTURE_BASE_URL: http://127.0.0.1:4010
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install application and E2E dependencies
+        run: npm ci
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start isolated local Supabase
+        run: supabase start
+
+      - name: Rebuild database from migrations and synthetic seed
+        run: supabase db reset --local
+
+      - name: Export local Supabase keys
+        shell: bash
+        run: |
+          eval "$(supabase status -o env)"
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$ANON_KEY" >> "$GITHUB_ENV"
+          echo "SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY" >> "$GITHUB_ENV"
+
+      - name: Start local email capture server
+        run: |
+          node tests/lexnusa-email-capture-server.mjs > /tmp/lexnusa-email-capture.log 2>&1 &
+          echo $! > /tmp/lexnusa-email-capture.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4010/health >/dev/null; then
+              echo "LexNusa local email capture server is ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/lexnusa-email-capture.log
+          exit 1
+
+      - name: Start Next.js local Stage 3 E2E server
+        run: |
+          npm run dev -- --hostname localhost --port 3000 > /tmp/lexnusa-stage3-next.log 2>&1 &
+          echo $! > /tmp/lexnusa-stage3-next.pid
+          for i in {1..120}; do
+            if curl --fail --silent http://localhost:3000/login >/dev/null; then
+              echo "Next.js local Stage 3 E2E server is ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/lexnusa-stage3-next.log
+          exit 1
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Stage 3 proposal delivery nine-gate E2E
+        run: node tests/lexnusa-crm-stage3-e2e.mjs
+
+      - name: Show logs on failure
+        if: failure()
+        run: |
+          echo '--- Next.js ---'
+          cat /tmp/lexnusa-stage3-next.log || true
+          echo '--- Email capture ---'
+          cat /tmp/lexnusa-email-capture.log || true
+
+      - name: Stop local services
+        if: always()
+        run: |
+          if [ -f /tmp/lexnusa-stage3-next.pid ]; then kill "$(cat /tmp/lexnusa-stage3-next.pid)" || true; fi
+          if [ -f /tmp/lexnusa-email-capture.pid ]; then kill "$(cat /tmp/lexnusa-email-capture.pid)" || true; fi
+
+      - name: Destroy isolated Supabase environment
+        if: always()
+        run: supabase stop --no-backup || true
