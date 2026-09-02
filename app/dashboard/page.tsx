@@ -8,9 +8,10 @@ export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
-  const { data: enrollment } = await supabase.from("enrollments").select("id,module_progress(module_number,completed,progress_percent)").eq("user_id", user.id).eq("programme_code", "RAHI-01").maybeSingle();
+  const { data: enrollment } = await supabase.from("enrollments").select("id,module_progress(module_number,completed,progress_percent,quiz_score)").eq("user_id", user.id).eq("programme_code", "RAHI-01").maybeSingle();
   const progress = enrollment?.module_progress || [];
   const completed = progress.filter((item: { completed: boolean }) => item.completed).length;
+  const passedQuizzes = progress.filter((item: { quiz_score?: number }) => Number(item.quiz_score) >= 70).length;
   if (enrollment?.id) {
     await supabase.rpc("issue_certificate_if_eligible", { target_enrollment: enrollment.id });
   }
@@ -32,7 +33,7 @@ export default async function DashboardPage() {
     ].map(([type,label,helper,href])=><a key={type} href={href} className="rounded-2xl border border-stone-300 bg-white p-6 transition hover:border-amber-500"><div className="flex items-center justify-between gap-3"><h3 className="text-lg font-black">{label}</h3>{assessmentTypes.has(type)?<CheckCircle2 className="text-emerald-700"/>:<span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">Belum</span>}</div><p className="mt-3 text-sm leading-6 text-slate-600">{helper}</p><p className="mt-5 font-bold text-amber-800">{assessmentTypes.has(type)?"Perbarui jawaban":"Isi sekarang"} →</p></a>)}</div></section>
     <section className="mt-10 grid gap-7 lg:grid-cols-[1fr_.55fr]">
       <article className="border border-stone-300 bg-white p-8"><BookOpen className="text-amber-700"/><h2 className="mt-5 text-2xl font-black">Foundations of Raja Ali Haji&apos;s Thought</h2><p className="mt-3 text-slate-600">{completed} dari 8 modul selesai</p><div className="mt-5 h-3 overflow-hidden rounded-full bg-stone-200"><div className="h-full bg-emerald-600" style={{ width: `${completed / 8 * 100}%` }}/></div><a href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" className="mt-7 inline-block bg-slate-950 px-6 py-4 font-bold text-white">Lanjutkan pembelajaran</a></article>
-      <article className="border border-stone-300 bg-[#111526] p-8 text-white"><Award className="text-amber-400"/><h2 className="mt-5 text-2xl font-black">Sertifikat Program 01</h2>{certificate ? <><p className="mt-3 text-emerald-300">Sertifikat telah diterbitkan.</p><a href={`/certificates/${certificate.certificate_number}`} className="mt-7 inline-block bg-amber-400 px-6 py-4 font-bold text-slate-950">Lihat sertifikat</a></> : <p className="mt-3 leading-7 text-slate-300">Selesaikan delapan modul dan raih nilai kuis minimal 70 pada setiap modul.</p>}</article>
+      <article className="border border-stone-300 bg-[#111526] p-8 text-white"><Award className="text-amber-400"/><h2 className="mt-5 text-2xl font-black">Validasi Sertifikat Program 01</h2>{certificate ? <><p className="mt-3 text-emerald-300">Seluruh persyaratan tervalidasi dan sertifikat telah diterbitkan.</p><a href={`/certificates/${certificate.certificate_number}`} className="mt-7 inline-block bg-amber-400 px-6 py-4 font-bold text-slate-950">Lihat sertifikat</a></> : <><div className="mt-5 space-y-3 text-sm"><p className={completed>=8?"text-emerald-300":"text-slate-300"}>✓ Modul selesai: {completed}/8</p><p className={passedQuizzes>=8?"text-emerald-300":"text-slate-300"}>✓ Kuis nilai ≥70: {passedQuizzes}/8</p><p className={completed>=8?"text-emerald-300":"text-slate-300"}>✓ Refleksi akhir: {completed>=8?"tervalidasi melalui Modul 8":"belum tervalidasi"}</p></div><p className="mt-5 leading-7 text-slate-300">Sertifikat diterbitkan otomatis setelah seluruh persyaratan terpenuhi.</p></>}</article>
     </section>
   </div></main>;
 }
