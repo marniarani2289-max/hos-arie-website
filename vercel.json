@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/rahi-pilot",
+      "schedule": "0 1 * * *"
+    }
+  ]
+}
