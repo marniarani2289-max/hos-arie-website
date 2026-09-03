@@ -40,12 +40,14 @@ export async function generateMetadata({
     metadataBase: new URL("https://www.hossibarani.com"),
     title: news.title,
     description: news.summary,
+    alternates: {canonical: `/news/${slug}`},
     openGraph: {
       title: news.title,
       description: news.summary,
       url: `https://www.hossibarani.com/news/${slug}`,
       siteName: "Dr. Hos Arie Sibarani | Legal Scholar",
       type: "article",
+      publishedTime: news.publishedAt,
       images: [
         {
           url: imageUrl,

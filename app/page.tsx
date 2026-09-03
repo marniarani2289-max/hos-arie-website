@@ -4,7 +4,11 @@ import HomeHighlights from "./components/home/HomeHighlights";
 import PathwayChooser from "./components/home/PathwayChooser";
 import SelectedWork from "./components/home/SelectedWork";
 
-export const metadata: Metadata = { title: "Constitutional Law, Research, and Learning", description: "Explore the research, learning programmes, and collaboration pathways of Dr. Hos Arie Sibarani and the Raja Ali Haji Institute." };
+export const metadata: Metadata = {
+  title: "Constitutional Law Scholar & Raja Ali Haji Research",
+  description: "Explore Dr. Hos Arie Sibarani's constitutional-law research, Malay Ethical Constitutionalism, Raja Ali Haji Institute learning programmes, publications, and collaboration pathways.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 export default function PersonSchema() {
-  const schema = {
+  const person = {
     "@context": "https://schema.org",
     "@type": "Person",
 
@@ -37,23 +37,24 @@ export default function PersonSchema() {
       url: "https://umrah.ac.id"
     },
 
-    affiliation: {
+    affiliation: [
+      {
       "@type": "Organization",
       name: "Raja Ali Haji Research Network",
-      url: "https://www.hossibarani.com"
-    },
+      url: "https://www.hossibarani.com/raja-ali-haji"
+      },
+      {
+        "@type": "Organization",
+        name: "Raja Ali Haji Institute",
+        url: "https://www.hossibarani.com/raja-ali-haji"
+      }
+    ],
 
     email: "mailto:editor@hossibarani.com",
 
     sameAs: [
       "https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en",
       "https://www.hossibarani.com"
-      // Tambahkan nanti jika sudah ada:
-      // "https://orcid.org/....",
-      // "https://www.scopus.com/authid/detail.uri?authorId=....",
-      // "https://www.linkedin.com/in/....",
-      // "https://www.instagram.com/....",
-      // "https://www.youtube.com/@...."
     ],
 
     knowsAbout: [
@@ -70,11 +71,35 @@ export default function PersonSchema() {
     ]
   };
 
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.hossibarani.com/#website",
+    url: "https://www.hossibarani.com",
+    name: "Dr. Hos Arie Sibarani",
+    description: "Constitutional law scholarship, Malay Ethical Constitutionalism, Raja Ali Haji studies, publications, learning, and institutional collaboration.",
+    inLanguage: ["en", "id"],
+    publisher: { "@id": "https://www.hossibarani.com/#person" },
+  };
+
+  const profilePage = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": "https://www.hossibarani.com/#profilepage",
+    url: "https://www.hossibarani.com",
+    name: "Dr. Hos Arie Sibarani — Constitutional Law Scholar",
+    mainEntity: { "@id": "https://www.hossibarani.com/#person" },
+    isPartOf: { "@id": "https://www.hossibarani.com/#website" },
+  };
+
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema),
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [person, website, profilePage],
+        }),
       }}
     />
   );

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Program Dasar Pemikiran Raja Ali Haji",
   description:
     "Delapan tahap pembelajaran untuk memahami karya, bahasa, etika, pemerintahan, dan relevansi pemikiran Raja Ali Haji.",
+  alternates: { canonical: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji" },
 };
 
 const BASE = "/raja-ali-haji/programmes/pemikiran-raja-ali-haji";

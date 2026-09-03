@@ -56,9 +56,13 @@ export const metadata: Metadata = {
 
   creator: "Dr. Hos Arie Sibarani",
   publisher: "Dr. Hos Arie Sibarani",
-
-  alternates: {
-    canonical: "/",
+  applicationName: "Dr. Hos Arie Sibarani",
+  category: "education",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 
   openGraph: {
@@ -97,6 +101,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: "/Favicon/favicon.ico",
+    shortcut: "/Favicon/favicon.ico",
+    apple: "/icon.png",
   },
 };
 

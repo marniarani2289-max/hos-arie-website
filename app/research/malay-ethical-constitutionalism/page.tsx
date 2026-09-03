@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Malay Ethical Constitutionalism",
   description:
     "A long-term research programme recovering Raja Ali Haji's constitutional thought and developing Malay Ethical Constitutionalism as a contribution to global constitutional theory.",
+  alternates: { canonical: "/research/malay-ethical-constitutionalism" },
+  openGraph: {
+    title: "Malay Ethical Constitutionalism",
+    description: "Raja Ali Haji's constitutional thought reconstructed as a contribution to global constitutional theory.",
+    url: "/research/malay-ethical-constitutionalism",
+    type: "article",
+  },
 };
 
 const navigationItems = [
