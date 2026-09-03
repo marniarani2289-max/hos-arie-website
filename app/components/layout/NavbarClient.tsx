@@ -8,7 +8,7 @@ import { useState } from "react";
 type Participant = { name: string; email: string } | null;
 const groups = [
   { label: "Scholarship", helper: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
-  { label: "Institutes", helper: "Lembaga & arsip", items: [["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["Constitutional Justice", "/constitutional-justice"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
+  { label: "Institutes", helper: "Lembaga & arsip", items: [["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hukum Preneur", "/hukumpreneur"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["Constitutional Justice", "/constitutional-justice"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
 ] as const;
 
 export default function NavbarClient({ participant }: { participant: Participant }) {
