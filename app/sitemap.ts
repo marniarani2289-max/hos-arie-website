@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-7", 0.8, "monthly"],
     ["/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-8", 0.8, "monthly"],
     ["/constitutional-justice", 0.85, "monthly"],
+    ["/hukumpreneur", 0.9, "weekly"],
     ["/lexnusa", 0.9, "monthly"],
     ["/lexnusa/about", 0.75, "monthly"],
     ["/lexnusa/services", 0.85, "monthly"],
