@@ -1,157 +1,182 @@
+"use client";
+
 import Link from "next/link";
-import { Camera, GraduationCap, Users, Video } from "lucide-react";
+import { usePathname } from "next/navigation";
+import {
+  ArrowUpRight,
+  Facebook,
+  GraduationCap,
+  Instagram,
+  Mail,
+  Youtube,
+} from "lucide-react";
 import Container from "../shared/Container";
 
-const researchAreas = [
-  "Constitutional Theory",
-  "Malay Ethical Constitutionalism",
-  "Raja Ali Haji Studies",
-  "Indigenous Constitutionalism",
+const academicLinks = [
+  { name: "Research", href: "/research" },
+  { name: "Publications", href: "/publications" },
+  { name: "Books", href: "/books" },
+  { name: "Opinions", href: "/opinions" },
+  { name: "Academic Gallery", href: "/gallery" },
+];
+
+const initiatives = [
+  { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
+  { name: "JMCS Journal", href: "/journal" },
+  { name: "Hukum Preneur", href: "/hukumpreneur" },
+  { name: "SIMAKS", href: "/simaks" },
+  { name: "LexNusa AI", href: "/lexnusa" },
+];
+
+const socialLinks = [
+  {
+    name: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en",
+    icon: GraduationCap,
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@hukumpreneur",
+    icon: Youtube,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/hossibarani/",
+    icon: Instagram,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/hossibarani/",
+    icon: Facebook,
+  },
 ];
 
 export default function FooterV3() {
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
       <Container>
-        <div className="grid gap-14 py-20 lg:grid-cols-4">
-          <div className="lg:col-span-2">
-            <h2 className="font-academic text-3xl font-bold text-white">
-              Dr. Hos Arie Sibarani
-            </h2>
+        <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.35fr_0.75fr_0.9fr] lg:gap-14">
+          <div>
+            <Link
+              href="/"
+              className="inline-block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950"
+            >
+              <span className="font-academic text-3xl font-bold tracking-tight text-white">
+                Dr. Hos Arie Sibarani
+              </span>
+            </Link>
 
-            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-amber-400">
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.22em] text-amber-400">
               Constitutional Law Scholar
             </p>
 
-            <p className="mt-7 max-w-xl leading-8 text-slate-400">
-              Research focuses on constitutional theory, Raja Ali Haji,
-              Malay Ethical Constitutionalism, indigenous constitutionalism,
-              and comparative constitutional law.
+            <p className="mt-6 max-w-xl text-base leading-8 text-slate-400">
+              Research, teaching, and public scholarship on constitutional law,
+              Malay constitutional thought, and the intellectual legacy of Raja
+              Ali Haji.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href="https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-300"><GraduationCap size={18} /> Google Scholar</a>
-              <a href="https://www.youtube.com/@hukumpreneur" target="_blank" rel="noopener noreferrer" aria-label="YouTube Hukum Preneur" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-red-400 hover:text-red-300"><Video size={18} /> YouTube</a>
-              <a href="https://www.instagram.com/hossibarani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram resmi Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-pink-400 hover:text-pink-300"><Camera size={18} /> Instagram</a>
-              <a href="https://www.facebook.com/hossibarani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook resmi Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-blue-400 hover:text-blue-300"><Users size={18} /> Facebook</a>
-            </div>
+            <Link
+              href="/contact"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            >
+              <Mail size={18} aria-hidden="true" />
+              Collaborate
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
 
-            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <div>
-                <p className="font-academic text-2xl font-bold text-white">
-                  20+
-                </p>
-                <p className="text-sm text-slate-500">
-                  Years Teaching
-                </p>
-              </div>
-
-              <div>
-                <p className="font-academic text-2xl font-bold text-white">
-                  PhD
-                </p>
-                <p className="text-sm text-slate-500">
-                  Islamic Law
-                </p>
-              </div>
-
-              <div>
-                <p className="font-academic text-2xl font-bold text-white">
-                  Dean
-                </p>
-                <p className="text-sm text-slate-500">
-                  Former
-                </p>
-              </div>
-
-              <div>
-                <p className="font-academic text-2xl font-bold text-white">
-                  RAHRN
-                </p>
-                <p className="text-sm text-slate-500">
-                  Founder
-                </p>
-              </div>
+            <div className="mt-8 flex flex-wrap gap-3" aria-label="Official social media">
+              {socialLinks.map(({ name, href, icon: Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${name} — opens in a new tab`}
+                  title={name}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700 text-slate-300 transition hover:border-amber-400 hover:bg-slate-900 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                >
+                  <Icon size={19} aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              Research
-            </h3>
+          <nav aria-labelledby="footer-academic-heading">
+            <h2
+              id="footer-academic-heading"
+              className="text-sm font-bold uppercase tracking-[0.2em] text-white"
+            >
+              Academic
+            </h2>
+            <ul className="mt-6 space-y-3.5">
+              {academicLinks.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`inline-flex items-center gap-2 text-sm leading-6 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+                        active
+                          ? "font-semibold text-amber-300"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                      {active && (
+                        <span
+                          className="h-1.5 w-1.5 rounded-full bg-amber-400"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-            <ul className="mt-6 space-y-3">
-              {researchAreas.map((item) => (
-                <li key={item}>
+          <nav aria-labelledby="footer-initiatives-heading">
+            <h2
+              id="footer-initiatives-heading"
+              className="text-sm font-bold uppercase tracking-[0.2em] text-white"
+            >
+              Initiatives
+            </h2>
+            <ul className="mt-6 space-y-3.5">
+              {initiatives.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href="/research"
-                    className="transition hover:text-amber-400"
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 text-sm leading-6 text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                   >
-                    {item}
+                    {item.name}
+                    <ArrowUpRight
+                      size={14}
+                      className="text-slate-600"
+                      aria-hidden="true"
+                    />
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              Resources
-            </h3>
-
-            <ul className="mt-6 space-y-3">
-              <li>
-                <Link
-                  href="/academic-cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition hover:text-amber-400"
-                >
-                  Academic CV
-                </Link>
-              </li>
-
-              <li>
-                <a
-                  href="https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition hover:text-amber-400"
-                >
-                  Google Scholar
-                </a>
-              </li>
-
-              <li>
-                <Link
-                  href="/publications"
-                  className="transition hover:text-amber-400"
-                >
-                  Publications
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/gallery"
-                  className="transition hover:text-amber-400"
-                >
-                  Gallery
-                </Link>
-              </li>
-            </ul>
-          </div>
+          </nav>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-5 border-t border-slate-800 py-8 text-sm text-slate-500 md:flex-row">
+        <div className="flex flex-col gap-4 border-t border-slate-800 py-7 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} Dr. Hos Arie Sibarani. All Rights
-            Reserved.
+            © {new Date().getFullYear()} Dr. Hos Arie Sibarani. All rights
+            reserved.
           </p>
-
-          <p>
-            Constitutional Theory • Malay Constitutional Thought • Indigenous
-            Constitutionalism
+          <p className="max-w-2xl md:text-right">
+            Constitutional Law • Malay Constitutional Thought • Raja Ali Haji
+            Studies
           </p>
         </div>
       </Container>
