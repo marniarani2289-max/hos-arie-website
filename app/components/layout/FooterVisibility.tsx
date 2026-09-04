@@ -5,7 +5,11 @@ import { usePathname } from "next/navigation";
 export default function FooterVisibility({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/lexnusa") || pathname.startsWith("/hukumpreneur")) return null;
+  if (
+    pathname.startsWith("/lexnusa") ||
+    pathname.startsWith("/hukumpreneur") ||
+    pathname.startsWith("/raja-ali-haji")
+  ) return null;
 
   return <>{children}</>;
 }
