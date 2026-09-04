@@ -109,6 +109,24 @@ export default function HukumPreneurPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111111]/95 text-white backdrop-blur-xl">
+        <nav className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-5 py-2 sm:px-6 lg:px-8" aria-label="Navigasi Hukum Preneur">
+          <Link href="/hukumpreneur" className="inline-flex items-center gap-3">
+            <BrandMark compact />
+            <span className="text-lg font-black lowercase tracking-[-.04em] sm:text-xl">hukum preneur</span>
+          </Link>
+          <div className="hidden items-center gap-7 text-sm font-semibold text-slate-300 md:flex">
+            <Link href="/hukumpreneur" className="transition hover:text-[#69c99b]">Beranda</Link>
+            <Link href="#topik" className="transition hover:text-[#69c99b]">Topik</Link>
+            <Link href="#tentang" className="transition hover:text-[#69c99b]">Tentang</Link>
+            <Link href="/" className="transition hover:text-[#69c99b]">hossibarani.com</Link>
+          </div>
+          <a href={channelUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#69c99b] px-4 py-2.5 text-xs font-bold text-[#101010] transition hover:bg-[#7bd8ac] sm:text-sm">
+            <Play size={16} fill="currentColor" /> <span className="hidden sm:inline">Tonton di</span> YouTube
+          </a>
+        </nav>
+      </header>
+
       <section className="relative isolate overflow-hidden bg-[#111111] px-5 py-16 text-white sm:px-6 md:py-24 lg:px-8">
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_82%_20%,rgba(105,201,155,.22),transparent_28%),radial-gradient(circle_at_15%_90%,rgba(105,201,155,.10),transparent_32%)]" />
         <div className="absolute -right-24 top-12 -z-10 h-80 w-80 rotate-12 rounded-[4rem] border border-white/10" />
@@ -224,7 +242,7 @@ export default function HukumPreneurPage() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section id="tentang" className="scroll-mt-24 bg-white px-5 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#191919] text-white lg:grid-cols-2">
           <div className="p-8 sm:p-12 lg:p-16">
             <p className="text-xs font-extrabold uppercase tracking-[.24em] text-[#69c99b]">Mengapa Hukum Preneur?</p>
@@ -309,7 +327,7 @@ export default function HukumPreneurPage() {
 
           <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-7 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Hukum Preneur. Seluruh hak dilindungi.</p>
-            <p>Bagian dari ekosistem digital hossibarani.com</p>
+            <p>Inisiatif edukasi hukum oleh Dr. Hos Arie Sibarani.</p>
           </div>
         </div>
       </footer>
