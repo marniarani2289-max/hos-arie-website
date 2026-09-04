@@ -10,7 +10,6 @@ import {
   Gavel,
   Lightbulb,
   Play,
-  Scale,
   ShieldCheck,
   Sparkles,
   Users,
@@ -49,7 +48,7 @@ const pillars = [
     label: "Hak Kekayaan Intelektual",
     title: "Lindungi ide dan identitas usaha",
     text: "Memahami pendaftaran dan pelindungan merek, hak cipta, paten, serta aset intelektual yang membangun nilai bisnis.",
-    accent: "bg-red-50 text-red-700",
+    accent: "bg-emerald-50 text-emerald-700",
   },
   {
     icon: Gavel,
@@ -74,6 +73,18 @@ const learning = [
   "Membangun kebiasaan usaha yang sadar hukum",
 ];
 
+function BrandMark({ compact = false }: { compact?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`relative block shrink-0 overflow-hidden rounded-br-[42%] rounded-tl-[42%] bg-[#69c99b] ${compact ? "h-10 w-10" : "h-14 w-14"}`}
+    >
+      <span className="absolute bottom-[17%] left-[22%] top-[18%] w-[18%] rounded-t-full bg-[#101010]" />
+      <span className="absolute bottom-[17%] right-[20%] top-[36%] w-[18%] rounded-t-full bg-[#101010]" />
+    </span>
+  );
+}
+
 export default function HukumPreneurPage() {
   const schema = {
     "@context": "https://schema.org",
@@ -91,25 +102,25 @@ export default function HukumPreneurPage() {
   };
 
   return (
-    <div className="bg-[#f7f6f2] text-slate-950">
+    <div className="bg-[#f4f7f5] text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       <section className="relative isolate overflow-hidden bg-[#111111] px-5 py-16 text-white sm:px-6 md:py-24 lg:px-8">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_82%_20%,rgba(220,38,38,.27),transparent_28%),radial-gradient(circle_at_15%_90%,rgba(245,158,11,.13),transparent_32%)]" />
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_82%_20%,rgba(105,201,155,.22),transparent_28%),radial-gradient(circle_at_15%_90%,rgba(105,201,155,.10),transparent_32%)]" />
         <div className="absolute -right-24 top-12 -z-10 h-80 w-80 rotate-12 rounded-[4rem] border border-white/10" />
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-red-200">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-emerald-200">
               <Video size={17} aria-hidden="true" /> Kanal Edukasi Hukum
             </div>
-            <h1 className="mt-7 max-w-4xl text-5xl font-bold leading-[.94] tracking-[-.05em] sm:text-7xl lg:text-8xl">
-              HUKUM<span className="text-red-500">PRENEUR</span>
+            <h1 className="mt-7 max-w-4xl text-5xl font-black lowercase leading-[.88] tracking-[-.06em] sm:text-7xl lg:text-8xl">
+              hukum<br/><span className="text-[#69c99b]">preneur</span>
             </h1>
             <p className="mt-6 max-w-2xl text-xl font-medium leading-8 text-slate-200 sm:text-2xl">
-              Hukum praktis untuk bisnis yang tumbuh dengan aman.
+              Kelas Para Pelaku Bisnis.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
               Ruang belajar bagi pengusaha dan masyarakat untuk memahami hak,
@@ -121,7 +132,7 @@ export default function HukumPreneurPage() {
                 href={channelUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-bold text-white transition hover:bg-red-500"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#69c99b] px-6 py-4 font-bold text-[#101010] transition hover:bg-[#7bd8ac]"
               >
                 <Play size={19} fill="currentColor" /> Tonton di YouTube
               </a>
@@ -138,9 +149,7 @@ export default function HukumPreneurPage() {
             <div className="rounded-[2rem] border border-white/15 bg-white/[.07] p-5 shadow-2xl backdrop-blur sm:p-7">
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600 shadow-lg shadow-red-950/50">
-                    <Scale size={29} />
-                  </div>
+                  <BrandMark />
                   <div>
                     <p className="text-lg font-bold">hukum preneur</p>
                     <p className="mt-1 text-sm text-slate-400">@hukumpreneur</p>
@@ -154,13 +163,13 @@ export default function HukumPreneurPage() {
                   <p className="mt-1 text-sm text-slate-400">Subscriber</p>
                 </div>
                 <div className="rounded-2xl bg-black/25 p-5">
-                  <p className="text-3xl font-black text-white">33+</p>
+                  <p className="text-3xl font-black text-white">34</p>
                   <p className="mt-1 text-sm text-slate-400">Video edukasi</p>
                 </div>
               </div>
-              <div className="rounded-2xl bg-gradient-to-br from-red-600 to-red-800 p-6">
+              <div className="rounded-2xl bg-gradient-to-br from-[#4eae80] to-[#23724f] p-6">
                 <Video size={36} />
-                <p className="mt-6 text-xs font-bold uppercase tracking-[.2em] text-red-100">
+                <p className="mt-6 text-xs font-bold uppercase tracking-[.2em] text-emerald-100">
                   Misi Hukum Preneur
                 </p>
                 <p className="mt-2 text-xl font-bold leading-snug">
@@ -175,10 +184,10 @@ export default function HukumPreneurPage() {
 
       <section className="border-b border-slate-200 bg-white px-5 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm font-semibold text-slate-600">
-          <span className="inline-flex items-center gap-2"><ShieldCheck className="text-red-600" size={18} /> Praktis</span>
-          <span className="inline-flex items-center gap-2"><Lightbulb className="text-red-600" size={18} /> Mudah dipahami</span>
-          <span className="inline-flex items-center gap-2"><BriefcaseBusiness className="text-red-600" size={18} /> Relevan bagi usaha</span>
-          <span className="inline-flex items-center gap-2"><Users className="text-red-600" size={18} /> Terbuka untuk publik</span>
+          <span className="inline-flex items-center gap-2"><ShieldCheck className="text-emerald-600" size={18} /> Praktis</span>
+          <span className="inline-flex items-center gap-2"><Lightbulb className="text-emerald-600" size={18} /> Mudah dipahami</span>
+          <span className="inline-flex items-center gap-2"><BriefcaseBusiness className="text-emerald-600" size={18} /> Relevan bagi usaha</span>
+          <span className="inline-flex items-center gap-2"><Users className="text-emerald-600" size={18} /> Terbuka untuk publik</span>
         </div>
       </section>
 
@@ -186,7 +195,7 @@ export default function HukumPreneurPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[.24em] text-red-700">Topik Utama</p>
+              <p className="text-xs font-extrabold uppercase tracking-[.24em] text-emerald-700">Topik Utama</p>
               <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">Hukum yang dekat dengan dunia usaha.</h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
@@ -202,7 +211,7 @@ export default function HukumPreneurPage() {
                   <div className={`inline-flex rounded-2xl p-3.5 ${accent}`}><Icon size={27} /></div>
                   <span className="text-sm font-black text-slate-300">0{index + 1}</span>
                 </div>
-                <p className="mt-8 text-xs font-bold uppercase tracking-[.18em] text-red-700">{label}</p>
+                <p className="mt-8 text-xs font-bold uppercase tracking-[.18em] text-emerald-700">{label}</p>
                 <h3 className="mt-3 text-2xl font-bold leading-tight">{title}</h3>
                 <p className="mt-4 leading-7 text-slate-600">{text}</p>
               </article>
@@ -214,7 +223,7 @@ export default function HukumPreneurPage() {
       <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#191919] text-white lg:grid-cols-2">
           <div className="p-8 sm:p-12 lg:p-16">
-            <p className="text-xs font-extrabold uppercase tracking-[.24em] text-red-400">Mengapa Hukum Preneur?</p>
+            <p className="text-xs font-extrabold uppercase tracking-[.24em] text-[#69c99b]">Mengapa Hukum Preneur?</p>
             <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">Bisnis yang baik perlu lebih dari sekadar ide.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-400">
               Ia memerlukan nama yang terlindungi, kesepakatan yang jelas, dan
@@ -222,11 +231,11 @@ export default function HukumPreneurPage() {
               menjaga apa yang telah dibangun.
             </p>
           </div>
-          <div className="bg-red-700 p-8 sm:p-12 lg:p-16">
+          <div className="bg-[#347e5c] p-8 sm:p-12 lg:p-16">
             <p className="font-bold">Melalui Hukum Preneur, Anda dapat:</p>
             <ul className="mt-7 space-y-5">
               {learning.map((item) => (
-                <li key={item} className="flex gap-3 text-base leading-7 text-red-50">
+                <li key={item} className="flex gap-3 text-base leading-7 text-emerald-50">
                   <CheckCircle2 className="mt-1 shrink-0 text-white" size={20} />
                   {item}
                 </li>
@@ -238,14 +247,14 @@ export default function HukumPreneurPage() {
 
       <section className="px-5 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-100 text-red-700"><Sparkles size={29} /></div>
-          <p className="mt-7 text-xs font-extrabold uppercase tracking-[.24em] text-red-700">Mulai Belajar</p>
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700"><Sparkles size={29} /></div>
+          <p className="mt-7 text-xs font-extrabold uppercase tracking-[.24em] text-emerald-700">Mulai Belajar</p>
           <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-6xl">Jadikan hukum sebagai pelindung pertumbuhan bisnis Anda.</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             Kunjungi kanal Hukum Preneur untuk menyaksikan seluruh video dan
             ikuti pembahasan hukum bisnis berikutnya.
           </p>
-          <a href={channelUrl} target="_blank" rel="noreferrer" className="mt-9 inline-flex items-center gap-3 rounded-xl bg-red-600 px-7 py-4 font-bold text-white transition hover:bg-red-700">
+          <a href={channelUrl} target="_blank" rel="noreferrer" className="mt-9 inline-flex items-center gap-3 rounded-xl bg-[#347e5c] px-7 py-4 font-bold text-white transition hover:bg-[#286548]">
             <Video size={21} /> Kunjungi @hukumpreneur <ArrowRight size={18} />
           </a>
         </div>
@@ -256,11 +265,9 @@ export default function HukumPreneurPage() {
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_.65fr_.65fr]">
             <div>
               <Link href="/hukumpreneur" className="inline-flex items-center gap-3 text-white">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600">
-                  <Scale size={23} aria-hidden="true" />
-                </span>
-                <span className="text-xl font-black tracking-[-.03em]">
-                  HUKUM<span className="text-red-500">PRENEUR</span>
+                <BrandMark compact />
+                <span className="text-xl font-black lowercase tracking-[-.03em]">
+                  hukum<span className="text-[#69c99b]">preneur</span>
                 </span>
               </Link>
               <p className="mt-5 max-w-md text-sm leading-7 text-slate-500">
@@ -271,7 +278,7 @@ export default function HukumPreneurPage() {
                 href={channelUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-red-400 transition hover:text-red-300"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#69c99b] transition hover:text-emerald-200"
               >
                 <Video size={18} /> YouTube @hukumpreneur <ArrowRight size={15} />
               </a>
@@ -280,18 +287,18 @@ export default function HukumPreneurPage() {
             <div>
               <h3 className="text-sm font-bold uppercase tracking-[.18em] text-white">Jelajahi</h3>
               <nav className="mt-5 flex flex-col items-start gap-3 text-sm" aria-label="Navigasi Hukum Preneur">
-                <Link href="/hukumpreneur" className="transition hover:text-red-400">Beranda</Link>
-                <Link href="/hukumpreneur#topik" className="transition hover:text-red-400">Topik Utama</Link>
-                <a href={channelUrl} target="_blank" rel="noreferrer" className="transition hover:text-red-400">Semua Video</a>
+                <Link href="/hukumpreneur" className="transition hover:text-[#69c99b]">Beranda</Link>
+                <Link href="/hukumpreneur#topik" className="transition hover:text-[#69c99b]">Topik Utama</Link>
+                <a href={channelUrl} target="_blank" rel="noreferrer" className="transition hover:text-[#69c99b]">Semua Video</a>
               </nav>
             </div>
 
             <div>
               <h3 className="text-sm font-bold uppercase tracking-[.18em] text-white">Ekosistem</h3>
               <nav className="mt-5 flex flex-col items-start gap-3 text-sm" aria-label="Navigasi website utama">
-                <Link href="/" className="transition hover:text-red-400">Dr. Hos Arie Sibarani</Link>
-                <Link href="/about" className="transition hover:text-red-400">Tentang</Link>
-                <Link href="/contact" className="transition hover:text-red-400">Kolaborasi</Link>
+                <Link href="/" className="transition hover:text-[#69c99b]">Dr. Hos Arie Sibarani</Link>
+                <Link href="/about" className="transition hover:text-[#69c99b]">Tentang</Link>
+                <Link href="/contact" className="transition hover:text-[#69c99b]">Kolaborasi</Link>
               </nav>
             </div>
           </div>
