@@ -8,7 +8,8 @@ export default function FooterVisibility({ children }: Readonly<{ children: Reac
   if (
     pathname.startsWith("/lexnusa") ||
     pathname.startsWith("/hukumpreneur") ||
-    pathname.startsWith("/raja-ali-haji")
+    pathname.startsWith("/raja-ali-haji") ||
+    pathname.startsWith("/journal")
   ) return null;
 
   return <>{children}</>;
