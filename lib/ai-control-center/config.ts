@@ -19,7 +19,7 @@ export const ecosystemProjects: EcosystemProject[] = [
   { id: "website", name: "Hossibarani.com", route: "/", category: "web", status: "active" },
   { id: "raja-ali-haji", name: "Raja Ali Haji Institute", route: "/raja-ali-haji", category: "education", status: "active" },
   { id: "jmcs", name: "Journal / JMCS", route: "/journal", category: "journal", status: "active" },
-  { id: "simaks", name: "SIMAKS", route: "/simaks", category: "education", status: "building" },
+  { id: "simaks", name: "SIMAKS", route: "/simak", category: "education", status: "building" },
   { id: "lexnusa", name: "LexNusa", route: "/lexnusa", category: "legal", status: "active" },
   { id: "constitutional-justice", name: "Constitutional Justice Initiative", route: "/constitutional-justice", category: "legal", status: "active" },
   { id: "digital-archive", name: "Digital Archive", route: "/digital-archive", category: "research", status: "active" },
