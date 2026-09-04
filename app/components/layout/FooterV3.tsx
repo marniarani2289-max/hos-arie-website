@@ -24,7 +24,7 @@ const initiatives = [
   { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
   { name: "JMCS Journal", href: "/journal" },
   { name: "Hukum Preneur", href: "/hukumpreneur" },
-  { name: "SIMAKS", href: "/simaks" },
+  { name: "SIMAKS", href: "/simak" },
   { name: "LexNusa AI", href: "/lexnusa" },
 ];
 
