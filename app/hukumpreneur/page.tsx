@@ -74,14 +74,14 @@ const learning = [
   "Membangun kebiasaan usaha yang sadar hukum",
 ];
 
-function BrandMark({ compact = false }: { compact?: boolean }) {
+function BrandMark({ compact = false, hero = false }: { compact?: boolean; hero?: boolean }) {
   return (
     <Image
       src="/images/hukumpreneur-logo.png"
       alt="Logo resmi Hukum Preneur"
       width={180}
       height={180}
-      className={`shrink-0 object-contain ${compact ? "h-10 w-10" : "h-14 w-14"}`}
+      className={`shrink-0 object-contain ${hero ? "h-24 w-24 sm:h-32 sm:w-32" : compact ? "h-10 w-10" : "h-14 w-14"}`}
     />
   );
 }
@@ -117,9 +117,12 @@ export default function HukumPreneurPage() {
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-emerald-200">
               <Video size={17} aria-hidden="true" /> Kanal Edukasi Hukum
             </div>
-            <h1 className="mt-7 max-w-4xl text-5xl font-black lowercase leading-[.88] tracking-[-.06em] sm:text-7xl lg:text-8xl">
-              hukum<br/><span className="text-[#69c99b]">preneur</span>
-            </h1>
+            <div className="mt-8 flex items-center gap-5 sm:gap-8">
+              <BrandMark hero />
+              <h1 className="text-5xl font-black lowercase leading-[.82] tracking-[-.06em] text-white sm:text-7xl lg:text-8xl">
+                hukum<br/><span>preneur</span>
+              </h1>
+            </div>
             <p className="mt-6 max-w-2xl text-xl font-medium leading-8 text-slate-200 sm:text-2xl">
               Kelas Para Pelaku Bisnis.
             </p>
@@ -267,8 +270,8 @@ export default function HukumPreneurPage() {
             <div>
               <Link href="/hukumpreneur" className="inline-flex items-center gap-3 text-white">
                 <BrandMark compact />
-                <span className="text-xl font-black lowercase tracking-[-.03em]">
-                  hukum<span className="text-[#69c99b]">preneur</span>
+                <span className="text-xl font-black lowercase tracking-[-.03em] text-white">
+                  hukum preneur
                 </span>
               </Link>
               <p className="mt-5 max-w-md text-sm leading-7 text-slate-500">
