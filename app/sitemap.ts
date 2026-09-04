@@ -31,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/lexnusa/evidence", 0.8, "monthly"],
     ["/lexnusa/lex-eval", 0.85, "monthly"],
     ["/lexnusa/lex-eval-sample", 0.75, "monthly"],
-    ["/lexnusa/pilot", 0.8, "monthly"],
     ["/hw-kepri", 0.8, "monthly"],
     ["/digital-archive", 0.75, "monthly"],
     ["/gallery", 0.7, "monthly"],

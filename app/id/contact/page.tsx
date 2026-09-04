@@ -4,6 +4,14 @@ import { Camera, GraduationCap, Mail, MapPin, Users, Video } from "lucide-react"
 export const metadata: Metadata = {
   title: "Kontak",
   description: "Hubungi Dr. Hos Arie Sibarani untuk kolaborasi akademik, penelitian, konferensi, dan undangan berbicara.",
+  alternates: {
+    canonical: "/id/contact",
+    languages: {
+      id: "/id/contact",
+      en: "/contact",
+      "x-default": "/contact",
+    },
+  },
 };
 
 const linkClass = "rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-amber-400";
