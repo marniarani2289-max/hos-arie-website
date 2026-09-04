@@ -1,3 +1,5 @@
+import { Camera, Users } from "lucide-react";
+
 export default function Contact() {
   return (
     <section id="contact" className="scroll-mt-24 bg-gray-950 px-5 py-24 text-white sm:px-8">
@@ -24,6 +26,15 @@ export default function Contact() {
           </p>
           <p>Location: Indonesia</p>
           <p>Research Areas: Law, Constitutional Theory, Malay Civilization</p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href="https://www.instagram.com/hossibarani/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-gray-700 px-4 py-3 font-semibold text-gray-200 transition hover:border-pink-400 hover:text-pink-300" aria-label="Official Instagram of Dr. Hos Arie Sibarani">
+            <Camera size={19} /> Instagram
+          </a>
+          <a href="https://www.facebook.com/hossibarani/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-gray-700 px-4 py-3 font-semibold text-gray-200 transition hover:border-blue-400 hover:text-blue-300" aria-label="Official Facebook of Dr. Hos Arie Sibarani">
+            <Users size={19} /> Facebook
+          </a>
         </div>
       </div>
     </section>

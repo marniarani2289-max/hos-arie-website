@@ -54,6 +54,8 @@ export default function PersonSchema() {
 
     sameAs: [
       "https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en",
+      "https://www.instagram.com/hossibarani/",
+      "https://www.facebook.com/hossibarani/",
       "https://www.hossibarani.com"
     ],
 

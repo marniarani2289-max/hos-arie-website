@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap, Video } from "lucide-react";
+import { Camera, GraduationCap, Users, Video } from "lucide-react";
 import Container from "../shared/Container";
 
 const researchAreas = [
@@ -32,6 +32,8 @@ export default function FooterV3() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-300"><GraduationCap size={18} /> Google Scholar</a>
               <a href="https://www.youtube.com/@hukumpreneur" target="_blank" rel="noopener noreferrer" aria-label="YouTube Hukum Preneur" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-red-400 hover:text-red-300"><Video size={18} /> YouTube</a>
+              <a href="https://www.instagram.com/hossibarani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram resmi Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-pink-400 hover:text-pink-300"><Camera size={18} /> Instagram</a>
+              <a href="https://www.facebook.com/hossibarani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook resmi Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-blue-400 hover:text-blue-300"><Users size={18} /> Facebook</a>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
