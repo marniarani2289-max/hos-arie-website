@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -75,13 +76,13 @@ const learning = [
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
-    <span
-      aria-hidden="true"
-      className={`relative block shrink-0 overflow-hidden rounded-br-[42%] rounded-tl-[42%] bg-[#69c99b] ${compact ? "h-10 w-10" : "h-14 w-14"}`}
-    >
-      <span className="absolute bottom-[17%] left-[22%] top-[18%] w-[18%] rounded-t-full bg-[#101010]" />
-      <span className="absolute bottom-[17%] right-[20%] top-[36%] w-[18%] rounded-t-full bg-[#101010]" />
-    </span>
+    <Image
+      src="/images/hukumpreneur-logo.png"
+      alt="Logo resmi Hukum Preneur"
+      width={180}
+      height={180}
+      className={`shrink-0 object-contain ${compact ? "h-10 w-10" : "h-14 w-14"}`}
+    />
   );
 }
 
