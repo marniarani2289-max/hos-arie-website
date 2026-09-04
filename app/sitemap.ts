@@ -35,6 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/digital-archive", 0.75, "monthly"],
     ["/gallery", 0.7, "monthly"],
     ["/contact", 0.7, "yearly"],
+    ["/id", 0.9, "weekly"],
+    ["/id/about", 0.8, "monthly"],
+    ["/id/research", 0.9, "monthly"],
+    ["/id/publications", 0.85, "monthly"],
+    ["/id/contact", 0.7, "yearly"],
   ];
 
   return core.map(([path, priority, changeFrequency]) => ({

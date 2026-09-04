@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GraduationCap, Video } from "lucide-react";
 import Container from "../shared/Container";
 
 const researchAreas = [
@@ -27,6 +28,11 @@ export default function FooterV3() {
               Malay Ethical Constitutionalism, indigenous constitutionalism,
               and comparative constitutional law.
             </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="https://scholar.google.com/citations?user=teno_PYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Dr. Hos Arie Sibarani" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-300"><GraduationCap size={18} /> Google Scholar</a>
+              <a href="https://www.youtube.com/@hukumpreneur" target="_blank" rel="noopener noreferrer" aria-label="YouTube Hukum Preneur" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-red-400 hover:text-red-300"><Video size={18} /> YouTube</a>
+            </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               <div>

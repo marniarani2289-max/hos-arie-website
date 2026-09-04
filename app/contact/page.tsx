@@ -5,7 +5,7 @@ import LexNusaPilotLead from "./LexNusaPilotLead";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Dr. Hos Arie Sibarani for academic collaboration, research, lectures, conferences, media inquiries, and LexNusa Legal AI projects.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/contact", languages: { id: "/id/contact", en: "/contact" } },
 };
 
 type Search = Record<string, string | string[] | undefined>;

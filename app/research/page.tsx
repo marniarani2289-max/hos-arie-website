@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "/research",
+    languages: { id: "/id/research", en: "/research" },
   },
 
   openGraph: {

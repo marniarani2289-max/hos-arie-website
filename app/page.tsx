@@ -7,7 +7,7 @@ import SelectedWork from "./components/home/SelectedWork";
 export const metadata: Metadata = {
   title: "Constitutional Law Scholar & Raja Ali Haji Research",
   description: "Explore Dr. Hos Arie Sibarani's constitutional-law research, Malay Ethical Constitutionalism, Raja Ali Haji Institute learning programmes, publications, and collaboration pathways.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { id: "/id", en: "/" } },
 };
 
 export default function Home() {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Academic Publications",
   description:
     "Academic publications, journal articles, books, and research by Dr. Hos Arie Sibarani on constitutional law, Raja Ali Haji, Malay constitutional thought, and governance.",
-  alternates: { canonical: "/publications" },
+  alternates: { canonical: "/publications", languages: { id: "/id/publications", en: "/publications" } },
   openGraph: {
     title: "Academic Publications | Dr. Hos Arie Sibarani",
     description:
