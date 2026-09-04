@@ -12,7 +12,8 @@ export default function FooterVisibility({ children }: Readonly<{ children: Reac
     pathname.startsWith("/journal") ||
     pathname.startsWith("/hw-kepri") ||
     pathname.startsWith("/constitutional-justice") ||
-    pathname.startsWith("/digital-archive")
+    pathname.startsWith("/digital-archive") ||
+    pathname.startsWith("/simak")
   ) return null;
 
   return <>{children}</>;
