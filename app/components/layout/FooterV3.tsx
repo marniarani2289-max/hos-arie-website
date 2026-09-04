@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowUpRight,
-  Facebook,
+  Camera,
   GraduationCap,
-  Instagram,
+  Users,
   Mail,
   Video,
 } from "lucide-react";
@@ -42,12 +42,12 @@ const socialLinks = [
   {
     name: "Instagram",
     href: "https://www.instagram.com/hossibarani/",
-    icon: Instagram,
+    icon: Camera,
   },
   {
     name: "Facebook",
     href: "https://www.facebook.com/hossibarani/",
-    icon: Facebook,
+    icon: Users,
   },
 ];
 
