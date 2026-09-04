@@ -250,6 +250,58 @@ export default function HukumPreneurPage() {
           </a>
         </div>
       </section>
+
+      <footer className="border-t border-white/10 bg-[#0d0d0d] px-5 text-slate-400 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl py-14 sm:py-16">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_.65fr_.65fr]">
+            <div>
+              <Link href="/hukumpreneur" className="inline-flex items-center gap-3 text-white">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600">
+                  <Scale size={23} aria-hidden="true" />
+                </span>
+                <span className="text-xl font-black tracking-[-.03em]">
+                  HUKUM<span className="text-red-500">PRENEUR</span>
+                </span>
+              </Link>
+              <p className="mt-5 max-w-md text-sm leading-7 text-slate-500">
+                Edukasi hukum praktis untuk membantu pengusaha dan masyarakat
+                melindungi karya, merek, serta bisnis yang sedang dibangun.
+              </p>
+              <a
+                href={channelUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-red-400 transition hover:text-red-300"
+              >
+                <Video size={18} /> YouTube @hukumpreneur <ArrowRight size={15} />
+              </a>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-[.18em] text-white">Jelajahi</h3>
+              <nav className="mt-5 flex flex-col items-start gap-3 text-sm" aria-label="Navigasi Hukum Preneur">
+                <Link href="/hukumpreneur" className="transition hover:text-red-400">Beranda</Link>
+                <Link href="/hukumpreneur#topik" className="transition hover:text-red-400">Topik Utama</Link>
+                <a href={channelUrl} target="_blank" rel="noreferrer" className="transition hover:text-red-400">Semua Video</a>
+              </nav>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-[.18em] text-white">Ekosistem</h3>
+              <nav className="mt-5 flex flex-col items-start gap-3 text-sm" aria-label="Navigasi website utama">
+                <Link href="/" className="transition hover:text-red-400">Dr. Hos Arie Sibarani</Link>
+                <Link href="/about" className="transition hover:text-red-400">Tentang</Link>
+                <Link href="/contact" className="transition hover:text-red-400">Kolaborasi</Link>
+              </nav>
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-7 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} Hukum Preneur. Seluruh hak dilindungi.</p>
+            <p>Bagian dari ekosistem digital hossibarani.com</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
