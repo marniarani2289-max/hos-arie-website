@@ -8,7 +8,7 @@ import {
   GraduationCap,
   Instagram,
   Mail,
-  Youtube,
+  Video,
 } from "lucide-react";
 import Container from "../shared/Container";
 
@@ -37,7 +37,7 @@ const socialLinks = [
   {
     name: "YouTube",
     href: "https://www.youtube.com/@hukumpreneur",
-    icon: Youtube,
+    icon: Video,
   },
   {
     name: "Instagram",
