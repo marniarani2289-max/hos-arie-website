@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/opinions", 0.9, "weekly"],
     ["/journal", 0.8, "monthly"],
     ["/raja-ali-haji", 0.95, "monthly"],
+    ["/ai-lab", 0.9, "monthly"],
     ["/raja-ali-haji/programmes/pemikiran-raja-ali-haji", 0.9, "monthly"],
     ["/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-1", 0.8, "monthly"],
     ["/raja-ali-haji/programmes/pemikiran-raja-ali-haji/module-2", 0.8, "monthly"],
