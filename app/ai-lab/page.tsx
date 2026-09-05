@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  Activity,
   ArrowRight,
   Bot,
+  CalendarClock,
   CheckCircle2,
+  ExternalLink,
   FlaskConical,
   Gauge,
+  GitCommitHorizontal,
   Layers3,
+  NotebookText,
   ShieldCheck,
   Wrench,
 } from "lucide-react";
@@ -31,6 +36,10 @@ type Lab = {
   technology: string;
   testing: string;
   result: string;
+  lastTested: string;
+  currentMetric: string;
+  whatChanged: string;
+  experimentNotes: string;
   href: string;
   linkLabel: string;
 };
@@ -52,6 +61,12 @@ const labs: Lab[] = [
       "Pilot Round E01–E05 tests three models in one run each, producing 15 actual outputs before expansion to the full empirical corpus.",
     result:
       "The benchmark framework and public sample can be opened and reviewed. Empirical validation remains in the pilot stage.",
+    lastTested: "05 September 2026",
+    currentMetric: "Pilot protocol: 5 questions × 3 models × 1 run = 15 planned outputs.",
+    whatChanged:
+      "The benchmark moved from a conceptual framework to a smaller empirical pilot before the full 180-output study.",
+    experimentNotes:
+      "Scores will be reported only after the 15 outputs have been captured, reviewed, and checked for evaluator consistency.",
     href: "/lexnusa/lex-eval",
     linkLabel: "Review LEX-EVAL™",
   },
@@ -71,6 +86,12 @@ const labs: Lab[] = [
       "Readiness is assessed through LEX-EVAL™, sample deliverables, controlled pilot requests, and explicit review checkpoints.",
     result:
       "The service architecture, evidence standard, packages, pilot pathway, and sample benchmark are publicly documented.",
+    lastTested: "05 September 2026",
+    currentMetric: "Public evidence pathway available; client pilot performance baseline not yet published.",
+    whatChanged:
+      "The project expanded from a research-assistant concept into a supervised pilot service with evidence and delivery checkpoints.",
+    experimentNotes:
+      "The next meaningful measure is not traffic, but whether pilot outputs remain traceable to authoritative legal sources.",
     href: "/lexnusa/evidence",
     linkLabel: "Inspect the evidence standard",
   },
@@ -90,6 +111,12 @@ const labs: Lab[] = [
       "Access is tested by role: participants see authorised school data, while verification and administrative views remain restricted to approved users.",
     result:
       "A public product entry point and account flow are available. Institutional onboarding and role verification remain pilot activities.",
+    lastTested: "05 September 2026",
+    currentMetric: "Four access roles defined: school leader, accreditation team, supervisor, and education authority.",
+    whatChanged:
+      "Public self-registration was extended with role selection, school claims, team invitations, and external verification boundaries.",
+    experimentNotes:
+      "Pilot validation must confirm that each role can complete its work without seeing records outside its authorised school scope.",
     href: "/simak",
     linkLabel: "Open SIMAKS",
   },
@@ -109,6 +136,12 @@ const labs: Lab[] = [
       "Completion requires all mandatory module activities, a minimum quiz score of 70 in each module, and a final reflection in Module 8.",
     result:
       "All eight modules are publicly available, while participant progress and certification operate through authenticated accounts.",
+    lastTested: "05 September 2026",
+    currentMetric: "8 learning modules available; certificate threshold requires ≥70 on every required module quiz.",
+    whatChanged:
+      "The programme progressed from public learning content to authenticated progress, assessment, reflection, and certificate validation.",
+    experimentNotes:
+      "Learning impact will be evaluated through baseline–endline change, completion, quiz results, reflection quality, and participant feedback.",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
     linkLabel: "Review the learning programme",
   },
@@ -128,6 +161,12 @@ const labs: Lab[] = [
       "The current phase is deliberately read-only: agents may audit GitHub, Vercel, website health, and SEO but may not commit, merge, deploy, or alter production automatically.",
     result:
       "The access boundary and control-centre foundation are established. Autonomous production actions remain disabled by design.",
+    lastTested: "05 September 2026",
+    currentMetric: "Read-only operating boundary active; 0 autonomous commit, merge, or production deployment permissions.",
+    whatChanged:
+      "The concept was narrowed into a governed control centre with specialised diagnostics and explicit production restrictions.",
+    experimentNotes:
+      "Permission expansion will be considered only after audit quality, traceability, and safe human approval paths are demonstrated.",
     href: "/control-center",
     linkLabel: "View the control centre",
   },
@@ -147,6 +186,12 @@ const labs: Lab[] = [
       "The pilot tracks module completion, quiz thresholds, reflection submission, weekly progress, baseline–endline change, and participant evaluation.",
     result:
       "Participant and administrator workflows are implemented for the first Raja Ali Haji Institute pilot cohort and await live cohort validation.",
+    lastTested: "05 September 2026",
+    currentMetric: "4-week cohort workflow with weekly monitoring and certificate eligibility checks prepared for pilot validation.",
+    whatChanged:
+      "The learning platform gained weekly messages, lagging-participant reminders, eligibility rules, evaluation, and executive reporting.",
+    experimentNotes:
+      "The first live cohort will establish delivery, engagement, completion, reminder-response, and baseline–endline benchmarks.",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
     linkLabel: "See the pilot programme",
   },
@@ -259,13 +304,57 @@ export default function AiLabPage() {
                 })}
               </div>
 
-              <div className="flex flex-col gap-4 bg-slate-50 px-6 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+              <div className="border-t border-slate-800 bg-slate-950 px-6 py-7 text-white lg:px-8">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
+                  Experiment record
+                </p>
+                <dl className="mt-6 grid gap-7 md:grid-cols-2 xl:grid-cols-5">
+                  <div>
+                    <dt className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                      <CalendarClock size={17} className="text-amber-300" aria-hidden="true" />
+                      Last tested
+                    </dt>
+                    <dd className="mt-3 text-sm leading-6 text-slate-400">{lab.lastTested}</dd>
+                  </div>
+                  <div>
+                    <dt className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                      <Activity size={17} className="text-amber-300" aria-hidden="true" />
+                      Current metric
+                    </dt>
+                    <dd className="mt-3 text-sm leading-6 text-slate-400">{lab.currentMetric}</dd>
+                  </div>
+                  <div>
+                    <dt className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                      <GitCommitHorizontal size={17} className="text-amber-300" aria-hidden="true" />
+                      What changed
+                    </dt>
+                    <dd className="mt-3 text-sm leading-6 text-slate-400">{lab.whatChanged}</dd>
+                  </div>
+                  <div>
+                    <dt className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                      <ExternalLink size={17} className="text-amber-300" aria-hidden="true" />
+                      Evidence / live system
+                    </dt>
+                    <dd className="mt-3">
+                      <Link href={lab.href} className="inline-flex items-center gap-2 text-sm font-semibold leading-6 text-white transition hover:text-amber-300">
+                        {lab.linkLabel}<ArrowRight size={15} aria-hidden="true" />
+                      </Link>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                      <NotebookText size={17} className="text-amber-300" aria-hidden="true" />
+                      Experiment notes
+                    </dt>
+                    <dd className="mt-3 text-sm leading-6 text-slate-400">{lab.experimentNotes}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="flex bg-slate-50 px-6 py-5 lg:px-8">
                 <p className="inline-flex items-center gap-2 text-sm text-slate-500">
                   <ShieldCheck size={17} aria-hidden="true" /> Human review remains part of the system.
                 </p>
-                <Link href={lab.href} className="inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-amber-700">
-                  {lab.linkLabel}<ArrowRight size={17} aria-hidden="true" />
-                </Link>
               </div>
             </article>
           ))}
