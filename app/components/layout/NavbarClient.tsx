@@ -21,7 +21,11 @@ export default function NavbarClient({ participant }: { participant: Participant
   const languagePath = bilingualPaths.includes(basePath) ? basePath : "/";
   const localize = (href: string) => isIndonesian && bilingualPaths.includes(href) ? `/id${href === "/" ? "" : href}` : href;
 
-  if (pathname.startsWith("/lexnusa") || pathname.startsWith("/hukumpreneur")) return null;
+  if (
+    pathname.startsWith("/lexnusa") ||
+    pathname.startsWith("/hukumpreneur") ||
+    pathname.startsWith("/ai-lab")
+  ) return null;
 
   return <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
     <nav className="mx-auto flex min-h-16 max-w-[96rem] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
