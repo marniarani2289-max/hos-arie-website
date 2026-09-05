@@ -28,6 +28,21 @@ export const metadata: Metadata = {
       "Belajar pemikiran Raja Ali Haji dalam program empat minggu yang terstruktur dan didampingi.",
     url: "https://www.hossibarani.com/raja-ali-haji/pilot-cohort",
     type: "website",
+    images: [
+      {
+        url: "https://www.hossibarani.com/images/og/rahi-pilot-cohort.png",
+        width: 1200,
+        height: 630,
+        alt: "Pilot Cohort 1 Raja Ali Haji Institute, 5 Oktober sampai 1 November 2026",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pilot Cohort 1 | Raja Ali Haji Institute",
+    description:
+      "Belajar pemikiran Raja Ali Haji dalam program empat minggu yang terstruktur dan didampingi.",
+    images: ["https://www.hossibarani.com/images/og/rahi-pilot-cohort.png"],
   },
 };
 
