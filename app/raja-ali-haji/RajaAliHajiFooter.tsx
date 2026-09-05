@@ -7,13 +7,14 @@ import { ArrowUpRight, BookOpen, LogIn, Mail } from "lucide-react";
 
 const instituteLinks = [
   ["Beranda Institute", "/raja-ali-haji"],
+  ["Pilot Cohort 1", "/raja-ali-haji/pilot-cohort"],
   ["Program Pembelajaran", "/raja-ali-haji/programmes/pemikiran-raja-ali-haji"],
   ["Arsip Digital", "/digital-archive"],
   ["Journal of Malay Constitutional Studies", "/journal"],
 ] as const;
 
 const participationLinks = [
-  ["Daftar sebagai peserta", "/register"],
+  ["Daftar sebagai peserta", "/register?cohort=RAHI-PILOT-01"],
   ["Masuk peserta", "/login"],
   ["Kontak dan kolaborasi", "/contact"],
   ["Website Dr. Hos Arie Sibarani", "/"],

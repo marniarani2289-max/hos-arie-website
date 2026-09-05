@@ -171,6 +171,9 @@ export default function RajaAliHajiInstitutePage() {
                 Malay thought into contemporary and global conversations.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
+                <Link href="/raja-ali-haji/pilot-cohort" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
+                  Pilot Cohort 1 <ArrowRight size={18} />
+                </Link>
                 <Link href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-500">
                   Mulai Belajar <ArrowRight size={18} />
                 </Link>
@@ -399,7 +402,6 @@ export default function RajaAliHajiInstitutePage() {
     </div>
   );
 }
-
 
 
 
