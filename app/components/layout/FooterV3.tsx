@@ -22,11 +22,21 @@ const academicLinks = [
 
 const initiatives = [
   { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
-  { name: "AI & Digital Systems Lab", href: "/ai-lab" },
   { name: "JMCS Journal", href: "/journal" },
   { name: "Hukum Preneur", href: "/hukumpreneur" },
+  { name: "Constitutional Justice", href: "/constitutional-justice" },
+  { name: "Hizbul Wathan Kepri", href: "/hw-kepri" },
+];
+
+const digitalSystems = [
+  { name: "AI & Digital Systems Lab", href: "/ai-lab" },
+  { name: "LEX-EVAL™ Benchmark", href: "/lexnusa/lex-eval" },
+  { name: "LexNusa Legal AI", href: "/lexnusa" },
   { name: "SIMAKS", href: "/simak" },
-  { name: "LexNusa AI", href: "/lexnusa" },
+  {
+    name: "Raja Ali Haji Learning Platform",
+    href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
+  },
 ];
 
 const socialLinks = [
@@ -61,7 +71,7 @@ export default function FooterV3() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
       <Container>
-        <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.35fr_0.75fr_0.9fr] lg:gap-14">
+        <div className="grid gap-12 py-16 sm:grid-cols-2 sm:py-20 lg:grid-cols-[1.3fr_0.7fr_0.85fr_0.8fr] lg:gap-10">
           <div>
             <Link
               href="/"
@@ -77,9 +87,9 @@ export default function FooterV3() {
             </p>
 
             <p className="mt-6 max-w-xl text-base leading-8 text-slate-400">
-              Research, teaching, and public scholarship on constitutional law,
-              Malay constitutional thought, and the intellectual legacy of Raja
-              Ali Haji.
+              Research, teaching, public scholarship, and evidence-led digital
+              systems connecting constitutional law, Malay thought, education,
+              and responsible AI.
             </p>
 
             <Link
@@ -143,6 +153,40 @@ export default function FooterV3() {
             </ul>
           </nav>
 
+          <nav aria-labelledby="footer-digital-heading">
+            <h2
+              id="footer-digital-heading"
+              className="text-sm font-bold uppercase tracking-[0.2em] text-white"
+            >
+              Digital Systems
+            </h2>
+            <ul className="mt-6 space-y-3.5">
+              {digitalSystems.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`inline-flex items-center gap-1.5 text-sm leading-6 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+                        active
+                          ? "font-semibold text-amber-300"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                      <ArrowUpRight
+                        size={14}
+                        className={active ? "text-amber-400" : "text-slate-600"}
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
           <nav aria-labelledby="footer-initiatives-heading">
             <h2
               id="footer-initiatives-heading"
@@ -177,7 +221,7 @@ export default function FooterV3() {
           </p>
           <p className="max-w-2xl md:text-right">
             Constitutional Law • Malay Constitutional Thought • Raja Ali Haji
-            Studies
+            Studies • Responsible AI &amp; Digital Systems
           </p>
         </div>
       </Container>
