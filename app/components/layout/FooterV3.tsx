@@ -22,6 +22,7 @@ const academicLinks = [
 
 const initiatives = [
   { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
+  { name: "AI & Digital Systems Lab", href: "/ai-lab" },
   { name: "JMCS Journal", href: "/journal" },
   { name: "Hukum Preneur", href: "/hukumpreneur" },
   { name: "SIMAKS", href: "/simak" },
