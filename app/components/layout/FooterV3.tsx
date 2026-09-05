@@ -71,7 +71,7 @@ export default function FooterV3() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
       <Container>
-        <div className="grid gap-12 py-16 sm:grid-cols-2 sm:py-20 lg:grid-cols-[1.3fr_0.7fr_0.85fr_0.8fr] lg:gap-10">
+        <div className="grid gap-12 py-14 sm:py-16 lg:grid-cols-[1.15fr_0.65fr_1.35fr] lg:gap-14">
           <div>
             <Link
               href="/"
@@ -86,10 +86,9 @@ export default function FooterV3() {
               Constitutional Law Scholar
             </p>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-slate-400">
-              Research, teaching, public scholarship, and evidence-led digital
-              systems connecting constitutional law, Malay thought, education,
-              and responsible AI.
+            <p className="mt-5 max-w-lg text-base leading-7 text-slate-400">
+              Constitutional scholarship, Malay intellectual thought, and
+              responsible digital systems for research, law, and education.
             </p>
 
             <Link
@@ -101,7 +100,7 @@ export default function FooterV3() {
               <ArrowUpRight size={17} aria-hidden="true" />
             </Link>
 
-            <div className="mt-8 flex flex-wrap gap-3" aria-label="Official social media">
+            <div className="mt-7 flex flex-wrap gap-3" aria-label="Official social media">
               {socialLinks.map(({ name, href, icon: Icon }) => (
                 <a
                   key={name}
@@ -153,64 +152,64 @@ export default function FooterV3() {
             </ul>
           </nav>
 
-          <nav aria-labelledby="footer-digital-heading">
+          <nav aria-labelledby="footer-ecosystem-heading">
             <h2
-              id="footer-digital-heading"
+              id="footer-ecosystem-heading"
               className="text-sm font-bold uppercase tracking-[0.2em] text-white"
             >
-              Digital Systems
+              Ecosystem
             </h2>
-            <ul className="mt-6 space-y-3.5">
-              {digitalSystems.map((item) => {
-                const active = isActive(item.href);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={`inline-flex items-center gap-1.5 text-sm leading-6 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
-                        active
-                          ? "font-semibold text-amber-300"
-                          : "text-slate-400 hover:text-white"
-                      }`}
-                    >
-                      {item.name}
-                      <ArrowUpRight
-                        size={14}
-                        className={active ? "text-amber-400" : "text-slate-600"}
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+            <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:gap-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-amber-400">
+                  Digital Systems
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {digitalSystems.map((item) => {
+                    const active = isActive(item.href);
+                    return (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          className={`inline-flex items-center gap-1.5 text-sm leading-6 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+                            active
+                              ? "font-semibold text-amber-300"
+                              : "text-slate-400 hover:text-white"
+                          }`}
+                        >
+                          {item.name}
+                          <ArrowUpRight
+                            size={13}
+                            className={active ? "text-amber-400" : "text-slate-600"}
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
 
-          <nav aria-labelledby="footer-initiatives-heading">
-            <h2
-              id="footer-initiatives-heading"
-              className="text-sm font-bold uppercase tracking-[0.2em] text-white"
-            >
-              Initiatives
-            </h2>
-            <ul className="mt-6 space-y-3.5">
-              {initiatives.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-1.5 text-sm leading-6 text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
-                  >
-                    {item.name}
-                    <ArrowUpRight
-                      size={14}
-                      className="text-slate-600"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-slate-300">
+                  Institutions
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {initiatives.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 text-sm leading-6 text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                      >
+                        {item.name}
+                        <ArrowUpRight size={13} className="text-slate-600" aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </nav>
         </div>
 
@@ -219,9 +218,8 @@ export default function FooterV3() {
             © {new Date().getFullYear()} Dr. Hos Arie Sibarani. All rights
             reserved.
           </p>
-          <p className="max-w-2xl md:text-right">
-            Constitutional Law • Malay Constitutional Thought • Raja Ali Haji
-            Studies • Responsible AI &amp; Digital Systems
+          <p className="md:text-right">
+            Constitutional Law • Malay Thought • Responsible Digital Systems
           </p>
         </div>
       </Container>
