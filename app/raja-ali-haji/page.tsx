@@ -370,8 +370,8 @@ export default function RajaAliHajiInstitutePage() {
           <div><Eyebrow>Roadmap 2026â€“2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
           <div>
             {[
-              ["2026", "Foundation", "Public institute page, inaugural lectures, foundational courses, and learning community."],
-              ["2027", "Learning Platform", "Dedicated LMS, structured course pathways, learner accounts, and digital certificates."],
+              ["2026", "Learning Platform & Pilot Cohort", "Dedicated LMS, structured course pathways, learner accounts, digital certificates, and the inaugural pilot cohort."],
+              ["2027", "Programme Expansion", "Additional course pathways, facilitator support, cohort management, and institutional dashboards."],
               ["2028", "Research and Fellowship", "Collaborative projects, visiting scholars, fellowships, and working-paper series."],
               ["2029â€“2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
             ].map(([year, title, text]) => (
