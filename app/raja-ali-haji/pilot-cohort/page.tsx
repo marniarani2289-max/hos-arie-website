@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.hossibarani.com/images/og/rahi-pilot-cohort.png",
+        url: "https://www.hossibarani.com/images/og/rahi-pilot-cohort-v2.jpg",
         width: 1200,
         height: 630,
         alt: "Pilot Cohort 1 Raja Ali Haji Institute, 5 Oktober sampai 1 November 2026",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Pilot Cohort 1 | Raja Ali Haji Institute",
     description:
       "Belajar pemikiran Raja Ali Haji dalam program empat minggu yang terstruktur dan didampingi.",
-    images: ["https://www.hossibarani.com/images/og/rahi-pilot-cohort.png"],
+    images: ["https://www.hossibarani.com/images/og/rahi-pilot-cohort-v2.jpg"],
   },
 };
 
