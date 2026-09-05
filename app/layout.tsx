@@ -9,6 +9,7 @@ import FooterV3 from "./components/layout/FooterV3";
 import FooterVisibility from "./components/layout/FooterVisibility";
 import PersonSchema from "./components/seo/PersonSchema";
 import ProgressSync from "./components/learning/ProgressSync";
+import PwaBootstrap from "./components/pwa/PwaBootstrap";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export const metadata: Metadata = {
   creator: "Dr. Hos Arie Sibarani",
   publisher: "Dr. Hos Arie Sibarani",
   applicationName: "Dr. Hos Arie Sibarani",
+  manifest: "/manifest.webmanifest",
   category: "education",
   referrer: "origin-when-cross-origin",
   formatDetection: {
@@ -129,6 +131,7 @@ export default function RootLayout({
       >
         <PersonSchema />
         <ProgressSync />
+        <PwaBootstrap />
 
         <Navbar />
 
