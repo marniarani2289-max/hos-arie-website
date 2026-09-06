@@ -1,4 +1,5 @@
-import { ShieldCheck, Activity, BrainCircuit, FolderKanban, LockKeyhole } from "lucide-react";
+import Link from "next/link";
+import { ShieldCheck, Activity, BrainCircuit, FolderKanban, LockKeyhole, ArrowRight } from "lucide-react";
 import { requireControlCenterAccess } from "@/lib/ai-control-center/access";
 import { agents, controlCenterVersion, ecosystemProjects, permissionPolicy } from "@/lib/ai-control-center/config";
 
@@ -19,6 +20,9 @@ export default async function ControlCenterPage() {
             <p className="text-xs font-black uppercase tracking-[.28em] text-amber-700">Hossibarani Digital Ecosystem</p>
             <h1 className="mt-4 text-4xl font-black sm:text-6xl">AI Control Center</h1>
             <p className="mt-4 max-w-3xl leading-7 text-slate-600">Fase 1 membangun sumber konteks tunggal, daftar agent, inventaris proyek, dan permission model sebelum otomatisasi diaktifkan.</p>
+            <Link href="/control-center/ai-os" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#111526] px-5 py-3 text-sm font-black text-white transition hover:opacity-90">
+              Open Human-Controlled AI-OS <ArrowRight size={17} />
+            </Link>
           </div>
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4">
             <p className="text-xs font-bold uppercase tracking-[.2em] text-emerald-800">Private access</p>
@@ -59,7 +63,7 @@ export default async function ControlCenterPage() {
         <section className="mt-10 rounded-2xl border border-amber-300 bg-amber-50 p-7">
           <p className="text-xs font-black uppercase tracking-[.22em] text-amber-800">Fase 1 guardrail</p>
           <h2 className="mt-3 text-2xl font-black">Belum ada agent yang menjalankan aksi otomatis.</h2>
-          <p className="mt-3 max-w-4xl leading-7 text-slate-700">Halaman ini hanya menjadi control plane dan sumber konteks. Integrasi GitHub, Vercel, Supabase, audit berkala, approvals, dan execution queue masuk fase berikutnya setelah akses administrator dan policy selesai diverifikasi.</p>
+          <p className="mt-3 max-w-4xl leading-7 text-slate-700">Control Center menjadi control plane. Route AI-OS menambahkan decision queue, human approval gate, audit trail, dan outcome registry. Web & Dev Agent tetap read-only; write, merge, deploy, secrets, auth, dan destructive actions tidak menjadi kewenangan agent.</p>
         </section>
       </div>
     </main>
