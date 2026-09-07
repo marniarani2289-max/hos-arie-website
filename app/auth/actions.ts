@@ -37,7 +37,7 @@ export async function signIn(formData: FormData) {
     password: String(formData.get("password") || ""),
   });
   const requestedNext = String(formData.get("next") || "");
-  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") && !/[\\\x00-\x20]/.test(requestedNext)
     ? requestedNext
     : "/dashboard";
   redirect(error ? `/login?error=${encodeURIComponent(error.message)}&next=${encodeURIComponent(safeNext)}` : safeNext);

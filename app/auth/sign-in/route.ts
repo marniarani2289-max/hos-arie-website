@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
   const email = String(formData.get("email") || "").trim();
   const password = String(formData.get("password") || "");
   const requestedNext = String(formData.get("next") || "");
-  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") && !/[\\\x00-\x20]/.test(requestedNext)
     ? requestedNext
     : "/dashboard";
 

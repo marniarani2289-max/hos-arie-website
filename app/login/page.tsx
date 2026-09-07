@@ -10,10 +10,10 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <input type="hidden" name="next" value={next || "/dashboard"} />
       <label className="grid gap-2 text-sm font-bold">Email<input className="bg-white px-4 py-3 font-normal text-slate-950" name="email" type="email" required /></label>
       <label className="grid gap-2 text-sm font-bold">Kata sandi<input className="bg-white px-4 py-3 font-normal text-slate-950" name="password" type="password" required /></label>
-      <button className="bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">Masuk ke dashboard</button>
+      <button className="bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">{next?.startsWith("/lexnusa/cohort")?"Masuk ke kelas LexNusa":"Masuk ke dashboard"}</button>
     </form>
     <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
-      <p>Belum punya akun? <Link href="/register" className="font-bold text-amber-400">Daftar</Link></p>
+      <p>Belum punya akun? <Link href={next?.startsWith("/lexnusa/cohort")?"/lexnusa/cohort/register":"/register"} className="font-bold text-amber-400">Daftar</Link></p>
       <Link href="/forgot-password" className="font-bold text-amber-400">Lupa kata sandi?</Link>
     </div>
   </section></main>;

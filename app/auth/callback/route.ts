@@ -5,7 +5,7 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
   const requestedNext = url.searchParams.get("next") || "/dashboard";
-  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") && !/[\\\x00-\x20]/.test(requestedNext)
     ? requestedNext
     : "/dashboard";
 
