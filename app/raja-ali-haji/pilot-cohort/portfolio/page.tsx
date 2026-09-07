@@ -9,14 +9,19 @@ export const metadata = { title: "My Portfolio | Raja Ali Haji Institute" };
 type Project={id:string;track:string;title:string;problem_statement:string;visibility:string;status:string;verified_at:string|null};
 type Version={id:string;version_number:number;artifact_url:string|null;narrative:string;submitted_at:string};
 type Review={total_score:number;decision:string;reviewer_notes:string;reviewed_at:string};
+type Outcome={id:string;title:string;description:string};
 
 export default async function PortfolioWorkspacePage({searchParams}:{searchParams:Promise<{saved?:string;error?:string}>}) {
   const query=await searchParams;
   const supabase=await createClient();
   const {data:{user}}=await supabase.auth.getUser();
   if(!user) redirect(`/login?next=${encodeURIComponent("/raja-ali-haji/pilot-cohort/portfolio")}`);
-  const {data:enrollment}=await supabase.from("enrollments").select("id").eq("user_id",user.id).eq("programme_code","RAHI-01").maybeSingle();
+  const [{data:enrollment},{data:outcomeRows}]=await Promise.all([
+    supabase.from("enrollments").select("id").eq("user_id",user.id).eq("programme_code","RAHI-01").maybeSingle(),
+    supabase.from("rahi_learning_outcomes").select("code,title,description,sort_order").order("sort_order"),
+  ]);
   if(!enrollment) redirect("/dashboard?error=rahi-enrollment-required");
+  const outcomes:Outcome[]=outcomeRows?.length?outcomeRows.map((o:{code:string;title:string;description:string})=>({id:o.code,title:o.title,description:o.description})):learningOutcomes.map(o=>({...o}));
   const {data:projectRow}=await supabase.from("rahi_portfolio_projects").select("id,track,title,problem_statement,visibility,status,verified_at").eq("enrollment_id",enrollment.id).maybeSingle();
   const project=projectRow as Project|null;
   const [{data:versionRows},{data:reviewRows}]=project?await Promise.all([
@@ -38,7 +43,7 @@ export default async function PortfolioWorkspacePage({searchParams}:{searchParam
       <label className="font-semibold">Problem statement<textarea name="problemStatement" rows={5} maxLength={4000} defaultValue={project?.problem_statement||""} disabled={!editable} className="mt-2 w-full rounded-lg border p-3 font-normal"/></label>
       <label className="font-semibold">Visibility<select name="visibility" defaultValue={project?.visibility||"private"} disabled={!editable} className="mt-2 w-full rounded-lg border p-3 font-normal"><option value="private">Private</option><option value="unlisted">Unlisted</option><option value="public">Public</option></select></label>
       {editable?<button className="rounded-xl bg-slate-950 px-5 py-3 font-bold text-white">{project?"Simpan proyek":"Buat proyek"}</button>:<p className="rounded-xl bg-stone-100 p-4 font-semibold">Status: {project?.status}. Metadata dikunci selama review/verifikasi.</p>}</div>
-    </form><div className="rounded-2xl border bg-white p-6"><h2 className="text-xl font-semibold">Learning Outcomes</h2><div className="mt-4 space-y-3">{learningOutcomes.map(o=><div key={o.id}><span className="font-semibold">{o.id} · {o.title}</span><p className="text-sm text-stone-600">{o.description}</p></div>)}</div></div></div>
+    </form><div className="rounded-2xl border bg-white p-6"><h2 className="text-xl font-semibold">Learning Outcome Registry</h2><p className="mt-2 text-xs font-semibold uppercase tracking-[.16em] text-emerald-700">Supabase-backed</p><div className="mt-4 space-y-3">{outcomes.map(o=><div key={o.id}><span className="font-semibold">{o.id} · {o.title}</span><p className="text-sm text-stone-600">{o.description}</p></div>)}</div></div></div>
 
     {project&&editable&&<form action={submitPortfolioVersion} className="mt-6 rounded-2xl border bg-white p-6"><input type="hidden" name="projectId" value={project.id}/><h2 className="text-xl font-semibold">Submit versi baru</h2><p className="mt-2 text-sm text-stone-600">Submission bersifat immutable. Setelah dikirim, versi ini tidak dapat ditimpa; revisi berikutnya menjadi version number baru.</p><label className="mt-5 block font-semibold">Artifact URL<input name="artifactUrl" type="url" placeholder="https://..." className="mt-2 w-full rounded-lg border p-3 font-normal"/></label><label className="mt-4 block font-semibold">Narrative / executive summary<textarea name="narrative" required minLength={20} rows={8} className="mt-2 w-full rounded-lg border p-3 font-normal"/></label><label className="mt-4 block font-semibold">Evidence links / references (satu per baris)<textarea name="evidence" rows={5} className="mt-2 w-full rounded-lg border p-3 font-normal"/></label><button className="mt-5 rounded-xl bg-amber-500 px-5 py-3 font-bold text-slate-950">Submit for Human Review</button></form>}
 
