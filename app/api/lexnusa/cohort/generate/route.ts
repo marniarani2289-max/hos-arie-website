@@ -27,7 +27,10 @@ export async function POST(req:NextRequest){
   const {error:saveError}=await service.from('lexnusa_cohort_generations').update({status:'completed',output:result.text,usage:result.usage}).eq('id',id).eq('user_id',user.id);
   if(saveError)throw saveError;
   return NextResponse.json({id,output:result.text});
- }catch{
+ }catch(error){
+  const message=error instanceof Error?error.message:'';
+  const reason=/credit|billing|payment|balance/i.test(message)?'billing':/auth|oidc|api.key|token/i.test(message)?'authentication':/model.*(not|unknown|invalid)/i.test(message)?'model':/timeout|abort/i.test(message)?'timeout':'provider';
+  console.error('LEXNUSA_AI_FAILURE',{generation:id,name:error instanceof Error?error.name:'unknown',reason,status:typeof error==='object'&&error!==null&&'statusCode' in error?Number(error.statusCode):null});
   await service.from('lexnusa_cohort_generations').update({status:'failed'}).eq('id',id).eq('user_id',user.id);
   return fail('Layanan AI belum berhasil merespons. Pekerjaan Anda tidak berubah; silakan coba lagi nanti.',502);
  }
