@@ -1,22 +1,18 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { createClient } from "@supabase/supabase-js";
 
-export const metadata = { title: 'Portfolio Showcase | Raja Ali Haji Institute' };
+export const metadata={title:"Portfolio Showcase | Raja Ali Haji Institute"};
+export const revalidate=300;
 
-export default function PortfolioShowcasePage() {
-  return (
-    <main className="min-h-screen bg-stone-950 text-stone-100">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">Raja Ali Haji Institute</p>
-        <h1 className="mt-3 text-4xl font-bold md:text-5xl">Verified Portfolio Showcase</h1>
-        <p className="mt-5 max-w-3xl text-lg text-stone-300">Ruang publik untuk karya peserta yang telah memenuhi standar, mendapat persetujuan peserta untuk ditampilkan, dan melewati human verification.</p>
-        <div className="mt-10 rounded-2xl border border-stone-700 bg-stone-900 p-8">
-          <p className="text-sm uppercase tracking-wider text-amber-400">Pilot Cohort 2026</p>
-          <h2 className="mt-2 text-2xl font-semibold">Showcase sedang disiapkan</h2>
-          <p className="mt-3 text-stone-300">Karya tidak dipublikasikan otomatis. Hanya portfolio berstatus PUBLIC + VERIFIED + approved for showcase yang akan muncul di sini.</p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3"><div className="rounded-xl bg-stone-800 p-4"><strong>Private</strong><p className="text-sm text-stone-400">Hanya peserta & reviewer.</p></div><div className="rounded-xl bg-stone-800 p-4"><strong>Unlisted</strong><p className="text-sm text-stone-400">Dapat dibagikan via tautan.</p></div><div className="rounded-xl bg-stone-800 p-4"><strong>Public</strong><p className="text-sm text-stone-400">Eligible untuk showcase setelah moderasi.</p></div></div>
-        </div>
-        <div className="mt-8 flex gap-3"><Link href="/raja-ali-haji/pilot-cohort/portfolio" className="rounded-full bg-amber-400 px-5 py-3 font-semibold text-stone-950">Portfolio Workspace</Link><Link href="/raja-ali-haji/pilot-cohort" className="rounded-full border border-stone-600 px-5 py-3 font-semibold">Pilot Cohort</Link></div>
-      </section>
-    </main>
-  );
+type Project={id:string;user_id:string;track:string;title:string;verified_at:string|null;profiles:{full_name:string;institution:string|null}|null};
+type Version={project_id:string;artifact_url:string|null;version_number:number};
+type Review={project_id:string;total_score:number;decision:string;reviewed_at:string};
+
+export default async function PortfolioShowcasePage(){
+ const url=process.env.NEXT_PUBLIC_SUPABASE_URL;const key=process.env.SUPABASE_SERVICE_ROLE_KEY;
+ let projects:Project[]=[];let versions:Version[]=[];let reviews:Review[]=[];
+ if(url&&key){const admin=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});const {data:p}=await admin.from("rahi_portfolio_projects").select("id,user_id,track,title,verified_at,profiles!rahi_portfolio_projects_user_id_fkey(full_name,institution)").eq("cohort_code","RAHI-PILOT-01").eq("status","verified").eq("visibility","public").eq("showcase_approved",true).order("verified_at",{ascending:false});projects=(p||[]) as unknown as Project[];const ids=projects.map(x=>x.id);if(ids.length){const [{data:v},{data:r}]=await Promise.all([admin.from("rahi_portfolio_versions").select("project_id,artifact_url,version_number").in("project_id",ids).order("version_number",{ascending:false}),admin.from("rahi_portfolio_reviews").select("project_id,total_score,decision,reviewed_at").in("project_id",ids).eq("decision","verified").order("reviewed_at",{ascending:false})]);versions=(v||[]) as Version[];reviews=(r||[]) as Review[];}}
+ return <main className="min-h-screen bg-stone-950 text-stone-100"><section className="mx-auto max-w-6xl px-6 py-20"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">Raja Ali Haji Institute</p><h1 className="mt-3 text-4xl font-bold md:text-5xl">Verified Portfolio Showcase</h1><p className="mt-5 max-w-3xl text-lg text-stone-300">Hanya karya dengan visibility Public, keputusan VERIFIED dari reviewer manusia, dan persetujuan showcase yang ditampilkan.</p>
+ <div className="mt-10 grid gap-6 md:grid-cols-2">{projects.length===0?<div className="rounded-2xl border border-stone-700 bg-stone-900 p-8 md:col-span-2"><h2 className="text-2xl font-semibold">Showcase sedang disiapkan</h2><p className="mt-3 text-stone-300">Belum ada karya yang memenuhi seluruh gate publikasi.</p></div>:projects.map(p=>{const v=versions.filter(x=>x.project_id===p.id).sort((a,b)=>b.version_number-a.version_number)[0];const r=reviews.find(x=>x.project_id===p.id);return <article key={p.id} className="rounded-2xl border border-stone-700 bg-stone-900 p-7"><p className="text-xs font-bold uppercase tracking-[.2em] text-amber-400">{p.track} · Verified</p><h2 className="mt-3 text-2xl font-bold">{p.title}</h2><p className="mt-3 text-stone-300">{p.profiles?.full_name||"Participant"}{p.profiles?.institution?` · ${p.profiles.institution}`:""}</p>{r&&<p className="mt-4 text-sm font-semibold text-emerald-300">Human verification score: {r.total_score}/100</p>}{v?.artifact_url&&<a href={v.artifact_url} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-amber-400 px-5 py-3 font-semibold text-stone-950">View verified artifact ↗</a>}</article>})}</div>
+ <div className="mt-10 flex flex-wrap gap-3"><Link href="/raja-ali-haji/pilot-cohort/portfolio" className="rounded-full bg-amber-400 px-5 py-3 font-semibold text-stone-950">Portfolio Workspace</Link><Link href="/raja-ali-haji/pilot-cohort" className="rounded-full border border-stone-600 px-5 py-3 font-semibold">Pilot Cohort</Link></div></section></main>;
 }
