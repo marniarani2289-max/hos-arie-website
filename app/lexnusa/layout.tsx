@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 export default function LexNusaLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <LexNusaPublicHeader />
+      <div className="print:hidden"><LexNusaPublicHeader /></div>
       {children}
-      <LexNusaPublicFooter />
+      <div className="print:hidden"><LexNusaPublicFooter /></div>
       <PilotFormBridge />
     </>
   );
