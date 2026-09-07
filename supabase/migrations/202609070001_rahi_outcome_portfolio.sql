@@ -1,4 +1,6 @@
 -- Outcome-based learning + verified portfolio vertical slice for RAHI Pilot Cohort.
+-- Security note: the two authenticated SECURITY DEFINER RPCs below are intentional narrow gates.
+-- Each validates auth.uid() ownership before performing writes participants cannot do directly through RLS.
 create table if not exists public.rahi_learning_outcomes (
   code text primary key,
   title text not null,
@@ -90,7 +92,6 @@ create policy "portfolio review owner read" on public.rahi_portfolio_reviews for
   exists(select 1 from public.rahi_portfolio_projects p where p.id=project_id and p.user_id=(select auth.uid()))
 );
 
--- Participant submits immutable versions through one transactional RPC so version numbers cannot collide.
 create or replace function public.submit_rahi_portfolio_version(target_project uuid, artifact text, narrative_text text, evidence_items jsonb default '[]'::jsonb)
 returns uuid language plpgsql security definer set search_path='public'
 as $$
@@ -109,7 +110,6 @@ end; $$;
 revoke execute on function public.submit_rahi_portfolio_version(uuid,text,text,jsonb) from public,anon;
 grant execute on function public.submit_rahi_portfolio_version(uuid,text,text,jsonb) to authenticated;
 
--- Certificate eligibility now requires module/quiz completion plus a human-verified portfolio score >= 60.
 create or replace function public.issue_certificate_if_eligible(target_enrollment uuid)
 returns text language plpgsql security definer set search_path='public'
 as $$
