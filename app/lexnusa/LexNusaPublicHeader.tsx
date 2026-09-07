@@ -27,6 +27,7 @@ function LexNusaMark() {
 const navItems = [
   ["Home", "/lexnusa"],
   ["Services", "/lexnusa/services"],
+  ["Cohort", "/lexnusa/cohort"],
   ["LEX-EVAL™", "/lexnusa/lex-eval"],
   ["Evidence", "/lexnusa/evidence"],
   ["About", "/lexnusa/about"],
