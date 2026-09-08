@@ -24,6 +24,7 @@ on:
       - 'app/lexnusa/ops/**'
       - 'lib/lexnusa/**'
       - 'supabase/**'
+      - 'scripts/prepare-local-supabase.mjs'
       - 'tests/lexnusa-crm-stage3-e2e.mjs'
       - 'tests/lexnusa-email-capture-server.mjs'
       - '.github/workflows/lexnusa-crm-stage3-e2e.yml'
