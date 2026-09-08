@@ -11,6 +11,7 @@ on:
       - 'lib/lexnusa/**'
       - 'lib/supabase/**'
       - 'supabase/**'
+      - 'scripts/prepare-local-supabase.mjs'
       - 'tests/lexnusa-crm-stage3-e2e.mjs'
       - 'tests/lexnusa-email-capture-server.mjs'
       - 'package.json'
@@ -62,16 +63,24 @@ jobs:
         with:
           version: latest
 
+      - name: Prepare complete local schema replay
+        run: node scripts/prepare-local-supabase.mjs
+
+      - name: Verify Supabase CLI commands
+        run: |
+          supabase start --help
+          supabase db reset --help
+
       - name: Start isolated local Supabase
-        run: supabase start
+        run: supabase --workdir "$CRM_SUPABASE_WORKDIR" start
 
       - name: Rebuild database from migrations and synthetic seed
-        run: supabase db reset --local
+        run: supabase --workdir "$CRM_SUPABASE_WORKDIR" db reset --local
 
       - name: Export local Supabase keys
         shell: bash
         run: |
-          eval "$(supabase status -o env)"
+          eval "$(supabase --workdir "$CRM_SUPABASE_WORKDIR" status -o env)"
           echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$ANON_KEY" >> "$GITHUB_ENV"
           echo "SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY" >> "$GITHUB_ENV"
 
@@ -125,4 +134,7 @@ jobs:
 
       - name: Destroy isolated Supabase environment
         if: always()
-        run: supabase stop --no-backup || true
+        run: |
+          if [ -n "$CRM_SUPABASE_WORKDIR" ]; then
+            supabase --workdir "$CRM_SUPABASE_WORKDIR" stop --no-backup
+          fi
