@@ -117,8 +117,16 @@ from public.certificate_verification_public;
 revoke all on public.certificate_verification from public;
 grant select on public.certificate_verification to anon, authenticated;
 
--- Event triggers continue to run as the database owner, but cannot be called via RPC.
-revoke execute on function public.rls_auto_enable() from public, anon, authenticated;
+-- Hosted projects may have this platform-installed event-trigger function.
+-- Local Supabase does not always install it. Preserve the revocation whenever
+-- it exists; all application tables still explicitly enable RLS above.
+do $$
+begin
+  if to_regprocedure('public.rls_auto_enable()') is not null then
+    revoke execute on function public.rls_auto_enable() from public, anon, authenticated;
+  end if;
+end
+$$;
 
 do $$
 begin
