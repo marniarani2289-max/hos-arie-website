@@ -8,6 +8,9 @@ import {
   type GenerationRefs,
 } from "@/lib/lexnusa/document-workflow";
 import { saveVersion } from "./actions";
+
+// Enable only after AI activation and verification are complete.
+const aiAvailable = false;
 export default function WorkspaceEditor({
   initial,
   document,
@@ -51,6 +54,7 @@ export default function WorkspaceEditor({
     setChecked(false);
   }
   async function generate(stage: keyof Work) {
+    if (!aiAvailable) return;
     setBusy(stage);
     setError("");
     setSuggestion(null);
@@ -183,8 +187,11 @@ export default function WorkspaceEditor({
           ))}
         </details>
       </fieldset>
-      <div className="rounded-xl bg-amber-50 p-5">
-        <label className="flex items-start gap-3">
+      <div id="ai-availability" className="rounded-xl bg-amber-50 p-5">
+        {!aiAvailable && (
+          <p><strong>Bantuan AI — Belum tersedia.</strong> Anda tetap dapat menulis, menyimpan, dan mengirim pekerjaan secara manual untuk diperiksa fasilitator.</p>
+        )}
+        {aiAvailable && <label className="flex items-start gap-3">
           <input
             type="checkbox"
             checked={consent}
@@ -198,7 +205,7 @@ export default function WorkspaceEditor({
             perlu diperiksa manusia. Maksimal 12 generasi per peserta dalam 24
             jam.
           </span>
-        </label>
+        </label>}
       </div>
       {stages.map((s, i) => (
         <section key={s.key} className="rounded-2xl border bg-white p-6">
@@ -234,10 +241,13 @@ export default function WorkspaceEditor({
           <button
             type="button"
             onClick={() => generate(s.key)}
-            disabled={!!busy || pending || !consent}
+            disabled={!aiAvailable || !!busy || pending || !consent}
+            aria-describedby="ai-availability"
             className="mt-3 rounded-lg bg-teal-800 px-4 py-3 font-bold text-white disabled:opacity-40"
           >
-            {busy === s.key
+            {!aiAvailable
+              ? `Bantu dengan AI: ${s.title} — Belum tersedia`
+              : busy === s.key
               ? "AI sedang bekerja…"
               : `Bantu dengan AI: ${s.title}`}
           </button>
