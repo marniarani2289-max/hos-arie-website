@@ -23,10 +23,9 @@ export default function PwaBootstrap() {
       });
     }
 
-    setDismissed(sessionStorage.getItem("pwa-install-dismissed") === "true");
-
     const handleBeforeInstallPrompt = (event: Event) => {
       event.preventDefault();
+      setDismissed(sessionStorage.getItem("pwa-install-dismissed") === "true");
       setInstallPrompt(event as BeforeInstallPromptEvent);
     };
 
