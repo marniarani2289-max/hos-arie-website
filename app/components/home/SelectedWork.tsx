@@ -13,7 +13,7 @@ const selectedWorks = [
   {
     type: "Completed Learning Programme",
     year: "2026",
-    title: "Program Dasar Pemikiran Raja Ali Haji",
+    title: "Foundations of Raja Ali Haji’s Thought",
     description:
       "Eight available self-paced modules combining readings, podcasts, reflection, essays, quizzes, saved progress, and certification.",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
