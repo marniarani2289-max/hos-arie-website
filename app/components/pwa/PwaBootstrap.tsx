@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Download, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -9,6 +10,8 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export default function PwaBootstrap() {
+  const pathname = usePathname();
+  const isIndonesian = pathname === "/id" || pathname.startsWith("/id/");
   const [installPrompt, setInstallPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [dismissed, setDismissed] = useState(true);
@@ -54,13 +57,13 @@ export default function PwaBootstrap() {
 
   return (
     <aside
-      aria-label="Pasang aplikasi Hossibarani"
+      aria-label={isIndonesian ? "Pasang aplikasi Hossibarani" : "Install the Hossibarani app"}
       className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-[70] mx-auto flex max-w-md items-center gap-3 rounded-2xl border border-amber-400/30 bg-slate-950 p-3 text-white shadow-2xl shadow-slate-950/30"
     >
       <div className="min-w-0 flex-1 pl-1">
-        <p className="text-sm font-bold">Pasang Hossibarani</p>
+        <p className="text-sm font-bold">{isIndonesian ? "Pasang Hossibarani" : "Install Hossibarani"}</p>
         <p className="mt-0.5 text-xs leading-5 text-slate-300">
-          Akses ekosistem langsung dari layar utama Android.
+          {isIndonesian ? "Akses ekosistem langsung dari layar utama Android." : "Access the ecosystem from your Android home screen."}
         </p>
       </div>
       <button
@@ -69,12 +72,12 @@ export default function PwaBootstrap() {
         className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-500 px-4 text-sm font-bold text-slate-950 transition hover:bg-amber-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
       >
         <Download size={17} aria-hidden="true" />
-        Pasang
+        {isIndonesian ? "Pasang" : "Install"}
       </button>
       <button
         type="button"
         onClick={dismiss}
-        aria-label="Tutup tawaran pemasangan"
+        aria-label={isIndonesian ? "Tutup tawaran pemasangan" : "Dismiss installation prompt"}
         className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-300 transition hover:bg-white/10 hover:text-white"
       >
         <X size={18} aria-hidden="true" />
