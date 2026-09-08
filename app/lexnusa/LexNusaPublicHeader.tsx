@@ -28,7 +28,7 @@ const navItems = [
   ["Home", "/lexnusa"],
   ["Services", "/lexnusa/services"],
   ["Cohort", "/lexnusa/cohort"],
-  ["Cyber Law", "/lexnusa/mayantara"],
+  ["Cybercrime Law", "/lexnusa/mayantara"],
   ["LEX-EVAL™", "/lexnusa/lex-eval"],
   ["Evidence", "/lexnusa/evidence"],
   ["About", "/lexnusa/about"],
