@@ -1,7 +1,61 @@
 import Link from "next/link";
-const pathways = [
-  { number: "01", title: "Malay Ethical Constitutionalism", helper: "Research", text: "Read the five-principle framework reconstructed from three primary works of Raja Ali Haji.", action: "Explore the framework", href: "/research/malay-ethical-constitutionalism" },
-  { number: "02", title: "Raja Ali Haji Institute", helper: "Learn", text: "Follow an eight-module learning pathway through readings, podcasts, reflection, essays, and quizzes.", action: "View the programme", href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji" },
-  { number: "03", title: "Research & Institutional Collaboration", helper: "Collaborate", text: "Develop research, teaching, public scholarship, policy, or institutional learning partnerships.", action: "Discuss a collaboration", href: "/start#collaborate" },
-];
-export default function PathwayChooser({ compact = false }: { compact?: boolean }) { return <section className={compact ? "bg-stone-50 py-16 sm:py-20" : "bg-stone-50 py-20 sm:py-24"}><div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">Three ways to enter the work</p><h2 className="font-academic mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">Research. Learn. Collaborate.</h2><p className="mt-4 text-lg leading-8 text-slate-600">One intellectual programme, with clear pathways for scholars, learners, and institutional partners.</p></div><div className="mt-10 grid gap-5 md:grid-cols-3">{pathways.map((item) => <Link key={item.title} href={item.href} className="group flex min-h-[330px] flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg"><div className="flex items-center justify-between"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">{item.helper}</p><span className="font-academic text-2xl text-slate-300">{item.number}</span></div><h3 className="font-academic mt-7 text-2xl font-bold leading-tight text-slate-950">{item.title}</h3><p className="mt-4 flex-1 leading-7 text-slate-600">{item.text}</p><span className="mt-7 inline-block font-semibold text-amber-800">{item.action} →</span></Link>)}</div></div></section>; }
+
+const purposes = [
+  { id: "profile", title: "Mengenal Saya", en: "Meet the scholar", text: "Kenali perjalanan akademik, kepakaran, dan rekam jejak Dr. Hos Arie Sibarani.", links: [["Profil akademik", "/id/about"]] },
+  { id: "learn", title: "Belajar", en: "Learn", text: "Pilih program pembelajaran, ikuti workshop, atau belajar melalui video hukum.", links: [["Raja Ali Haji Institute", "/raja-ali-haji"], ["Workshop LexNusa", "/lexnusa/cohort"], ["Video Hukumpreneur", "https://www.youtube.com/hukumpreneur"]] },
+  { id: "research", title: "Membaca Penelitian", en: "Read research", text: "Jelajahi penelitian, publikasi akademik, dan Journal of Malay Constitutional Studies.", links: [["Penelitian", "/id/research"], ["Publikasi", "/id/publications"], ["Jurnal JMCS", "/journal"]] },
+  { id: "apps", title: "Menggunakan Aplikasi", en: "Use applications", text: "Temukan alat untuk akreditasi sekolah, ruang kerja hukum, dan eksperimen AI.", links: [["SIMAKS · Akreditasi sekolah", "/simak"], ["LexNusa · Ruang kerja hukum", "/lexnusa"], ["AI Lab · Eksperimen", "/ai-lab"]] },
+  { id: "collaborate", title: "Berkolaborasi", en: "Collaborate", text: "Diskusikan penelitian bersama, undangan mengajar, workshop, atau kemitraan institusi.", links: [["Hubungi untuk kolaborasi", "/id/contact"]] },
+] as const;
+
+export function PurposeNavigation() {
+  return (
+    <nav aria-label="Pilih tujuan kunjungan" className="border-b border-slate-200 bg-stone-50">
+      <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
+        <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-800">Saya ingin…</p>
+        <div className="flex flex-wrap gap-2">
+          {purposes.map((item) => (
+            <Link key={item.id} href={`#purpose-${item.id}`} className="rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-amber-600 hover:bg-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700">
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default function PathwayChooser({ compact = false }: { compact?: boolean }) {
+  return (
+    <section aria-labelledby="purpose-heading" className={compact ? "bg-stone-50 py-12 sm:py-16" : "bg-stone-50 py-16 sm:py-20"}>
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-800">Mulai dari tujuan Anda · Start here</p>
+          <h2 id="purpose-heading" className="font-academic mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">Apa yang ingin Anda lakukan?</h2>
+          <p className="mt-4 text-lg leading-8 text-slate-600">Kenali profil saya, pilih tempat belajar, temukan penelitian, gunakan aplikasi, atau mulai kolaborasi.</p>
+        </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {purposes.map((item, index) => (
+            <article id={`purpose-${item.id}`} key={item.id} className="scroll-mt-32 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm target:border-amber-600 target:ring-2 target:ring-amber-200">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-amber-800">{item.en}</p>
+                <span aria-hidden="true" className="text-sm font-semibold text-slate-400">0{index + 1}</span>
+              </div>
+              <h3 className="font-academic mt-4 text-2xl font-bold text-slate-950">{item.title}</h3>
+              <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              <ul className="mt-5 space-y-1">
+                {item.links.map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-2 py-2 text-sm font-semibold text-amber-900 transition hover:bg-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700">
+                      {label}<span aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
