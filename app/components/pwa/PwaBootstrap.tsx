@@ -11,7 +11,7 @@ interface BeforeInstallPromptEvent extends Event {
 
 export default function PwaBootstrap() {
   const pathname = usePathname();
-  const isIndonesian = pathname === "/id" || pathname.startsWith("/id/");
+  const isIndonesian = pathname === "/id" || pathname.startsWith("/id/") || pathname === "/lexnusa/mayantara" || pathname.startsWith("/lexnusa/mayantara/");
   const [installPrompt, setInstallPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [dismissed, setDismissed] = useState(true);
