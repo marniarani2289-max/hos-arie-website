@@ -19,7 +19,7 @@ const englishPurposes = [
 type Locale = "en" | "id";
 
 export function PurposeNavigation({ locale = "en" }: { locale?: Locale }) {
-  const items = locale === "id" ? purposes : englishPurposes;
+  const items = (locale === "id" ? purposes : englishPurposes).filter((item) => item.id !== "profile");
   return (
     <nav aria-label={locale === "id" ? "Pilih tujuan kunjungan" : "Choose your purpose"} className="border-b border-slate-200 bg-stone-50">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
