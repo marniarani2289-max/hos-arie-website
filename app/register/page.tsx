@@ -1,3 +1,4 @@
+import { institutePilot } from "@/lib/programmes/catalogue";
 import Link from "next/link";
 import { signUp } from "@/app/auth/actions";
 
@@ -7,8 +8,8 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
     <section className="mx-auto max-w-xl border border-stone-300 bg-white p-8 shadow-sm sm:p-12">
       <p className="text-xs font-bold uppercase tracking-[.28em] text-amber-700">Raja Ali Haji Institute · Pilot Cohort 1</p>
       <h1 className="mt-4 text-4xl font-black">Daftar sebagai peserta pilot</h1>
-      <p className="mt-4 leading-7 text-slate-600">Program gratis selama empat minggu, 5 Oktober–1 November 2026. Buat akun untuk mengikuti pendampingan, menyimpan progres, dan memperoleh sertifikat setelah memenuhi persyaratan.</p>
-      <div className="mt-6 grid grid-cols-2 gap-3 border-y border-stone-200 py-5 text-sm"><div><p className="font-bold">Kuota</p><p className="mt-1 text-slate-600">20–30 peserta</p></div><div><p className="font-bold">Ritme belajar</p><p className="mt-1 text-slate-600">2 modul per minggu</p></div></div>
+      <p className="mt-4 leading-7 text-slate-600">Program gratis selama empat minggu, {institutePilot.dates.id}. Buat akun untuk mengikuti pendampingan, menyimpan progres, dan memperoleh sertifikat setelah memenuhi persyaratan.</p>
+      <div className="mt-6 grid grid-cols-2 gap-3 border-y border-stone-200 py-5 text-sm"><div><p className="font-bold">Kuota</p><p className="mt-1 text-slate-600">{institutePilot.capacity.id}</p></div><div><p className="font-bold">Ritme belajar</p><p className="mt-1 text-slate-600">2 modul per minggu</p></div></div>
       {message.error && <p className="mt-6 border border-red-200 bg-red-50 p-4 text-red-800">{message.error}</p>}
       {message.success && <p className="mt-6 border border-emerald-200 bg-emerald-50 p-4 text-emerald-800">Pendaftaran berhasil. Periksa email Anda untuk verifikasi.</p>}
       <form action={signUp} className="mt-8 grid gap-5">

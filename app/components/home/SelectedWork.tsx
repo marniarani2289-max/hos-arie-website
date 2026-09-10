@@ -11,11 +11,11 @@ const selectedWorks = [
     action: "Open the framework",
   },
   {
-    type: "Completed Learning Programme",
+    type: "Available Learning Materials",
     year: "2026",
     title: "Foundations of Raja Ali Haji’s Thought",
     description:
-      "Eight available self-paced modules combining readings, podcasts, reflection, essays, quizzes, saved progress, and certification.",
+      "Eight modules with readings, podcasts, reflection, essays, and quizzes. Guided learning and certificate requirements are explained on the programme page.",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
     action: "Review all modules",
   },
@@ -30,37 +30,42 @@ const selectedWorks = [
   },
 ];
 
-export default function SelectedWork() {
+const selectedWorksId = [
+  { type: "Kerangka riset publik", year: "2026", title: "Konstitusionalisme Etis Melayu", description: "Program riset dengan sumber primer, metode, lima prinsip konstitusional, perkembangan, dan rencana publikasi ilmiah.", href: "/research/malay-ethical-constitutionalism", action: "Buka kerangka riset" },
+  { type: "Materi pembelajaran tersedia", year: "2026", title: "Dasar Pemikiran Raja Ali Haji", description: "Delapan modul dengan bacaan, podcast, refleksi, esai, dan kuis. Persyaratan pendampingan dan sertifikat dijelaskan pada halaman program.", href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji", action: "Lihat seluruh modul" },
+  { type: "Penelitian doktoral", year: "2025", title: "Kesultanan Riau-Lingga dalam Perspektif Maqasid al-Syariah", description: "Penelitian doktoral yang mengkaji karya utama Raja Ali Haji sebagai sumber pemikiran etika, politik, hukum, dan pemerintahan.", href: "/id/publications", action: "Lihat catatan publikasi" },
+];
+export default function SelectedWork({ locale = "en" }: { locale?: "en" | "id" }) {
+  const id = locale === "id";
   return (
     <section className="border-y border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-4xl">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
-              Verifiable Work
+              {id ? "Karya yang dapat diperiksa" : "Verifiable Work"}
             </p>
 
             <h2 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              Work that can be opened, reviewed, and verified
+              {id ? "Riset, materi belajar, dan karya yang dapat ditelusuri" : "Work that can be opened, reviewed, and verified"}
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Publicly accessible research, completed learning materials, and
-              documented academic work—not claims without an evidence trail.
+              {id ? "Riset, materi pembelajaran, dan dokumentasi karya akademik yang dapat diakses publik." : "Publicly accessible research, learning materials, and documented academic work."}
             </p>
           </div>
 
           <Link
-            href="/publications"
+            href={id ? "/id/publications" : "/publications"}
             className="inline-flex items-center font-semibold text-slate-950 transition hover:text-amber-700"
           >
-            View All Publications
+            {id ? "Lihat seluruh publikasi" : "View All Publications"}
             <span className="ml-2">→</span>
           </Link>
         </div>
 
         <div className="mt-16 divide-y divide-slate-200 border-y border-slate-200">
-          {selectedWorks.map((work) => (
+          {(id ? selectedWorksId : selectedWorks).map((work) => (
             <article
               key={work.title}
               className="group grid gap-6 py-10 md:grid-cols-[190px_1fr_auto] md:items-center"
@@ -98,7 +103,7 @@ export default function SelectedWork() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-3xl bg-slate-950 p-8 text-white md:flex md:items-center md:justify-between md:gap-10 md:p-10"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Build the next serious work together</p><h3 className="font-academic mt-3 text-3xl font-bold">Research, teaching, and institutional collaboration</h3><p className="mt-4 leading-7 text-slate-300">For universities, research networks, government institutions, journals, and public-learning partners seeking a substantive collaboration.</p></div><Link href="/start#collaborate" className="mt-7 inline-flex shrink-0 rounded-xl bg-amber-400 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-300 md:mt-0">Propose a collaboration →</Link></div>
+        <div className="mt-12 rounded-3xl bg-slate-950 p-8 text-white md:flex md:items-center md:justify-between md:gap-10 md:p-10"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">{id ? "Bangun karya berikutnya bersama" : "Build the next serious work together"}</p><h3 className="font-academic mt-3 text-3xl font-bold">{id ? "Kolaborasi riset, pengajaran, dan institusi" : "Research, teaching, and institutional collaboration"}</h3><p className="mt-4 leading-7 text-slate-300">{id ? "Untuk perguruan tinggi, jejaring peneliti, instansi pemerintah, jurnal, dan mitra pembelajaran masyarakat." : "For universities, research networks, government institutions, journals, and public-learning partners seeking a substantive collaboration."}</p></div><Link href={id ? "/id/contact" : "/contact"} className="mt-7 inline-flex shrink-0 rounded-xl bg-amber-400 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-300 md:mt-0">{id ? "Ajukan kolaborasi →" : "Propose a collaboration →"}</Link></div>
       </div>
     </section>
   );
