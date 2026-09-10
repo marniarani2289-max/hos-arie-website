@@ -9,6 +9,7 @@ export default function ProgrammeCards({ locale = "en" }: { locale?: ProgrammeLo
         <p className="text-xs font-bold uppercase tracking-[.2em] text-amber-800">{id ? "Program pembelajaran" : "Learning programmes"}</p>
         <h2 id="programmes-heading" className="font-academic mt-4 text-3xl font-bold text-slate-950 sm:text-4xl">{id ? "Pilih cara belajar yang sesuai tujuan Anda" : "Choose how you want to learn"}</h2>
         <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{id ? "Bandingkan sasaran peserta, hasil belajar, jadwal, dan status setiap program sebelum melanjutkan." : "Compare the audience, learning outcomes, schedule, and status of each programme before taking the next step."}</p>
+        <Link href="/pelatihan-ai" className="mt-6 inline-flex rounded-xl bg-teal-800 px-5 py-3 font-bold text-white hover:bg-teal-700">{id ? "Pelatihan AI: Guru, Institusi & LexNusa →" : "AI Training: Teachers, Institutions & LexNusa →"}</Link>
         <div className="mt-9 grid gap-6 lg:grid-cols-3">
           {programmeCards[locale].map((programme) => (
             <article key={programme.href} className="flex flex-col rounded-2xl border border-slate-200 bg-stone-50 p-6 sm:p-7">

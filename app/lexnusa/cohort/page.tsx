@@ -3,17 +3,17 @@ import { stages } from "@/lib/lexnusa/cohort";
 import { lexnusaCohort } from "@/lib/programmes/catalogue";
 
 export const metadata = {
-  title: "Kelas Praktik Legal AI | LexNusa",
+  title: "LexNusa Legal AI Practice | Pelatihan Hukum",
   description: "Program empat minggu untuk menyusun, memeriksa, dan merevisi kontrak dengan AI, disertai evaluasi dan umpan balik manusia. Lihat hasil belajar dan status pendaftaran.",
   alternates: { canonical: lexnusaCohort.href },
 };
 
 const faqs = [
-  ["Apakah pendaftaran kelas sudah dibuka?", "Tanggal, biaya, dan pembukaan pendaftaran belum diumumkan. Anda dapat mempelajari program atau menghubungi pengelola untuk menanyakan pembukaan kelas."],
+  ["Apakah pendaftaran kelas sudah dibuka?", "Jadwal dan pembukaan pendaftaran belum diumumkan. Indikasi biaya Rp1.250.000/orang untuk maksimal 15 peserta. Biaya final dan kesiapan layanan dikonfirmasi tertulis sebelum pembayaran."],
   ["Apakah membuat akun berarti saya sudah mendapat tempat?", "Akun memberi akses ke ruang belajar. Kepastian keikutsertaan dan jadwal pendampingan mengikuti pengumuman pengelola kelas."],
   ["Apakah perlu bisa pemrograman?", "Praktik berfokus pada analisis kebutuhan, penyusunan instruksi, dan pemeriksaan dokumen. Anda perlu memahami dasar kontrak dan bersedia memeriksa sumber yang digunakan."],
   ["Apa hasil kerja yang saya simpan?", "Ringkasan kebutuhan, instruksi untuk AI, draf kontrak, catatan evaluasi, dan revisi beserta riwayat versinya."],
-  ["Bagaimana penilaian dan sertifikat ditentukan?", "Lengkapi lima hasil kerja dan ajukan kepada fasilitator. Fasilitator memeriksa pekerjaan dan menentukan kelulusan; skor keluaran AI tidak otomatis menjadi nilai peserta atau menerbitkan sertifikat."],
+  ["Bagaimana penilaian dan sertifikat ditentukan?", "Lengkapi lima hasil kerja, kehadiran minimal 75%, dan nilai peserta minimal 70/100, serta perbaiki kesalahan kritis. Ajukan portofolio kepada fasilitator. Fasilitator memeriksa pekerjaan dan menentukan kelulusan; skor keluaran AI tidak otomatis menjadi nilai peserta atau menerbitkan sertifikat."],
   ["Bisakah memakai akun Institute?", "Ya. Akun Raja Ali Haji Institute dapat digunakan untuk masuk ke ruang kelas LexNusa."],
 ];
 
@@ -33,12 +33,12 @@ export default function Page() {
       </div>
     </section>
     <section id="informasi-program" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-14">
-      <h2 className="text-3xl font-bold">Sebelum mengikuti kelas</h2>
+      <h2 className="text-3xl font-bold">Sebelum mengikuti kelas</h2><Link href="/pelatihan-ai#lexnusa" className="mt-4 inline-block font-semibold text-teal-800 underline underline-offset-4">Rincian paket, cakupan pendampingan, dan konsultasi LexNusa →</Link>
       <dl className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {[
           ["Untuk siapa", "Mahasiswa hukum, pengajar, dan praktisi yang ingin berlatih menggunakan serta mengevaluasi AI dalam pekerjaan kontrak."],
           ["Bekal peserta", "Pemahaman dasar kontrak, perangkat dengan internet, dan kesediaan memeriksa fakta serta sumber hukum."],
-          ["Metode", "Satu studi kasus, lima tahap praktik, pekerjaan tersimpan, dan umpan balik fasilitator."],
+          ["Metode", "Empat sesi daring masing-masing 2 jam, sekitar 2 jam praktik mandiri per minggu, dan dua putaran umpan balik."],
           ["Durasi dan jadwal", `Empat minggu. ${lexnusaCohort.dates.id}.`],
           ["Biaya", lexnusaCohort.fee.id],
           ["Hasil akhir", "Portofolio pribadi berisi ringkasan kebutuhan, instruksi, draf, evaluasi, dan revisi kontrak."],

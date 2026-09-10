@@ -4,6 +4,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.hossibarani.com";
   const core: Array<[string, number, MetadataRoute.Sitemap[number]["changeFrequency"]]> = [
     ["", 1, "weekly"],
+    ["/pelatihan-ai", 0.9, "monthly"],
+    ["/lexnusa/cohort", 0.85, "monthly"],
     ["/start", 0.9, "monthly"],
     ["/about", 0.9, "monthly"],
     ["/research", 0.95, "monthly"],
