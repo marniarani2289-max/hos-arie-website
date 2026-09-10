@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroV6 from "./components/home/HeroV6";
 import HomeHighlights from "./components/home/HomeHighlights";
 import PathwayChooser, { PurposeNavigation } from "./components/home/PathwayChooser";
+import ProgrammeCards from "./components/programmes/ProgrammeCards";
 import SelectedWork from "./components/home/SelectedWork";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function Home() {
       <PurposeNavigation />
       <HeroV6 />
       <PathwayChooser compact />
+      <ProgrammeCards />
       <HomeHighlights />
       <SelectedWork />
     </>

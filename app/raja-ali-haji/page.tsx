@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+import { institutePilot } from "@/lib/programmes/catalogue";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -73,7 +74,7 @@ const courses = [
     description:
       "A structured introduction to Raja Ali Haji, the Riau-Lingga world, Gurindam Dua Belas, his principal works, and the continuing relevance of his ideas.",
     lessons: "8 of 8 modules available",
-    status: "Open Now",
+    status: "Modules available",
     href: "/raja-ali-haji/programmes/pemikiran-raja-ali-haji",
   },
   {
@@ -290,6 +291,8 @@ export default function RajaAliHajiInstitutePage() {
         </div>
       </section>
 
+      <section className="border-y border-amber-200 bg-amber-50 px-5 py-12 sm:px-6 lg:px-8"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-widest text-amber-800">Guided learning · Pilot Cohort 1</p><h2 className="mt-4 text-3xl font-bold">Learn together and build an assessed portfolio</h2><p className="mt-4 max-w-3xl leading-8 text-slate-700">{institutePilot.dates.en} · {institutePilot.fee.en} · {institutePilot.capacity.en}. Eight modules over four weeks, with facilitator support and a portfolio reviewed by a human assessor.</p><p className="mt-3 leading-7 text-slate-600">The module readings are available now. Guided participation follows the pilot schedule and completion requirements.</p><Link href={institutePilot.href} className="mt-6 inline-flex rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white hover:bg-amber-800">View pilot schedule and requirements →</Link></div></section>
+
       <section id="courses" className="scroll-mt-24 bg-slate-950 px-5 py-20 text-white sm:px-6 md:py-28 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -370,13 +373,13 @@ export default function RajaAliHajiInstitutePage() {
 
       <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-          <div><Eyebrow>Roadmap 2026â€“2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
+          <div><Eyebrow>Roadmap 2026–2030</Eyebrow><h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">From platform to global reference centre</h2></div>
           <div>
             {[
-              ["2026", "Learning Platform & Pilot Cohort", "Dedicated LMS, structured course pathways, learner accounts, digital certificates, and the inaugural pilot cohort."],
+              ["2026", "Learning Platform & Pilot Cohort", `Eight modules and learner accounts are available. The inaugural guided pilot cohort is scheduled for ${institutePilot.dates.en}, with assessed portfolios and certificate requirements.`],
               ["2027", "Programme Expansion", "Additional course pathways, facilitator support, cohort management, and institutional dashboards."],
               ["2028", "Research and Fellowship", "Collaborative projects, visiting scholars, fellowships, and working-paper series."],
-              ["2029â€“2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
+              ["2029–2030", "Malay World Network", "Regional partnerships, digital collections, and an internationally connected centre for Malay civilisation."],
             ].map(([year, title, text]) => (
               <article key={year} className="grid gap-3 border-t border-slate-200 py-7 sm:grid-cols-[7rem_11rem_1fr] sm:gap-6">
                 <p className="font-academic text-xl font-bold text-amber-700">{year}</p><h3 className="font-bold text-slate-950">{title}</h3><p className="leading-7 text-slate-600">{text}</p>

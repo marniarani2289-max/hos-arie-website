@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { institutePilot } from "@/lib/programmes/catalogue";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Award, BookOpen, CalendarDays, CheckCircle2, Clock3, Target, Users } from "lucide-react";
 
@@ -96,18 +97,19 @@ export default function PemikiranRajaAliHajiProgrammePage() {
             Belajar dari karya. Membaca dunia Melayu.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Pilot Cohort 1 adalah pengalaman belajar empat minggu dengan jadwal,
+            Delapan modul dapat dibaca secara mandiri. Pilot Cohort 1 menyediakan pengalaman belajar empat minggu dengan jadwal,
             pendampingan, bacaan, podcast, refleksi, esai, dan kuis. Progres
             setiap modul tersimpan di akun peserta dan dapat dilanjutkan dari
-            perangkat lain.
+            perangkat lain. Kelulusan pilot juga mensyaratkan portofolio yang dinilai manusia.
           </p>
           <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-slate-300">
-            <span className="inline-flex items-center gap-2"><CalendarDays size={17} className="text-amber-400" /> 5 Oktober–1 November 2026</span>
-            <span className="inline-flex items-center gap-2"><Users size={17} className="text-amber-400" /> 20–30 peserta</span>
-            <span className="inline-flex items-center gap-2"><Clock3 size={17} className="text-amber-400" /> ±5 jam per minggu</span>
+            <span className="inline-flex items-center gap-2"><CalendarDays size={17} className="text-amber-400" /> {institutePilot.dates.id}</span>
+            <span className="inline-flex items-center gap-2"><Users size={17} className="text-amber-400" /> {institutePilot.capacity.id}</span>
+            <span className="inline-flex items-center gap-2"><Clock3 size={17} className="text-amber-400" /> {institutePilot.workload.id}</span>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/register?cohort=RAHI-PILOT-01" className="rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">Daftar Pilot Cohort 1</Link>
+            <Link href={institutePilot.registerHref} className="rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">Daftar Pilot Cohort 1</Link>
+            <Link href={institutePilot.href} className="rounded-xl border border-white/30 px-6 py-4 font-bold text-white hover:border-amber-400">Rincian pendampingan dan portofolio</Link>
             <Link href="/dashboard" className="rounded-xl border border-white/30 px-6 py-4 font-bold text-white hover:border-amber-400">Dashboard peserta</Link>
           </div>
         </div>
@@ -219,7 +221,7 @@ export default function PemikiranRajaAliHajiProgrammePage() {
       <section className="border-t border-stone-300 bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_.85fr]">
           <div><p className="text-xs font-bold uppercase tracking-[0.28em] text-amber-700">Sertifikat penyelesaian</p><h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Sertifikat diberikan berdasarkan capaian</h2><p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Peserta memperoleh sertifikat digital terverifikasi setelah memenuhi seluruh persyaratan program.</p></div>
-          <div className="rounded-3xl bg-[#f7f4ef] p-7 sm:p-9"><div className="space-y-4">{["Menyelesaikan seluruh aktivitas wajib dalam delapan modul", "Mencapai nilai kuis minimal 70 pada setiap modul", "Menyerahkan refleksi akhir pada Modul 8"].map(item => <p key={item} className="flex gap-3 font-semibold leading-7"><CheckCircle2 className="mt-1 shrink-0 text-emerald-700" size={20} />{item}</p>)}</div><Link href="/register?cohort=RAHI-PILOT-01" className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-4 font-bold text-white hover:bg-amber-700">Daftar sebagai peserta pilot <ArrowRight className="ml-2" size={19} /></Link><p className="mt-4 text-center text-sm text-slate-500">Pilot Cohort 1 · Gratis · Kuota terbatas 20–30 peserta</p></div>
+          <div className="rounded-3xl bg-[#f7f4ef] p-7 sm:p-9"><div className="space-y-4">{institutePilot.requirements.map(item => <p key={item} className="flex gap-3 font-semibold leading-7"><CheckCircle2 className="mt-1 shrink-0 text-emerald-700" size={20} />{item}</p>)}</div><Link href={institutePilot.registerHref} className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-4 font-bold text-white hover:bg-amber-700">Daftar sebagai peserta pilot <ArrowRight className="ml-2" size={19} /></Link><p className="mt-4 text-center text-sm text-slate-500">Pilot Cohort 1 · Gratis · Kuota terbatas {institutePilot.capacity.id}</p></div>
         </div>
       </section>
     </main>
