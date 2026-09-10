@@ -1,3 +1,4 @@
+import { trainingOffers } from "./training";
 // Public programme information. Update here when the programme owner changes a schedule or intake.
 export type ProgrammeLocale = "id" | "en";
 export const institutePilot = {
@@ -20,7 +21,7 @@ export const lexnusaCohort = {
   href: "/lexnusa/cohort",
   status: { id: "Pembukaan pendaftaran belum diumumkan", en: "Enrolment opening to be announced" },
   dates: { id: "Tanggal belum diumumkan", en: "Dates to be announced" },
-  fee: { id: "Biaya belum diumumkan", en: "Fee to be announced" },
+  fee: { id: `${trainingOffers[2].price} (indikasi biaya)`, en: "IDR 1,250,000/person (indicative fee)" },
 } as const;
 
 export const programmeCards = {

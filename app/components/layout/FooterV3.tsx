@@ -6,6 +6,7 @@ import { ArrowUpRight, Camera, GraduationCap, Mail, Users, Video } from "lucide-
 import Container from "../shared/Container";
 
 const digitalSystems = [
+  { name: "Pelatihan AI · Guru, Institusi & LexNusa", href: "/pelatihan-ai" },
   { name: "AI & Digital Systems Lab", href: "/ai-lab" },
   { name: "LEX-EVAL™ Benchmark", href: "/lexnusa/lex-eval" },
   { name: "LexNusa Legal AI", href: "/lexnusa" },
