@@ -1,0 +1,45 @@
+name: Control Center decisions validation
+on:
+  pull_request:
+    paths:
+      - 'app/control-center/**'
+      - 'app/api/control-center/**'
+      - 'lib/ai-control-center/**'
+      - 'docs/ai-control-center/decision-center-schema.sql'
+      - 'tests/control-center-decisions*'
+      - '.github/workflows/control-center-decisions.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: decisions_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Decision validation and transitions
+        run: node --experimental-strip-types tests/control-center-decisions.test.mjs
+      - name: Database isolation and lifecycle
+        env:
+          PGPASSWORD: testpassword
+        run: psql -h localhost -U postgres -d decisions_test -f tests/control-center-decisions.sql

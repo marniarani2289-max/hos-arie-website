@@ -1,0 +1,18 @@
+import assert from "node:assert/strict";
+import { parseBrief, canTransition } from "../lib/ai-control-center/decisions.ts";
+const brief = { project: "training", risk: "medium", title: "Pendampingan peserta", problem: "Menentukan pendampingan untuk pelatihan berikutnya.", evidence: "Data agregat dari asesmen awal dan akhir peserta.", source: "Laporan internal September 2026", metric: "Peningkatan hasil asesmen akhir" };
+assert.ok(parseBrief(brief));
+assert.equal(parseBrief({ ...brief, project: "unknown" }), null);
+assert.equal(parseBrief({ ...brief, risk: "admin" }), null);
+assert.equal(parseBrief({ ...brief, evidence: " ".repeat(20) }), null);
+assert.equal(parseBrief({ ...brief, evidence: "x".repeat(12001) }), null);
+assert.equal(parseBrief({ ...brief, title: { malicious: true } }), null);
+assert.equal(canTransition("draft", "approved"), false);
+assert.equal(canTransition("analyzing", "completed"), false);
+assert.equal(canTransition("review", "approved"), true);
+assert.equal(canTransition("review", "deferred"), true);
+assert.equal(canTransition("deferred", "approved"), true);
+assert.equal(canTransition("approved", "completed"), true);
+assert.equal(canTransition("rejected", "approved"), false);
+assert.equal(canTransition("completed", "review"), false);
+console.log("PASS: brief validation and decision transition boundaries");
