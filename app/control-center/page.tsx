@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ShieldCheck, Activity, BrainCircuit, FolderKanban, LockKeyhole } from "lucide-react";
 import { requireControlCenterAccess } from "@/lib/ai-control-center/access";
 import { agents, controlCenterVersion, ecosystemProjects, permissionPolicy } from "@/lib/ai-control-center/config";
@@ -26,6 +27,12 @@ export default async function ControlCenterPage() {
           </div>
         </header>
 
+        <section className="mt-8 rounded-2xl border border-amber-300 bg-white p-6">
+          <div className="flex flex-wrap items-center justify-between gap-5">
+            <div><h2 className="text-2xl font-black">Pusat Keputusan AI</h2><p className="mt-2 leading-7 text-slate-600">Susun bukti, bandingkan pilihan, dan pantau tindak lanjut keputusan.</p></div>
+            <Link href="/control-center/decisions" className="rounded-lg bg-slate-950 px-5 py-3 font-bold text-white">Buka pusat keputusan</Link>
+          </div>
+        </section>
         <section className="mt-8 grid gap-4 md:grid-cols-4">
           <article className="rounded-2xl border border-stone-300 bg-white p-6"><Activity className="text-amber-700"/><p className="mt-5 text-xs font-bold uppercase tracking-[.2em] text-slate-500">Ecosystem</p><p className="mt-2 text-3xl font-black">{ecosystemProjects.length}</p><p className="mt-1 text-sm text-slate-600">projects registered</p></article>
           <article className="rounded-2xl border border-stone-300 bg-white p-6"><FolderKanban className="text-amber-700"/><p className="mt-5 text-xs font-bold uppercase tracking-[.2em] text-slate-500">Active</p><p className="mt-2 text-3xl font-black">{active}</p><p className="mt-1 text-sm text-slate-600">projects active</p></article>
