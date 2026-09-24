@@ -7,12 +7,12 @@ import { useState } from "react";
 
 type Participant = { name: string; email: string } | null;
 const labelsId: Record<string, string> = {
-  Scholarship: "Keilmuan", Ecosystem: "Ekosistem", Research: "Penelitian", Publications: "Publikasi", Books: "Buku", Opinions: "Opini",
+  "Blue Education": "Pendidikan Biru (Blue Education)", Scholarship: "Keilmuan", Ecosystem: "Ekosistem", Research: "Penelitian", Publications: "Publikasi", Books: "Buku", Opinions: "Opini",
   "AI & Digital Systems Lab": "Laboratorium AI dan Sistem Digital", "Constitutional Justice": "Keadilan Konstitusional", "Digital Archive": "Arsip Digital", Gallery: "Galeri",
 };
 const groups = [
   { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
-  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
+  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
 ] as const;
 
 export default function NavbarClient({ participant }: { participant: Participant }) {

@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/pelatihan-ai", 0.9, "monthly"],
     ["/lexnusa/cohort", 0.85, "monthly"],
     ["/start", 0.9, "monthly"],
+    ["/blue-education", 0.85, "monthly"],
     ["/about", 0.9, "monthly"],
     ["/research", 0.95, "monthly"],
     ["/research/malay-ethical-constitutionalism", 0.95, "monthly"],
