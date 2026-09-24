@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, BookOpen, Compass, Waves } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Waves } from "lucide-react";
 import { dimensions, principles, sources, subjects, weeks } from "./content";
 import s from "./page.module.css";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -21,7 +21,7 @@ function SectionHeading({ number, label, title, children }: { number: string; la
 
 export default function BlueEducationPage() {
   return <article lang="id" className={s.page}>
-    <a className={s.skipLink} href="#konsep">Langsung ke materi Pendidikan Biru</a>
+    <a className={s.skipLink} href="#materi-utama">Langsung ke materi utama Pendidikan Biru</a>
     <section className={s.hero} aria-labelledby="blue-title">
       <div className={`${s.container} ${s.heroGrid}`}>
       <div className={s.heroContent}>
@@ -30,7 +30,7 @@ export default function BlueEducationPage() {
         <p className={s.heroStatement}>Belajar dari perairan.<br />Bertindak untuk masa depan.</p>
         <p className={s.heroDescription}>Menghubungkan literasi laut, penghidupan masyarakat, budaya maritim, dan tata kelola melalui pendidikan yang berakar pada kawasan.</p>
         <p className={s.author}>Dr. Hos Arie Sibarani</p>
-        <div className={s.actions}><a className={s.primaryButton} href="#konsep">Jelajahi materi <ArrowDown size={18} aria-hidden="true" /></a><a className={s.lightButton} href="#proyek">Lihat proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+        <div className={s.actions}><a className={s.primaryButton} href="#materi-utama"><Play size={18} aria-hidden="true" />Tonton materi utama</a><a className={s.lightButton} href="#proyek">Lihat proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a></div>
       </div>
       <figure className={s.heroMap}>
         <Image src="/blue-education/kepri-atlas.svg" alt="Peta orientasi Kepulauan Riau dengan penanda Karimun, Batam, Bintan, Tanjungpinang, Lingga, Kepulauan Anambas, dan Natuna; gugus Tambelan juga ditampilkan." width={760} height={650} priority unoptimized className={s.mapImage} />
@@ -43,6 +43,31 @@ export default function BlueEducationPage() {
     </section>
 
     <nav className={s.sectionNav} aria-label="Daftar isi Pendidikan Biru"><div className={s.container}>{nav.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></nav>
+
+    <section id="materi-utama" className={`${s.section} ${s.tinted}`} aria-labelledby="main-video-title"><div className={s.container}>
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><Play size={20} aria-hidden="true" />Materi utama · Video pembelajaran</p>
+        <h2 id="main-video-title">Laut jadi ruang kelas.</h2>
+        <p className={s.lead}>Mulai dari video Pendidikan Biru (Blue Education) untuk memahami literasi laut, model Kepulauan Riau, dan penerapannya melalui proyek delapan minggu.</p>
+      </div>
+      <div className={s.videoFrame}>
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/spkT2Ayj8GE?rel=0&hl=id"
+          title="Materi utama: Laut Jadi Ruang Kelas? Pendidikan Biru (Blue Education) di Kepulauan Riau"
+          width="1280"
+          height="720"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+      <div className={s.videoDetails}>
+        <p>Materi Dr. Hos Arie Sibarani <span aria-hidden="true">·</span> Hukumpreneur <span aria-hidden="true">·</span> 15 menit</p>
+        <a href="https://youtu.be/spkT2Ayj8GE" target="_blank" rel="noopener noreferrer">Buka di YouTube <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+      </div>
+      <a className={s.videoContinue} href="#konsep">Lanjutkan ke materi bacaan <ArrowDown size={18} aria-hidden="true" /></a>
+    </div></section>
 
     <section id="konsep" className={`${s.container} ${s.section}`}>
       <SectionHeading number="01" label="Landasan" title="Hubungan manusia dan perairan sebagai ruang belajar.">Pendidikan Biru (Blue Education) dipahami di sini sebagai pendekatan pendidikan sistemis dan berbasis kawasan yang memperkuat pengetahuan, kepedulian, kompetensi, dan tanggung jawab manusia terhadap ekosistem laut serta perairan tawar.</SectionHeading>
