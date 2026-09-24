@@ -41,6 +41,12 @@
 .videoDetails p { display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; }
 .videoDetails a,.videoContinue { display:inline-flex; align-items:center; gap:.5rem; color:var(--teal); font-weight:650; min-height:44px; text-decoration:underline; text-underline-offset:4px; }
 .videoContinue { margin-top:1.25rem; }
+.dialogueSection { border-bottom:1px solid var(--line); }
+.dialogueContext { margin-top:2.5rem; }
+.speakerList { list-style:none; padding:0; margin:1.25rem 0 0; display:grid; gap:1rem; }
+.speakerList strong,.speakerList span { display:block; }
+.speakerList span { font-size:.875rem; color:var(--muted); }
+.callout .reflectionPrompt { margin-top:1rem; }
 .introGrid { display:grid; grid-template-columns:1.15fr 1fr; gap:4rem; align-items:start; }
 .introGrid>div>p+p { margin-top:1rem; }
 .callout { border-left:3px solid var(--teal); padding:1.6rem 1.8rem; background:#eef7f8; }
