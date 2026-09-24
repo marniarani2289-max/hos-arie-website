@@ -92,7 +92,7 @@ def build(idn, mys):
             lines.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="none" stroke="#f0cc82" stroke-width="1.4"/>')
         lines.append(f'<circle class="marker" cx="{x:.1f}" cy="{y:.1f}" r="4.3"/><text class="label" x="{tx}" y="{ty}" text-anchor="{anchor}">{label}</text>')
     x,y=point(107.97,.98)
-    lines.append(f'<text x="{x-25:.1f}" y="{y+34:.1f}" class="context" style="letter-spacing:0">Kep. Tambelan</text>')
+    lines.append(f'<text x="{x-25:.1f}" y="{y+62:.1f}" class="context" style="letter-spacing:0">Kep. Tambelan</text>')
     lines.extend(['<circle cx="22" cy="627" r="4" fill="#69c8b9"/><text x="35" y="632" fill="#a7c6ce" font-size="14">Daratan Kepri</text>',
                   '<circle cx="205" cy="627" r="5" fill="none" stroke="#f0cc82"/><text x="218" y="632" fill="#a7c6ce" font-size="14">Ibu kota provinsi</text>',
                   '<text x="742" y="632" text-anchor="end" fill="#7d9eae" font-size="12">Peta orientasi · disederhanakan</text>', '</svg>'])

@@ -304,7 +304,7 @@
 <circle class="marker" cx="213.5" cy="446.8" r="4.3"/><text class="label" x="320" y="480" text-anchor="start">Tanjungpinang</text>
 <path class="leader" d="M228.1,539.7L300,561"/>
 <circle class="marker" cx="228.1" cy="539.7" r="4.3"/><text class="label" x="308" y="567" text-anchor="start">Lingga</text>
-<text x="491.2" y="475.6" class="context" style="letter-spacing:0">Kep. Tambelan</text>
+<text x="491.2" y="503.6" class="context" style="letter-spacing:0">Kep. Tambelan</text>
 <circle cx="22" cy="627" r="4" fill="#69c8b9"/><text x="35" y="632" fill="#a7c6ce" font-size="14">Daratan Kepri</text>
 <circle cx="205" cy="627" r="5" fill="none" stroke="#f0cc82"/><text x="218" y="632" fill="#a7c6ce" font-size="14">Ibu kota provinsi</text>
 <text x="742" y="632" text-anchor="end" fill="#7d9eae" font-size="12">Peta orientasi · disederhanakan</text>
