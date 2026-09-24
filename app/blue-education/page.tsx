@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Waves } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Radio, Waves } from "lucide-react";
 import { dimensions, principles, sources, subjects, weeks } from "./content";
 import s from "./page.module.css";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -65,6 +65,49 @@ export default function BlueEducationPage() {
       <div className={s.videoDetails}>
         <p>Materi Dr. Hos Arie Sibarani <span aria-hidden="true">·</span> Hukumpreneur <span aria-hidden="true">·</span> 15 menit</p>
         <a href="https://youtu.be/spkT2Ayj8GE" target="_blank" rel="noopener noreferrer">Buka di YouTube <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+      </div>
+      <a className={s.videoContinue} href="#dialog-publik">Perdalam melalui dialog publik <ArrowDown size={18} aria-hidden="true" /></a>
+    </div></section>
+
+    <section id="dialog-publik" className={`${s.section} ${s.dialogueSection}`} aria-labelledby="dialogue-title"><div className={s.container}>
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><Radio size={20} aria-hidden="true" />Dialog Publik Blue Education</p>
+        <h2 id="dialogue-title">Menghidupkan Blue Education di Bumi Segantang Lada.</h2>
+        <p className={s.lead}>Dari konsep ke percakapan publik. Perdalam pembelajaran melalui rekaman Sembang Komunitas RRI Pro 4 Tanjungpinang, lalu hubungkan gagasannya dengan kehidupan sekolah dan masyarakat Kepulauan Riau.</p>
+      </div>
+      <div className={s.videoFrame}>
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/nTigo6q7y20?rel=0&hl=id"
+          title="Dialog Publik Blue Education: Menghidupkan Blue Education di Bumi Segantang Lada — Sembang Komunitas RRI Pro 4 Tanjungpinang"
+          width="1280"
+          height="720"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+      <div className={s.videoDetails}>
+        <p>Sembang Komunitas <span aria-hidden="true">·</span> RRI Pro 4 Tanjungpinang <span aria-hidden="true">·</span> <time dateTime="2026-09-23">23 September 2026</time></p>
+        <a href="https://www.youtube.com/live/nTigo6q7y20" target="_blank" rel="noopener noreferrer">Buka dialog di YouTube <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+      </div>
+      <div className={`${s.introGrid} ${s.dialogueContext}`}>
+        <div>
+          <h3>Narasumber &amp; pemandu</h3>
+          <ul className={s.speakerList}>
+            <li><strong>Dr. Hos Arie Sibarani</strong><span>Akademisi dan pemerhati sosial, politik, dan budaya</span></li>
+            <li><strong>Mustamid, S.Si.</strong><span>Pemerhati pendidikan · PERSIS Kota Tanjungpinang</span></li>
+            <li><strong>Dr. Drs. Encik Abdul Hajar, M.M.</strong><span>Dosen Magister Pedagogi Pascasarjana UMRAH</span></li>
+            <li><strong>Salwa</strong><span>Pemandu acara</span></li>
+          </ul>
+        </div>
+        <aside className={s.callout} aria-labelledby="dialogue-reflection">
+          <BookOpen size={26} aria-hidden="true" />
+          <h3 id="dialogue-reflection">Refleksi setelah menonton</h3>
+          <p>Apa satu perubahan yang dapat dilakukan sekolah dan masyarakat di sekitar kita untuk menjadikan perairan sebagai ruang belajar?</p>
+          <p className={s.reflectionPrompt}>Catat satu gagasan dari dialog, tindakan yang ingin dicoba, pihak yang perlu dilibatkan, dan bukti yang akan digunakan untuk menilai hasilnya.</p>
+          <a className={s.videoContinue} href="#proyek">Hubungkan dengan proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a>
+        </aside>
       </div>
       <a className={s.videoContinue} href="#konsep">Lanjutkan ke materi bacaan <ArrowDown size={18} aria-hidden="true" /></a>
     </div></section>
