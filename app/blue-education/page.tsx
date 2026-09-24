@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -108,6 +108,22 @@ export default function BlueEducationPage() {
           <p className={s.reflectionPrompt}>Catat satu gagasan dari dialog, tindakan yang ingin dicoba, pihak yang perlu dilibatkan, dan bukti yang akan digunakan untuk menilai hasilnya.</p>
           <a className={s.videoContinue} href="#proyek">Hubungkan dengan proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a>
         </aside>
+      </div>
+      <a className={s.videoContinue} href="#materi-presentasi">Lanjutkan ke materi PDF <ArrowDown size={18} aria-hidden="true" /></a>
+    </div></section>
+
+
+    <section id="materi-presentasi" className={`${s.section} ${s.tinted}`} aria-labelledby="presentation-title"><div className={s.container}>
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><BookOpen size={20} aria-hidden="true" />Materi PDF</p>
+        <h2 id="presentation-title">Cetak Biru Pendidikan Biru Kepri</h2>
+        <p className={s.lead}>Pelajari materi presentasi Pendidikan Biru (Blue Education) Kepulauan Riau sebagai pendamping video utama dan dialog publik.</p>
+      </div>
+      <p className={s.author}>Dr. Hos Arie Sibarani</p>
+      <p className={s.small}>Format PDF · 1,6 MB</p>
+      <div className={s.actions}>
+        <a className={s.primaryButton} href="/blue-education/cetak-biru-pendidikan-biru-kepri.pdf..pdf" target="_blank" rel="noopener noreferrer"><BookOpen size={18} aria-hidden="true" />Buka materi PDF <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+        <a className={s.primaryButton} href="/blue-education/cetak-biru-pendidikan-biru-kepri.pdf..pdf" download="cetak-biru-pendidikan-biru-kepri.pdf"><ArrowDown size={18} aria-hidden="true" />Unduh PDF</a>
       </div>
       <a className={s.videoContinue} href="#konsep">Lanjutkan ke materi bacaan <ArrowDown size={18} aria-hidden="true" /></a>
     </div></section>
