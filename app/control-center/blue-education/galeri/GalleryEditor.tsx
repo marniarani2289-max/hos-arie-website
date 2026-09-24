@@ -11,7 +11,7 @@ export default function GalleryEditor({initial}:{initial?:GalleryRecord}){
  const change=(name:string,value:string)=>{setValues(v=>({...v,[name]:value}));setConfirmed(false);};
  const attrs=(name:string)=>({name,id:"gallery-"+name,value:values[name]||"","aria-invalid":!!state.errors?.[name],"aria-describedby":state.errors?.[name]?"error-"+name:undefined});
  const error=(name:string)=>state.errors?.[name]?<span id={"error-"+name} className="mt-2 block text-sm font-semibold text-red-800">{state.errors[name]}</span>:null;
- return <form action={action} className="mt-6 space-y-6" noValidate>
+ return <form action={action} className="mt-6 space-y-6" noValidate onReset={event=>event.preventDefault()}>
   <input type="hidden" name="id" value={state.id||initial?.id||""}/><input type="hidden" name="updated_at" value={state.updatedAt||initial?.updated_at||""}/>
   <fieldset disabled={pending} className="min-w-0 space-y-6">
    <legend className="mb-4 text-xl font-bold">Identitas dan catatan praktik</legend>
@@ -19,7 +19,7 @@ export default function GalleryEditor({initial}:{initial?:GalleryRecord}){
    {galleryFields.slice(0,3).map(([name,label,min,max])=><label key={name} className="block font-semibold">{label} *<input {...attrs(name)} minLength={min} maxLength={max} required onChange={e=>change(name,e.target.value)} className={field}/>{error(name)}</label>)}
    <div className="grid gap-5 sm:grid-cols-2">
     {[["theme","Tema",focusOptions],["kind","Jenis konten",galleryKinds]] .map(([name,label,opts])=><label key={name as string} className="block font-semibold">{label as string} *<select {...attrs(name as string)} required onChange={e=>change(name as string,e.target.value)} className={field}><option value="">Pilih</option>{(opts as readonly (readonly [string,string])[]).map(([id,text])=><option key={id} value={id}>{text}</option>)}</select>{error(name as string)}</label>)}
-    <label className="block font-semibold">Tanggal kegiatan / rancangan *<input {...attrs("activity_date")} type="date" required onChange={e=>change("activity_date",e.target.value)} className={field}/>{error("activity_date")}</label>
+    <label className="block font-semibold">Tanggal kegiatan / rancangan *<input {...attrs("activity_date")} type="date" required onInput={e=>change("activity_date",e.currentTarget.value)} onChange={e=>change("activity_date",e.target.value)} className={field}/>{error("activity_date")}</label>
    </div>
    {galleryFields.slice(3).map(([name,label,min,max])=><label key={name} className="block font-semibold">{label} *<span className="mt-1 block text-sm font-normal text-slate-500">{min}–{max} karakter. {name==="results"?"Jelaskan bukti yang tersedia dan batas kesimpulannya; jangan mengisi angka perkiraan sebagai hasil.":""}</span><textarea {...attrs(name)} rows={4} required minLength={min} maxLength={max} onChange={e=>change(name,e.target.value)} className={field}/>{error(name)}</label>)}
    <label className="block font-semibold">Tautan sumber / video / laporan (HTTPS) *<input {...attrs("source_url")} type="url" required maxLength={1500} onChange={e=>change("source_url",e.target.value)} className={field}/>{error("source_url")}</label>
