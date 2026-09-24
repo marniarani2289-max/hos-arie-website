@@ -1,5 +1,5 @@
 "use client";
-import { useActionState, useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { galleryFields, galleryKinds, galleryStatuses, focusOptions } from "@/lib/blue-education/gallery";
 import type { GalleryRecord, GalleryState } from "@/lib/blue-education/gallery";
 import { saveGallery } from "./actions";
@@ -11,7 +11,7 @@ export default function GalleryEditor({initial}:{initial?:GalleryRecord}){
  const change=(name:string,value:string)=>{setValues(v=>({...v,[name]:value}));setConfirmed(false);};
  const attrs=(name:string)=>({name,id:"gallery-"+name,value:values[name]||"","aria-invalid":!!state.errors?.[name],"aria-describedby":state.errors?.[name]?"error-"+name:undefined});
  const error=(name:string)=>state.errors?.[name]?<span id={"error-"+name} className="mt-2 block text-sm font-semibold text-red-800">{state.errors[name]}</span>:null;
- return <form action={action} className="mt-6 space-y-6" noValidate onReset={event=>event.preventDefault()}>
+ return <form className="mt-6 space-y-6" noValidate onSubmit={event=>{event.preventDefault();if(pending)return;const form=new FormData(event.currentTarget);startTransition(()=>action(form));}}>
   <input type="hidden" name="id" value={state.id||initial?.id||""}/><input type="hidden" name="updated_at" value={state.updatedAt||initial?.updated_at||""}/>
   <fieldset disabled={pending} className="min-w-0 space-y-6">
    <legend className="mb-4 text-xl font-bold">Identitas dan catatan praktik</legend>
@@ -26,7 +26,7 @@ export default function GalleryEditor({initial}:{initial?:GalleryRecord}){
    <div className="rounded-lg border bg-slate-50 p-5"><h3 className="font-bold">Foto sampul (opsional)</h3><p className="mt-2 text-sm leading-7 text-slate-600">Gunakan tautan HTTPS langsung ke berkas foto yang sudah dihosting. Tautan halaman Google Drive atau unggahan media sosial belum tentu dapat tampil sebagai gambar. Tanpa foto, galeri memakai sampul grafis.</p>
     {[["image_url","Tautan langsung foto",1500],["image_alt","Deskripsi foto untuk pembaca layar",300],["image_credit","Kredit / sumber foto",300]].map(([name,label,max])=><label key={name} className="mt-4 block font-semibold">{label}<input {...attrs(name as string)} type={name==="image_url"?"url":"text"} maxLength={max as number} onChange={e=>change(name as string,e.target.value)} className={field}/>{error(name as string)}</label>)}
    </div>
-   <label className="block font-semibold">Status publikasi *<select {...attrs("status")} onChange={e=>setValues(v=>({...v,status:e.target.value}))} className={field}>{galleryStatuses.map(([id,label])=><option key={id} value={id}>{label}</option>)}</select>{error("status")}</label>
+   <label className="block font-semibold">Status publikasi *<select {...attrs("status")} onChange={e=>{const status=e.target.value;setValues(v=>({...v,status}));}} className={field}>{galleryStatuses.map(([id,label])=><option key={id} value={id}>{label}</option>)}</select>{error("status")}</label>
    <label className="flex items-start gap-3 leading-7"><input type="checkbox" name="publication_confirmed" value="accepted" checked={confirmed} onChange={e=>setConfirmed(e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-teal-700"/><span>Saya telah memeriksa sumber, ketepatan klaim, serta izin penggunaan dokumentasi dan foto. Konten ini layak dipublikasikan.</span></label>{error("publication_confirmed")}
    <button type="submit" className="min-h-12 rounded bg-teal-800 px-6 py-3 font-bold text-white disabled:opacity-60">{pending?"Menyimpan…":"Simpan dokumentasi"}</button>
   </fieldset>
