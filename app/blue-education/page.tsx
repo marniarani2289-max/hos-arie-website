@@ -23,9 +23,8 @@ export default function BlueEducationPage() {
   return <article lang="id" className={s.page}>
     <a className={s.skipLink} href="#konsep">Langsung ke materi Pendidikan Biru</a>
     <section className={s.hero} aria-labelledby="blue-title">
-      <Image src="/blue-education/perairan-nusantara.webp" alt="" fill priority sizes="100vw" className={s.heroImage} />
-      <div className={s.heroShade} />
-      <div className={`${s.container} ${s.heroContent}`}>
+      <div className={`${s.container} ${s.heroGrid}`}>
+      <div className={s.heroContent}>
         <p className={s.eyebrow}><Waves size={22} aria-hidden="true" />Pembelajaran · Kepulauan · Keberlanjutan</p>
         <h1 id="blue-title">Pendidikan Biru <span>(Blue Education)</span></h1>
         <p className={s.heroStatement}>Belajar dari perairan.<br />Bertindak untuk masa depan.</p>
@@ -33,7 +32,14 @@ export default function BlueEducationPage() {
         <p className={s.author}>Dr. Hos Arie Sibarani</p>
         <div className={s.actions}><a className={s.primaryButton} href="#konsep">Jelajahi materi <ArrowDown size={18} aria-hidden="true" /></a><a className={s.lightButton} href="#proyek">Lihat proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a></div>
       </div>
-      <span className={s.imageCaption}>Ilustrasi konseptual kawasan kepulauan</span>
+      <figure className={s.heroMap}>
+        <Image src="/blue-education/kepri-atlas.svg" alt="Peta orientasi Kepulauan Riau dengan penanda Karimun, Batam, Bintan, Tanjungpinang, Lingga, Kepulauan Anambas, dan Natuna; gugus Tambelan juga ditampilkan." width={760} height={650} priority unoptimized className={s.mapImage} />
+        <figcaption className={s.mapCaption}>
+          <span>Dari pulau ke pulau, satu ruang belajar.</span>
+          <small>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · <a href="https://www.geoboundaries.org/" target="_blank" rel="noopener noreferrer">geoBoundaries</a> · <a href="/blue-education/kepri-map-sources.md" target="_blank" rel="noopener noreferrer">Sumber peta</a></small>
+        </figcaption>
+      </figure>
+      </div>
     </section>
 
     <nav className={s.sectionNav} aria-label="Daftar isi Pendidikan Biru"><div className={s.container}>{nav.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></nav>
