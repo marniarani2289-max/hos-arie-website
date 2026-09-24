@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Radio, Waves } from "
 import { dimensions, principles, sources, subjects, weeks } from "./content";
 import s from "./page.module.css";
 import BlueEducationQuiz from "./BlueEducationQuiz";
+import BlueEducationReflection from "./BlueEducationReflection";
 
 export const metadata: Metadata = {
   title: "Pendidikan Biru (Blue Education)",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -107,7 +108,7 @@ export default function BlueEducationPage() {
           <h3 id="dialogue-reflection">Refleksi setelah menonton</h3>
           <p>Apa satu perubahan yang dapat dilakukan sekolah dan masyarakat di sekitar kita untuk menjadikan perairan sebagai ruang belajar?</p>
           <p className={s.reflectionPrompt}>Catat satu gagasan dari dialog, tindakan yang ingin dicoba, pihak yang perlu dilibatkan, dan bukti yang akan digunakan untuk menilai hasilnya.</p>
-          <a className={s.videoContinue} href="#proyek">Hubungkan dengan proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a>
+          <a className={s.videoContinue} href="#refleksi">Tulis refleksi setelah menonton <ArrowUpRight size={18} aria-hidden="true" /></a>
         </aside>
       </div>
       <a className={s.videoContinue} href="#materi-presentasi">Lanjutkan ke materi PDF <ArrowDown size={18} aria-hidden="true" /></a>
@@ -161,8 +162,17 @@ export default function BlueEducationPage() {
           <a className={s.videoContinue} href="#proyek">Lihat panduan proyek 8 minggu <ArrowDown size={18} aria-hidden="true" /></a>
         </aside>
       </div>
-      <a className={s.videoContinue} href="#konsep">Pelajari kembali landasan konsep <ArrowDown size={18} aria-hidden="true" /></a>
+      <a className={s.videoContinue} href="#refleksi">Lanjutkan ke refleksi interaktif <ArrowDown size={18} aria-hidden="true" /></a>
     </div></section>
+
+    <section id="refleksi" className={`${s.container} ${s.section}`} aria-labelledby="reflection-title">
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><BookOpen size={20} aria-hidden="true" />Refleksi interaktif · Dari belajar ke aksi</p>
+        <h2 id="reflection-title">Apa yang berubah, dan apa langkah Anda?</h2>
+        <p className={s.lead}>Hubungkan materi dengan pengalaman, telaah bukti, lalu susun satu komitmen yang dapat ditindaklanjuti.</p>
+      </div>
+      <BlueEducationReflection />
+    </section>
 
     <section id="konsep" className={`${s.container} ${s.section}`}>
       <SectionHeading number="01" label="Landasan" title="Hubungan manusia dan perairan sebagai ruang belajar.">Pendidikan Biru (Blue Education) dipahami di sini sebagai pendekatan pendidikan sistemis dan berbasis kawasan yang memperkuat pengetahuan, kepedulian, kompetensi, dan tanggung jawab manusia terhadap ekosistem laut serta perairan tawar.</SectionHeading>
