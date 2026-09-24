@@ -1,0 +1,31 @@
+.quiz { max-width:900px; }
+.instructions { color:#49616c; }
+.progress { margin:1.5rem 0!important; color:#086b6a; font-weight:700; }
+.questionList { display:grid; gap:1.5rem; }
+.question { min-width:0; padding:1.5rem; border:1px solid #cadde2; border-radius:8px; background:#fff; margin:0; }
+.question legend { font-size:1.05rem; line-height:1.65; font-weight:600; padding:0 .35rem; max-width:100%; }
+.topic { display:block; color:#086b6a; font-size:.8rem; letter-spacing:.05em; font-weight:700; margin-bottom:.5rem; }
+.options { display:grid; gap:.65rem; margin-top:.65rem; }
+.option { display:flex; align-items:flex-start; gap:.7rem; padding:.9rem 1rem; border:1px solid #d3e3e7; border-radius:5px; cursor:pointer; line-height:1.6; }
+.option[data-selected="true"] { background:#e6f6f1; border-color:#086b6a; }
+.option input { margin-top:.4rem; width:18px; height:18px; flex-shrink:0; accent-color:#086b6a; }
+.option:focus-within { outline:3px solid #0c7777; outline-offset:2px; }
+.question:disabled .option { cursor:default; color:#12384b; opacity:1; }
+.button,.secondary { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.85rem 1.2rem; border-radius:5px; font:inherit; font-weight:650; line-height:1.5; cursor:pointer; text-align:center; }
+.button { color:white; background:#086b6a; border:1px solid #086b6a; margin-top:1.5rem; }
+.button:hover { background:#064d4d; }
+.secondary { color:#086b6a; border:1px solid #086b6a; text-decoration:none; }
+.button:focus-visible,.secondary:focus-visible,.review a:focus-visible { outline:3px solid #a76615; outline-offset:3px; }
+.error { color:#a42727; font-weight:600; margin-top:1rem!important; }
+.results { background:#eff6f7; border:1px solid #cadde2; padding:1.8rem; margin-top:2rem; border-radius:8px; }
+.results:focus { outline:3px solid #086b6a; outline-offset:3px; }
+.results h3 { margin-bottom:1rem; }
+.review { list-style:none; padding:0; display:grid; gap:1.3rem; margin-top:1.5rem; }
+.review li { border-top:1px solid #cadde2; padding-top:1.3rem; }
+.review li p+p { margin-top:.6rem; }
+.review a { display:inline-block; color:#086b6a; padding-block:.6rem; text-decoration:underline; text-underline-offset:3px; }
+.correct { color:#16613d; }
+.incorrect { color:#a42727; }
+.actions { display:flex; flex-wrap:wrap; align-items:center; gap:1rem; margin-top:1.5rem; }
+.actions .button { margin-top:0; }
+@media(max-width:640px) { .question { padding:1rem; } .option { padding:.8rem; } .results { padding:1.2rem; } .button,.secondary { width:100%; } }

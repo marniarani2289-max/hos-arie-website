@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Radio, Waves } from "lucide-react";
 import { dimensions, principles, sources, subjects, weeks } from "./content";
 import s from "./page.module.css";
+import BlueEducationQuiz from "./BlueEducationQuiz";
 
 export const metadata: Metadata = {
   title: "Pendidikan Biru (Blue Education)",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -125,7 +126,42 @@ export default function BlueEducationPage() {
         <a className={s.primaryButton} href="/blue-education/cetak-biru-pendidikan-biru-kepri.pdf..pdf" target="_blank" rel="noopener noreferrer"><BookOpen size={18} aria-hidden="true" />Buka materi PDF <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
         <a className={s.primaryButton} href="/blue-education/cetak-biru-pendidikan-biru-kepri.pdf..pdf" download="cetak-biru-pendidikan-biru-kepri.pdf"><ArrowDown size={18} aria-hidden="true" />Unduh PDF</a>
       </div>
-      <a className={s.videoContinue} href="#konsep">Lanjutkan ke materi bacaan <ArrowDown size={18} aria-hidden="true" /></a>
+      <a className={s.videoContinue} href="#kuis">Lanjutkan ke kuis pemahaman <ArrowDown size={18} aria-hidden="true" /></a>
+    </div></section>
+
+
+    <section id="kuis" className={`${s.container} ${s.section}`} aria-labelledby="quiz-title">
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><Compass size={20} aria-hidden="true" />Uji pemahaman · 10 soal</p>
+        <h2 id="quiz-title">Dari memahami ke menerapkan.</h2>
+        <p className={s.lead}>Setelah menonton dan membaca, uji pemahaman Anda tentang literasi laut, model Kepri, perencanaan aksi, dan penilaian bukti.</p>
+      </div>
+      <BlueEducationQuiz />
+    </section>
+
+    <section id="lembar-kerja" className={`${s.section} ${s.tinted}`} aria-labelledby="worksheet-title"><div className={s.container}>
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><BookOpen size={20} aria-hidden="true" />Perangkat praktik · Proyek 8 minggu</p>
+        <h2 id="worksheet-title">Lima lembar untuk memulai aksi.</h2>
+        <p className={s.lead}>Paket lembar kerja untuk peserta didik, guru, dan komunitas: pemetaan masalah, pengukuran awal, rencana aksi, catatan pelaksanaan, serta evaluasi dan refleksi.</p>
+      </div>
+      <div className={s.introGrid}>
+        <div>
+          <h3>Isi, simpan, dan gunakan bersama.</h3>
+          <p>Buka lembar kerja untuk mengisi langsung di browser. Simpan salinan beserta isiannya dalam format HTML agar dapat dilanjutkan secara offline. Gunakan tombol cetak untuk mencetak atau menyimpan sebagai PDF.</p>
+          <p className={s.small}>Isian tidak dikirim ke server dan tidak tersimpan otomatis. Simpan salinan sebelum menutup halaman.</p>
+          <div className={s.actions}>
+            <a className={s.primaryButton} href="/blue-education/lembar-kerja-pendidikan-biru.html" target="_blank" rel="noopener noreferrer">Buka dan isi lembar kerja <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+            <a className={s.primaryButton} href="/blue-education/lembar-kerja-pendidikan-biru.html" download="lembar-kerja-pendidikan-biru.html">Unduh lembar kerja (HTML) <ArrowDown size={18} aria-hidden="true" /></a>
+          </div>
+        </div>
+        <aside className={s.callout}>
+          <h3>Isi paket</h3>
+          <ol className={s.principles}><li>Pemetaan masalah dan empat dimensi Kepri.</li><li>Data awal dan pengukuran ulang dengan satuan yang konsisten.</li><li>Pemilihan aksi, target, peran, dan jadwal delapan minggu.</li><li>Kesiapan, keselamatan, dan catatan pelaksanaan.</li><li>Evaluasi bukti, refleksi, dan keputusan tindak lanjut.</li></ol>
+          <a className={s.videoContinue} href="#proyek">Lihat panduan proyek 8 minggu <ArrowDown size={18} aria-hidden="true" /></a>
+        </aside>
+      </div>
+      <a className={s.videoContinue} href="#konsep">Pelajari kembali landasan konsep <ArrowDown size={18} aria-hidden="true" /></a>
     </div></section>
 
     <section id="konsep" className={`${s.container} ${s.section}`}>
