@@ -22,6 +22,7 @@ export default async function PilotAdmin({searchParams}:{searchParams:Promise<{p
  return <main lang="id" className="min-h-screen bg-stone-50 px-5 py-12 text-slate-950"><div className="mx-auto max-w-5xl">
   <Link href="/control-center" className="font-semibold text-teal-800 underline">← Control Center</Link>
   <h1 className="mt-6 text-3xl font-bold">Pendaftar Perintis Blue Education</h1><p className="mt-3 leading-7 text-slate-600">Daftar privat sekolah dan komunitas. Telaah kebutuhan, hubungi penanggung jawab secara terpisah, lalu catat tindak lanjut. Mengubah status tidak mengirim pesan.</p>
+  <Link href="/control-center/blue-education/galeri" className="mt-5 inline-flex min-h-12 items-center rounded bg-teal-800 px-5 py-3 font-bold text-white">Kelola Galeri Praktik Baik</Link>
   {params.result && messages[params.result] && <p role="status" className="mt-5 rounded border border-teal-300 bg-teal-50 p-4">{messages[params.result]}</p>}
   <form className="mt-6 flex flex-wrap items-end gap-3"><label className="font-semibold">Filter status<select name="status" defaultValue={filter} className={field}><option value="">Semua status</option>{statusOptions.map(([id,label])=><option key={id} value={id}>{label}</option>)}</select></label><button className="min-h-12 rounded bg-teal-800 px-5 py-3 font-semibold text-white">Tampilkan</button></form>
   {failed?<p role="alert" className="mt-6 rounded bg-red-50 p-5 text-red-800">Data belum dapat dimuat. Ini bukan berarti daftar pendaftar kosong. Coba muat ulang.</p>:<>

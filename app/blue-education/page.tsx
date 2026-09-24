@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, BookOpen, Compass, Play, Radio, Waves } from "lucide-react";
@@ -7,6 +8,9 @@ import s from "./page.module.css";
 import BlueEducationQuiz from "./BlueEducationQuiz";
 import BlueEducationReflection from "./BlueEducationReflection";
 import PilotRegistration from "./PilotRegistration";
+import PublishedGallery from "./PublishedGallery";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Pendidikan Biru (Blue Education)",
@@ -16,7 +20,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["pendaftaran", "Daftar perintis"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["pendaftaran", "Daftar perintis"], ["galeri-praktik", "Galeri praktik baik"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -187,6 +191,15 @@ export default function BlueEducationPage() {
       </div>
       <PilotRegistration />
     </div></section>
+
+    <section id="galeri-praktik" className={`${s.container} ${s.section}`} aria-labelledby="gallery-title">
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><BookOpen size={20} aria-hidden="true" />Galeri Praktik Baik</p>
+        <h2 id="gallery-title">Pengalaman yang dicatat. Pelajaran yang dibagikan.</h2>
+        <p className={s.lead}>Telusuri praktik lapangan, dokumentasi pembelajaran, dan contoh rancangan. Setiap jenis diberi label agar pengalaman nyata dan gagasan yang masih direncanakan mudah dibedakan.</p>
+      </div>
+      <Suspense fallback={<p role="status">Memuat Galeri Praktik Baik…</p>}><PublishedGallery /></Suspense>
+    </section>
 
     <section id="konsep" className={`${s.container} ${s.section}`}>
       <SectionHeading number="01" label="Landasan" title="Hubungan manusia dan perairan sebagai ruang belajar.">Pendidikan Biru (Blue Education) dipahami di sini sebagai pendekatan pendidikan sistemis dan berbasis kawasan yang memperkuat pengetahuan, kepedulian, kompetensi, dan tanggung jawab manusia terhadap ekosistem laut serta perairan tawar.</SectionHeading>
