@@ -6,6 +6,7 @@ import { dimensions, principles, sources, subjects, weeks } from "./content";
 import s from "./page.module.css";
 import BlueEducationQuiz from "./BlueEducationQuiz";
 import BlueEducationReflection from "./BlueEducationReflection";
+import PilotRegistration from "./PilotRegistration";
 
 export const metadata: Metadata = {
   title: "Pendidikan Biru (Blue Education)",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["pendaftaran", "Daftar perintis"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -173,6 +174,19 @@ export default function BlueEducationPage() {
       </div>
       <BlueEducationReflection />
     </section>
+
+    <section id="pendaftaran" className={`${s.section} ${s.tinted}`} aria-labelledby="pilot-title"><div className={s.container}>
+      <div className={s.sectionHeading}>
+        <p className={s.eyebrow}><Waves size={20} aria-hidden="true" />Sekolah &amp; komunitas perintis</p>
+        <h2 id="pilot-title">Mulai dari satu lembaga. Tumbuhkan aksi bersama.</h2>
+        <p className={s.lead}>Daftarkan minat sekolah atau komunitas untuk merintis Pendidikan Biru, berangkat dari persoalan perairan dan kehidupan masyarakat di sekitar Anda.</p>
+      </div>
+      <div className={s.introGrid}>
+        <div><h3>Siapa yang dapat mendaftar?</h3><p>Perwakilan sekolah atau komunitas yang ingin menghubungkan pembelajaran, kepedulian lingkungan, budaya maritim, dan aksi berbasis bukti. Kegiatan yang sudah berjalan maupun gagasan awal dapat diajukan.</p><p>Tunjuk satu penanggung jawab dewasa dan siapkan gambaran masalah serta kebutuhan pendampingan.</p></div>
+        <aside className={s.callout}><h3>Setelah mendaftar</h3><ol className={s.principles}><li>Simpan nomor pendaftaran yang muncul setelah pengiriman berhasil.</li><li>Pengelola menelaah rencana dan kebutuhan lembaga.</li><li>Kecocokan program, jadwal, dan bentuk pendampingan dibahas bersama penanggung jawab.</li></ol><p className={s.small}>Formulir ini mencatat minat. Penerimaan, jadwal, dan dukungan program belum otomatis ditetapkan. Ini bukan pendaftaran sertifikasi atau jejaring resmi UNESCO.</p></aside>
+      </div>
+      <PilotRegistration />
+    </div></section>
 
     <section id="konsep" className={`${s.container} ${s.section}`}>
       <SectionHeading number="01" label="Landasan" title="Hubungan manusia dan perairan sebagai ruang belajar.">Pendidikan Biru (Blue Education) dipahami di sini sebagai pendekatan pendidikan sistemis dan berbasis kawasan yang memperkuat pengetahuan, kepedulian, kompetensi, dan tanggung jawab manusia terhadap ekosistem laut serta perairan tawar.</SectionHeading>
