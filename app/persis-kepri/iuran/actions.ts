@@ -13,7 +13,7 @@ export async function reviewDue(form:FormData){
   if(!/^[0-9a-f-]{36}$/i.test(id) || !['verified','rejected'].includes(status) || review_note.length>500 || (status==='rejected'&&review_note.length<3)) redirect(`${base}?error=${encodeURIComponent('Isi catatan perbaikan minimal 3 karakter; maksimal 500 karakter.')}`);
   const {data,error}=await supabase.from('persis_dues').update({status,review_note}).eq('id',id).eq('status','pending').select('id');
   if(error || !data?.length) redirect(`${base}?error=${encodeURIComponent('Keputusan belum tersimpan atau catatan sudah diperiksa. Muat ulang dan periksa statusnya.')}`);
-  revalidatePath('/persis-kepri/iuran'); revalidatePath(base);
+  revalidatePath('/persis-kepri/iuran'); revalidatePath(base); revalidatePath(`${base}/kas`);
   redirect(`${base}?success=1`);
 }
 
