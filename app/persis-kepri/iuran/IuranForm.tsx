@@ -24,7 +24,7 @@ export default function IuranForm({name,today}:{name:string;today:string}) {
     finally{setBusy(false);}
   }
   return <form onSubmit={submit} className="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 sm:p-7">
-    <div><h2 className="text-2xl font-bold">Catat pembayaran</h2><p className="mt-2 text-sm leading-6 text-slate-600">Bayarkan iuran melalui kanal yang disepakati pengurus, kemudian kirim catatannya di sini. Satu pengajuan untuk satu bulan iuran.</p></div>
+    <div><h2 className="text-2xl font-bold">Catat pembayaran</h2><p className="mt-2 text-sm leading-6 text-slate-600">Bayarkan iuran melalui kanal yang disepakati pengurus, kemudian kirim catatannya di sini. Satu pengajuan untuk satu bulan iuran. Untuk melunasi kekurangan, catat nominal pembayaran tambahan setelah pengajuan sebelumnya selesai diperiksa.</p></div>
     {error && <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p>}
     {success && <p role="status" className="rounded-lg bg-emerald-50 p-4 text-emerald-900">{success}</p>}
     <fieldset disabled={busy} className="grid gap-5 disabled:opacity-60">
