@@ -12,7 +12,7 @@ const labelsId: Record<string, string> = {
 };
 const groups = [
   { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
-  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
+  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["PW Persis Kepri", "/persis-kepri"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
 ] as const;
 
 export default function NavbarClient({ participant }: { participant: Participant }) {
