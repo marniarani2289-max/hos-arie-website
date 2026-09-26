@@ -1,4 +1,5 @@
 'use server';
+import {PROGRAM_BASE} from '@/lib/persis/program';
 import {redirect} from 'next/navigation';
 import {revalidatePath} from 'next/cache';
 import {requireTreasurer} from '@/lib/persis/master-server';
@@ -20,7 +21,7 @@ export async function saveOpening(form:FormData){
   const {error}=await service.from('persis_cash_settings').insert({...values,id:true,updated_by:user.id});failed=!!error;
  }
  if(failed)redirect(`${CASH_BASE}?error=Saldo+awal+belum+tersimpan.+Muat+ulang+dan+coba+kembali.`);
- revalidatePath(CASH_BASE);redirect(`${CASH_BASE}?month=${values.start_date.slice(0,7)}&success=opening`);
+ revalidatePath(CASH_BASE);revalidatePath(PROGRAM_BASE,'layout');redirect(`${CASH_BASE}?month=${values.start_date.slice(0,7)}&success=opening`);
 }
 export async function voidCashEntry(form:FormData){
  const {service,user}=await requireTreasurer(CASH_BASE);
@@ -28,5 +29,5 @@ export async function voidCashEntry(form:FormData){
  if(!UUID.test(id)||reason.length<3||reason.length>500||form.get('confirm')!=='yes')redirect(`${CASH_BASE}?month=${month}&error=Isi+alasan+dan+konfirmasi+pembatalan.`);
  const {data,error}=await service.from('persis_cash_entries').update({voided_at:new Date().toISOString(),voided_by:user.id,void_reason:reason}).eq('id',id).is('voided_at',null).select('id');
  if(error||!data?.length)redirect(`${CASH_BASE}?month=${month}&error=Transaksi+belum+dibatalkan+atau+sudah+dibatalkan.+Muat+ulang.`);
- revalidatePath(CASH_BASE);redirect(`${CASH_BASE}?month=${month}&success=void`);
+ revalidatePath(CASH_BASE);revalidatePath(PROGRAM_BASE,'layout');redirect(`${CASH_BASE}?month=${month}&success=void`);
 }
