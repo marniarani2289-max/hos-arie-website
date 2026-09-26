@@ -5,7 +5,7 @@ export const CATEGORIES={income:['Infak','Donasi','Bantuan','Pemasukan lainnya']
 export const METHODS={transfer:'Transfer',tunai:'Tunai',lainnya:'Lainnya'} as const;
 export const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export type CashSettings={start_date:string;opening_balance:number;note:string;updated_at:string};
-export type CashRow={id:string;source:'manual'|'dues';transacted_on:string;kind:'income'|'expense';category:string;amount:number;party:string;activity:string;description:string;method:keyof typeof METHODS;balance:number};
+export type CashRow={id:string;source:'manual'|'dues';transacted_on:string;kind:'income'|'expense';category:string;amount:number;party:string;activity:string;description:string;method:keyof typeof METHODS;balance:number;program_id?:string|null;program_title?:string|null};
 export type Voided=CashRow&{void_reason:string;voided_at:string};
 export type CashReport={month:string;settings:CashSettings|null;opening:number;income:number;expense:number;closing:number;rows:CashRow[];voided:Voided[]};
 export function cashMonth(value?:string){return /^(20[2-9]\d|2100)-(0[1-9]|1[0-2])$/.test(value||'')?value!:jakartaDate().slice(0,7);}

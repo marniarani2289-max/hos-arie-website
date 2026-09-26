@@ -10,7 +10,7 @@ export async function cashExcel(report:CashReport){
  sheet.addRow(['Laporan sesuai status saat diunduh. Iuran menggunakan tanggal pembayaran terverifikasi.']);sheet.addRow([]);
  const headers=['Tanggal','Referensi','Pemberi / penerima','Kategori','Kegiatan','Uraian','Metode','Masuk (Rp)','Keluar (Rp)','Saldo (Rp)'];
  sheet.addRow(headers);
- for(const r of report.rows)sheet.addRow([r.transacted_on,`${r.source==='dues'?'IUR':'KAS'}-${r.id}`,r.party,r.category,r.activity,r.description,METHODS[r.method],r.kind==='income'?r.amount:0,r.kind==='expense'?r.amount:0,r.balance]);
+ for(const r of report.rows)sheet.addRow([r.transacted_on,`${r.source==='dues'?'IUR':'KAS'}-${r.id}`,r.party,r.category,[r.program_title,r.activity].filter(Boolean).join(' · '),r.description,METHODS[r.method],r.kind==='income'?r.amount:0,r.kind==='expense'?r.amount:0,r.balance]);
  sheet.columns.forEach((c,i)=>{c.width=[14,42,26,22,28,55,14,22,22,22][i];});
  for(let i=4;i<=7;i++)sheet.getCell(`B${i}`).numFmt='#,##0';
  for(const col of ['H','I','J'])sheet.getColumn(col).numFmt='#,##0';
@@ -47,7 +47,7 @@ export async function cashPdf(report:CashReport){
  tableHead();
  if(!report.rows.length)text('Belum ada transaksi aktif pada bulan ini.');
  for(const r of report.rows){
-  const cells=[`${r.transacted_on} ${r.source==='dues'?'IUR':'KAS'}-${r.id.slice(0,8)}`,`${r.party} — ${r.description} | ${r.category} | ${METHODS[r.method]}${r.activity?` | ${r.activity}`:''}`,r.kind==='income'?String(r.amount.toLocaleString('id-ID')):'-',r.kind==='expense'?String(r.amount.toLocaleString('id-ID')):'-',r.balance.toLocaleString('id-ID')];
+  const cells=[`${r.transacted_on} ${r.source==='dues'?'IUR':'KAS'}-${r.id.slice(0,8)}`,`${r.party} — ${r.description} | ${r.category} | ${METHODS[r.method]}${r.program_title?` | Program: ${r.program_title}`:''}${r.activity?` | ${r.activity}`:''}`,r.kind==='income'?String(r.amount.toLocaleString('id-ID')):'-',r.kind==='expense'?String(r.amount.toLocaleString('id-ID')):'-',r.balance.toLocaleString('id-ID')];
   const lines=cells.map((c,i)=>wrap(c,widths[i]-6,font,9));const height=Math.max(...lines.map(l=>l.length))*12+12;
   if(y-height<40){addPage();tableHead();}
   lines.forEach((ls,i)=>ls.forEach((l,j)=>page.drawText(l,{x:xs[i],y:y-j*12,size:9,font,color:gray})));
