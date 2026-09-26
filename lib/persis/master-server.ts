@@ -9,11 +9,16 @@ function admin(){
  if(!url||!key)throw new Error('Konfigurasi pengelolaan anggota belum tersedia.');
  return serviceClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
 }
-export async function requireTreasurer(){
+export async function requireTreasurer(next='/persis-kepri/iuran/bendahara/anggota'){
  const client=await createClient();const {data:{user}}=await client.auth.getUser();
- if(!user)redirect('/login?next=%2Fpersis-kepri%2Fiuran%2Fbendahara%2Fanggota');
+ if(!user)redirect(`/login?next=${encodeURIComponent(next)}`);
  const {data,error}=await client.from('persis_treasurers').select('user_id').eq('user_id',user.id).maybeSingle();
  if(error||!data)redirect('/persis-kepri/iuran');
+ return {client,user,service:admin()};
+}
+export async function requireApplicant(){
+ const client=await createClient();const {data:{user}}=await client.auth.getUser();
+ if(!user?.email||!user.email_confirmed_at||user.is_anonymous)redirect('/login?next=%2Fpersis-kepri%2Fpendaftaran');
  return {client,user,service:admin()};
 }
 export async function resolveAccount(service:ReturnType<typeof admin>,email:string|null){

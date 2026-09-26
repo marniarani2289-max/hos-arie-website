@@ -72,6 +72,7 @@ export default function PersisKepriPage() {
       <section className="my-6 flex flex-wrap items-center justify-between gap-5 rounded-xl border border-emerald-200 bg-emerald-50 p-5" aria-labelledby="iuran-title">
         <div><h2 id="iuran-title" className="text-xl font-bold text-emerald-950">Iuran bulanan anggota</h2><p className="mt-2 leading-7 text-emerald-900">Catat pembayaran, unggah bukti, dan lihat status verifikasi bendahara.</p></div>
         <Link href="/persis-kepri/iuran" className="rounded-lg bg-emerald-800 px-5 py-3 font-bold text-white hover:bg-emerald-900">Catat & lihat iuran</Link>
+        <Link href="/persis-kepri/pendaftaran" className="rounded-lg border border-emerald-800 px-5 py-3 font-bold text-emerald-900">Daftarkan data anggota</Link>
       </section>
       <div className="py-8">
         <p className="max-w-4xl text-base leading-8 text-slate-700">Mewujudkan pengelolaan keuangan yang tertib, transparan, dan mendukung dakwah, pendidikan, kaderisasi, serta pelayanan umat. Seluruh jadwal dan target berikut merupakan <strong>usulan untuk satu tahun penuh</strong>; penetapannya mengikuti kondisi kas dan musyawarah pengurus.</p>
