@@ -69,6 +69,10 @@ export default function PersisKepriPage() {
       <nav aria-label="Bagian program kerja" className="flex flex-wrap gap-2 border-b border-slate-200 py-5">
         {[["Program", "program"], ["Kalender", "kalender"], ["Pendanaan", "pendanaan"], ["Tata kelola", "tata-kelola"], ["Pelaporan", "pelaporan"], ["30 hari pertama", "langkah-awal"]].map(([label, id]) => <a key={id} href={`#${id}`} className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 hover:border-emerald-700 hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{label}</a>)}
       </nav>
+      <section className="my-6 flex flex-wrap items-center justify-between gap-5 rounded-xl border border-emerald-200 bg-emerald-50 p-5" aria-labelledby="iuran-title">
+        <div><h2 id="iuran-title" className="text-xl font-bold text-emerald-950">Iuran bulanan anggota</h2><p className="mt-2 leading-7 text-emerald-900">Catat pembayaran, unggah bukti, dan lihat status verifikasi bendahara.</p></div>
+        <Link href="/persis-kepri/iuran" className="rounded-lg bg-emerald-800 px-5 py-3 font-bold text-white hover:bg-emerald-900">Catat & lihat iuran</Link>
+      </section>
       <div className="py-8">
         <p className="max-w-4xl text-base leading-8 text-slate-700">Mewujudkan pengelolaan keuangan yang tertib, transparan, dan mendukung dakwah, pendidikan, kaderisasi, serta pelayanan umat. Seluruh jadwal dan target berikut merupakan <strong>usulan untuk satu tahun penuh</strong>; penetapannya mengikuti kondisi kas dan musyawarah pengurus.</p>
         <dl className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">{[["12", "Program kerja"], ["4", "Tahap triwulanan"], ["12", "Target laporan bulanan"], ["2", "Target telaah internal"]].map(([value, label]) => <div key={label} className="rounded-xl border border-slate-200 bg-white p-5"><dt className="text-sm text-slate-600">{label}</dt><dd className="mt-2 text-3xl font-bold text-emerald-900">{value}</dd></div>)}</dl>
