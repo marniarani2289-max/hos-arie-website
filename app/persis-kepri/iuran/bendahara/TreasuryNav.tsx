@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function TreasuryNav(){return <nav aria-label="Pengelolaan iuran" className="my-6 flex flex-wrap gap-2">{[['Verifikasi',''],['Master anggota','/anggota'],['Ketentuan iuran','/ketentuan'],['Rekap tunggakan','/rekap']].map(([title,path])=><Link key={title} href={`/persis-kepri/iuran/bendahara${path}`} className="rounded-lg border border-emerald-700 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50">{title}</Link>)}</nav>;}
