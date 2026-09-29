@@ -1,0 +1,2 @@
+'use client';
+export default function ErrorPage({ reset }: { reset: () => void }) { return <section className="mx-auto max-w-xl p-10"><h1 className="text-2xl font-bold">Data belum dapat dimuat</h1><p className="my-4">Periksa koneksi lalu coba kembali. Data yang sudah tersimpan tetap tersedia.</p><button onClick={reset} className="rounded-lg bg-emerald-900 px-5 py-3 text-white">Coba kembali</button></section>; }

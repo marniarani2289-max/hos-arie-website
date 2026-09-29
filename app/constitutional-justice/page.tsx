@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
+  BriefcaseBusiness,
   BookOpen,
   Building2,
   FileCheck2,
@@ -144,6 +145,9 @@ export default function ConstitutionalJusticePage() {
                 education in support of constitutional democracy in Indonesia.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
+                <Link href="/constitutional-justice/workspace" className="inline-flex items-center gap-2 rounded-xl border border-amber-300/50 bg-amber-300 px-6 py-4 font-semibold text-slate-950 transition hover:bg-amber-200">
+                  <BriefcaseBusiness size={18} /> Ruang Kerja Advokasi
+                </Link>
                 <Link href="#constitutional-work" className="inline-flex items-center gap-2 rounded-xl bg-rose-900 px-6 py-4 font-semibold text-white transition hover:bg-rose-800">
                   Explore Constitutional Work <ArrowRight size={18} />
                 </Link>
