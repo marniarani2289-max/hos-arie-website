@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   title: "ICSM 2026 — Dokumen & Tindak Lanjut | ISMI Kepri",
   description: "Dokumentasi ICSM 24–25 September 2026: resolusi, deklarasi Selat Malaka, himbauan bersama, analisis, serta 24 usulan tindak lanjut.",
   alternates: { canonical: "/ismi-kepri/icsm-2026" },
-  openGraph: { title: "ICSM 2026 | ISMI Kepri", description: "Dokumen konferensi, analisis, dan matriks tindak lanjut Selat Malaka.", url: "https://www.hossibarani.com/ismi-kepri/icsm-2026", locale: "id_ID", type: "website", images: [{ url: "/ismi-kepri/logo.jpeg", width: 1080, height: 1080, alt: "ISMI Kepri" }] },
+  openGraph: { title: "ICSM 2026 | ISMI Kepri", description: "Dokumen konferensi, analisis, dan matriks tindak lanjut Selat Malaka.", url: "https://www.hossibarani.com/ismi-kepri/icsm-2026", siteName: "ISMI Kepulauan Riau", locale: "id_ID", type: "website", images: [{ url: "https://www.hossibarani.com/ismi-kepri/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "ISMI Kepulauan Riau — Ikatan Sarjana Melayu Indonesia" }] },
+  twitter: { card: "summary_large_image", title: "ICSM 2026 | ISMI Kepri", description: "Dokumen konferensi, analisis, dan matriks tindak lanjut Selat Malaka.", images: ["https://www.hossibarani.com/ismi-kepri/opengraph-image"] },
 };
 const documents = [
   {name:"Analisis mendalam hasil ICSM 2026",type:"Analisis",format:"PDF",file:"analisis-icsm-2026.pdf",text:"Pembacaan kritis delapan bahan substantif, isu strategis, dan arah pelaksanaan."},

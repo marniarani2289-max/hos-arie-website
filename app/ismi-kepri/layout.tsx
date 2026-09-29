@@ -1,8 +1,20 @@
+import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import IsmiHeader from "./Header";
 import s from "./ismi.module.css";
+
+export const metadata: Metadata = {
+  applicationName: "ISMI Kepulauan Riau",
+  icons: {
+    icon: [{ url: "/ismi-kepri/icon", type: "image/png", sizes: "512x512" }],
+    shortcut: "/ismi-kepri/icon",
+    apple: [{ url: "/ismi-kepri/apple-icon", type: "image/png", sizes: "180x180" }],
+  },
+};
+
+export const viewport: Viewport = { themeColor: "#163d32" };
 
 export default function IsmiLayout({ children }: { children: ReactNode }) {
   return <div lang="id" className={s.site} id="ismi-top">

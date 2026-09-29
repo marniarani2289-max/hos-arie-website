@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   title: "ISMI Kepulauan Riau | Ikatan Sarjana Melayu Indonesia",
   description: "Ruang digital ISMI Kepulauan Riau: keilmuan Melayu, kajian kepulauan, kegiatan, publikasi, serta dokumentasi dan tindak lanjut ICSM 2026.",
   alternates: { canonical: "/ismi-kepri" },
-  openGraph: { title: "ISMI Kepulauan Riau", description: "Merawat ilmu. Menguatkan Melayu. Mengabdi untuk kepulauan.", url: "https://www.hossibarani.com/ismi-kepri", locale: "id_ID", type: "website", images: [{ url: "/ismi-kepri/logo.jpeg", width: 1080, height: 1080, alt: "ISMI Kepri" }] },
+  openGraph: { title: "ISMI Kepulauan Riau", description: "Merawat ilmu. Menguatkan Melayu. Mengabdi untuk kepulauan.", url: "https://www.hossibarani.com/ismi-kepri", siteName: "ISMI Kepulauan Riau", locale: "id_ID", type: "website", images: [{ url: "https://www.hossibarani.com/ismi-kepri/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "ISMI Kepulauan Riau — Ikatan Sarjana Melayu Indonesia" }] },
+  twitter: { card: "summary_large_image", title: "ISMI Kepulauan Riau", description: "Merawat ilmu. Menguatkan Melayu. Mengabdi untuk kepulauan.", images: ["https://www.hossibarani.com/ismi-kepri/opengraph-image"] },
 };
 const themes = [
   ["01", "Pemikiran & kebudayaan Melayu", "Membaca warisan intelektual, sejarah, bahasa, dan nilai Melayu sebagai sumber pengetahuan bagi kehidupan hari ini.", "Warisan intelektual"],
