@@ -17,7 +17,7 @@ export default function ActionMatrix() {
       <label>Prioritas<select value={priority} onChange={e=>setPriority(e.target.value)}><option value="">Semua prioritas</option>{[...new Set(actions.map(a=>a.priority))].sort().map(p=><option key={p} value={p}>{p}</option>)}</select></label>
     </div>
     <div className={s.resultBar}><p role="status">Menampilkan <strong>{filtered.length}</strong> dari {actions.length} usulan aksi</p>{(query||group||priority)&&<button type="button" onClick={()=>{setQuery("");setGroup("");setPriority("");}}>Atur ulang filter</button>}</div>
-    <p className={s.matrixHelp}>P1 = prioritas awal; P2 = tahap lanjutan. Hari dihitung sejak T0 (tanggal mulai yang disepakati). Buka setiap aksi untuk melihat rincian.</p>
+    <p className={s.matrixHelp}>P1 = fondasi/langkah awal dalam 100 hari; P2 = pengembangan hingga 180 hari; P3 = kajian hingga 365 hari. Hari dihitung sejak T0 (tanggal mulai yang disepakati). Buka setiap aksi untuk melihat rincian.</p>
     {filtered.length===0 ? <div className={s.empty}>Tidak ada usulan yang sesuai. Ubah kata kunci atau atur ulang filter.</div> : <div className={s.matrixList}>{filtered.map(a=><details className={s.actionRow} key={a.id}>
       <summary><span className={s.actionId}>{a.id}</span><span className={s.actionTitle}><small>{a.group.slice(2)}</small><strong>{a.agenda}</strong></span><span className={s.priority}>{a.priority}</span><span className={s.day}>Hari {a.start}–{a.end}</span><span className={s.status}>Usulan</span><span className={s.expand} aria-hidden="true">+</span></summary>
       <div className={s.actionDetail}><p className={s.actionDescription}>{a.action}</p><dl>{[
