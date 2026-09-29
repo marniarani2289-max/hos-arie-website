@@ -26,6 +26,7 @@ export default function NavbarClient({ participant }: { participant: Participant
   const localize = (href: string) => isIndonesian && bilingualPaths.includes(href) ? `/id${href === "/" ? "" : href}` : href;
 
   if (
+    pathname === "/ismi-kepri" || pathname.startsWith("/ismi-kepri/") ||
     pathname.startsWith("/lexnusa") ||
     pathname.startsWith("/hukumpreneur") ||
     pathname.startsWith("/ai-lab")

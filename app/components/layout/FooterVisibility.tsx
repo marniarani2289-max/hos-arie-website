@@ -6,6 +6,7 @@ export default function FooterVisibility({ children }: Readonly<{ children: Reac
   const pathname = usePathname();
 
   if (
+    pathname === "/ismi-kepri" || pathname.startsWith("/ismi-kepri/") ||
     pathname.startsWith("/lexnusa") ||
     pathname.startsWith("/hukumpreneur") ||
     pathname.startsWith("/raja-ali-haji") ||
