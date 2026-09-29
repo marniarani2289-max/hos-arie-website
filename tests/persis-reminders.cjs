@@ -1,0 +1,33 @@
+const ts=require('typescript'),fs=require('fs'),assert=require('node:assert/strict');
+function load(path,req){const m={exports:{}};new Function('require','module','exports',ts.transpileModule(fs.readFileSync(path,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText)(req,m,m.exports);return m.exports;}
+const billing=load('lib/persis/billing.ts',require),dues=load('lib/persis/dues.ts',require),r=load('lib/persis/reminders.ts',n=>n==='./billing'?billing:dues);
+const member={id:'member',user_id:'user',full_name:'Anggota Uji',start_month:'2025-12-01',end_month:null,contact:{phone:'6281234567890',verified_at:'2026-09-29',paused:false},latest:null};
+const rates=[{effective_month:'2025-01-01',amount:100,due_day:28},{effective_month:'2026-01-01',amount:200,due_day:28}];
+const calc=(m=member,p=[],rt=rates,today='2026-09-29')=>r.reminderState(m,rt,p,'2026-09',today);
+assert.equal(calc().amount,1900);assert.equal(calc().debt.length,10);assert.equal(calc().eligible,true);
+assert.equal(calc(member,[],rates,'2026-09-28').amount,1700);
+assert.equal(calc({...member,user_id:null}).eligible,false);
+assert.equal(calc({...member,start_month:null}).unknown,true);
+assert.equal(calc(member,[],[]).eligible,false);
+assert.equal(calc({...member,contact:{...member.contact,paused:true}}).eligible,false);
+assert.equal(calc({...member,contact:null}).eligible,false);
+const pending=[{user_id:'user',period:'2026-09-01',amount:200,status:'pending'}];assert.equal(calc(member,pending).eligible,false);assert.equal(calc(member,pending).amount,1900);
+assert.equal(calc(member,[{...pending[0],period:'2026-12-01'}]).eligible,false);
+const partial=[{user_id:'user',period:'2026-09-01',amount:70,status:'verified'}];assert.equal(calc(member,partial).amount,1830);
+assert.equal(calc(member,[{...partial[0],amount:500}]).amount,1700); // surplus never covers other months
+assert.equal(calc(member,[{...partial[0],user_id:'other'}]).amount,1900);
+assert.equal(calc(member,[{...partial[0],status:'rejected'}]).amount,1900);
+assert.equal(calc({...member,end_month:'2026-01-01'}).amount,300);
+assert.equal(r.normalizePhone('+62 812-3456-7890'),'6281234567890');assert.equal(r.normalizePhone('081234567890'),'6281234567890');assert.equal(r.normalizePhone('81234567890'),'6281234567890');
+for(const phone of ['abc','08123','6281234x7890','https://evil.test','+14155551234'])assert.throws(()=>r.normalizePhone(phone));
+assert.equal(r.reminderMonth('2027-01','2026-09-29'),'2026-09');
+const text=r.reminderMessage(calc(member,partial),'2026-09','2026-09-29');assert.ok(text.includes('Desember 2025'));assert.ok(text.includes('Rp1.830')||text.replace(/\s/g,'').includes('Rp1.830'));assert.ok(text.includes('https://www.hossibarani.com/persis-kepri/iuran'));
+console.log('PASS: cross-year arrears, effective rates, due-day boundary, pending/unknown/unlinked/paused blocks, partial and surplus treatment, no cross-member credit, phone normalization, message totals.');
+const server=load('lib/persis/reminders-server.ts',n=>n==='server-only'?{}:n==='./reminders'?r:n==='@/lib/supabase/server'?{}:require(n));
+const data={members:[member],rates,payments:[]},draft=server.prepareReminder(data,'member','2026-09');
+assert.equal(draft.hash.length,64);
+assert.notEqual(server.prepareReminder({...data,payments:partial},'member','2026-09').hash,draft.hash);
+assert.notEqual(server.prepareReminder({...data,members:[{...member,contact:{...member.contact,phone:'6281234567891'}}]},'member','2026-09').hash,draft.hash);
+assert.throws(()=>server.prepareReminder({...data,payments:pending},'member','2026-09'));
+assert.throws(()=>server.prepareReminder({...data,members:[{...member,contact:{...member.contact,paused:true}}]},'member','2026-09'));
+console.log('PASS: message snapshot changes with payments/contact and refuses pending or paused members.');
