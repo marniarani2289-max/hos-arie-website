@@ -35,6 +35,15 @@ export default function IsmiKepriPage() {
       <div className={s.sectionHeading}><p className={s.eyebrow}>01 / Tentang ISMI Kepri</p><h2>Pengetahuan bertemu<br/>tanggung jawab sosial.</h2></div>
       <div className={s.aboutGrid}><p className={s.intro}>ISMI adalah <strong>Ikatan Sarjana Melayu Indonesia</strong>. Ruang digital ISMI Kepri ini mempertemukan kajian, dokumentasi kegiatan, dan bahan tindak lanjut dalam konteks Kepulauan Riau.</p><div><p>Sarjana, pendidik, peneliti, dan masyarakat dapat menjelajahi pemikiran Melayu serta isu kepulauan melalui bahan yang tersedia di sini.</p><p>Dokumentasi International Conference on the Strait of Malacca (ICSM) 2026 menjadi koleksi awal: sebuah pintu masuk untuk membaca hubungan kebudayaan, masyarakat pesisir, dan masa depan Selat Malaka.</p><Link className={s.textLink} href="/ismi-kepri/icsm-2026">Buka koleksi ICSM 2026 <span aria-hidden="true">↗</span></Link></div></div>
     </section>
+    <section id="dewan-pakar" className={s.expertSection} aria-labelledby="expert-heading">
+      <div className={s.expertLabel}><p className={s.eyebrow}>Dewan Pakar</p><span>Periode 2026–2030</span></div>
+      <div className={s.expertProfile}>
+        <h2 id="expert-heading">Dr. Hos Arie Sibarani, S.H., M.H.</h2>
+        <p className={s.expertRole}>Dewan Pakar Pengurus Wilayah ISMI<br/>Provinsi Kepulauan Riau</p>
+        <p className={s.expertSource}>Rujukan: Berita Acara Pembentukan PW ISMI Kepri, 22 September 2026, Lampiran C — Dewan Pakar.</p>
+      </div>
+      <Link className={s.textLink} href="/id/about">Profil akademik <span aria-hidden="true">↗</span></Link>
+    </section>
     <section id="ruang-kajian" className={`${s.section} ${s.paperSection}`}>
       <div className={s.splitHeading}><div><p className={s.eyebrow}>02 / Ruang Kajian</p><h2>Dari khazanah Melayu,<br/>untuk kehidupan bersama.</h2></div><p>Tiga pintu untuk menjelajahi gagasan dan bahan kajian dalam ruang digital ini.</p></div>
       <div className={s.themeGrid}>{themes.map(([no,title,text,label])=><article key={no} className={s.theme}><span className={s.number}>{no}</span><h3>{title}</h3><p>{text}</p><span className={s.themeLabel}>{label}</span></article>)}</div>
@@ -53,6 +62,6 @@ export default function IsmiKepriPage() {
         <a href="/ismi-kepri/dokumen/matriks-icsm-2026.xlsx" download><span>BAHAN KERJA · EXCEL</span><strong>Matriks tindak lanjut<br/>24 usulan aksi</strong><span>Unduh matriks ↓</span></a>
       </div>
     </section>
-    <section className={s.collaboration}><p className={s.eyebrow}>Percakapan yang Berkelanjutan</p><h2>Mari menghubungkan<br/>pengetahuan dan pengabdian.</h2><p>Untuk percakapan akademik dan kolaborasi terkait kajian Melayu serta masyarakat kepulauan, hubungi melalui kanal hossibarani.com.</p><Link className={s.buttonGold} href="/id/contact">Hubungi Hos Arie Sibarani <span aria-hidden="true">↗</span></Link></section>
+    <section className={s.collaboration}><p className={s.eyebrow}>Percakapan yang Berkelanjutan</p><h2>Mari menghubungkan<br/>pengetahuan dan pengabdian.</h2><p>Untuk percakapan akademik dan kolaborasi terkait kajian Melayu serta masyarakat kepulauan, hubungi Dr. Hos Arie Sibarani selaku Dewan Pakar ISMI Kepri melalui kanal hossibarani.com.</p><Link className={s.buttonGold} href="/id/contact">Hubungi Hos Arie Sibarani <span aria-hidden="true">↗</span></Link></section>
   </>;
 }

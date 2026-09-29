@@ -35,7 +35,7 @@ export default function IsmiLayout({ children }: { children: ReactNode }) {
         </nav>
         <div className={s.footerContact}>
           <h2>Mari Terhubung</h2>
-          <p>Percakapan akademik dan kolaborasi melalui kanal Hos Arie Sibarani.</p>
+          <p>Dr. Hos Arie Sibarani, S.H., M.H.<br/>Dewan Pakar ISMI Kepri · 2026–2030.</p>
           <Link href="/id/contact">Hubungi Hos Arie <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
