@@ -18,4 +18,4 @@ Anonymous users have no table grants. Nonmembers see no records. Viewers can rea
 `npx tsc --noEmit` and focused ESLint.
 Database tests in a rolled-back transaction: owner insert/read/update, invalid parent rejection, viewer write denial, nonmember read and insert denial. Security advisors showed no CJI-specific finding.
 
-Browser automation in the execution container was unavailable (browser daemon startup and browser download failures). Production build and signed-out route checks must be tracked separately; these do not prove an authenticated end-to-end browser flow.
+Browser validation recovered using packaged Chromium after the default browser daemon/download failed. The actual Workspace component passed in an isolated harness with mocked persistence: dashboard rendering, client → matter → hearing creation, WIB display, Escape dismissal, mobile menu, zero horizontal overflow at 390px, and no browser runtime errors. Desktop/mobile screenshots were inspected. This validates UI behavior separately from the database RLS tests; it is not an authenticated production end-to-end test. Vercel preview build reached READY for commit 931f3864.
