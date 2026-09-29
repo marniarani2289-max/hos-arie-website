@@ -1,0 +1,14 @@
+'use client';
+import {useState} from 'react';
+import {useRouter} from 'next/navigation';
+import {confirmSent} from './actions';
+import SubmitButton from '../program/SubmitButton';
+export default function MessageComposer({memberId,month,name,phone,blocked}:{memberId:string;month:string;name:string;phone:string;blocked:string}){
+ const router=useRouter(),[confirmed,setConfirmed]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[draft,setDraft]=useState<{id:string;message:string;phone:string}|null>(null);
+ async function act(mode:'prepare'|'open'){
+  if(busy)return;setBusy(true);setError('');try{const r=await fetch('/api/persis/reminders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({memberId,month,mode,phone,name,confirm:confirmed,draftId:draft?.id})}),data=await r.json();if(!r.ok)throw new Error(data.error||'Permintaan gagal.');if(mode==='prepare'){setDraft(data);router.refresh();}else{window.location.assign(data.url);}}catch(e){setError(e instanceof Error?e.message:'Koneksi gagal. Coba kembali.');}finally{setBusy(false);}}
+ return <div className="mt-4 space-y-4">{blocked?<p className="rounded-xl bg-amber-50 p-4 text-amber-900">{blocked}</p>:<><label className="flex items-start gap-3 text-sm leading-6"><input type="checkbox" checked={confirmed} onChange={e=>setConfirmed(e.target.checked)} className="mt-1"/>Saya memastikan penerima adalah {name}, WhatsApp +{phone}.</label><button disabled={!confirmed||busy} onClick={()=>act('prepare')} className="rounded-lg bg-emerald-800 px-5 py-3 font-bold text-white disabled:opacity-50">{busy?'Memeriksa data…':'Siapkan / perbarui pesan'}</button></>}
+  {error&&<p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p>}
+  {draft&&<><label className="grid gap-2 text-sm font-semibold">Pratinjau pesan untuk +{draft.phone}<textarea readOnly value={draft.message} rows={14} className="rounded-xl border border-slate-300 bg-slate-50 p-4 font-normal leading-6"/></label><button disabled={busy||!confirmed||!!blocked} onClick={()=>act('open')} className="rounded-lg bg-emerald-800 px-5 py-3 font-bold text-white disabled:opacity-50">Periksa ulang & buka WhatsApp</button><p className="text-sm leading-6 text-slate-600">WhatsApp dibuka dengan teks siap kirim. Anda tetap menekan Kirim di WhatsApp. Membuka WhatsApp tidak otomatis mencatat pesan terkirim.</p><form action={confirmSent} className="grid gap-3 rounded-xl border border-emerald-200 p-4"><input type="hidden" name="member_id" value={memberId}/><input type="hidden" name="month" value={month}/><input type="hidden" name="draft_id" value={draft.id}/><label className="flex gap-3 text-sm"><input type="checkbox" name="confirm_sent" value="yes" required/>Saya sudah mengirim pesan ini melalui WhatsApp.</label><SubmitButton label="Catat sebagai sudah dikirim"/></form></>}
+ </div>;
+}
