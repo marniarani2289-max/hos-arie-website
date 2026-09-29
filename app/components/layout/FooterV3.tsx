@@ -15,6 +15,7 @@ const digitalSystems = [
 ];
 
 const institutions = [
+  { name: "ISMI Kepulauan Riau", href: "/ismi-kepri" },
   { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
   { name: "JMCS Journal", href: "/journal" },
   { name: "Hukum Preneur", href: "/hukumpreneur" },
