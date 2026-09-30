@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import s from "./ismi.module.css";
+import MainLearningVideo from "./MainLearningVideo";
 
 export const metadata: Metadata = {
   title: "ISMI Kepulauan Riau | Ikatan Sarjana Melayu Indonesia",
@@ -22,7 +23,7 @@ export default function IsmiKepriPage() {
         <p className={s.eyebrow}>Ikatan Sarjana Melayu Indonesia · Kepulauan Riau</p>
         <h1>Merawat ilmu.<br/>Menguatkan Melayu.<br/><em>Mengabdi untuk kepulauan.</em></h1>
         <p className={s.lead}>Ruang temu gagasan, pengetahuan, dan pengabdian ISMI Kepri. Menghubungkan khazanah Melayu dengan tantangan masyarakat kepulauan.</p>
-        <div className={s.actions}><Link className={s.buttonGold} href="#tentang">Mengenal ISMI Kepri <span aria-hidden="true">↓</span></Link><Link className={s.buttonOutline} href="#kegiatan">Jelajahi kegiatan <span aria-hidden="true">↗</span></Link></div>
+        <div className={s.actions}><Link className={s.buttonGold} href="#materi-utama">Tonton materi utama <span aria-hidden="true">↓</span></Link><Link className={s.buttonOutline} href="#kegiatan">Jelajahi kegiatan <span aria-hidden="true">↗</span></Link></div>
       </div>
       <div className={s.identityPanel}>
         <span className={s.panelKicker}>Ilmu · Adab · Pengabdian</span>
@@ -32,6 +33,7 @@ export default function IsmiKepriPage() {
       </div>
     </section>
     <div className={s.values}><span>Keilmuan yang hidup</span><span>Kebudayaan yang terawat</span><span>Pengabdian yang bermakna</span></div>
+    <MainLearningVideo />
     <section id="tentang" className={s.section}>
       <div className={s.sectionHeading}><p className={s.eyebrow}>01 / Tentang ISMI Kepri</p><h2>Pengetahuan bertemu<br/>tanggung jawab sosial.</h2></div>
       <div className={s.aboutGrid}><p className={s.intro}>ISMI adalah <strong>Ikatan Sarjana Melayu Indonesia</strong>. Ruang digital ISMI Kepri ini mempertemukan kajian, dokumentasi kegiatan, dan bahan tindak lanjut dalam konteks Kepulauan Riau.</p><div><p>Sarjana, pendidik, peneliti, dan masyarakat dapat menjelajahi pemikiran Melayu serta isu kepulauan melalui bahan yang tersedia di sini.</p><p>Dokumentasi International Conference on the Strait of Malacca (ICSM) 2026 menjadi koleksi awal: sebuah pintu masuk untuk membaca hubungan kebudayaan, masyarakat pesisir, dan masa depan Selat Malaka.</p><Link className={s.textLink} href="/ismi-kepri/icsm-2026">Buka koleksi ICSM 2026 <span aria-hidden="true">↗</span></Link></div></div>

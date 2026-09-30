@@ -48,3 +48,24 @@
 .expertSection>.textLink{justify-self:start}
 @media(max-width:1050px){.expertSection{padding:32px 28px;grid-template-columns:1fr 2fr;gap:24px}.expertSection>.textLink{grid-column:2}}
 @media(max-width:700px){.expertSection{padding:32px 22px;grid-template-columns:1fr;gap:20px}.expertSection>.textLink{grid-column:auto}}
+
+/* Main learning material shared by the ISMI homepage and ICSM collection. */
+.videoSection{background:#eeefe6;border-bottom:1px solid #d8dfd1}
+.videoGrid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(250px,1fr);gap:32px;margin-top:36px;align-items:start}
+.videoFrame{aspect-ratio:16/9;background:#0d2d27;border:1px solid #b9c8b6;overflow:hidden}
+.videoFrame iframe{display:block;width:100%;height:100%;border:0}
+.videoMeta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;margin-top:13px;font-size:.72rem;color:var(--muted)}
+.videoMeta a{font-weight:700;color:var(--green);text-decoration:underline;text-underline-offset:4px}
+.videoOverview{min-width:0}
+.videoOverview h3{margin:13px 0 17px;font-size:1.45rem}
+.videoOverview>p:not(.eyebrow){font-size:.85rem;color:var(--muted)}
+.videoAuthor{margin:22px 0 12px!important}
+.videoAuthor strong{color:var(--green)}
+.videoOverview>.textLink{display:flex;justify-content:space-between;gap:10px;font-size:.78rem}
+.videoChapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.videoChapters>a{display:flex;align-items:baseline;gap:12px;padding:15px;background:#fff;border:1px solid #d8dfd1;min-height:52px}
+.videoChapters>a:hover{background:#f8f5e9}
+.videoChapters>a>span:first-child{font-variant-numeric:tabular-nums;font-size:.73rem;font-weight:700;color:#78612d;white-space:nowrap}
+.videoChapters strong{font-size:.76rem;font-weight:600;line-height:1.6}
+@media(max-width:1050px){.videoGrid{grid-template-columns:1fr;gap:25px}.videoOverview{max-width:700px}.videoOverview>.textLink{max-width:360px}.videoChapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.videoGrid{margin-top:25px}.videoChapters{grid-template-columns:1fr;gap:9px}.videoMeta{font-size:.7rem}.videoOverview h3{font-size:1.3rem}}
