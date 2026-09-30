@@ -15,10 +15,15 @@ export default function MainLearningVideo() {
     <section id="materi-utama" className={`${s.section} ${s.videoSection}`} aria-labelledby="main-video-title">
       <div className={s.splitHeading}>
         <div>
-          <p className={s.eyebrow}>Materi utama · Video pembelajaran</p>
+          <p className={s.eyebrow}>Materi utama · Video & PDF</p>
           <h2 id="main-video-title">Selat Malaka:<br />siapa yang sejahtera?</h2>
         </div>
-        <p>Mulai dari video analisis ICSM 2026, lalu dalami dokumen sumber dan matriks tindak lanjut untuk menghubungkan gagasan dengan aksi.</p>
+        <p>Tonton video analisis ICSM 2026 dan unduh materi presentasi Cetak Biru Selat Malaka. Lanjutkan pendalaman melalui dokumen sumber dan matriks tindak lanjut.</p>
+      </div>
+      <div className={s.actions} aria-label="Materi utama yang dapat diunduh">
+        <a className={s.buttonDark} href="/ismi-kepri/dokumen/cetak-biru-selat-malaka.pdf" download="Cetak_Biru_Selat_Malaka.pdf">Unduh Materi Utama (PDF) ↓</a>
+        <a className={s.textLink} href="/ismi-kepri/dokumen/cetak-biru-selat-malaka.pdf" target="_blank" rel="noopener noreferrer">Buka PDF ↗<span className={s.srOnly}> (buka tab baru)</span></a>
+        <span className={s.videoMeta}>Cetak Biru Selat Malaka · 15 halaman · 12,2 MB</span>
       </div>
       <div className={s.videoGrid}>
         <div>

@@ -5,12 +5,13 @@ import MainLearningVideo from "../MainLearningVideo";
 import s from "../ismi.module.css";
 export const metadata: Metadata = {
   title: "ICSM 2026 — Video, Dokumen & Tindak Lanjut | ISMI Kepri",
-  description: "Materi utama video analisis Selat Malaka dan ICSM 2026, dilengkapi dokumen konferensi, analisis PDF, serta 24 usulan tindak lanjut.",
+  description: "Materi utama video dan PDF Cetak Biru Selat Malaka, dilengkapi dokumen ICSM 2026, analisis mendalam, serta 24 usulan tindak lanjut.",
   alternates: { canonical: "/ismi-kepri/icsm-2026" },
   openGraph: { title: "ICSM 2026 | ISMI Kepri", description: "Dokumen konferensi, analisis, dan matriks tindak lanjut Selat Malaka.", url: "https://www.hossibarani.com/ismi-kepri/icsm-2026", siteName: "ISMI Kepulauan Riau", locale: "id_ID", type: "website", images: [{ url: "https://www.hossibarani.com/ismi-kepri/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "ISMI Kepulauan Riau — Ikatan Sarjana Melayu Indonesia" }] },
   twitter: { card: "summary_large_image", title: "ICSM 2026 | ISMI Kepri", description: "Dokumen konferensi, analisis, dan matriks tindak lanjut Selat Malaka.", images: ["https://www.hossibarani.com/ismi-kepri/opengraph-image"] },
 };
 const documents = [
+  {name:"Cetak Biru Selat Malaka",type:"Materi utama",format:"PDF",file:"cetak-biru-selat-malaka.pdf",text:"15 halaman materi presentasi pendamping video analisis ICSM 2026. Unduh untuk belajar mandiri dan diskusi. Ukuran 12,2 MB."},
   {name:"Analisis mendalam hasil ICSM 2026",type:"Analisis",format:"PDF",file:"analisis-icsm-2026.pdf",text:"Pembacaan kritis delapan bahan substantif, isu strategis, dan arah pelaksanaan."},
   {name:"Matriks tindak lanjut ICSM 2026",type:"Rancangan kerja",format:"PDF",file:"matriks-icsm-2026.pdf",text:"24 usulan aksi, keluaran, indikator, calon pelaksana, risiko, dan ketergantungan."},
   {name:"Matriks kerja & pemantauan",type:"Rancangan kerja",format:"XLSX",file:"matriks-icsm-2026.xlsx",text:"Empat lembar: Rencana, Pemantauan, Cakupan, dan Petunjuk. Dapat disunting."},
