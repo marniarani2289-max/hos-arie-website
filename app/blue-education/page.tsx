@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: { title: "Pendidikan Biru (Blue Education)", description: "Literasi laut, model Kepulauan Riau, dan proyek pembelajaran berbasis bukti.", images: ["/og-image.jpg"] },
 };
 
-const nav = [["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["pendaftaran", "Daftar perintis"], ["galeri-praktik", "Galeri praktik baik"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
+const nav = [["jurnal-jbe", "Jurnal JBE"], ["materi-utama", "Materi utama"], ["dialog-publik", "Dialog publik"], ["materi-presentasi", "Materi PDF"], ["kuis", "Kuis"], ["lembar-kerja", "Lembar kerja"], ["refleksi", "Refleksi"], ["pendaftaran", "Daftar perintis"], ["galeri-praktik", "Galeri praktik baik"], ["konsep", "Konsep"], ["kepri", "Model Kepri"], ["sekolah", "Sekolah & kurikulum"], ["proyek", "Proyek 8 minggu"], ["evaluasi", "Evaluasi"], ["rujukan", "Rujukan"]] as const;
 
 function SectionHeading({ number, label, title, children }: { number: string; label: string; title: string; children?: React.ReactNode }) {
   return <div className={s.sectionHeading}><p className={s.eyebrow}><span>{number}</span>{label}</p><h2>{title}</h2>{children && <p className={s.lead}>{children}</p>}</div>;
@@ -50,6 +50,34 @@ export default function BlueEducationPage() {
     </section>
 
     <nav className={s.sectionNav} aria-label="Daftar isi Pendidikan Biru"><div className={s.container}>{nav.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></nav>
+
+    <section id="jurnal-jbe" className={`${s.container} ${s.section}`} aria-labelledby="jbe-title">
+      <div className={s.introGrid}>
+        <div>
+          <p className={s.eyebrow}><BookOpen size={20} aria-hidden="true" />Jurnal Blue Education · RAHRN</p>
+          <div className={s.sectionHeading}>
+            <h2 id="jbe-title">Pendidikan untuk masa depan biru.</h2>
+            <p className={s.lead}>Jurnal Blue Education (JBE) menyiapkan ruang publikasi ilmiah yang menghubungkan penelitian pendidikan, kehidupan kepulauan, dan keberlanjutan laut, sungai, serta danau.</p>
+          </div>
+          <p>Dari pengalaman belajar menuju kajian ilmiah: pendidikan kepulauan, literasi perairan, guru dan pembelajaran, serta komunitas dan pengetahuan lokal.</p>
+          <div className={s.actions}>
+            <a className={s.primaryButton} href="https://journal.hossibarani.com/jbe/index" target="_blank" rel="noopener noreferrer">Kunjungi JBE <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+            <a className={s.videoContinue} href="https://journal.hossibarani.com/jbe/about" target="_blank" rel="noopener noreferrer">Tentang JBE <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+          </div>
+        </div>
+        <aside className={s.callout} aria-labelledby="jbe-info-title">
+          <Waves size={28} aria-hidden="true" />
+          <h3 id="jbe-info-title">Mengenal jurnal</h3>
+          <dl className={s.definitionList}>
+            <div><dt>Penerbit</dt><dd>Raja Ali Haji Research Network</dd></div>
+            <div><dt>Bahasa naskah</dt><dd>Indonesia &amp; Inggris</dd></div>
+            <div><dt>Ruang kajian</dt><dd>Pendidikan &amp; keberlanjutan perairan</dd></div>
+            <div><dt>Status</dt><dd>Persiapan penerbitan. Penerimaan naskah belum dibuka.</dd></div>
+          </dl>
+          <a className={s.videoContinue} href="https://journal.hossibarani.com/jbe/about/submissions" target="_blank" rel="noopener noreferrer">Panduan penulis <ArrowUpRight size={18} aria-hidden="true" /><span className={s.srOnly}> (buka tab baru)</span></a>
+        </aside>
+      </div>
+    </section>
 
     <section id="materi-utama" className={`${s.section} ${s.tinted}`} aria-labelledby="main-video-title"><div className={s.container}>
       <div className={s.sectionHeading}>
