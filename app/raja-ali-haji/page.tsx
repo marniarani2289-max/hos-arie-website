@@ -181,6 +181,9 @@ export default function RajaAliHajiInstitutePage() {
                 <Link href="/login" className="inline-flex items-center rounded-xl border border-amber-300/50 bg-amber-300/10 px-6 py-4 font-semibold text-amber-100 transition hover:bg-amber-300/20">
                   Masuk Peserta
                 </Link>
+                <a href="#jurnal-jmcs" className="inline-flex items-center gap-2 rounded-xl border border-amber-300/50 bg-amber-300/10 px-6 py-4 font-semibold text-amber-100 transition hover:bg-amber-300/20">
+                  Jurnal JMCS <BookOpen size={18} aria-hidden="true" />
+                </a>
                 <Link href="#about-institute" className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 px-6 py-4 font-semibold text-white transition hover:border-amber-300/50 hover:bg-white/10">
                   Discover the Institute
                 </Link>
@@ -211,6 +214,29 @@ export default function RajaAliHajiInstitutePage() {
               </aside>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="jurnal-jmcs" lang="id" aria-labelledby="jmcs-title" className="scroll-mt-24 border-b border-stone-200 bg-stone-50 px-5 py-16 sm:px-6 md:py-20 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16">
+          <div>
+            <Eyebrow>Jurnal ilmiah · RAHRN</Eyebrow>
+            <h2 id="jmcs-title" className="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl">Journal of Malay Constitutional Studies</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">JMCS menghubungkan pemikiran ketatanegaraan Melayu dengan kajian konstitusi kontemporer, tata kelola, dan hukum publik. Jurnal ini menjadi ruang pengembangan kajian ilmiah yang sejalan dengan perhatian Raja Ali Haji Institute pada etika, keadilan, dan kekuasaan.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <a href="https://journal.hossibarani.com/jmcs/index" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-amber-800">Kunjungi JMCS <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> (buka tab baru)</span></a>
+              <a href="https://journal.hossibarani.com/jmcs/about" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 font-bold text-amber-800 underline underline-offset-4 hover:text-slate-950">Tentang JMCS <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> (buka tab baru)</span></a>
+            </div>
+          </div>
+          <aside aria-labelledby="jmcs-info-title" className="rounded-2xl border border-amber-900/10 bg-white p-7 shadow-sm sm:p-9">
+            <BookOpen size={28} className="text-amber-700" aria-hidden="true" />
+            <h3 id="jmcs-info-title" className="mt-5 text-2xl font-bold text-slate-950">Mengenal JMCS</h3>
+            <dl className="mt-6 space-y-5">
+              <div><dt className="text-sm font-bold text-amber-800">Penerbit</dt><dd className="mt-1 leading-7 text-slate-600">Raja Ali Haji Research Network (RAHRN)</dd></div>
+              <div><dt className="text-sm font-bold text-amber-800">Ruang kajian</dt><dd className="mt-1 leading-7 text-slate-600">Hukum tata negara, perbandingan konstitusionalisme, tradisi ketatanegaraan Melayu, tata kelola, dan hak asasi manusia.</dd></div>
+            </dl>
+            <a href="https://journal.hossibarani.com/jmcs/about/submissions" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 items-center gap-2 font-bold text-amber-800 underline underline-offset-4 hover:text-slate-950">Panduan penulis <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> (buka tab baru)</span></a>
+          </aside>
         </div>
       </section>
 
