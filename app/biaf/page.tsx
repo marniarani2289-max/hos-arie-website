@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import BiafHeader from "./BiafHeader";
 import CollaborationForm from "./CollaborationForm";
 import styles from "./biaf.module.css";
@@ -33,11 +34,16 @@ export default function BiafPage() {
    <p className="hero-description">Ruang kolaborasi lintas disiplin untuk menghubungkan pengetahuan, memperluas jejaring, dan menumbuhkan kontribusi bagi masyarakat.</p>
    <div className="actions"><a className="button gold" href="#profil">Mengenal BIAF <span aria-hidden="true">↗</span></a><a className="text-link" href="#kolaborasi">Temukan ruang kolaborasi <span aria-hidden="true">→</span></a></div>
   </div>
-  <div className="hero-art" aria-hidden="true">
-   <div className="orbit orbit-one"></div><div className="orbit orbit-two"></div>
-   <svg viewBox="0 0 600 600" className="globe"><defs><clipPath id="sphere"><circle cx="300" cy="290" r="210"/></clipPath><radialGradient id="sea"><stop stopColor="#36616a"/><stop offset="1" stopColor="#173b46"/></radialGradient></defs><circle cx="300" cy="290" r="210" fill="url(#sea)" stroke="#819c99" strokeWidth=".7"/><g clipPath="url(#sphere)" fill="none" stroke="#a4b8ad" strokeWidth=".8" opacity=".4"><ellipse cx="300" cy="290" rx="145" ry="210"/><ellipse cx="300" cy="290" rx="65" ry="210"/><ellipse cx="300" cy="290" rx="210" ry="140"/><ellipse cx="300" cy="290" rx="210" ry="60"/><path d="M90 290H510M300 80V500"/></g><path d="M121 379Q310 185 501 224M140 426Q330 402 437 136M178 149Q214 334 464 395" fill="none" stroke="#c8b582" strokeWidth="1.4"/><g fill="#dec994"><circle cx="222" cy="302" r="5"/><circle cx="394" cy="214" r="4"/><circle cx="394" cy="371" r="4"/><circle cx="312" cy="413" r="3"/></g><circle cx="222" cy="302" r="17" fill="none" stroke="#dec994" opacity=".5"/><path d="M222 302L170 254H85" stroke="#dec994" fill="none"/><text x="86" y="239" fill="#e3ce9c" fontSize="13" letterSpacing="3">BATAM</text></svg>
-   <div className="art-note">LOCAL ROOTS.<br /><i>GLOBAL CONVERSATIONS.</i></div>
-   <div className="art-caption">ILUSTRASI JEJARING AKADEMIK</div>
+  <div className="hero-art hero-art-image">
+   <Image
+     src="/biaf/hero-network.jpg"
+     width={2048}
+     height={1021}
+     priority
+     sizes="(max-width: 900px) 850px, 115vw"
+     className="hero-reference-image"
+     alt="Ilustrasi bola dunia dengan jejaring cahaya yang menghubungkan Batam dan dunia."
+   />
   </div>
  </div>
  <div className="hero-bottom"><span><span className="status-dot"></span> Inisiatif dalam pengembangan</span><span>Pengetahuan melampaui batas <span aria-hidden="true">↓</span></span></div>
