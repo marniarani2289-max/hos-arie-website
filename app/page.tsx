@@ -1,3 +1,4 @@
+import BiafInvitation from "./components/home/BiafInvitation";
 import type { Metadata } from "next";
 import HeroV6 from "./components/home/HeroV6";
 import HomeHighlights from "./components/home/HomeHighlights";
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroV6 />
       <PathwayChooser compact />
       <ProgrammeCards />
+      <BiafInvitation />
       <HomeHighlights />
       <SelectedWork />
     </>
