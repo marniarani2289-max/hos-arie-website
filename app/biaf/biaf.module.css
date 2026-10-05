@@ -1,5 +1,4 @@
-.site :global(500;600;700&family=Libre+Caslon+Display&display=swap');
-:root){--navy:#102c37;--navy2:#183b46;--gold:#d9c18d;--ink:#19353e;--muted:#617076;--paper:#f8f7f2;--border:#dcded7;--serif:Georgia,serif;--sans:var(--font-inter),Arial,sans-serif}
+.site{--navy:#102c37;--navy2:#183b46;--gold:#d9c18d;--ink:#19353e;--muted:#617076;--paper:#f8f7f2;--border:#dcded7;--serif:Georgia,serif;--sans:var(--font-inter),Arial,sans-serif}
 .site :global(*){box-sizing:border-box}
 .site{scroll-behavior:smooth;scroll-padding-top:100px}
 .site{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.65}
@@ -158,7 +157,7 @@
 .site :global(.discipline-grid h3){font-size:26px}
 .site :global(.topic){font-size:7px}
 .site :global(.form-panel){padding:27px}}
-@media(max-width:760px){.site{scroll-padding-top:80px}
+@media(max-width:900px){.site{scroll-padding-top:80px}
 .site :global(.header){height:76px}
 .site :global(.brand-name){font-size:7px;letter-spacing:1px}
 .site :global(.mark){font-size:42px}
