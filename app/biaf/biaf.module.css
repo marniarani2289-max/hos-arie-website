@@ -226,6 +226,6 @@
 
 /* Display the globe area of the supplied full-page artwork, keeping live text and controls. */
 .site :global(.hero){background:linear-gradient(115deg,#2b2d30 0%,#1c2b35 48%,#292e48 100%)}
-.site :global(.hero-art-image){aspect-ratio:1.06;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,#000 10%,#000 94%,transparent 100%)}
-.site :global(.hero-reference-image){position:absolute;max-width:none;width:216%;height:auto;right:-2%;top:-13.4%;display:block}
+.site :global(.hero-art-image){aspect-ratio:1.06;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,#000 10%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 4%,#000 94%,transparent 100%);mask-composite:intersect}
+.site :global(.hero-reference-image){position:absolute;max-width:none;width:216%;height:auto;right:-2%;top:-14.2%;display:block}
 @media(max-width:900px){.site :global(.hero-art-image){max-height:none;margin-top:30px}}
