@@ -12,7 +12,7 @@ const labelsId: Record<string, string> = {
 };
 const groups = [
   { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
-  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Ruang Belajar Gurindam", "/gurindam"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["PW Persis Kepri", "/persis-kepri"], ["ISMI Kepri", "/ismi-kepri"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
+  { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Ruang Belajar Gurindam", "/gurindam"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["PW Persis Kepri", "/persis-kepri"], ["ISMI Kepri", "/ismi-kepri"], ["BIAF · Academic Forum", "/biaf"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
 ] as const;
 
 export default function NavbarClient({ participant }: { participant: Participant }) {
@@ -26,6 +26,7 @@ export default function NavbarClient({ participant }: { participant: Participant
   const localize = (href: string) => isIndonesian && bilingualPaths.includes(href) ? `/id${href === "/" ? "" : href}` : href;
 
   if (
+    pathname === "/biaf" || pathname.startsWith("/biaf/") ||
     pathname === "/ismi-kepri" || pathname.startsWith("/ismi-kepri/") ||
     pathname.startsWith("/lexnusa") ||
     pathname.startsWith("/hukumpreneur") ||

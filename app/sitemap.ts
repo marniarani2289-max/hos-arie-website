@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/lexnusa/lex-eval", 0.85, "monthly"],
     ["/lexnusa/lex-eval-sample", 0.75, "monthly"],
     ["/hw-kepri", 0.8, "monthly"],
+    ["/biaf", 0.85, "monthly"],
     ["/ismi-kepri", 0.85, "monthly"],
     ["/ismi-kepri/icsm-2026", 0.8, "monthly"],
     ["/persis-kepri", 0.8, "monthly"],
