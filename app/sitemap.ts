@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/books", 0.8, "monthly"],
     ["/opinions", 0.9, "weekly"],
     ["/journal", 0.8, "monthly"],
+    ["/smck", 0.8, "monthly"],
     ["/raja-ali-haji", 0.95, "monthly"],
     ["/gurindam/index.html", 0.8, "monthly"],
     ["/ai-lab", 0.9, "monthly"],
