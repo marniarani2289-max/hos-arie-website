@@ -19,6 +19,7 @@ const institutions = [
   { name: "ISMI Kepulauan Riau", href: "/ismi-kepri" },
   { name: "Raja Ali Haji Institute", href: "/raja-ali-haji" },
   { name: "JMCS Journal", href: "/journal" },
+  { name: "Seri Mahkota Cendekia Kepri · SMCK", href: "/smck" },
   { name: "Hukum Preneur", href: "/hukumpreneur" },
   { name: "Constitutional Justice", href: "/constitutional-justice" },
   { name: "Hizbul Wathan Kepri", href: "/hw-kepri" },
