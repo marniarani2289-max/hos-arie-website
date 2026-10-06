@@ -19,6 +19,7 @@ export default function TrainingPage() {
         <p className="mt-8 text-xs font-bold uppercase tracking-[.22em] text-amber-300">Hossibarani · Pelatihan AI</p>
         <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-tight sm:text-6xl">Belajar AI melalui pekerjaan yang nyata.</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Rancang pembelajaran, tingkatkan cara kerja tim, atau dalami praktik hukum. Setiap program menghubungkan kebutuhan, praktik, pemeriksaan hasil, dan revisi dengan umpan balik manusia.</p>
+        <Link href="/pelatihan-ai/minat" className={`${button} mt-8`}>Isi formulir minat guru / sekolah</Link>
         <nav aria-label="Pilih pelatihan" className="mt-8 flex flex-wrap gap-3">{trainingOffers.map(p => <Link key={p.id} href={`#${p.id}`} className={button}>{p.id === "lexnusa" ? "Spesialisasi LexNusa" : p.title}</Link>)}</nav>
         <p className="mt-6 max-w-3xl text-sm leading-6 text-slate-300">Konsultasi program tersedia. Jadwal kelas belum diumumkan. Biaya di bawah merupakan indikasi awal; jadwal, cakupan, dan biaya final dikonfirmasi tertulis sebelum pembayaran.</p>
       </div>
@@ -50,3 +51,4 @@ export default function TrainingPage() {
     <section className="border-t border-stone-200 bg-white px-6 py-16"><div className="mx-auto max-w-4xl"><h2 className="text-3xl font-bold">Dari konsultasi menuju pelatihan</h2><ol className="mt-6 list-decimal space-y-4 pl-5 leading-7 text-slate-600"><li>Pilih program dan kirim kebutuhan, jumlah peserta, serta preferensi waktu.</li><li>Pengelola mengonfirmasi kecocokan program, kesiapan layanan, jadwal, dan penawaran final secara tertulis.</li><li>Ikuti instruksi pendaftaran setelah jadwal disepakati. Ketentuan pembayaran, perubahan jadwal, dan pembatalan disampaikan sebelum pembayaran.</li></ol><p className="mt-6 rounded-xl bg-teal-50 p-5 leading-7 text-teal-950">Sertifikat penyelesaian diberikan setelah persyaratan belajar dipenuhi dan diverifikasi fasilitator. Sertifikat ini tidak menyatakan akreditasi atau kualifikasi profesi.</p><p className="mt-6 text-slate-600">Pengelola: Dr. Hos Arie Sibarani · <a href="mailto:riesib8@gmail.com" className="break-all font-semibold underline">riesib8@gmail.com</a></p></div></section>
   </div>;
 }
+
