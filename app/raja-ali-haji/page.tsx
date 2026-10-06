@@ -240,6 +240,18 @@ export default function RajaAliHajiInstitutePage() {
         </div>
       </section>
 
+      <section id="jurnal-smck" lang="id" aria-labelledby="smck-title" className="border-b border-amber-900/10 bg-[#faf8f2] px-5 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 md:flex-row md:items-center">
+          <div className="max-w-3xl">
+            <Eyebrow>Jurnal dalam persiapan · RAHRN</Eyebrow>
+            <h2 id="smck-title" className="mt-4 font-academic text-3xl font-bold text-slate-950">Seri Mahkota Cendekia Kepri</h2>
+            <p className="mt-3 text-lg leading-8 text-slate-600">Jurnal Pendidikan, Kebudayaan dan Peradaban. Kajian pendidikan, warisan pengetahuan, dan kehidupan masyarakat Melayu serta kepulauan.</p>
+            <p className="mt-3 text-sm text-slate-600">Diterbitkan oleh Raja Ali Haji Research Network. Penerimaan naskah belum dibuka.</p>
+          </div>
+          <Link href="/smck" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 self-start rounded-xl bg-slate-950 px-6 py-4 font-semibold text-white hover:bg-amber-800 md:self-auto">Mengenal SMCK <ArrowRight size={18} aria-hidden="true" /></Link>
+        </div>
+      </section>
+
       <section id="about-institute" className="scroll-mt-24 px-5 py-20 sm:px-6 md:py-28 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
@@ -431,6 +443,5 @@ export default function RajaAliHajiInstitutePage() {
     </div>
   );
 }
-
 
 
