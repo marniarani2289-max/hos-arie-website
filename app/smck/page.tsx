@@ -38,7 +38,8 @@ export default function SmckPage() {
             <p className="mt-5 text-xl leading-8 text-[#526373]">Jurnal Pendidikan, Kebudayaan dan Peradaban</p>
             <p className="mt-6 max-w-xl text-base leading-8">Merawat pengetahuan, menghidupkan kebudayaan. Ruang ilmiah yang berakar pada dunia Melayu dan kehidupan kepulauan.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#tentang" className="rounded-lg bg-[#082b48] px-6 py-3 font-semibold text-white hover:bg-[#164767]">Mengenal jurnal</a>
+              <a href="https://journal.hossibarani.com/smck/en/index" className="rounded-lg bg-[#082b48] px-6 py-3 font-semibold text-white hover:bg-[#164767]">Kunjungi jurnal di OJS ↗</a>
+              <a href="#tentang" className="rounded-lg border border-[#082b48]/30 px-6 py-3 font-semibold hover:bg-white">Mengenal jurnal</a>
               <a href="#ruang-lingkup" className="rounded-lg border border-[#082b48]/30 px-6 py-3 font-semibold hover:bg-white">Ruang lingkup ↓</a>
             </div>
             <p className="mt-6 text-sm leading-6 text-[#526373]">Persiapan penerbitan · Penerimaan naskah belum dibuka</p>
@@ -84,7 +85,7 @@ export default function SmckPage() {
         <div className="rounded-xl border border-[#c49a43]/30 bg-white p-7 sm:p-10">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#80601e]">Pengembangan jurnal</p>
           <h2 className="mt-4 font-serif text-3xl">Menyiapkan penerbitan yang bertanggung jawab.</h2>
-          <p className="mt-5 max-w-3xl leading-8 text-[#526373]">Jurnal belum menerbitkan edisi dan belum membuka penerimaan naskah. Tim editorial, pedoman penulis, kebijakan penelaahan, lisensi, ISSN, jadwal terbit, dan biaya publikasi akan diumumkan setelah ditetapkan. Tautan pengiriman naskah akan tersedia setelah laman OJS siap.</p>
+          <p className="mt-5 max-w-3xl leading-8 text-[#526373]">Jurnal belum menerbitkan edisi dan belum membuka penerimaan naskah. Tim editorial, pedoman penulis, kebijakan penelaahan, lisensi, ISSN, jadwal terbit, dan biaya publikasi akan diumumkan setelah ditetapkan. Laman OJS SMCK sudah dibuat untuk pengelolaan jurnal. Penerimaan naskah tetap dinonaktifkan selama tahap persiapan.</p>
           <div className="mt-7 flex flex-wrap gap-4">
             <a href="mailto:editor@hossibarani.com?subject=Informasi%20SMCK" className="rounded-lg bg-[#082b48] px-6 py-3 font-semibold text-white hover:bg-[#164767]">Hubungi sekretariat</a>
             <Link href="/raja-ali-haji" className="rounded-lg border border-[#082b48]/30 px-6 py-3 font-semibold hover:bg-stone-50">Ekosistem Raja Ali Haji</Link>
