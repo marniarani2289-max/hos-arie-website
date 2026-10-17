@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import BiafHeader from "./BiafHeader";
 import CollaborationForm from "./CollaborationForm";
 import styles from "./biaf.module.css";
@@ -34,17 +33,29 @@ export default function BiafPage() {
    <p className="hero-description">Ruang kolaborasi lintas disiplin untuk menghubungkan pengetahuan, memperluas jejaring, dan menumbuhkan kontribusi bagi masyarakat.</p>
    <div className="actions"><a className="button gold" href="#profil">Mengenal BIAF <span aria-hidden="true">↗</span></a><a className="text-link" href="#kolaborasi">Temukan ruang kolaborasi <span aria-hidden="true">→</span></a></div>
   </div>
-  <div className="hero-art hero-art-image">
-   <Image
-     src="/biaf/hero-network.jpg"
-     width={2048}
-     height={1021}
-     priority
-     sizes="(max-width: 900px) 850px, 115vw"
-     className="hero-reference-image"
-     alt="Ilustrasi bola dunia dengan jejaring cahaya yang menghubungkan Batam dan dunia."
-   />
-  </div>
+  <aside className={styles.learningCard} aria-labelledby="biaf-video-title">
+   <div className={styles.learningHeading}>
+    <span className={styles.learningLabel}>MENGENAL BIAF</span>
+    <h2 id="biaf-video-title">Dari diskusi ke kolaborasi nyata.</h2>
+    <p>Kenali gagasan BIAF, nilai bersama, dan langkah membangun kerja sama akademik dari Batam.</p>
+   </div>
+   <div className={styles.learningFrame}>
+    <iframe src="https://www.youtube-nocookie.com/embed/TyCKw50CmKw?rel=0"
+     title="Konferensi Selesai, Kolaborasi ke Mana? Mengenal BIAF"
+     width="560" height="315" loading="lazy"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+   </div>
+   <div className={styles.learningMeta}>
+    <span>20 menit · Subtitle Indonesia</span>
+    <a href="https://www.youtube.com/watch?v=TyCKw50CmKw" target="_blank" rel="noopener noreferrer">Tonton di YouTube ↗</a>
+   </div>
+   <div className={styles.learningDownload}>
+    <div><span className={styles.learningLabel}>BAHAN PEMBELAJARAN</span><h3>Cetak biru operasional BIAF</h3><p>PDF · 14 halaman · 18,3 MB</p></div>
+    <a className={styles.downloadButton} href="/biaf/documents/BIAF_Operational_Blueprint.pdf" download="BIAF_Operational_Blueprint.pdf">Unduh PDF <span aria-hidden="true">↓</span></a>
+   </div>
+   <p className={styles.learningNote}>Materi pengantar inisiatif RAHRN — Raja Ali Haji Research Network. Rancangan program dan kemitraan masih dalam pengembangan.</p>
+  </aside>
  </div>
  <div className="hero-bottom"><span><span className="status-dot"></span> Inisiatif dalam pengembangan</span><span>Pengetahuan melampaui batas <span aria-hidden="true">↓</span></span></div>
 </section>
