@@ -254,3 +254,7 @@
 .learningNote{font-size:10px;line-height:1.65;color:var(--muted);padding:0 24px 20px;margin:0}
 @media(max-width:900px){.learningCard{margin:35px 0 24px}.site :global(.hero-inner){display:block}.site .learningHeading h2{font-size:30px}}
 @media(max-width:480px){.learningHeading{padding:20px}.learningMeta{padding:14px 20px}.learningDownload{align-items:flex-start;flex-direction:column;padding:20px}.site a.downloadButton{width:100%}.learningNote{padding:0 20px 20px}}
+
+/* Keep the long headline within its own column at every viewport width. */
+.site :global(.hero-copy){min-width:0;container-type:inline-size}
+.site :global(.hero-copy h1){font-size:clamp(28px,10.8cqw,64px);line-height:1.1;letter-spacing:-1.2px;max-width:100%}
