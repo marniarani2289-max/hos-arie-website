@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, useState, type FormEvent } from "react";
 
-export default function CollaborationForm() {
+export default function CollaborationForm({ summit = false }: { summit?: boolean }) {
   const [draft, setDraft] = useState("");
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
@@ -48,15 +48,16 @@ export default function CollaborationForm() {
   return <div className="form-panel">
     <span className="mini-label">LANGKAH PERTAMA</span>
     <h3>Siapkan usulan kolaborasi</h3>
-    <p>Susun ringkasan singkat untuk pembicaraan awal.</p>
+    <p>{summit ? "Sampaikan minat kemitraan atau kontribusi untuk ASEAN Scholarly Publishing Summit. Ini bukan pendaftaran peserta." : "Susun ringkasan singkat untuk pembicaraan awal."}</p>
     <form onSubmit={prepare} onChange={() => { setDraft(""); setStatus(""); setError(""); }}>
       <label htmlFor="biaf-name">Nama lengkap <span>*</span></label>
       <input id="biaf-name" name="name" autoComplete="name" required maxLength={120} placeholder="Nama Anda" />
       <label htmlFor="biaf-institution">Institusi / komunitas</label>
       <input id="biaf-institution" name="institution" autoComplete="organization" maxLength={180} placeholder="Institusi atau peneliti independen" />
       <label htmlFor="biaf-interest">Bentuk kolaborasi <span>*</span></label>
-      <select id="biaf-interest" name="interest" required defaultValue="">
+      <select id="biaf-interest" name="interest" required defaultValue={summit ? "ASEAN Scholarly Publishing Summit" : ""}>
         <option value="">Pilih ruang kolaborasi</option>
+        <option>ASEAN Scholarly Publishing Summit</option>
         <option>Diskusi & forum ilmiah</option><option>Riset lintas disiplin</option>
         <option>Pertukaran pengetahuan</option><option>Kemitraan kelembagaan</option>
       </select>

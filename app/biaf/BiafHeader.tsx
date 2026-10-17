@@ -18,10 +18,11 @@ export default function BiafHeader() {
       {open ? "Tutup" : "Menu"} <span aria-hidden="true">{open ? "×" : "☰"}</span>
     </button>
     <nav id="biaf-navigation" className={open ? "is-open" : undefined} aria-label="Navigasi BIAF">
-      <a href="#profil" onClick={close}>Profil</a>
-      <a href="#keilmuan" onClick={close}>Arah keilmuan</a>
-      <a href="#tata-kelola" onClick={close}>Tata kelola</a>
-      <a className="nav-cta" href="#kolaborasi" onClick={close}>Mari berkolaborasi <span aria-hidden="true">↗</span></a>
+      <a href="/biaf#profil" onClick={close}>Profil</a>
+      <a href="/biaf#keilmuan" onClick={close}>Arah keilmuan</a>
+      <Link href="/biaf/summit" onClick={close}>Summit</Link>
+      <a href="/biaf#tata-kelola" onClick={close}>Tata kelola</a>
+      <a className="nav-cta" href="/biaf#kolaborasi" onClick={close}>Kolaborasi <span aria-hidden="true">↗</span></a>
       <Link className="home-link" href="/id" onClick={close}>Situs utama ↗</Link>
     </nav>
   </header>;
