@@ -3,3 +3,5 @@
 @media(max-width:1100px){.hero{gap:35px}.brief{padding:24px}.cards{gap:16px}.card{padding:23px}.question{min-height:140px}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:40px 6% 48px}.hero h1{font-size:clamp(40px,7vw,66px)!important;letter-spacing:-1.1px!important}.brief{max-width:650px}.cards{grid-template-columns:1fr}.question{min-height:0}.card h3{font-size:29px}.card ul{margin-top:18px}.sectionLinks{justify-content:flex-start;gap:13px 23px}.agenda{grid-template-columns:1fr}.nextSteps ol{grid-template-columns:1fr;gap:22px}.outputs{gap:20px}.badge{line-height:1.7}}
 @media(max-width:480px){.outputs{grid-template-columns:1fr}.hero h1{font-size:40px!important}.agenda article{padding:24px}.agenda li{grid-template-columns:1fr;gap:6px}.hero{gap:30px}.brief{padding:23px}.subtitle{font-size:17px}}
+
+.downloadInfo{margin-top:14px!important;font-size:11px;color:#bdced0;line-height:1.7}

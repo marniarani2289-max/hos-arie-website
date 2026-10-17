@@ -38,6 +38,13 @@ const nextConfig: NextConfig = {
     return [
       ...bilingualHeaders,
       {
+        source: "/biaf/documents/ASEAN_Summit_Working_Draft_v1_1.pdf",
+        headers: [
+          { key: "Content-Type", value: "application/pdf" },
+          { key: "Content-Disposition", value: 'attachment; filename="ASEAN_Summit_Working_Draft_v1_1.pdf"' },
+        ],
+      },
+      {
         source: "/sw.js",
         headers: [
           { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },

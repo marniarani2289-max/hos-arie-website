@@ -44,7 +44,8 @@ export default function SummitPage() {
           <h1 id="summit-title">The 1st ASEAN<br /><em>Scholarly Publishing</em><br />Summit</h1>
           <p className={summitStyles.subtitle} lang="en">Advancing Scholarly Publishing through Integrity, AI Governance, and Regional Collaboration</p>
           <p className={summitStyles.intro}>Forum yang dirancang untuk menghubungkan dialog akademik, klinik editorial, dan kerja sama penerbitan ilmiah di Asia Tenggara.</p>
-          <div className="actions"><a className="button gold" href="#agenda">Lihat rancangan agenda <span aria-hidden="true">↓</span></a><a className="text-link" href="#kemitraan">Jajaki kemitraan <span aria-hidden="true">↗</span></a></div>
+          <div className="actions"><a className="button gold" href="/biaf/documents/ASEAN_Summit_Working_Draft_v1_1.pdf" download="ASEAN_Summit_Working_Draft_v1_1.pdf">Unduh Working Draft (PDF) <span aria-hidden="true">↓</span></a><a className="text-link" href="#agenda">Lihat rancangan agenda <span aria-hidden="true">↓</span></a><a className="text-link" href="#kemitraan">Jajaki kemitraan <span aria-hidden="true">↗</span></a></div>
+          <p className={summitStyles.downloadInfo}>PDF · Versi 1.1 · Oktober 2026 · 13 halaman · 984 KB</p>
         </div>
         <aside className={summitStyles.brief} aria-label="Status dan gambaran kegiatan">
           <span className={summitStyles.badge}>WORKING DRAFT / DRAF KONSULTATIF</span>
