@@ -47,11 +47,29 @@ export default function SummitPage() {
           <div className="actions"><a className="button gold" href="/biaf/documents/ASEAN_Summit_Working_Draft_v1_1.pdf" download="ASEAN_Summit_Working_Draft_v1_1.pdf">Unduh Working Draft (PDF) <span aria-hidden="true">↓</span></a><a className="text-link" href="#agenda">Lihat rancangan agenda <span aria-hidden="true">↓</span></a><a className="text-link" href="#kemitraan">Jajaki kemitraan <span aria-hidden="true">↗</span></a></div>
           <p className={summitStyles.downloadInfo}>PDF · Versi 1.1 · Oktober 2026 · 13 halaman · 11,7 MB</p>
         </div>
-        <aside className={summitStyles.brief} aria-label="Status dan gambaran kegiatan">
-          <span className={summitStyles.badge}>WORKING DRAFT / DRAF KONSULTATIF</span>
-          <p className={summitStyles.version}>Berdasarkan kerangka versi 1.1 · Oktober 2026</p>
-          <dl><div><dt>Penyelenggara</dt><dd>Batam International Academic Forum</dd></div><div><dt>Penggagas inisiatif</dt><dd>Raja Ali Haji Research Network</dd></div><div><dt>Rancangan format</dt><dd>2 hari · Dialog, klinik & roundtable</dd></div><div><dt>Sasaran awal</dt><dd>60–100 delegasi</dd></div><div><dt>Bahasa kerja</dt><dd>Inggris; dukungan Indonesia/Melayu sesuai kebutuhan klinik</dd></div></dl>
-          <p className={summitStyles.status}>Tanggal dan tempat spesifik belum ditetapkan. Skala kegiatan, narasumber, serta kemitraan akan disesuaikan setelah konfirmasi. Pendaftaran peserta belum dibuka.</p>
+        <aside className={summitStyles.videoCard} aria-labelledby="summit-video-title">
+          <div className={summitStyles.videoHeading}>
+            <span className={summitStyles.videoLabel}>KENALI GAGASAN SUMMIT</span>
+            <h2 id="summit-video-title">Integritas jurnal di era AI</h2>
+            <p>Simak pembahasan integritas publikasi, tata kelola AI, dan kolaborasi ilmiah ASEAN.</p>
+          </div>
+          <div className={summitStyles.videoFrame}>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/1gjoowDMaPE?rel=0"
+              title="Integritas Jurnal dan Tata Kelola AI — ASEAN Scholarly Publishing Summit"
+              width="560"
+              height="315"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <div className={summitStyles.videoFooter}>
+            <span>17 menit · Subtitle Indonesia</span>
+            <a href="https://youtu.be/1gjoowDMaPE" target="_blank" rel="noopener noreferrer">Tonton di YouTube <span aria-hidden="true">↗</span></a>
+          </div>
+          <p className={summitStyles.videoNote}>Materi pengantar berdasarkan working draft. Rancangan program dan kemitraan masih dalam pengembangan.</p>
         </aside>
       </section>
       <div className={summitStyles.sectionLinks} aria-label="Bagian halaman Summit"><a href="#kerangka">Kerangka akademik</a><a href="#agenda">Agenda</a><a href="#luaran">Luaran</a><a href="#tim">Tim inti</a><a href="#kemitraan">Kemitraan</a></div>
