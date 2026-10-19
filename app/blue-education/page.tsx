@@ -36,7 +36,7 @@ export default function BlueEducationPage() {
         <h1 id="blue-title">Pendidikan Biru <span>(Blue Education)</span></h1>
         <p className={s.heroStatement}>Belajar dari perairan.<br />Bertindak untuk masa depan.</p>
         <p className={s.heroDescription}>Menghubungkan literasi laut, penghidupan masyarakat, budaya maritim, dan tata kelola melalui pendidikan yang berakar pada kawasan.</p>
-        <p className={s.author}>Dr. Hos Arie Sibarani</p>
+        <p className={s.author}>Dr. Hos Arie Sibarani</p><div className={s.actions}><Link className={s.primaryButton} href="/blue-education">Portal belajar & enam modul →</Link><Link className={s.lightButton} href="/blue-education/jbe">Ruang riset JBE →</Link></div>
         <div className={s.actions}><a className={s.primaryButton} href="#materi-utama"><Play size={18} aria-hidden="true" />Tonton materi utama</a><a className={s.lightButton} href="#proyek">Lihat proyek 8 minggu <ArrowUpRight size={18} aria-hidden="true" /></a></div>
       </div>
       <figure className={s.heroMap}>
