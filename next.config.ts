@@ -21,6 +21,7 @@ function alternateLinkHeader(enPath: string, idPath: string) {
 const nextConfig: NextConfig = {
   async rewrites() {
     return { beforeFiles: [
+      { source: "/clip-studio", destination: "/clip-studio/index.html" },
       { source: "/blue-education", destination: "/blue-education/portal/index.html" },
       { source: "/blue-education/jbe", destination: "/blue-education/portal/journal.html" },
     ], afterFiles: [], fallback: [] };
