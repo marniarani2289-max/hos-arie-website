@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/lexnusa/cohort", 0.85, "monthly"],
     ["/start", 0.9, "monthly"],
     ["/blue-education", 0.85, "monthly"],
+    ["/coaching-mentoring", 0.85, "monthly"],
     ["/blue-education/jbe", 0.8, "monthly"],
     ["/blue-education/panduan", 0.75, "monthly"],
     ["/about", 0.9, "monthly"],

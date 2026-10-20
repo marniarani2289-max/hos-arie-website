@@ -1,0 +1,37 @@
+'use strict';
+const situations={
+capable:['Coaching','Pegawai sudah mampu. Bantu ia mengenali keberhasilan, menilai pilihan, dan membangun keyakinan untuk bertindak.','Dari pengalaman Anda, langkah mana yang paling mungkin berhasil?'],
+new:['Mentoring','Berikan konteks peran, standar kerja, dan pengalaman yang relevan. Periksa kembali pemahaman pegawai setelah penjelasan.','Bagian dari peran baru ini yang paling perlu kita bahas lebih dahulu apa?'],
+initiative:['Coaching','Gali hambatan inisiatif tanpa langsung menganggap pegawai tidak mau bekerja. Sepakati ruang keputusan dan langkah yang dapat ia mulai.','Apa yang membuat Anda belum mengambil inisiatif, dan dukungan apa yang diperlukan?'],
+urgent:['Instruksi','Jelaskan tindakan, prosedur, dan batas waktu dengan tegas. Setelah situasi terkendali, sediakan ruang refleksi dan pengembangan.','Ini langkah dan standar yang perlu diikuti. Bagian mana yang perlu saya perjelas?'],
+complex:['Kombinasi','Perjelas standar melalui instruksi atau mentoring, lalu gunakan coaching untuk membantu pegawai memilih cara melaksanakannya.','Setelah standar ini jelas, langkah apa yang menurut Anda paling tepat?']};
+const steps=[
+['Membuka','Bangun suasana percakapan yang aman dan sepakati fokus.','Mari bahas progres secara terbuka. Apa yang ingin Anda bicarakan hari ini?'],
+['Mengklarifikasi','Sepakati tujuan dan hasil yang diharapkan.','Apa hasil utama yang ingin dicapai dari pekerjaan ini?'],
+['Progres','Kenali hal yang sudah berjalan baik dan bukti kemajuannya.','Apa yang sudah berjalan baik, dan kemajuan apa yang sudah terlihat?'],
+['Menggali hambatan','Pahami kesulitan dan penyebabnya sebelum memilih solusi.','Apa kendala terbesarnya? Faktor apa yang berada dalam kendali Anda?'],
+['Solusi (coaching)','Beri ruang bagi pegawai untuk mengembangkan pilihan.','Pilihan langkah apa yang tersedia? Mana yang paling mungkin Anda lakukan?'],
+['Perspektif (mentoring)','Tawarkan pengalaman yang relevan jika diperlukan, dengan izin lawan bicara.','Bolehkah saya berbagi pengalaman yang mungkin membantu? Bagian mana yang sesuai dengan situasi Anda?'],
+['Dukungan','Tentukan bantuan yang membuat tindakan dapat dilaksanakan.','Dukungan apa yang Anda butuhkan, dan siapa yang dapat membantu?'],
+['Menutup','Tegaskan komitmen, waktu pelaksanaan, dan tinjauan ulang.','Apa langkah konkret berikutnya, kapan dilakukan, dan kapan kita meninjau hasilnya?']];
+const $=id=>document.getElementById(id);const planKey='hos-coaching-plan-v1',notesKey='hos-coaching-notes-v1';let current=0,notes=Array(8).fill('');
+function readSaved(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
+const savedNotes=readSaved(notesKey);if(Array.isArray(savedNotes))notes=steps.map((_,i)=>typeof savedNotes[i]==='string'?savedNotes[i]:'');
+function recommendation(){const [title,why,question]=situations[$('situation').value];$('recommendation').replaceChildren();for(const [tag,text] of [['h3',title],['p',why],['blockquote',question]]){const el=document.createElement(tag);el.textContent=text;$('recommendation').append(el)}}
+$('situation').addEventListener('change',recommendation);recommendation();
+steps.forEach((step,i)=>{const b=document.createElement('button');b.type='button';b.className='step';b.setAttribute('aria-controls','step-title');const num=document.createElement('span');num.textContent=String(i+1).padStart(2,'0');b.append(num,document.createTextNode(step[0]));b.addEventListener('click',()=>showStep(i));$('steps').append(b)});
+function showStep(i){notes[current]=$('dialog-note').value;current=i;const [title,purpose,question]=steps[i];$('step-count').textContent=`LANGKAH ${i+1} DARI 8`;$('step-title').textContent=title;$('step-purpose').textContent=purpose;$('step-question').textContent=question;$('dialog-note').value=notes[i];$('prev').disabled=i===0;$('next').disabled=i===7;[...$('steps').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(j===i)))}
+$('dialog-note').value=notes[0];showStep(0);$('prev').addEventListener('click',()=>{if(current>0)showStep(current-1)});$('next').addEventListener('click',()=>{if(current<7)showStep(current+1)});
+function download(filename,text){const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function save(key,data,status){try{localStorage.setItem(key,JSON.stringify(data));$(status).textContent='Tersimpan di browser perangkat ini.'}catch{$(status).textContent='Browser tidak mengizinkan penyimpanan. Gunakan tombol unduh untuk menyimpan salinan.'}}
+$('save-dialog').addEventListener('click',()=>{notes[current]=$('dialog-note').value;save(notesKey,notes,'dialog-status')});
+$('export-dialog').addEventListener('click',()=>{notes[current]=$('dialog-note').value;download('Catatan_Dialog_Coaching_Mentoring.txt','CATATAN DIALOG COACHING & MENTORING\n\n'+steps.map((s,i)=>`${i+1}. ${s[0]}\n${s[2]}\nCatatan: ${notes[i]||'Belum diisi'}`).join('\n\n'));$('dialog-status').textContent='Unduhan catatan telah dimulai.'});
+$('clear-dialog').addEventListener('click',()=>{if(!confirm('Hapus seluruh catatan dialog di halaman dan perangkat ini?'))return;notes=Array(8).fill('');$('dialog-note').value='';try{localStorage.removeItem(notesKey);$('dialog-status').textContent='Catatan telah dihapus.'}catch{$('dialog-status').textContent='Catatan halaman dikosongkan. Penyimpanan browser tidak dapat diakses.'}});
+const form=$('plan-form'),labels={issue:'Isu kinerja',target:'Sasaran pendampingan',approach:'Pendekatan',goal:'Hasil yang diharapkan',action:'Langkah yang disepakati',support:'Dukungan yang diperlukan',indicator:'Indikator kemajuan',review:'Tanggal tinjauan ulang'};
+const savedPlan=readSaved(planKey);if(savedPlan&&typeof savedPlan==='object')for(const k of Object.keys(labels)){if(typeof savedPlan[k]==='string')form.elements.namedItem(k).value=savedPlan[k]}
+function plan(){return Object.fromEntries(new FormData(form))}
+form.addEventListener('submit',e=>{e.preventDefault();save(planKey,plan(),'plan-status')});
+function checkPlan(){return form.reportValidity()}
+$('export-plan').addEventListener('click',()=>{if(!checkPlan())return;const p=plan();download('Rencana_Tindak_Lanjut_Coaching_Mentoring.txt','RENCANA TINDAK LANJUT\nCoaching & Mentoring ASN\nhttps://www.hossibarani.com/coaching-mentoring\n\n'+Object.entries(labels).map(([k,l])=>`${l}\n${p[k]||'Belum diisi'}`).join('\n\n'));$('plan-status').textContent='Unduhan rencana telah dimulai.'});
+$('print-plan').addEventListener('click',()=>{if(!checkPlan())return;const p=plan(),out=$('print-output');out.replaceChildren();const title=document.createElement('h1');title.textContent='Rencana Tindak Lanjut';out.append(title);const sub=document.createElement('p');sub.textContent='Coaching & Mentoring ASN · hossibarani.com';out.append(sub);for(const [k,l]of Object.entries(labels)){const article=document.createElement('article'),h=document.createElement('h2'),v=document.createElement('p');h.textContent=l;v.textContent=p[k]||'Belum diisi';article.append(h,v);out.append(article)}window.print()});
+$('clear-plan').addEventListener('click',()=>{if(!confirm('Hapus rencana di halaman dan perangkat ini?'))return;form.reset();try{localStorage.removeItem(planKey);$('plan-status').textContent='Rencana telah dihapus.'}catch{$('plan-status').textContent='Formulir dikosongkan. Penyimpanan browser tidak dapat diakses.'}});
