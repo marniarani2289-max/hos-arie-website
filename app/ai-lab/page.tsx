@@ -46,7 +46,7 @@ type Lab = {
 
 const labs: Lab[] = [
   {
-    number: "006", title: "Hos Studio — Video Clips", shortTitle: "Turn a complete idea into a shareable clip.", status: "Prototype", domain: "Educational video",
+    number: "006", title: "Hukumpreneur Studio — Video Clips", shortTitle: "Turn a complete idea into a shareable clip.", status: "Prototype", domain: "Educational video",
     problem: "Lectures and academic forums need short excerpts that preserve context.",
     system: "A browser workspace for trimming local videos, composing vertical clips, adding SRT captions, and exporting video and covers.",
     technology: "Browser canvas, Web Audio and MediaRecorder; local templates and project settings.",
@@ -55,7 +55,7 @@ const labs: Lab[] = [
     lastTested: "19 October 2026", currentMetric: "Up to 180 seconds per exported clip.",
     whatChanged: "Added BIAF, RAHRN, Hossibarani and law lecture templates.",
     experimentNotes: "Review the excerpt and captions before sharing. Download results before closing the page.",
-    href: "/clip-studio", linkLabel: "Open Hos Studio",
+    href: "/clip-studio", linkLabel: "Open Hukumpreneur Studio",
   },
   {
     number: "001",

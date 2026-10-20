@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   BookOpen,
   BriefcaseBusiness,
   CheckCircle2,
@@ -94,6 +93,7 @@ export default function HukumPreneurPage() {
     url: "https://www.hossibarani.com/hukumpreneur",
     description:
       "Pusat edukasi hukum bisnis praktis bagi pengusaha dan masyarakat.",
+    sameAs: [channelUrl],
     about: ["Hukum Bisnis", "Hak Kekayaan Intelektual", "Kewirausahaan"],
     isPartOf: {
       "@type": "WebSite",
@@ -118,6 +118,8 @@ export default function HukumPreneurPage() {
           <div className="hidden items-center gap-7 text-sm font-semibold text-slate-300 md:flex">
             <Link href="/hukumpreneur" className="transition hover:text-[#69c99b]">Beranda</Link>
             <Link href="#topik" className="transition hover:text-[#69c99b]">Topik</Link>
+            <Link href="/clip-studio" className="transition hover:text-[#69c99b]">Studio</Link>
+            <Link href="#belajar" className="transition hover:text-[#69c99b]">Ruang Belajar</Link>
             <Link href="#tentang" className="transition hover:text-[#69c99b]">Tentang</Link>
             <Link href="/" className="transition hover:text-[#69c99b]">hossibarani.com</Link>
           </div>
@@ -177,17 +179,15 @@ export default function HukumPreneurPage() {
                     <p className="mt-1 text-sm text-slate-400">@hukumpreneur</p>
                   </div>
                 </div>
-                <BadgeCheck className="text-sky-400" size={23} />
+                <Video className="text-emerald-300" size={23} aria-hidden="true" />
               </div>
               <div className="grid grid-cols-2 gap-3 py-6">
-                <div className="rounded-2xl bg-black/25 p-5">
-                  <p className="text-3xl font-black text-white">63,2K</p>
-                  <p className="mt-1 text-sm text-slate-400">Subscriber</p>
-                </div>
-                <div className="rounded-2xl bg-black/25 p-5">
-                  <p className="text-3xl font-black text-white">34</p>
-                  <p className="mt-1 text-sm text-slate-400">Video edukasi</p>
-                </div>
+                <a href={`${channelUrl}/videos`} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-black/25 p-5 transition hover:bg-black/40">
+                  <p className="text-xl font-black text-white">Video lengkap ↗</p><p className="mt-2 text-sm text-slate-400">Jelajahi tayangan di kanal</p>
+                </a>
+                <a href={`${channelUrl}/shorts`} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-black/25 p-5 transition hover:bg-black/40">
+                  <p className="text-xl font-black text-white">Shorts ↗</p><p className="mt-2 text-sm text-slate-400">Cuplikan singkat untuk belajar</p>
+                </a>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-[#4eae80] to-[#23724f] p-6">
                 <Video size={36} />
@@ -210,6 +210,19 @@ export default function HukumPreneurPage() {
           <span className="inline-flex items-center gap-2"><Lightbulb className="text-emerald-600" size={18} /> Mudah dipahami</span>
           <span className="inline-flex items-center gap-2"><BriefcaseBusiness className="text-emerald-600" size={18} /> Relevan bagi usaha</span>
           <span className="inline-flex items-center gap-2"><Users className="text-emerald-600" size={18} /> Terbuka untuk publik</span>
+        </div>
+      </section>
+
+      <section id="belajar" className="scroll-mt-24 px-5 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Satu ekosistem Hukumpreneur</p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Tonton. Pelajari. Bagikan gagasannya.</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600">YouTube menjadi ruang menonton, website menyediakan jalur pembelajaran, dan Hukumpreneur Studio membantu menyiapkan cuplikan dari rekaman Anda.</p>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <article className="rounded-2xl border border-emerald-100 bg-white p-7"><Video className="text-emerald-700" /><h3 className="mt-4 text-xl font-bold">Kanal YouTube</h3><p className="mt-3 leading-7 text-slate-600">Temukan video lengkap, Shorts, dan playlist dari @hukumpreneur.</p><div className="mt-5 flex flex-wrap gap-4"><a href={channelUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-800 underline">Buka kanal ↗</a><a href={`${channelUrl}/playlists`} target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-800 underline">Playlist ↗</a></div></article>
+            <article className="rounded-2xl border border-emerald-100 bg-white p-7"><BookOpen className="text-emerald-700" /><h3 className="mt-4 text-xl font-bold">Ruang Belajar Hukum</h3><p className="mt-3 leading-7 text-slate-600">Pelajari Hukum Kejahatan Mayantara dan Politik Hukum Pidana melalui modul per pertemuan, kasus, dan refleksi.</p><Link href="/kuliah" className="mt-5 inline-block font-bold text-emerald-800 underline">Buka modul kuliah →</Link></article>
+            <article className="rounded-2xl bg-[#142e2c] p-7 text-white"><Sparkles className="text-[#69c99b]" /><h3 className="mt-4 text-xl font-bold">Hukumpreneur Studio</h3><p className="mt-3 leading-7 text-slate-300">Potong rekaman, tambahkan judul dan subtitle SRT, lalu ekspor video vertikal untuk dibagikan.</p><Link href="/clip-studio" className="mt-5 inline-block font-bold text-[#69c99b] underline">Buka studio →</Link><p className="mt-4 text-xs leading-5 text-slate-400">Versi awal: memakai file di perangkat. Unggah ke YouTube dilakukan secara manual.</p></article>
+          </div>
         </div>
       </section>
 

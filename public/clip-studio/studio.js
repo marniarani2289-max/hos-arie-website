@@ -26,7 +26,7 @@ $('mark').onclick=()=>{$('start').value=video.currentTime.toFixed(1);};
 $('preview').onclick=async()=>{try{const [a]=range();parseSubs();await seek(a);previewing=true;await video.play();notify('Memutar rentang yang dipilih.');}catch(e){notify(e.message);}};
 $('srtfile').onchange=async()=>{const file=$('srtfile').files[0];if(file){$('srt').value=await file.text();parseSubs();notify(cues.length?`${cues.length} subtitle dimuat.`:'SRT tidak terbaca. Periksa format waktu.');}};
 $('srt').oninput=parseSubs;
-$('template').onchange=()=>{const t={hos:['HOSSIBARANI','#d7b36b'],biaf:['BIAF · ACADEMIC FORUM','#64d5c6'],rahrn:['RAHRN · RESEARCH NETWORK','#b8c68c'],hukum:['KULIAH HUKUM','#d9aa79']}[$('template').value];$('brand').value=t[0];$('accent').value=t[1];};
+$('template').onchange=()=>{const t={hukumpreneur:['HUKUMPRENEUR','#69c99b'],hos:['HOSSIBARANI','#d7b36b'],biaf:['BIAF · ACADEMIC FORUM','#64d5c6'],rahrn:['RAHRN · RESEARCH NETWORK','#b8c68c'],hukum:['KULIAH HUKUM','#d9aa79']}[$('template').value];$('brand').value=t[0];$('accent').value=t[1];};
 $('save').onclick=()=>{try{localStorage.setItem('hos-studio-template-v1',JSON.stringify(settings()));$('saved').textContent='Tersimpan';}catch{notify('Penyimpanan browser tidak tersedia. Unduh pengaturan proyek.');}};
 $('project').onclick=()=>download(new Blob([JSON.stringify({version:1,...settings()},null,2)],{type:'application/json'}),'hos-studio-project.json');
 $('import').onchange=async()=>{try{const file=$('import').files[0];if(!file)return;restore(JSON.parse(await file.text()));notify('Pengaturan dipulihkan. Pilih kembali file video sumber.');}catch{notify('File pengaturan tidak valid.');}};
