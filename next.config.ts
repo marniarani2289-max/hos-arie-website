@@ -21,6 +21,7 @@ function alternateLinkHeader(enPath: string, idPath: string) {
 const nextConfig: NextConfig = {
   async rewrites() {
     return { beforeFiles: [
+      { source: "/dkpp", destination: "/dkpp/index.html" },
       { source: "/coaching-mentoring", destination: "/coaching-mentoring/index.html" },
       { source: "/clip-studio", destination: "/clip-studio/index.html" },
       { source: "/blue-education", destination: "/blue-education/portal/index.html" },

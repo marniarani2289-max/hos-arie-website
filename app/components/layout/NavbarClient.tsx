@@ -11,7 +11,7 @@ const labelsId: Record<string, string> = {
   "AI & Digital Systems Lab": "Laboratorium AI dan Sistem Digital", "Constitutional Justice": "Keadilan Konstitusional", "Digital Archive": "Arsip Digital", Gallery: "Galeri",
 };
 const groups = [
-  { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
+  { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Demokrasi & Integritas · DKPP", "/dkpp"], ["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
   { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["Coaching & Mentoring", "/coaching-mentoring"], ["Modul Kuliah Interaktif", "/kuliah"], ["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Ruang Belajar Gurindam", "/gurindam"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["Hizbul Wathan Kepri", "/hw-kepri"], ["PW Persis Kepri", "/persis-kepri"], ["ISMI Kepri", "/ismi-kepri"], ["BIAF · Academic Forum", "/biaf"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
 ] as const;
 
