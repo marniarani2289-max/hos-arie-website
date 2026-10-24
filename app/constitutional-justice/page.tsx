@@ -7,11 +7,13 @@ import {
   BriefcaseBusiness,
   BookOpen,
   Building2,
+  Download,
   FileCheck2,
   FileText,
   Gavel,
   GraduationCap,
   Landmark,
+  PlayCircle,
   Scale,
   ScrollText,
   ShieldCheck,
@@ -255,6 +257,48 @@ export default function ConstitutionalJusticePage() {
                 <p className="leading-7 text-slate-300">{stream.text}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="pro-bono" aria-labelledby="pro-bono-heading" lang="id" className="scroll-mt-24 border-b border-stone-200 bg-stone-50 px-5 py-20 sm:px-6 md:py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-14">
+          <div>
+            <Eyebrow>Pembelajaran Pro Bono</Eyebrow>
+            <h2 id="pro-bono-heading" className="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">Pengacara gratis: siapa yang berhak?</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">Pelajari pro bono, perbedaannya dengan bantuan hukum dan pro deo, kriteria penerima layanan, serta pengelolaannya dalam praktik advokat.</p>
+            <p className="mt-4 leading-7 text-slate-600">Video dan materi <span className="font-semibold text-slate-900">Cetak Biru Keadilan: Panduan Komprehensif Eksekusi Pro Bono</span> mendukung pembelajaran tentang akses keadilan dan tanggung jawab profesi.</p>
+            <div className="mt-7 flex flex-wrap items-center gap-3 text-sm font-semibold text-rose-900">
+              <span className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-4 py-2"><PlayCircle size={17} aria-hidden="true" /> 15 menit 26 detik</span>
+              <span className="rounded-full bg-white px-4 py-2">Bahasa Indonesia · Subtitle</span>
+            </div>
+          </div>
+          <div className="min-w-0">
+            <div className="aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-lg shadow-slate-900/10">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/R8ehKoDuKzw"
+                title="Pengacara Gratis: Siapa yang Berhak? Mengenal Pro Bono di Indonesia — Hukumpreneur"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-5 rounded-2xl border border-stone-200 bg-white p-5 sm:p-6">
+              <div className="flex items-start gap-3">
+                <FileText size={24} className="mt-1 shrink-0 text-rose-900" aria-hidden="true" />
+                <div>
+                  <h3 className="font-bold leading-6 text-slate-950">Materi Presentasi Pro Bono</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">Cetak Biru Eksekusi Pro Bono · PDF · 15 halaman</p>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a href="/constitutional-justice/materi/cetak-biru-eksekusi-pro-bono.pdf" download="Cetak_Biru_Eksekusi_Pro_Bono.pdf" className="inline-flex items-center justify-center gap-2 rounded-xl bg-rose-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-rose-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-900"><Download size={18} aria-hidden="true" /> Unduh Materi PDF</a>
+                <a href="/constitutional-justice/materi/cetak-biru-eksekusi-pro-bono.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-stone-50">Buka PDF <ArrowRight size={16} aria-hidden="true" /></a>
+              </div>
+            </div>
+            <a href="https://youtu.be/R8ehKoDuKzw" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-900 underline-offset-4 hover:underline">Tonton di YouTube <ArrowRight size={16} aria-hidden="true" /></a>
           </div>
         </div>
       </section>
