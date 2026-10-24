@@ -43,7 +43,7 @@ export default function FooterV3() {
         <div className="flex flex-col gap-7 py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
             <Link href="/ai-lab" className="font-academic text-2xl font-bold tracking-tight text-white transition hover:text-amber-300 sm:text-3xl">
-              {id ? "Ekosistem Digital Hossibarani" : "Hossibarani Digital Ecosystem"}
+              {id ? "Laboratorium AI dan Sistem Digital" : "AI & Digital Systems Lab"}
             </Link>
             <p className="mt-3 max-w-xl text-base leading-7 text-slate-400">
               {id ? "Sistem berbasis bukti untuk riset, hukum, pendidikan, dan AI yang bertanggung jawab." : "Evidence-led systems for research, law, education, and responsible AI."}

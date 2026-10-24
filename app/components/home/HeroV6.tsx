@@ -1,156 +1,25 @@
 import Image from "next/image";
-import ButtonLink from "../shared/ButtonLink";
-import Container from "../shared/Container";
+import Link from "next/link";
 
-const researchFields = ["Authority", "Justice", "Accountability", "Limitation of Power"];
-
-export default function HeroV6() {
+export default function HeroV6({ locale = "en" }: { locale?: "en" | "id" }) {
+  const id = locale === "id";
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
-      {/* Background decoration */}
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.15),transparent_34%)]" />
-
-        <div className="absolute -right-48 -top-48 h-[560px] w-[560px] rounded-full border border-amber-400/10" />
-
-        <div className="absolute -right-20 -top-20 h-[360px] w-[360px] rounded-full border border-amber-400/10" />
-
-        <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
-      </div>
-
-      <Container>
-        <div className="relative py-12 sm:py-16 lg:flex lg:min-h-[680px] lg:items-center lg:py-14">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
-            {/* Left content */}
-            <div className="order-1">
-              <div className="inline-flex items-center gap-3 rounded-full border border-amber-400/20 bg-amber-400/5 px-4 py-2">
-                <span
-                  className="h-2 w-2 rounded-full bg-amber-400"
-                  aria-hidden="true"
-                />
-
-                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-300 sm:text-xs">
-                  From Penyengat to Global Constitutional Scholarship
-                </span>
-              </div>
-
-              <p className="font-academic mt-6 text-2xl font-bold text-white sm:text-3xl">
-                Dr. Hos Arie Sibarani
-              </p>
-
-              <h1 className="font-academic mt-5 max-w-4xl text-[2.65rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-6xl lg:text-[4.5rem] xl:text-[4.9rem]">
-                Bringing Malay constitutional thought into global scholarship
-              </h1>
-
-              <p className="mt-7 max-w-3xl text-xl font-medium leading-9 text-amber-300 sm:text-2xl">
-                Reconstructing Raja Ali Haji&apos;s ideas of authority, justice,
-                accountability, and ethical government.
-              </p>
-
-              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                Explore an original constitutional framework, learn through the
-                Raja Ali Haji Institute, or build a research and institutional
-                collaboration.
-              </p>
-
-              <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                <ButtonLink href="/research/malay-ethical-constitutionalism">
-                  Explore the Framework
-                  <span className="ml-2" aria-hidden="true">
-                    →
-                  </span>
-                </ButtonLink>
-
-                <ButtonLink href="/raja-ali-haji/programmes/pemikiran-raja-ali-haji" variant="secondary">
-                  Start Learning
-                </ButtonLink>
-
-                <ButtonLink
-                  href="/start#collaborate"
-                  variant="darkOutline"
-                >
-                  Collaborate
-                </ButtonLink>
-              </div>
-
-              <div className="mt-10 border-t border-white/10 pt-7">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                  Core Constitutional Principles
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
-                  {researchFields.map((field) => (
-                    <div key={field} className="flex items-center gap-2">
-                      <span
-                        className="h-1.5 w-1.5 rounded-full bg-amber-400"
-                        aria-hidden="true"
-                      />
-
-                      <span className="text-sm font-medium text-slate-300">
-                        {field}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right portrait */}
-            <div className="order-2">
-              <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-                <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 blur-xl" />
-
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
-                  <div className="relative h-[380px] min-[400px]:h-[430px] sm:h-[500px] lg:h-[570px] xl:h-[600px]">
-                    <Image
-                      src="/images/profile/hos-arie.png"
-                      alt="Dr. Hos Arie Sibarani wearing traditional Malay attire"
-                      fill
-                      priority
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 46vw"
-                      className="object-cover object-[50%_18%] sm:object-[50%_15%] lg:object-[50%_12%]"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
-
-                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-300 sm:text-xs">
-                        Signature Research Programme
-                      </p>
-
-                      <h2 className="font-academic mt-3 max-w-md text-3xl font-bold leading-tight text-white sm:text-4xl">
-                        Malay Ethical Constitutionalism
-                      </h2>
-
-                      <p className="mt-4 hidden max-w-lg text-sm leading-7 text-slate-300 sm:block sm:text-base">
-                        Connecting classical Malay texts with contemporary
-                        constitutional theory, ethical leadership, and public
-                        responsibility.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-amber-400/20 bg-slate-900/95 px-5 py-4 shadow-xl backdrop-blur xl:block"
-                  aria-hidden="true"
-                >
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">
-                    Signature Research
-                  </p>
-
-                  <p className="font-academic mt-2 text-lg font-bold text-white">
-                    Malay Ethical Constitutionalism
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_.92fr] lg:px-8">
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-amber-300">{id ? "Hukum tata negara · Pemikiran Melayu" : "Constitutional law · Malay thought"}</p>
+          <p className="mt-5 text-xl font-semibold">Dr. Hos Arie Sibarani</p>
+          <h1 className="font-academic mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">{id ? "Pemikiran Melayu, kajian konstitusi masa kini." : "Malay thought, contemporary constitutional scholarship."}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">{id ? "Riset tentang kewenangan, keadilan, dan etika pemerintahan dalam karya Raja Ali Haji, disertai publikasi dan materi pembelajaran hukum." : "Research on authority, justice, and ethical government in Raja Ali Haji’s works, alongside publications and resources for legal education."}</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href={id ? "/id/research" : "/research"} className="inline-flex min-h-11 items-center rounded-xl bg-amber-400 px-5 py-3 font-bold text-slate-950 hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{id ? "Lihat penelitian" : "View research"}</Link>
+            <Link href="#programmes" className="inline-flex min-h-11 items-center rounded-xl border border-slate-500 px-5 py-3 font-semibold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{id ? "Buka materi belajar" : "Browse learning resources"}</Link>
           </div>
         </div>
-      </Container>
+        <div className="relative mx-auto aspect-[6/5] w-full max-w-lg overflow-hidden rounded-2xl border border-white/10">
+          <Image src="/images/profile/hos-arie.png" alt={id ? "Dr. Hos Arie Sibarani mengenakan busana Melayu" : "Dr. Hos Arie Sibarani wearing traditional Malay attire"} fill priority sizes="(max-width: 1024px) 90vw, 40vw" className="object-cover object-top" />
+        </div>
+      </div>
     </section>
   );
 }

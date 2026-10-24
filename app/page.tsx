@@ -1,8 +1,8 @@
+import HomeContact from "./components/home/HomeContact";
 import BiafInvitation from "./components/home/BiafInvitation";
 import type { Metadata } from "next";
 import HeroV6 from "./components/home/HeroV6";
 import HomeHighlights from "./components/home/HomeHighlights";
-import PathwayChooser from "./components/home/PathwayChooser";
 import ProgrammeCards from "./components/programmes/ProgrammeCards";
 import SelectedWork from "./components/home/SelectedWork";
 
@@ -16,11 +16,11 @@ export default function Home() {
   return (
     <>
       <HeroV6 />
-      <PathwayChooser compact />
-      <ProgrammeCards />
-      <BiafInvitation />
       <HomeHighlights />
       <SelectedWork />
+      <ProgrammeCards />
+      <BiafInvitation />
+      <HomeContact />
     </>
   );
 }
