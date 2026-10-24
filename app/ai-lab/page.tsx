@@ -283,6 +283,54 @@ export default function AiLabPage() {
         </div>
       </section>
 
+
+      <section id="bridgeplay" aria-labelledby="bridgeplay-title" className="scroll-mt-24 border-b border-slate-200 bg-white" lang="id">
+        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-amber-800">Referensi terbuka · Kompatibilitas lintas sistem</p>
+            <h2 id="bridgeplay-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">Bridgeplay: Menjalankan Gim Windows di Steam Mac</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">Bahan studi tentang cara perangkat lunak dari sistem operasi berbeda dapat bekerja bersama. Bridgeplay menghubungkan Steam Mac dengan Wine, Rosetta 2, dan teknologi grafis Apple untuk menjalankan gim Windows yang kompatibel.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Proyek eksternal Raymond Chin, berbasis NotProton. Halaman ini menyediakan referensi dan panduan eksplorasi; aplikasi dipasang dan dijalankan pada Mac pengguna, bukan melalui situs ini. Belum diuji langsung oleh Hossibarani Lab.</p>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-slate-200 bg-stone-50 p-6">
+              <h3 className="text-lg font-bold text-slate-950">Persyaratan perangkat</h3>
+              <p className="mt-3 leading-7 text-slate-600">Dokumentasi saat ditinjau mencantumkan Mac Apple Silicon M1 atau lebih baru, macOS 26 atau lebih baru, dan akun Steam. Mac Intel tidak didukung.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Bridgeplay gratis; lisensi gim berbayar tetap harus dimiliki. Periksa persyaratan terbaru sebelum memasang.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-stone-50 p-6">
+              <h3 className="text-lg font-bold text-slate-950">Cara kerja dan batasan</h3>
+              <p className="mt-3 leading-7 text-slate-600">Gim tetap berupa versi Windows yang berjalan melalui lapisan kompatibilitas. D3DMetal menerjemahkan grafis DirectX 11/12 ke Metal.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Tidak semua gim berjalan. Kebanyakan gim dengan anti-cheat tingkat kernel tidak didukung. Hasil pengembang tidak menjamin performa yang sama pada perangkat lain.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-stone-50 p-6">
+              <h3 className="text-lg font-bold text-slate-950">Latihan eksplorasi</h3>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 leading-7 text-slate-600">
+                <li>Catat chip Mac, versi macOS, dan gim yang ingin diuji.</li>
+                <li>Periksa laporan kompatibilitas beserta perangkat pengujinya.</li>
+                <li>Jika sesuai, ikuti pemasangan resmi dan uji satu gim yang dimiliki.</li>
+                <li>Catat pengaturan, kelancaran, kendala, dan kesimpulan; bedakan pengamatan sendiri dari klaim pengembang.</li>
+              </ol>
+            </article>
+          </div>
+          <aside className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-slate-700">
+            <strong className="text-slate-950">Sebelum memasang:</strong> Bridgeplay memodifikasi dan menandatangani ulang aplikasi Steam. Pengembang menyatakan bahwa Valve tidak mendukung atau mengesahkannya dan modifikasi ini mungkin tidak sesuai dengan ketentuan Steam. Baca dokumentasi pemasangan serta pemulihan Steam pada sumber resmi.
+          </aside>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {[
+              ["https://bridgeplay.dev", "Buka situs Bridgeplay"],
+              ["https://github.com/raymondchins/Bridgeplay", "Pelajari kode di GitHub"],
+              ["https://bridgeplay.dev/compatibility", "Cek kompatibilitas gim"],
+            ].map(([href, label]) => (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+                {label}<ExternalLink size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span>
+              </a>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-6 text-slate-500">Sumber: situs dan repositori resmi Bridgeplay. Dokumentasi ditinjau 25 Oktober 2026; persyaratan dan kompatibilitas dapat berubah.</p>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {(Object.keys(counts) as Status[]).map((status) => (
