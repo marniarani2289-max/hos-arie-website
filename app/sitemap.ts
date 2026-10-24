@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/hukumpreneur", 0.9, "weekly"],
     ["/simak", 0.85, "monthly"],
     ["/lexnusa", 0.9, "monthly"],
+    ["/lexnusa/mayantara/praktikum-osint", 0.75, "monthly"],
     ["/lexnusa/about", 0.75, "monthly"],
     ["/lexnusa/services", 0.85, "monthly"],
     ["/lexnusa/evidence", 0.8, "monthly"],
