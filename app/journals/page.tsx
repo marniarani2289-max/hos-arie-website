@@ -4,7 +4,7 @@ import { journals } from "@/lib/journals";
 
 export const metadata: Metadata = {
   title: "Journal | Lima Jurnal RAHRN",
-  description: "Jelajahi lima jurnal Raja Ali Haji Research Network: JMCS, JBE, JMLT, JEML, dan SMCK. Temukan bidang kajian dan akses langsung ke setiap jurnal.",
+  description: "Jelajahi lima jurnal Raja Ali Haji Research Network: JMCS, JBE, JMLT, JEML, dan SMCK. Temukan bidang kajian, akses jurnal, serta seminar internasional dan publishing bersama BIAF.",
   alternates: { canonical: "/journals" },
 };
 
@@ -25,6 +25,7 @@ export default function JournalsPage() {
             {journals.map((journal) => (
               <a key={journal.code} href={`#${journal.code.toLowerCase()}`} className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:border-amber-300 hover:bg-amber-300 hover:text-slate-950">{journal.code}</a>
             ))}
+            <a href="#biaf" className="rounded-full border border-amber-300/60 px-5 py-2.5 text-sm font-bold text-amber-200 transition hover:bg-amber-300 hover:text-slate-950">BIAF · Seminar & Publishing</a>
           </nav>
         </div>
       </section>
@@ -49,6 +50,20 @@ export default function JournalsPage() {
           ))}
         </div>
         <p className="mt-8 max-w-3xl text-sm leading-7 text-slate-600">Informasi penerimaan naskah, panduan penulis, tim editorial, dan terbitan mengikuti pengumuman pada laman OJS masing-masing jurnal.</p>
+      </section>
+
+      <section id="biaf" aria-labelledby="biaf-heading" className="scroll-mt-24 border-t border-slate-200 bg-white px-5 py-14 sm:px-8 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 rounded-2xl bg-slate-950 p-7 text-white sm:p-10 md:grid-cols-[1.2fr_1fr] md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">Seminar internasional & publishing</p>
+            <h2 id="biaf-heading" className="mt-4 font-academic text-3xl font-bold sm:text-4xl">Batam International Academic Forum</h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">BIAF melengkapi ruang Journal melalui forum akademik, seminar internasional, dan pengembangan publikasi ilmiah. Jelajahi profil BIAF serta program ASEAN Scholarly Publishing Summit.</p>
+          </div>
+          <div className="flex flex-col items-start gap-4">
+            <Link href="/biaf" className="inline-flex rounded-lg bg-amber-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-200">Jelajahi BIAF <span aria-hidden="true" className="ml-2">→</span></Link>
+            <Link href="/biaf/summit" className="inline-flex rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold leading-6 text-white transition hover:bg-white/10">ASEAN Scholarly Publishing Summit <span aria-hidden="true" className="ml-2">→</span></Link>
+          </div>
+        </div>
       </section>
     </div>
   );
