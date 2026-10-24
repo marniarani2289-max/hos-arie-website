@@ -259,6 +259,18 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-labelledby="antislop-title" className="border-b border-slate-200 bg-white" lang="id">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-amber-800">Referensi terbuka · Panduan evaluasi</p>
+            <h2 id="antislop-title" className="mt-3 text-3xl font-bold text-slate-950">Anti-Slop: Evaluasi Desain dan Konten AI</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">Panduan untuk meninjau kejelasan desain, tulisan, dan kode hasil AI. Mulai dari tujuan halaman, bukti, dan kegunaan setiap elemen.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Tersedia panduan, pemeriksaan mandiri, contoh penerapan, dan tautan sumber. Peninjauan dilakukan manusia; pemindaian otomatis belum tersedia.</p>
+          </div>
+          <Link href="/ai-lab/anti-slop" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-6 py-3.5 font-bold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka panduan Anti-Slop</Link>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {(Object.keys(counts) as Status[]).map((status) => (
@@ -274,7 +286,7 @@ export default function AiLabPage() {
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-amber-700">Lab index</p>
           <h2 className="font-academic mt-4 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-            Six systems. One evidence standard.
+            {labs.length} systems. One evidence standard.
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-600">
             These projects connect scholarship with working digital infrastructure.
@@ -284,7 +296,7 @@ export default function AiLabPage() {
 
         <div className="mt-14 space-y-8">
           {labs.map((lab) => (
-            <article key={lab.number} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_60px_-45px_rgba(15,23,42,0.45)]">
+            <article key={lab.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_60px_-45px_rgba(15,23,42,0.45)]">
               <div className="grid border-b border-slate-200 lg:grid-cols-[13rem_1fr_auto] lg:items-center">
                 <div className="flex items-baseline gap-3 bg-slate-950 px-6 py-6 text-white lg:h-full lg:flex-col lg:justify-center lg:px-8">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">LAB</span>
