@@ -48,6 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/ismi-kepri", 0.85, "monthly"],
     ["/ismi-kepri/icsm-2026", 0.8, "monthly"],
     ["/persis-kepri", 0.8, "monthly"],
+    ["/kahmi-kepri", 0.7, "monthly"],
+    ["/ddii-kepri", 0.7, "monthly"],
     ["/digital-archive", 0.75, "monthly"],
     ["/gallery", 0.7, "monthly"],
     ["/contact", 0.7, "yearly"],
