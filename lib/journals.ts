@@ -1,0 +1,42 @@
+export const journals = [
+  {
+    code: "JMCS",
+    name: "Journal of Malay Constitutional Studies",
+    field: "Hukum & konstitusionalisme",
+    description: "Kajian konstitusionalisme Melayu, hukum tata negara, tata kelola, sejarah hukum, dan etika publik.",
+    url: "https://journal.hossibarani.com/jmcs",
+    profile: "/journal",
+  },
+  {
+    code: "JBE",
+    name: "Jurnal Blue Education",
+    field: "Pendidikan & keberlanjutan perairan",
+    description: "Pendidikan kepulauan, literasi laut dan pesisir, pengembangan guru, serta pembelajaran untuk keberlanjutan ruang perairan.",
+    url: "https://journal.hossibarani.com/jbe/id",
+    profile: "/blue-education/jbe",
+  },
+  {
+    code: "JMLT",
+    name: "Journal of Maritime Law and Technology",
+    field: "Hukum maritim & teknologi",
+    description: "Hukum maritim, perkembangan teknologi, keamanan siber maritim, pelabuhan digital, dan tata kelola kelautan.",
+    url: "https://journal.hossibarani.com/jht",
+    profile: null,
+  },
+  {
+    code: "JEML",
+    name: "Journal of Educational Management and Local Wisdom Leadership",
+    field: "Manajemen pendidikan & kepemimpinan",
+    description: "Manajemen pendidikan dan kepemimpinan yang menghubungkan pengelolaan lembaga pendidikan dengan kearifan lokal.",
+    url: "https://journal.hossibarani.com/jeml/en",
+    profile: null,
+  },
+  {
+    code: "SMCK",
+    name: "Seri Mahkota Cendekia Kepri: Jurnal Pendidikan, Kebudayaan dan Peradaban",
+    field: "Pendidikan, kebudayaan & peradaban",
+    description: "Hubungan pendidikan, kebudayaan, dan peradaban dengan perhatian pada masyarakat Melayu dan kehidupan kepulauan.",
+    url: "https://journal.hossibarani.com/smck/id",
+    profile: "/smck",
+  },
+] as const;

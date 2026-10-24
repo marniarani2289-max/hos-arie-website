@@ -1,19 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import { journals } from "@/lib/journals";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 type Participant = { name: string; email: string } | null;
 const labelsId: Record<string, string> = {
-  Karier: "Karier", Organisasi: "Organisasi",
+  Karier: "Karier", Organisasi: "Organisasi", Journal: "Journal",
   "Blue Education": "Pendidikan Biru (Blue Education)", Scholarship: "Keilmuan", Ecosystem: "Ekosistem", Research: "Penelitian", Publications: "Publikasi", Books: "Buku", Opinions: "Opini",
   "AI & Digital Systems Lab": "Laboratorium AI dan Sistem Digital", "Constitutional Justice": "Keadilan Konstitusional", "Digital Archive": "Arsip Digital", Gallery: "Galeri",
 };
 const groups = [
   { label: "Karier", helper: "Pengalaman & arah pengabdian", helperId: "Pengalaman & arah pengabdian", items: [["Semua bidang karier", "/karier"], ["Wartawan", "/karier#wartawan"], ["Dosen & Akademisi", "/karier#akademisi"], ["DKPP & Kepemiluan", "/dkpp"], ["Hakim Konstitusi · Aspirasi", "/karier#hakim-konstitusi"], ["Komisi Kejaksaan · Minat", "/karier#komisi-kejaksaan"], ["Pelayanan Publik", "/karier#pelayanan-publik"]] },
-  { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"], ["JMCS", "/journal"]] },
+  { label: "Scholarship", helper: "Research & publications", helperId: "Riset & publikasi", items: [["Research", "/research"], ["Publications", "/publications"], ["Books", "/books"], ["Opinions", "/opinions"]] },
+  { label: "Journal", helper: "Jurnal Raja Ali Haji Research Network", helperId: "Jurnal Raja Ali Haji Research Network", items: [["Semua jurnal", "/journals"], ...journals.map((journal) => [journal.code, journal.url] as const)] },
   { label: "Ecosystem", helper: "Systems, institutions & archives", helperId: "Sistem, lembaga & arsip", items: [["Coaching & Mentoring", "/coaching-mentoring"], ["Modul Kuliah Interaktif", "/kuliah"], ["ALTER — Ruang Belajar", "/belajar"], ["Blue Education", "/blue-education"], ["AI & Digital Systems Lab", "/ai-lab"], ["LexNusa Legal AI", "/lexnusa"], ["SIMAKS", "/simak"], ["Raja Ali Haji Institute", "/raja-ali-haji"], ["Ruang Belajar Gurindam", "/gurindam"], ["Hukum Preneur", "/hukumpreneur"], ["Constitutional Justice", "/constitutional-justice"], ["BIAF · Academic Forum", "/biaf"], ["Digital Archive", "/digital-archive"], ["Gallery", "/gallery"]] },
   { label: "Organisasi", helper: "Pengabdian & jejaring organisasi", helperId: "Pengabdian & jejaring organisasi", items: [["Hizbul Wathan Kepri", "/hw-kepri"], ["PW Persis Kepri", "/persis-kepri"], ["ISMI Kepri", "/ismi-kepri"], ["KAHMI Kepri", "/kahmi-kepri"], ["DDII Kepri", "/ddii-kepri"]] },
 ] as const;
@@ -39,10 +41,10 @@ export default function NavbarClient({ participant }: { participant: Participant
   return <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
     <nav className="mx-auto flex min-h-16 max-w-[96rem] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
       <Link href={localize("/")} className="shrink-0" onClick={close}><p className="font-academic text-lg font-bold tracking-tight text-slate-950 sm:text-xl">Dr. Hos Arie Sibarani</p><p className="mt-0.5 hidden text-[8px] uppercase tracking-[0.18em] text-amber-700 sm:block">{isIndonesian ? "Hukum Tata Negara • Pemikiran Melayu • Sistem Digital" : "Constitutional Law • Malay Thought • Digital Systems"}</p></Link>
-      <div className="hidden items-center gap-1.5 xl:flex">
-        <Link href={isIndonesian ? "/id" : "/start"} className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-800">{isIndonesian ? "Mulai" : "Start Here"}</Link>
-        {groups.map((group) => <div key={isIndonesian ? labelsId[group.label] : group.label} className="group relative"><button type="button" aria-haspopup="menu" className="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">{isIndonesian ? labelsId[group.label] : group.label}<ChevronDown size={15} /></button><div className="invisible absolute right-0 top-full z-50 w-64 translate-y-1 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100" role="menu"><p className="px-3 pb-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700">{isIndonesian ? group.helperId : group.helper}</p>{group.items.map(([label, href]) => <Link key={href} href={localize(href)} role="menuitem" className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800">{isIndonesian ? labelsId[label] || label : label}</Link>)}</div></div>)}
-        <Link href={localize("/about")} className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">{isIndonesian ? "Tentang" : "About"}</Link>
+      <div className="hidden items-center gap-0.5 xl:flex">
+        <Link href={isIndonesian ? "/id" : "/start"} className="rounded-lg px-2 py-2 text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-800">{isIndonesian ? "Mulai" : "Start Here"}</Link>
+        {groups.map((group) => <div key={isIndonesian ? labelsId[group.label] : group.label} className="group relative"><button type="button" aria-haspopup="menu" className="inline-flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">{isIndonesian ? labelsId[group.label] : group.label}<ChevronDown size={15} /></button><div className="invisible absolute right-0 top-full z-50 w-64 translate-y-1 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100" role="menu"><p className="px-3 pb-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700">{isIndonesian ? group.helperId : group.helper}</p>{group.items.map(([label, href]) => <Link key={href} href={localize(href)} role="menuitem" className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800">{isIndonesian ? labelsId[label] || label : label}</Link>)}</div></div>)}
+        <Link href={localize("/about")} className="rounded-lg px-2 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">{isIndonesian ? "Tentang" : "About"}</Link>
         <div className="flex items-center rounded-lg border border-slate-200 p-1 text-xs font-bold" aria-label={isIndonesian ? "Pilih bahasa" : "Choose language"}>
           <Link href={`/id${languagePath === "/" ? "" : languagePath}`} className={`rounded px-2 py-1 ${isIndonesian ? "bg-slate-950 text-white" : "text-slate-500 hover:text-slate-950"}`}>ID</Link>
           <span className="px-0.5 text-slate-300">/</span>
