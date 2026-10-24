@@ -271,6 +271,18 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-labelledby="engineering-skills-title" className="border-b border-slate-200 bg-stone-50" lang="id">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-amber-800">Referensi terbuka · Pengembangan aplikasi</p>
+            <h2 id="engineering-skills-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">AI Engineering Skills: Merancang, Menguji, dan Memperbaiki Aplikasi</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">Pelajari alur kerja bersama agen AI: memperjelas kebutuhan, menyusun spesifikasi, menguji fitur, dan menelusuri penyebab masalah.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Panduan belajar dengan rujukan Matt Pocock Skills, pilihan skill, dan contoh latihan. Pemasangan skill dilakukan terpisah pada lingkungan agen Anda.</p>
+          </div>
+          <Link href="/ai-lab/engineering-skills" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-6 py-3.5 font-bold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka AI Engineering Skills</Link>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {(Object.keys(counts) as Status[]).map((status) => (
