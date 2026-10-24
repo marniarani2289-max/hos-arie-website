@@ -27,6 +27,7 @@ export default async function ControlCenterPage() {
           </div>
         </header>
 
+        <section className="mt-8 rounded-2xl border border-teal-300 bg-white p-6"><h2 className="text-2xl font-black">Asisten Pelatihan AI untuk Guru</h2><p className="mt-2 text-slate-600">Kelola formulir minat, kebutuhan sekolah, draf balasan, dan pengingat tindak lanjut.</p><Link href="/control-center/pelatihan-ai" className="mt-4 inline-block rounded-lg bg-teal-800 px-5 py-3 font-bold text-white">Kelola peserta dan mitra</Link></section>
         <section className="mt-8 rounded-2xl border border-amber-300 bg-white p-6">
           <div className="flex flex-wrap items-center justify-between gap-5">
             <div><h2 className="text-2xl font-black">Pusat Keputusan AI</h2><p className="mt-2 leading-7 text-slate-600">Susun bukti, bandingkan pilihan, dan pantau tindak lanjut keputusan.</p></div>
@@ -75,3 +76,4 @@ export default async function ControlCenterPage() {
     </main>
   );
 }
+
