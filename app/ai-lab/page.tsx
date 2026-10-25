@@ -331,6 +331,45 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section id="sekai-gateway" aria-labelledby="sekai-gateway-title" className="scroll-mt-24 border-b border-slate-200 bg-stone-50" lang="id">
+        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-amber-800">Referensi layanan eksternal · API AI</p>
+            <h2 id="sekai-gateway-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">SEKAI Gateway: Akses Model AI dengan Pembayaran Rupiah</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">Pelajari cara satu layanan API menghubungkan aplikasi dan coding agent dengan berbagai model AI. SEKAI Gateway menawarkan pembayaran rupiah melalui QRIS, saldo bayar sesuai pemakaian, serta paket untuk kebutuhan coding.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Referensi untuk eksplorasi di AI &amp; Digital Systems Lab. Akses model, akun, dan pembayaran dikelola oleh penyedia eksternal. API SEKAI belum diaktifkan pada website ini dan belum diuji langsung oleh Hossibarani Lab.</p>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Satu akses, berbagai model</h3>
+              <p className="mt-3 leading-7 text-slate-600">Menurut situs penyedia, layanan memakai format API OpenAI dan menyediakan model dari beberapa penyedia. Aplikasi dihubungkan menggunakan alamat API, API key SEKAI, dan ID model.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Dapat menjadi bahan eksperimen asisten pembelajaran, prototipe aplikasi, dan perbandingan jawaban model dengan pertanyaan yang sama.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Pilihan pembayaran</h3>
+              <p className="mt-3 leading-7 text-slate-600">Pay As You Go mengenakan biaya berdasarkan token input dan output. Coding Plan menawarkan paket Basic, Pro, dan MAX dengan batas pemakaian sesuai paket.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Periksa harga, model yang tersedia, dan kuota terbaru di situs penyedia sebelum membeli. Pengisian saldo tersedia melalui QRIS.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Latihan eksplorasi</h3>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 leading-7 text-slate-600">
+                <li>Pilih satu tugas sederhana dengan materi publik.</li>
+                <li>Pelajari dokumentasi dan tentukan batas biaya uji.</li>
+                <li>Jika menggunakan layanan, bandingkan dua model dengan instruksi yang sama.</li>
+                <li>Catat ketepatan jawaban, sumber, waktu respons, dan biaya aktual.</li>
+              </ol>
+            </article>
+          </div>
+          <p className="mt-6 text-sm leading-7 text-slate-600">Untuk eksperimen, gunakan data publik atau sintetis. Tinjau kebijakan data penyedia sebelum mengirim dokumen rahasia, dan simpan API key di sisi server aplikasi Anda.</p>
+          <div className="mt-6">
+            <a href="https://sekaigateway.xyz/id" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+              Buka SEKAI Gateway<ExternalLink size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span>
+            </a>
+          </div>
+          <p className="mt-4 text-xs leading-6 text-slate-500">Sumber: halaman utama SEKAI Gateway, ditinjau 25 Oktober 2026. Fitur dan ketentuan merupakan informasi dari penyedia dan dapat berubah.</p>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {(Object.keys(counts) as Status[]).map((status) => (
