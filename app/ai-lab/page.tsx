@@ -271,6 +271,15 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-label="Paper Review AI: Membaca, Membandingkan, dan Memetakan Literatur" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Telaah literatur</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Paper Review AI: Membaca, Membandingkan, dan Memetakan Literatur</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Susun matriks per artikel, bandingkan teori dan temuan, serta telusuri bukti sebelum menulis. Panduan pendamping Academic Writing AI untuk penulis RAHRN dan riset hukum Lex Nusa.</p>
+          <Link href="/ai-lab/paper-review" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari Paper Review AI →</Link>
+        </div>
+      </section>
+
       <section aria-label="Academic Writing AI: Literatur, Argumentasi, dan Publikasi Ilmiah" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Literatur &amp; Publikasi</p>
