@@ -217,6 +217,36 @@ export default function RajaAliHajiInstitutePage() {
         </div>
       </section>
 
+      <section id="dari-gurindam-ke-tata-kelola" lang="id" aria-labelledby="gurindam-title" className="scroll-mt-24 border-b border-stone-200 bg-[#faf8f2] px-5 py-16 sm:px-6 md:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <Eyebrow>Video pembelajaran · Etika kepemimpinan</Eyebrow>
+          <h2 id="gurindam-title" className="mt-5 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">Dari Gurindam ke Tata Kelola</h2>
+          <p className="mt-4 text-xl leading-8 text-amber-900">Etika Kekuasaan dalam Pemikiran Raja Ali Haji</p>
+          <p className="mt-3 font-semibold text-slate-700">Dr. Hos Arie Sibarani, S.H., M.H.</p>
+          <div className="mt-9 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start">
+            <div>
+              <div className="aspect-video overflow-hidden rounded-2xl bg-slate-950 shadow-lg">
+                <iframe className="h-full w-full border-0" src="https://www.youtube-nocookie.com/embed/6080M-wcyvk" title="Dari Gurindam ke Tata Kelola — video pembelajaran" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+              </div>
+              <a href="https://youtu.be/6080M-wcyvk" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-amber-800 underline underline-offset-4">Tonton di YouTube <ArrowRight size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span></a>
+            </div>
+            <aside className="rounded-2xl border border-amber-900/10 bg-white p-6 sm:p-8">
+              <BookOpen className="text-amber-700" size={28} aria-hidden="true" />
+              <h3 className="mt-4 text-2xl font-bold">Tonton dan baca bersama</h3>
+              <p className="mt-4 leading-7 text-slate-600">Pelajari nilai amanah, pengendalian diri, keadilan, dan musyawarah dalam pemikiran Raja Ali Haji sebagai bahan refleksi dan pendidikan kepemimpinan.</p>
+              <p className="mt-4 text-sm leading-6 text-slate-600">Kaitannya dengan tata kelola masa kini disajikan sebagai refleksi interpretatif, dengan tetap membedakan konteks sejarah dari konsep pemerintahan modern.</p>
+              <a href="/materials/dari-gurindam-ke-tata-kelola.pdf" download className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800"><FileText size={18} aria-hidden="true" /> Unduh materi PDF</a>
+              <a href="/materials/dari-gurindam-ke-tata-kelola.pdf" target="_blank" rel="noopener noreferrer" className="mt-3 flex min-h-11 items-center font-semibold text-amber-800 underline underline-offset-4">Buka PDF di tab baru ↗</a>
+            </aside>
+          </div>
+          <details className="mt-8 rounded-2xl border border-stone-200 bg-white p-5 sm:p-7">
+            <summary className="cursor-pointer py-2 text-lg font-bold text-slate-900">Baca materi PDF di halaman ini</summary>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Jika pratinjau tidak muncul di perangkat Anda, gunakan tombol buka atau unduh PDF di atas.</p>
+            <iframe src="/materials/dari-gurindam-ke-tata-kelola.pdf" title="Materi PDF Dari Gurindam ke Tata Kelola" loading="lazy" className="mt-5 h-[65vh] min-h-80 w-full rounded-lg border border-stone-200" />
+          </details>
+        </div>
+      </section>
+
       <section id="jurnal-jmcs" lang="id" aria-labelledby="jmcs-title" className="scroll-mt-24 border-b border-stone-200 bg-stone-50 px-5 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16">
           <div>

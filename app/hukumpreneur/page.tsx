@@ -213,6 +213,22 @@ export default function HukumPreneurPage() {
         </div>
       </section>
 
+      <section aria-labelledby="gurindam-learning-title" className="px-5 pt-16 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-white shadow-sm md:grid-cols-2">
+          <Link href="/raja-ali-haji#dari-gurindam-ke-tata-kelola" className="block bg-[#142e2c] focus-visible:outline-4 focus-visible:outline-emerald-600" aria-label="Buka video dan PDF Dari Gurindam ke Tata Kelola">
+            <Image src="/images/dari-gurindam-ke-tata-kelola.jpg" alt="Dari Gurindam ke Tata Kelola — pembelajaran etika kepemimpinan bersama Dr. Hos Arie Sibarani" width={1672} height={941} className="h-full w-full object-contain" />
+          </Link>
+          <div className="p-7 sm:p-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Raja Ali Haji Institute · Video + PDF</p>
+            <h2 id="gurindam-learning-title" className="mt-4 text-3xl font-bold leading-tight">Dari Gurindam ke Tata Kelola</h2>
+            <p className="mt-3 text-lg font-medium text-slate-700">Etika Kekuasaan dalam Pemikiran Raja Ali Haji</p>
+            <p className="mt-4 leading-7 text-slate-600">Refleksi tentang amanah, integritas, dan tanggung jawab pemimpin. Tonton video pembelajaran dan baca materi pendamping dalam satu halaman.</p>
+            <p className="mt-4 text-sm font-semibold text-slate-700">Dr. Hos Arie Sibarani, S.H., M.H.</p>
+            <Link href="/raja-ali-haji#dari-gurindam-ke-tata-kelola" className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">Tonton video &amp; baca PDF <ArrowRight size={18} aria-hidden="true" /></Link>
+          </div>
+        </div>
+      </section>
+
       <section id="belajar" className="scroll-mt-24 px-5 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Satu ekosistem Hukumpreneur</p>
