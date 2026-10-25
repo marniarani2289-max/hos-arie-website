@@ -52,6 +52,15 @@ export default function JournalsPage() {
         <p className="mt-8 max-w-3xl text-sm leading-7 text-slate-600">Informasi penerimaan naskah, panduan penulis, tim editorial, dan terbitan mengikuti pengumuman pada laman OJS masing-masing jurnal.</p>
       </section>
 
+      <section aria-label="Pendampingan Penulis · Academic Writing AI" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Literatur &amp; Publikasi</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Pendampingan Penulis · Academic Writing AI</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Siapkan matriks literatur, perkuat kontribusi dan argumentasi, lalu periksa kesiapan naskah sesuai panduan jurnal tujuan. Materi belajar tersedia di AI & Digital System Lab.</p>
+          <Link href="/ai-lab/academic-writing#pendampingan-penulis" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka panduan pendampingan penulis →</Link>
+        </div>
+      </section>
+
       <section id="biaf" aria-labelledby="biaf-heading" className="scroll-mt-24 border-t border-slate-200 bg-white px-5 py-14 sm:px-8 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-8 rounded-2xl bg-slate-950 p-7 text-white sm:p-10 md:grid-cols-[1.2fr_1fr] md:items-center">
           <div>
