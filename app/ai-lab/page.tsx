@@ -271,6 +271,7 @@ export default function AiLabPage() {
         </div>
       </section>
 
+<section aria-label="REA: Memahami Cara Kerja Aplikasi dengan Agen AI" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8"><div className="mx-auto max-w-6xl"><p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Analisis aplikasi</p><h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">REA: Memahami Cara Kerja Aplikasi dengan Agen AI</h2><p className="mt-4 max-w-3xl leading-8 text-slate-700">Telusuri struktur dan perilaku aplikasi, periksa bukti teknis, dan susun laporan yang membedakan observasi dari dugaan. Terhubung ke Hukum Kejahatan Mayantara dan LexNusa.</p><Link href="/ai-lab/rea" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari REA →</Link></div></section>
       <section aria-label="Humanize Writing AI: Menyunting Bahasa, Menjaga Makna, dan Memperjelas Argumentasi" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
