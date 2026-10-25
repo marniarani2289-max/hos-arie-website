@@ -284,6 +284,76 @@ export default function AiLabPage() {
       </section>
 
 
+      <section id="agents-md" aria-labelledby="agents-md-title" className="scroll-mt-24 border-b border-slate-200 bg-slate-50" lang="id">
+        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-amber-800">Materi belajar · Panduan kerja agen AI</p>
+            <h2 id="agents-md-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">AGENTS.md: Menulis Panduan Proyek untuk Agen AI</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">AGENTS.md adalah berkas Markdown yang memberi agen pemrograman AI konteks dan petunjuk kerja sebuah proyek. Isinya dapat mencakup struktur folder, perintah build dan pengujian, gaya kode, serta perhatian keamanan.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Tujuan belajar: menyusun instruksi yang jelas, dapat diperiksa, dan sesuai dengan proyek. Materi ini melengkapi AI Engineering Skills yang membahas cara mengerjakan tugas.</p>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Kenali fungsinya</h3>
+              <p className="mt-3 leading-7 text-slate-600">README memperkenalkan proyek kepada pembaca manusia. AGENTS.md melengkapinya dengan petunjuk khusus untuk agen AI. Tidak ada susunan bagian yang wajib; tuliskan informasi yang benar-benar diperlukan.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Berkas biasanya ditempatkan di folder utama repositori. Subfolder dapat memiliki petunjuk yang lebih khusus. Periksa dukungan dan cara membaca instruksi pada agen yang digunakan.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Tulis instruksi yang terukur</h3>
+              <p className="mt-3 leading-7 text-slate-600">Contoh latihan: ubah instruksi “buat halaman yang bagus” menjadi “gunakan satu judul utama, tautkan sumber materi, dan periksa agar teks tidak terpotong pada layar ponsel”.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Jelaskan hasil yang diharapkan dan cara memeriksanya. Cantumkan perintah hanya setelah memastikan perintah tersebut tersedia pada proyek.</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-950">Latihan 15 menit</h3>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 leading-7 text-slate-600">
+                <li>Pilih proyek latihan dan tulis tujuannya dalam dua kalimat.</li>
+                <li>Catat folder penting, tiga aturan kerja, dan cara memeriksa hasil.</li>
+                <li>Minta agen mengubah satu teks pada salinan proyek menggunakan panduan itu.</li>
+                <li>Bandingkan hasil dengan aturan; revisi instruksi yang masih ambigu.</li>
+              </ol>
+            </article>
+          </div>
+          <details className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+            <summary className="cursor-pointer text-lg font-bold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Lihat contoh AGENTS.md untuk proyek latihan</summary>
+            <p className="mt-4 text-sm leading-7 text-slate-600">Contoh buatan Hossibarani Lab. Sesuaikan nama proyek, folder, dan pemeriksaannya sebelum digunakan.</p>
+            <pre className="mt-4 overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-slate-950 p-5 text-sm leading-7 text-slate-100"><code>{`# Panduan agen untuk Portal Belajar
+
+## Tujuan
+Portal ini membantu pengunjung menemukan materi dan sumber belajar.
+
+## Sebelum mengubah
+- Baca README dan konfigurasi proyek.
+- Kenali lokasi halaman, komponen, dan aset.
+- Batasi perubahan pada tugas yang diminta.
+
+## Konten dan tampilan
+- Gunakan bahasa Indonesia yang jelas.
+- Cantumkan tautan sumber untuk materi rujukan.
+- Pertahankan navigasi dan identitas visual yang sudah ada.
+
+## Pemeriksaan hasil
+- Periksa tautan dan keterbacaan pada layar ponsel.
+- Jalankan perintah build atau tes yang tersedia dan relevan.
+- Laporkan pemeriksaan yang gagal atau belum dapat dijalankan.
+
+## Data dan penerbitan
+- Jangan menulis kata sandi atau API key dalam kode publik.
+- Gunakan data contoh untuk latihan.
+- Terbitkan hanya dalam lingkup permintaan pengguna.
+- Laporkan perubahan dan hasil verifikasinya.
+`}</code></pre>
+          </details>
+          <p className="mt-6 text-sm leading-7 text-slate-600"><strong className="text-slate-950">Refleksi:</strong> Apakah setiap aturan dapat diperiksa? Apakah ada instruksi yang bertentangan? Petunjuk tertulis membantu koordinasi, tetapi pengaturan izin akses dan pemeriksaan manusia tetap diperlukan.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="https://agents.md/" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+              Buka sumber AGENTS.md<ExternalLink size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span>
+            </a>
+            <Link href="/ai-lab/engineering-skills" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-950 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari AI Engineering Skills</Link>
+          </div>
+          <p className="mt-4 text-xs leading-6 text-slate-500">Sumber konsep: agents.md, ditinjau 25 Oktober 2026. Contoh dan latihan disusun untuk pembelajaran; berkas panduan proyek tidak dibuat atau diaktifkan melalui halaman ini.</p>
+        </div>
+      </section>
+
       <section id="bridgeplay" aria-labelledby="bridgeplay-title" className="scroll-mt-24 border-b border-slate-200 bg-white" lang="id">
         <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
