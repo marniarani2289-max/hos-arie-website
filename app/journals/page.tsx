@@ -52,6 +52,15 @@ export default function JournalsPage() {
         <p className="mt-8 max-w-3xl text-sm leading-7 text-slate-600">Informasi penerimaan naskah, panduan penulis, tim editorial, dan terbitan mengikuti pengumuman pada laman OJS masing-masing jurnal.</p>
       </section>
 
+      <section aria-label="Humanize Writing AI untuk Penyuntingan Naskah" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Humanize Writing AI untuk Penyuntingan Naskah</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Perjelas bahasa dan alur tulisan tanpa mengubah data, kontribusi, atau sumber. Gunakan contoh instruksi dan daftar pemeriksaan sebelum menerima revisi.</p>
+          <Link href="/ai-lab/humanize-writing#penyuntingan-naskah" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka panduan penyuntingan naskah →</Link>
+        </div>
+      </section>
+
       <section aria-label="Paper Review AI untuk Penulis RAHRN" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Telaah literatur</p>

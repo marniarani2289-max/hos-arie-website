@@ -107,6 +107,15 @@ export default function PaperReviewPage() {
         <p className="mt-4 leading-8 text-slate-700">Dokumentasi repositori menyediakan Markdown, CSV, XLSX, BibTeX, EndNote XML, dan RIS dari data induk yang sama. Tabel dapat digunakan untuk analisis, sedangkan format bibliografi membantu pemindahan referensi ke pengelola pustaka.</p>
         <p className="mt-3 leading-8 text-slate-700">Ekspor dilakukan di lingkungan yang menjalankan skill dengan dependensi yang diperlukan. AI Lab belum menguji proses ekspor repositori ini. Periksa kembali jumlah artikel, metadata, dan jejak sumber setelah konversi.</p>
       </section>
+      <section aria-label="Jaga makna ringkasan dengan Humanize Writing AI" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Jaga makna ringkasan dengan Humanize Writing AI</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Sunting hasil sintesis yang sudah diverifikasi tanpa menambahkan temuan atau mengubah posisi penulis sumber. Jika bukti belum cukup, kembali ke artikel asli sebelum memperbaiki bahasa.</p>
+          <Link href="/ai-lab/humanize-writing" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari penyuntingan yang menjaga makna →</Link>
+        </div>
+      </section>
+
       <section aria-labelledby="lanjut" className="rounded-2xl bg-slate-950 p-6 text-white sm:p-9">
         <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Dua panduan yang saling melengkapi</p>
         <h2 id="lanjut" className="mt-3 text-3xl font-bold">Dari matriks literatur menuju naskah ilmiah</h2>

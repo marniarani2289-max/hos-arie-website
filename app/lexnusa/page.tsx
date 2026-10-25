@@ -31,6 +31,15 @@ export default function LexNusaPage() {
 
     <section className="border-b border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-6 px-5 py-9 sm:grid-cols-4 sm:px-8 lg:px-10">{[["HUMAN-LED","Legal judgment is the final quality gate."],["AUDITABLE","Structured scoring and traceable findings."],["REGIONAL","Indonesia & ASEAN expertise."],["CLIENT-SAFE","Research, QA and analytical support."]].map(([a,b])=><div key={a}><p className="text-xs font-black tracking-[.18em] text-[#0E6B6F]">{a}</p><p className="mt-2 text-sm leading-6 text-slate-600">{b}</p></div>)}</div></section>
 
+      <section aria-label="Humanize Writing AI untuk Ketepatan Bahasa Hukum" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Humanize Writing AI untuk Ketepatan Bahasa Hukum</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Jaga istilah, atribusi, syarat, pengecualian, dan tingkat kepastian saat menyunting tulisan hukum. Tersedia latihan dan contoh instruksi pemeriksaan perubahan makna.</p>
+          <Link href="/ai-lab/humanize-writing#bahasa-hukum" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari ketepatan bahasa hukum →</Link>
+        </div>
+      </section>
+
       <section aria-label="Paper Review AI untuk Pemetaan Literatur Hukum" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Telaah literatur</p>

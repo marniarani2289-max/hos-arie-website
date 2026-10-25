@@ -271,6 +271,15 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-label="Humanize Writing AI: Menyunting Bahasa, Menjaga Makna, dan Memperjelas Argumentasi" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Humanize Writing AI: Menyunting Bahasa, Menjaga Makna, dan Memperjelas Argumentasi</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Sunting bahasa Indonesia dan Inggris agar lebih jelas, sambil menjaga klaim, kutipan, serta tingkat kepastian. Panduan untuk naskah ilmiah dan ketepatan bahasa hukum.</p>
+          <Link href="/ai-lab/humanize-writing" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari Humanize Writing AI →</Link>
+        </div>
+      </section>
+
       <section aria-label="Paper Review AI: Membaca, Membandingkan, dan Memetakan Literatur" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Telaah literatur</p>

@@ -101,6 +101,15 @@ export default function AcademicWritingPage() {
         <details className="mt-6 rounded-xl border border-teal-200 bg-white p-5"><summary className="cursor-pointer font-bold">Contoh instruksi untuk riset hukum</summary><p className="mt-4 whitespace-pre-wrap leading-8 text-slate-700">{legalPrompt}</p></details>
         <div className="mt-6 flex flex-wrap gap-3"><Link href="/lexnusa" className={button + " bg-teal-900 text-white hover:bg-teal-800"}>Jelajahi Lex Nusa Legal AI</Link><Link href="/lexnusa/lex-eval" className={button + " border border-teal-700 text-teal-950 hover:bg-white"}>Pelajari evaluasi keluaran AI hukum</Link></div>
       </section>
+      <section aria-label="Sunting naskah dengan Humanize Writing AI" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Penyuntingan bahasa</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-950">Sunting naskah dengan Humanize Writing AI</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Setelah argumen dan sumber tersedia, perjelas bahasa naskah sambil mempertahankan klaim, kutipan, dan tingkat kepastian. Bandingkan revisi dengan draf awal sebelum menyetujuinya.</p>
+          <Link href="/ai-lab/humanize-writing" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Lanjutkan ke Humanize Writing AI →</Link>
+        </div>
+      </section>
+
       <section aria-labelledby="checklist">
         <h2 id="checklist" className="text-2xl font-bold">Sebelum naskah digunakan atau dikirim</h2>
         <ul className="mt-5 list-disc space-y-3 pl-6 leading-8 text-slate-700">
