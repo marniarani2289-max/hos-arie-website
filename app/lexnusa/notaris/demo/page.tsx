@@ -2,7 +2,8 @@ import NotaryWorkspace from '../NotaryWorkspace';
 import type { RecordItem } from '@/lib/lexnusa/notaris/model';
 export const dynamic='force-dynamic';
 export const metadata={title:'Demo Interaktif | LexNusa Notaris',robots:{index:false,follow:false}};
-export default function DemoPage(){
+export default async function DemoPage({searchParams}:{searchParams:Promise<{tab?:string}>}){
+ const initialTab=(await searchParams).tab==='portal'?'portal':'overview';
  const date=(n:number)=>{const d=new Date();d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
  const id=(n:number)=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
  const now=new Date().toISOString();
@@ -17,8 +18,9 @@ export default function DemoPage(){
  [8,'appointment','Jadwal tanda tangan',6,{date:date(2),time:'14:00',location:'Kantor notaris',notes:'Agenda contoh.'}],
  [9,'invoice','INV-CONTOH-001 · Cakrawala',4,{amount:4500000,paid:1500000,due:date(7),notes:'Nominal fiktif, bukan tarif layanan LexNusa atau tarif notaris.'}],
  [10,'invoice','INV-CONTOH-002 · Bahari',5,{amount:2500000,paid:1000000,due:date(5),notes:'Nominal fiktif untuk demonstrasi.'}],
+ [12,'submission','Pendirian PT — persiapan AHU',4,{provider:'AHU',portal_service:'Perseroan terbatas',portal_status:'Draf persiapan',source:'manual',prepared_checked:true,notes:'Data fiktif. Belum diajukan ke portal instansi.'}],
  [11,'document','Catatan penerimaan berkas',4,{content:'DRAF CATATAN KERJA — DATA CONTOH\n\nPeriksa kelengkapan dokumen pendukung dan konfirmasi data pengurus.\n\nCatatan ini bukan akta dan belum merupakan hasil pemeriksaan hukum.',notes:'Contoh dokumen kerja.'}],
  ];
  const records:RecordItem[]=raw.map(([n,kind,title,parent,data])=>({id:id(n),office_id:id(99),kind,title,parent_id:parent?id(parent):null,data,version:1,archived:false,created_at:now,updated_at:now}));
- return <NotaryWorkspace demo office={{id:id(99),name:'Kantor Notaris Contoh'}} records={records} audit={[{id:1,action:'Dibuat',record_title:'Data demonstrasi kantor',created_at:now}]}/>;
+ return <NotaryWorkspace demo initialTab={initialTab} office={{id:id(99),name:'Kantor Notaris Contoh'}} records={records} audit={[{id:1,action:'Dibuat',record_title:'Data demonstrasi kantor',created_at:now}]}/>;
 }

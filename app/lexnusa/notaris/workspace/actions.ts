@@ -35,6 +35,10 @@ export async function saveRecord(input: unknown, id?: string, version?: number, 
       if (!parent || parent.kind !== expected) throw new Error('Pilih relasi aktif dari kantor ini.');
     }
     if (value.kind === 'client') value.parent_id = null;
+    if (value.kind === 'submission' && value.data.evidence_id) {
+      const { data: evidence } = await db.from('lexnusa_notary_records').select('id,data,parent_id').eq('id', value.data.evidence_id).eq('office_id', office.id).eq('kind', 'document').single();
+      if (!evidence?.data?.file_path || evidence.parent_id !== value.parent_id) throw new Error('Pilih berkas bukti dari pekerjaan yang sama, melalui modul Dokumen.');
+    }
     if (id) {
       const { data: old } = await db.from('lexnusa_notary_records').select('kind,data').eq('id', id).eq('office_id', office.id).single();
       if (!old || old.kind !== value.kind) throw new Error('Data tidak ditemukan.');
