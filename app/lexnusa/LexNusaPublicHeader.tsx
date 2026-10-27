@@ -27,6 +27,7 @@ function LexNusaMark() {
 const navItems = [
   ["Home", "/lexnusa"],
   ["Services", "/lexnusa/services"],
+  ["Notaris", "/lexnusa/notaris"],
   ["Cohort", "/lexnusa/cohort"],
   ["Cybercrime Law", "/lexnusa/mayantara"],
   ["LEX-EVAL™", "/lexnusa/lex-eval"],
@@ -39,7 +40,7 @@ export default function LexNusaPublicHeader() {
   const [open, setOpen] = useState(false);
   if (!pathname.startsWith("/lexnusa") || pathname.startsWith("/lexnusa/ops")) return null;
 
-  const isIndonesian = pathname === "/lexnusa/mayantara" || pathname.startsWith("/lexnusa/mayantara/");
+  const isIndonesian = pathname.startsWith("/lexnusa/notaris") || pathname === "/lexnusa/mayantara" || pathname.startsWith("/lexnusa/mayantara/");
   const labels: Record<string, string> = { Home: "Beranda", Services: "Layanan", Cohort: "Angkatan", "Cybercrime Law": "Hukum Kejahatan Mayantara", Evidence: "Bukti", About: "Tentang" };
   const isActive = (href: string) => href === "/lexnusa" ? pathname === href : pathname.startsWith(href);
   const close = () => setOpen(false);
@@ -55,7 +56,7 @@ export default function LexNusaPublicHeader() {
           </div>
         </Link>
 
-        <nav aria-label={isIndonesian ? "Navigasi LexNusa" : "LexNusa navigation"} className="hidden items-center gap-7 text-sm font-semibold text-slate-200 lg:flex">
+        <nav aria-label={isIndonesian ? "Navigasi LexNusa" : "LexNusa navigation"} className="hidden items-center gap-4 text-sm font-semibold text-slate-200 lg:flex">
           {navItems.map(([label, href]) => <Link key={href} href={href} className={isActive(href) ? "text-[#E0B85D] transition hover:text-white" : "transition hover:text-[#E0B85D]"}>{isIndonesian ? labels[label] ?? label : label}</Link>)}
         </nav>
 
