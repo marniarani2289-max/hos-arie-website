@@ -8,6 +8,7 @@ import {
   BookOpen,
   Building2,
   Download,
+  ExternalLink,
   FileCheck2,
   FileText,
   Gavel,
@@ -170,6 +171,22 @@ export default function ConstitutionalJusticePage() {
                 </p>
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="officium-nobile" lang="id" aria-labelledby="officium-nobile-heading" className="border-b border-slate-200 bg-white px-5 py-12 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-7 md:grid-cols-[1.4fr_1fr] md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-emerald-800">Akses profesi advokat · Layanan eksternal</p>
+            <h2 id="officium-nobile-heading" className="mt-3 font-academic text-3xl font-bold text-slate-950">Officium Nobile · e-Lawyer KAI</h2>
+            <p className="mt-4 max-w-3xl leading-8 text-slate-600">Akses halaman profil anggota e-Lawyer Kongres Advokat Indonesia langsung dari Constitutional Justice.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-500">Dibuka di tab baru dan memerlukan login akun e-Lawyer. Akun serta data profil dikelola oleh Officium Nobile; belum tersinkron dengan ruang kerja ini.</p>
+          </div>
+          <div>
+            <a href="https://officiumnobile.com/member/index.php?rute=common/profile" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-emerald-900 px-6 py-4 font-semibold text-white transition hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-800">
+              Buka e-Lawyer KAI <ExternalLink size={18} aria-hidden="true" /><span className="sr-only"> (tab baru)</span>
+            </a>
           </div>
         </div>
       </section>
