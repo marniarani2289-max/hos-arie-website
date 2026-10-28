@@ -11,8 +11,17 @@ export default function AgentWorkbench() {
   const agent = agents.find(item => item.path === selected)!;
   const prompt = `Peran: ${agent.name}\nReferensi instruksi: https://github.com/msitarzewski/agency-agents/blob/${sourceRevision}/${agent.path}\n\nTugas: ${task.trim() || "[Tuliskan tugas dan hasil yang diharapkan]"}\n\nKonteks: AI & Digital Systems Lab Hossibarani. Jawab dalam Bahasa Indonesia. Gunakan data contoh atau sumber publik.\n\nBatas kerja: analisis dan rekomendasi saja. Jangan mengubah sistem, mengirim pesan, atau memublikasikan hasil tanpa persetujuan manusia. Jangan mengarang sumber, data, atau hasil pengujian. Jika referensi instruksi tidak dapat dibaca, minta pengguna melampirkan berkas agen; jangan mengaku telah membacanya.\n\nKeluaran: (1) asumsi dan kebutuhan data, (2) hasil analisis dengan sumber/bukti, (3) keterbatasan dan bagian yang belum diuji, (4) rekomendasi untuk ditinjau manusia.`;
   async function copy() {
-    try { await navigator.clipboard.writeText(prompt); setStatus("Brief berhasil disalin."); }
-    catch { setStatus("Penyalinan tidak tersedia. Pilih teks brief di bawah lalu salin secara manual."); }
+    setStatus("Menyalin brief…");
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      await Promise.race([
+        navigator.clipboard.writeText(prompt),
+        new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error("Clipboard timeout")), 2000); }),
+      ]);
+      setStatus("Brief berhasil disalin.");
+    }
+    catch { setStatus("Penyalinan otomatis belum berhasil. Pilih teks pada kolom Brief siap salin lalu salin secara manual."); }
+    finally { if (timer !== undefined) clearTimeout(timer); }
   }
   return <section id="workbench" aria-labelledby="workbench-title" className="scroll-mt-8">
     <h2 id="workbench-title" className="text-3xl font-bold">Pilih peran. Susun tugasnya.</h2>
