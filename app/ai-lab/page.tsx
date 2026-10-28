@@ -259,6 +259,15 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-labelledby="agency-agents-title" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Agency Agents · Katalog &amp; ruang praktik</p>
+          <h2 id="agency-agents-title" className="mt-3 text-3xl font-bold text-slate-950">Agen spesialis untuk riset, pengembangan, dan evaluasi</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Pilih enam agen terkurasi, unduh instruksi aslinya, dan susun brief berbahasa Indonesia dengan tinjauan manusia. Katalog tersedia; eksekusi agen otomatis belum aktif.</p>
+          <Link href="/ai-lab/agency-agents" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka Agency Agents →</Link>
+        </div>
+      </section>
+
       <section aria-labelledby="nakama-title" lang="id" className="border-b border-slate-200 bg-amber-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Agen AI untuk tim</p>
