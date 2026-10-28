@@ -174,6 +174,21 @@ export default function ConstitutionalJusticePage() {
         </div>
       </section>
 
+      <section id="peta-perkara" lang="id" aria-labelledby="peta-perkara-heading" className="border-b border-emerald-900/15 bg-emerald-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-7 md:grid-cols-[1.4fr_1fr] md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-emerald-800">Alat kerja · Constitutional Justice</p>
+            <h2 id="peta-perkara-heading" className="mt-3 font-academic text-3xl font-bold text-slate-950">Peta Perkara</h2>
+            <p className="mt-4 max-w-3xl leading-8 text-slate-600">Hubungkan pihak dan bukti, susun kronologi, serta catat pengujian unsur dan kontradiksi dalam satu ruang analisis.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-500">Untuk anggota ruang kerja. Catatan disimpan di browser, dengan ekspor–impor cadangan. Analisis diisi dan diperiksa oleh pengguna.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/constitutional-justice/peta-perkara" className="inline-flex items-center gap-2 rounded-xl bg-emerald-900 px-6 py-4 font-semibold text-white hover:bg-emerald-800">Buka Peta Perkara <ArrowRight size={18} /></Link>
+            <Link href="/constitutional-justice/workspace" className="rounded-xl border border-emerald-900/20 bg-white px-5 py-4 font-semibold text-emerald-900">Ruang kerja advokasi</Link>
+          </div>
+        </div>
+      </section>
+
       <section lang="id" aria-label="Pendidikan Profesi Advokat dan Latihan UPA" className="border-b border-amber-900/15 bg-[#f5f1e8] px-5 py-14 sm:px-8"><div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.4fr_1fr] md:items-center"><div><p className="text-xs font-bold uppercase tracking-[.22em] text-rose-900">Pendidikan profesi · Constitutional Justice</p><h2 className="mt-4 font-academic text-3xl font-bold text-slate-950">PKPA & Latihan Ujian Profesi Advokat</h2><p className="mt-4 max-w-3xl leading-8 text-slate-600">Bangun fondasi profesi melalui materi pengantar, 24 soal latihan dengan pembahasan, simulasi mandiri, dan praktik penulisan hukum.</p><p className="mt-3 text-sm text-slate-500">Latihan tersedia gratis. Angkatan PKPA resmi belum dibuka.</p></div><div className="flex flex-wrap gap-3"><Link href="/constitutional-justice/pkpa" className="rounded-lg bg-rose-900 px-5 py-3 font-semibold text-white">Jelajahi program →</Link><Link href="/constitutional-justice/pkpa/latihan-upa" className="rounded-lg border border-rose-900/25 bg-white px-5 py-3 font-semibold text-rose-900">Mulai latihan UPA</Link></div></div></section>
 
       <section className="px-5 py-20 sm:px-6 md:py-28 lg:px-8">

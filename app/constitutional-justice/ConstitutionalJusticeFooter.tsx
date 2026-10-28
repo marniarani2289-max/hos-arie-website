@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, BookOpen, Gavel, Mail, Scale, Users } from "lucide-react";
 
 const initiativeLinks = [
+  ["Peta Perkara", "/constitutional-justice/peta-perkara"],
   ["PKPA & Latihan UPA", "/constitutional-justice/pkpa"],
   ["Ruang Kerja Advokasi", "/constitutional-justice/workspace"],
   ["Constitutional work", "/constitutional-justice#constitutional-work"],
