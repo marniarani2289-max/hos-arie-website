@@ -259,6 +259,15 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-labelledby="nakama-title" lang="id" className="border-b border-slate-200 bg-amber-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">AI Lab · Agen AI untuk tim</p>
+          <h2 id="nakama-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">Nakama: Ruang Kerja Agen AI untuk Riset, Pendidikan, dan Kolaborasi</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Kenali Nakama, rancang agen dengan peran khusus, dan pelajari alur uji coba untuk riset, pembelajaran, serta kerja tim. Panduan terhubung ke LexNusa dan Journal/RAHRN.</p>
+          <Link href="/ai-lab/nakama" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Pelajari Nakama →</Link>
+        </div>
+      </section>
+
       <section aria-labelledby="cve-intelligence-title" lang="id" className="border-b border-slate-200 bg-teal-50 px-5 py-12 sm:px-8"><div className="mx-auto max-w-6xl"><p className="text-xs font-bold uppercase tracking-widest text-teal-800">AI Lab · Intelijen keamanan</p><h2 id="cve-intelligence-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">CVE Intelligence AI: Analisis Kerentanan dan Prioritas Perbaikan</h2><p className="mt-4 max-w-3xl leading-8 text-slate-700">Pelajari CVE, CVSS, EPSS, dan CISA KEV. Verifikasi konteks aset dan susun prioritas perbaikan melalui panduan, latihan, serta format laporan. Terhubung ke kelas Hukum Kejahatan Mayantara.</p><Link href="/ai-lab/cve-intelligence" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Pelajari CVE Intelligence AI →</Link></div></section>
 
       <section aria-labelledby="antislop-title" className="border-b border-slate-200 bg-white" lang="id">
