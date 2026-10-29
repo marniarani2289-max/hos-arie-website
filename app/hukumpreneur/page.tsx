@@ -7,6 +7,7 @@ import {
   BriefcaseBusiness,
   CheckCircle2,
   Copyright,
+  Download,
   Gavel,
   Lightbulb,
   Play,
@@ -231,7 +232,7 @@ export default function HukumPreneurPage() {
               />
             </div>
             <div className="p-7 sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Video Pembelajaran · Hukum Bisnis</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Video + Presentasi PDF · Hukum Bisnis</p>
               <h2 id="korporasi-video-title" className="mt-4 text-3xl font-bold leading-tight">Hukum Pidana Korporasi 2026</h2>
               <p className="mt-3 text-xl font-semibold text-slate-800">Karyawan Curang, Direksi Ikut Dipidana?</p>
               <p className="mt-4 leading-7 text-slate-600">Pelajari risiko pidana dalam dunia usaha melalui pembahasan tanggung jawab korporasi dan individu, Business Judgment Rule, peringatan audit, risiko perpajakan, serta rencana perbaikan tata kelola 90 hari.</p>
@@ -240,6 +241,30 @@ export default function HukumPreneurPage() {
                 <Play size={18} aria-hidden="true" /> Tonton di YouTube <ArrowRight size={18} aria-hidden="true" />
               </a>
             </div>
+          </div>
+          <div id="materi-pidana-korporasi" className="scroll-mt-24 border-t border-emerald-100 p-7 sm:p-10">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900">Materi Presentasi</h3>
+                <p className="mt-2 leading-7 text-slate-600">Hukum Pidana Korporasi 2026: Peta Risiko dan Tata Kelola Pertanggungjawaban.</p>
+                <p className="mt-1 text-sm text-slate-500">13 slide · PDF · BJR, DPA, perpajakan, dan pemulihan aset</p>
+              </div>
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <a href="/materials/hukum-pidana-korporasi-2026.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-emerald-300 px-5 py-3 font-bold text-emerald-900 hover:bg-emerald-50">
+                  <BookOpen size={18} aria-hidden="true" /> Buka PDF
+                </a>
+                <a href="/materials/hukum-pidana-korporasi-2026.pdf" download="Hukum_Pidana_Korporasi_2026.pdf" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">
+                  <Download size={18} aria-hidden="true" /> Unduh PDF
+                </a>
+              </div>
+            </div>
+            <iframe
+              src="/materials/hukum-pidana-korporasi-2026.pdf#view=FitH"
+              title="Materi presentasi Hukum Pidana Korporasi 2026 — 13 slide"
+              className="mt-6 h-[420px] w-full rounded-2xl border border-slate-200 bg-slate-100 sm:h-[680px]"
+              loading="lazy"
+            />
+            <p className="mt-3 text-sm leading-6 text-slate-500">Jika pratinjau tidak tampil di perangkat Anda, pilih Buka PDF atau Unduh PDF.</p>
           </div>
           <div className="border-t border-emerald-100 bg-emerald-50/50 p-7 sm:px-10">
             <h3 className="font-bold text-slate-900">Jelajahi pembahasan</h3>
