@@ -151,7 +151,7 @@ export default function HukumPreneurPage() {
               melindungi aset usaha, serta mengambil keputusan bisnis yang lebih
               sadar hukum.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col flex-wrap gap-3 sm:flex-row">
               <a
                 href={channelUrl}
                 target="_blank"
@@ -165,6 +165,9 @@ export default function HukumPreneurPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 font-bold text-white transition hover:bg-white/10"
               >
                 Jelajahi topik <ArrowRight size={18} />
+              </Link>
+              <Link href="#hukum-pidana-korporasi" className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/40 px-6 py-4 font-bold text-emerald-200 transition hover:bg-white/10">
+                <Play size={18} aria-hidden="true" /> Pidana Korporasi
               </Link>
             </div>
           </div>
@@ -210,6 +213,43 @@ export default function HukumPreneurPage() {
           <span className="inline-flex items-center gap-2"><Lightbulb className="text-emerald-600" size={18} /> Mudah dipahami</span>
           <span className="inline-flex items-center gap-2"><BriefcaseBusiness className="text-emerald-600" size={18} /> Relevan bagi usaha</span>
           <span className="inline-flex items-center gap-2"><Users className="text-emerald-600" size={18} /> Terbuka untuk publik</span>
+        </div>
+      </section>
+
+      <section id="hukum-pidana-korporasi" aria-labelledby="korporasi-video-title" className="scroll-mt-24 px-5 pt-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-white shadow-sm">
+          <div className="grid lg:grid-cols-[1.2fr_1fr]">
+            <div className="self-center bg-black">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/kafoQfyD4gc"
+                title="Hukum Pidana Korporasi 2026 — Karyawan Curang, Direksi Ikut Dipidana?"
+                className="aspect-video w-full border-0"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-7 sm:p-10">
+              <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Video Pembelajaran · Hukum Bisnis</p>
+              <h2 id="korporasi-video-title" className="mt-4 text-3xl font-bold leading-tight">Hukum Pidana Korporasi 2026</h2>
+              <p className="mt-3 text-xl font-semibold text-slate-800">Karyawan Curang, Direksi Ikut Dipidana?</p>
+              <p className="mt-4 leading-7 text-slate-600">Pelajari risiko pidana dalam dunia usaha melalui pembahasan tanggung jawab korporasi dan individu, Business Judgment Rule, peringatan audit, risiko perpajakan, serta rencana perbaikan tata kelola 90 hari.</p>
+              <p className="mt-4 text-sm font-semibold text-slate-700">Materi: Dr. Hos Arie Sibarani, S.H., M.H.</p>
+              <a href="https://youtu.be/kafoQfyD4gc" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">
+                <Play size={18} aria-hidden="true" /> Tonton di YouTube <ArrowRight size={18} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <div className="border-t border-emerald-100 bg-emerald-50/50 p-7 sm:px-10">
+            <h3 className="font-bold text-slate-900">Jelajahi pembahasan</h3>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href="https://www.youtube.com/watch?v=kafoQfyD4gc&amp;t=224" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 hover:bg-emerald-100">03:44 · Kerangka pertanggungjawaban ↗</a>
+              <a href="https://www.youtube.com/watch?v=kafoQfyD4gc&amp;t=341" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 hover:bg-emerald-100">05:41 · Business Judgment Rule ↗</a>
+              <a href="https://www.youtube.com/watch?v=kafoQfyD4gc&amp;t=401" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 hover:bg-emerald-100">06:41 · Faktur fiktif dan audit ↗</a>
+              <a href="https://www.youtube.com/watch?v=kafoQfyD4gc&amp;t=605" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 hover:bg-emerald-100">10:05 · Tata kelola 90 hari ↗</a>
+            </div>
+          </div>
         </div>
       </section>
 
