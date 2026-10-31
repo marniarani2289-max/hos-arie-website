@@ -259,6 +259,46 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section id="api-workbench" aria-labelledby="api-workbench-title" lang="id" className="scroll-mt-24 border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Panduan praktik · Model AI &amp; sumber data</p>
+          <h2 id="api-workbench-title" className="mt-3 text-3xl font-bold leading-tight text-slate-950">FreeLLMAPI &amp; RuangAPI: Menghubungkan Model AI dan Data</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Pelajari dua lapisan aplikasi AI: mengambil data yang relevan, lalu mengolahnya menjadi keluaran yang dapat diperiksa. Gunakan panduan ini untuk merancang eksperimen riset dan pendidikan.</p>
+          <p className="mt-3 text-sm leading-7 text-slate-600">Status: panduan dan tautan tersedia. Panggilan API langsung belum diaktifkan di website ini; koneksi dan kualitas hasil belum diuji oleh Lab.</p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <article id="freellmapi" aria-labelledby="freellmapi-title" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-800">01 · Akses model</p>
+              <h3 id="freellmapi-title" className="mt-3 text-2xl font-bold text-slate-950">FreeLLMAPI</h3>
+              <p className="mt-4 leading-7 text-slate-700">Router yang dipasang sendiri untuk mengakses beberapa penyedia model melalui satu API kompatibel OpenAI. Menurut dokumentasi, router dapat berpindah penyedia saat terjadi pembatasan atau gangguan dan menyimpan API key terenkripsi.</p>
+              <p className="mt-4 leading-7 text-slate-700">Latihan: bandingkan ringkasan dua model terhadap bahan publik yang sama. Catat model yang benar-benar melayani, ketepatan isi, waktu respons, dan pemakaian token.</p>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Memerlukan pemasangan serta API key penyedia. Kuota gabungan dalam katalog bukan jatah otomatis pengguna. Pengembang membatasi tujuan proyek pada eksperimen pribadi; permintaan tetap dikirim ke penyedia yang dipilih.</p>
+              <a href="https://github.com/tashfeenahmed/freellmapi" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Dokumentasi FreeLLMAPI <ExternalLink size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span></a>
+            </article>
+            <article id="ruangapi" aria-labelledby="ruangapi-title" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-widest text-teal-800">02 · Akses data</p>
+              <h3 id="ruangapi-title" className="mt-3 text-2xl font-bold text-slate-950">RuangAPI</h3>
+              <p className="mt-4 leading-7 text-slate-700">Layanan API untuk mengakses katalog sumber data, termasuk sekolah, kampus, cuaca, berita, dan marketplace. MCP server memungkinkan agen yang kompatibel menemukan serta menjalankan API dengan key aktif.</p>
+              <p className="mt-4 leading-7 text-slate-700">Latihan: pilih API kampus, periksa parameter dan responsnya, lalu cocokkan beberapa hasil dengan sumber asli. Catat tanggal pengambilan, kelengkapan kolom, dan kuota yang terpakai.</p>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Paket gratis mencantumkan 150 permintaan per bulan untuk API tingkat Free saat ditinjau. Akses endpoint dan biaya bergantung pada paket; periksa ketentuan terbaru sebelum memakai layanan.</p>
+              <div className="mt-5 flex flex-wrap gap-3">{[["https://ruangapi.id/", "Jelajahi RuangAPI"], ["https://ruangapi.id/mcp", "Panduan MCP"], ["https://ruangapi.id/pricing", "Paket & kuota"]].map(([href, label]) => <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 px-4 py-3 font-semibold text-slate-950 hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">{label}<ExternalLink size={16} aria-hidden="true" /><span className="sr-only"> (tab baru)</span></a>)}</div>
+            </article>
+          </div>
+          <div className="mt-6 rounded-2xl bg-slate-950 p-6 text-white sm:p-8">
+            <h3 className="text-2xl font-bold">Praktikum bersama: ringkasan informasi kampus</h3>
+            <ol className="mt-5 list-decimal space-y-3 pl-6 leading-8 text-slate-300">
+              <li>Tentukan wilayah dan kolom informasi yang dibutuhkan; periksa skema API kampus di RuangAPI.</li>
+              <li>Ambil sampel data melalui akun uji. Simpan sumber, waktu pengambilan, dan respons asli.</li>
+              <li>Kirim kolom publik yang diperlukan ke model melalui FreeLLMAPI. Minta ringkasan berdasarkan data tersebut saja.</li>
+              <li>Cocokkan setiap klaim dengan respons asli dan sumber kampus. Tandai data kosong atau informasi yang belum terverifikasi.</li>
+            </ol>
+            <details className="mt-6 rounded-xl border border-slate-700 p-5"><summary className="cursor-pointer font-semibold text-amber-300">Contoh instruksi untuk model</summary><p className="mt-4 leading-8 text-slate-300">Ringkas data kampus berikut dalam tabel nama, lokasi, dan informasi program studi yang tersedia. Gunakan hanya data yang diberikan. Jangan menambahkan akreditasi, peringkat, atau klaim lain yang tidak ada dalam sumber. Pertahankan URL sumber dan tanggal pengambilan. Tuliskan “belum tersedia” untuk data kosong, lalu sebutkan hal yang perlu diperiksa manusia.</p></details>
+            <p className="mt-5 text-sm leading-7 text-slate-300">Penyiapan koneksi memerlukan akun RuangAPI, router FreeLLMAPI, dan key penyedia model. Simpan key pada konfigurasi server, gunakan data publik atau sintetis, dan tetapkan batas pemakaian sebelum menjalankan eksperimen.</p>
+            <div className="mt-6 flex flex-wrap gap-5">{[["/ai-lab/nakama", "Agen Nakama"], ["/blue-education", "Blue Education"], ["/lexnusa", "LexNusa"], ["/ai-lab#sekai-gateway", "SEKAI Gateway"]].map(([href, label]) => <Link key={href} href={href} className="inline-flex min-h-11 items-center font-semibold text-amber-300 underline underline-offset-4">{label} →</Link>)}</div>
+          </div>
+          <p className="mt-5 text-xs leading-6 text-slate-500">Rujukan: repositori resmi FreeLLMAPI serta situs, halaman harga, dan dokumentasi MCP RuangAPI. Ditinjau 31 Oktober 2026. Informasi layanan berasal dari pengembang dan dapat berubah.</p>
+        </div>
+      </section>
+
       <section aria-labelledby="agency-agents-title" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Agency Agents · Katalog &amp; ruang praktik</p>
