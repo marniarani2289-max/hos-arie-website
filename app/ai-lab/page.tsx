@@ -259,6 +259,16 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section id="concat" aria-labelledby="concat-title" lang="id" className="border-b border-slate-200 bg-amber-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Video pembelajaran · Concat</p>
+          <h2 id="concat-title" className="mt-3 text-3xl font-bold text-slate-950">Concat: Penyuntingan Video Pembelajaran dengan AI</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Pelajari alur slide, narasi, subtitle, dan ekspor video. Unduh Concat untuk perangkat Anda atau buka Hukumpreneur Studio sebagai editor browser terpisah.</p>
+          <p className="mt-3 text-sm leading-7 text-slate-600">Panduan tersedia. Editor Concat dijalankan setelah dipasang di perangkat; koneksi MCP belum diaktifkan pada website.</p>
+          <Link href="/ai-lab/concat" className="mt-5 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka panduan Concat →</Link>
+        </div>
+      </section>
+
       <section id="api-workbench" aria-labelledby="api-workbench-title" lang="id" className="scroll-mt-24 border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Panduan praktik · Model AI &amp; sumber data</p>
