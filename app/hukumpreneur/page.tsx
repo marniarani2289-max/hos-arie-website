@@ -167,6 +167,9 @@ export default function HukumPreneurPage() {
               >
                 Jelajahi topik <ArrowRight size={18} />
               </Link>
+              <Link href="#likuidator-academy" className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/40 px-6 py-4 font-bold text-emerald-200 transition hover:bg-white/10">
+                <BookOpen size={18} aria-hidden="true" /> Likuidator Academy
+              </Link>
               <Link href="#hukum-pidana-korporasi" className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/40 px-6 py-4 font-bold text-emerald-200 transition hover:bg-white/10">
                 <Play size={18} aria-hidden="true" /> Pidana Korporasi
               </Link>
@@ -214,6 +217,32 @@ export default function HukumPreneurPage() {
           <span className="inline-flex items-center gap-2"><Lightbulb className="text-emerald-600" size={18} /> Mudah dipahami</span>
           <span className="inline-flex items-center gap-2"><BriefcaseBusiness className="text-emerald-600" size={18} /> Relevan bagi usaha</span>
           <span className="inline-flex items-center gap-2"><Users className="text-emerald-600" size={18} /> Terbuka untuk publik</span>
+        </div>
+      </section>
+
+      <section id="likuidator-academy" aria-labelledby="likuidator-academy-title" className="scroll-mt-24 px-5 pt-16 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-[#142e2c] text-white shadow-sm lg:grid-cols-[1.2fr_1fr]">
+          <div className="p-7 sm:p-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-200">LMS Publik · Hukum Perusahaan &amp; Likuidasi</p>
+            <h2 id="likuidator-academy-title" className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">Likuidator Academy</h2>
+            <p className="mt-3 text-xl font-semibold text-emerald-100">Pendidikan Likuidasi Perseroan</p>
+            <p className="mt-4 leading-7 text-slate-300">Pelajari pembubaran perseroan, mandat likuidator, verifikasi aset dan utang, perlindungan kreditor, hingga laporan akhir pemberesan. Ruang belajar mandiri bagi mahasiswa, praktisi hukum, dan pelaku usaha.</p>
+            <a href="https://likuidator-academy-hos.hossibarani.chatgpt.site" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 items-center gap-3 rounded-xl bg-[#69c99b] px-6 py-3 font-bold text-[#101010] transition hover:bg-[#7bd8ac]">
+              <BookOpen size={19} aria-hidden="true" /> Mulai belajar di LMS <ArrowRight size={18} aria-hidden="true" />
+            </a>
+            <p className="mt-3 text-xs leading-6 text-slate-300">LMS terbuka untuk publik dan dibuka di tab baru. Progres belajar tersimpan pada browser yang digunakan.</p>
+          </div>
+          <div className="border-t border-white/10 bg-white/5 p-7 sm:p-10 lg:border-l lg:border-t-0">
+            <h3 className="text-xl font-bold">Belajar, berlatih, dan evaluasi pemahaman.</h3>
+            <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-200">
+              <li>8 modul pengantar dengan rujukan dan studi kasus.</li>
+              <li>24 soal latihan beserta pembahasan.</li>
+              <li>Simulasi 16 soal dalam 20 menit dengan nilai otomatis.</li>
+              <li>Kalkulator pemberesan, lembar kerja, dan catatan belajar.</li>
+              <li>Sertifikat penyelesaian setelah memenuhi ketentuan internal LMS.</li>
+            </ul>
+            <p className="mt-6 border-t border-white/15 pt-5 text-xs leading-6 text-slate-300">Pembelajaran mandiri persiapan CLI. Tidak berafiliasi dengan PPLI. Sertifikat penyelesaian belajar bukan sertifikasi profesi Certified Liquidator Indonesia (CLI).</p>
+          </div>
         </div>
       </section>
 
