@@ -259,6 +259,14 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section aria-labelledby="agent-skills-title" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Panduan praktik · Agent Skills</p>
+          <h2 id="agent-skills-title" className="mt-3 text-3xl font-bold text-slate-950">Agent Skills: Merancang SOP AI untuk Riset, Pendidikan, dan Otomasi.</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Susun langkah kerja AI, tentukan standar hasil, dan uji dengan rubrik yang jelas. Pelajari contoh SOP dan unduh lembar kerja untuk kebutuhan Anda.</p>
+          <Link href="/ai-lab/agent-skills" className="mt-5 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Buka panduan Agent Skills →</Link>
+        </div>
+      </section>
       <section id="concat" aria-labelledby="concat-title" lang="id" className="border-b border-slate-200 bg-amber-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Video pembelajaran · Concat</p>
