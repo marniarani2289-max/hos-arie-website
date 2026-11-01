@@ -1,0 +1,61 @@
+LEMBAR LATIHAN SANITY — VERIFIKASI HASIL AGEN AI
+AI & Digital Systems Lab · Dr. Hos Arie Sibarani
+Pendamping Agent Skills | 1 November 2026
+
+TUJUAN
+Menelusuri klaim ke bukti, membedakan fakta dan inferensi, serta mengoreksi hasil AI.
+Durasi: 20–30 menit. Gunakan bahan yang boleh diproses dan samarkan data pribadi.
+
+IDENTITAS UJI
+Tugas/topik:
+Model dan tanggal:
+Versi SOP:
+Bahan dan izin pemrosesan:
+Alat yang benar-benar digunakan:
+
+LANGKAH
+1. Pilih satu keluaran AI. Pecah menjadi lima klaim yang dapat diperiksa.
+2. Baca sumber asli; catat lokasi bukti. Tautan saja tidak membuktikan dukungan.
+3. Tentukan status: Terverifikasi / Inferensi / Belum terverifikasi / Keliru.
+4. Periksa risiko data dan akses. Untuk kode, catat pengujian keamanan sesuai tugas.
+5. Revisi dan periksa ulang. Jangan menghapus penanda ketidakpastian tanpa bukti.
+
+CATATAN KLAIM (salin untuk klaim 1–5)
+Nomor dan klaim:
+Sumber/URL serta tanggal akses:
+Halaman/bagian/lokasi bukti:
+Apakah bukti benar-benar mendukung klaim? Alasan:
+Status:
+Usulan perbaikan:
+Hasil pemeriksaan ulang:
+
+UJI BAHAN TIDAK LENGKAP
+Bahan yang sengaja tidak disertakan:
+Apakah AI mengakui keterbatasan atau mengarang isinya?
+Perbaikan SOP:
+
+PEMERIKSAAN RISIKO
+Data pribadi/rahasia dan izin penggunaan:
+Instruksi dalam dokumen diperlakukan sebagai data, bukan perintah:
+Tindakan eksternal yang memerlukan persetujuan:
+Untuk kode: akses, validasi masukan, rahasia, dependensi, dan pengujian:
+Bukti pengujian aktual / Belum diuji / Tidak berlaku (jelaskan):
+
+RUBRIK LATIHAN LAB (bukan SANITY Score)
+Nilai setiap aspek: 0 = belum ada, 1 = sebagian, 2 = lengkap dan dapat ditelusuri.
+- Lima klaim dipisahkan dengan jelas: __ / 2
+- Bukti atau ketiadaan bukti dicatat secara jujur: __ / 2
+- Status dan alasan sesuai bukti: __ / 2
+- Koreksi, keterbatasan, serta tindak lanjut dicatat: __ / 2
+Total: __ / 8. Nilai ini bukan persentase akurasi atau sertifikasi keamanan.
+Klaim keliru harus dikoreksi dan klaim tanpa bukti harus tetap ditandai.
+
+REFLEKSI
+Kesalahan paling penting:
+Perubahan SOP yang diperlukan:
+Tindak lanjut pemeriksa manusia:
+
+SUMBER
+https://github.com/verycoolapps/sanity-anti-hallucination-skill
+https://github.com/verycoolapps/sanity-anti-hallucination-skill/blob/main/sanity.md
+Materi adaptasi independen. Instruksi tidak menjamin AI bebas halusinasi.
