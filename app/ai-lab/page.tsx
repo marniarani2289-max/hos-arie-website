@@ -259,6 +259,14 @@ export default function AiLabPage() {
         </div>
       </section>
 
+      <section lang="id" aria-labelledby="openmaic-title" className="border-b border-amber-200 bg-amber-50 px-5 py-12 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Kelas percontohan · OpenMAIC · 45 menit</p>
+          <h2 id="openmaic-title" className="mt-3 text-3xl font-bold text-slate-950">Agent Skill: Merancang SOP AI</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">Susun SOP pertama, uji tiga kondisi, dan periksa hasil dengan rubrik. Lanjutkan diskusi bersama pengajar dan teman AI melalui aplikasi eksternal OpenMAIC.</p>
+          <Link href="/ai-lab/openmaic" className="mt-5 inline-flex min-h-11 items-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-slate-800">Buka kelas percontohan →</Link>
+        </div>
+      </section>
       <section aria-labelledby="agent-skills-title" lang="id" className="border-b border-slate-200 bg-stone-50 px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Panduan praktik · Agent Skills</p>

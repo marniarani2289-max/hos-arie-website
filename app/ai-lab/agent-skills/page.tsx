@@ -28,6 +28,7 @@ export default function AgentSkillsPage() {
         <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">Agent Skills: Merancang SOP AI untuk Riset, Pendidikan, dan Otomasi.</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Ubah pekerjaan berulang menjadi langkah yang jelas, hasil yang dapat ditelusuri, dan pemeriksaan yang konsisten. Mulai dari satu tugas, satu SOP, dan satu uji sederhana.</p>
         <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/ai-lab/openmaic" className={button + " bg-white text-slate-950 hover:bg-amber-100"}>Kelas percontohan OpenMAIC →</Link>
           <a href="#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton video pembelajaran</a>
           <a href="#sanity" className={button + " border border-slate-500 hover:bg-slate-800"}>Materi pendamping SANITY</a>
           <a href="#praktikum" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Mulai merancang SOP</a>
