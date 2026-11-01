@@ -28,13 +28,27 @@ export default function AgentSkillsPage() {
         <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">Agent Skills: Merancang SOP AI untuk Riset, Pendidikan, dan Otomasi.</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Ubah pekerjaan berulang menjadi langkah yang jelas, hasil yang dapat ditelusuri, dan pemeriksaan yang konsisten. Mulai dari satu tugas, satu SOP, dan satu uji sederhana.</p>
         <div className="mt-8 flex flex-wrap gap-3">
+          <a href="#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton video pembelajaran</a>
           <a href="#praktikum" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Mulai merancang SOP</a>
           <a href="/downloads/agent-skills/lembar-kerja-sop-ai.txt" download className={button + " border border-slate-500 hover:bg-slate-800"}>Unduh lembar kerja</a>
         </div>
-        <p className="mt-5 text-sm leading-7 text-slate-300">Tersedia di halaman ini: panduan, contoh, dan lembar kerja. Eksekusi skill oleh model AI belum diaktifkan pada halaman ini.</p>
+        <p className="mt-5 text-sm leading-7 text-slate-300">Tersedia di halaman ini: video pembelajaran, panduan PDF, contoh, dan lembar kerja. Eksekusi skill oleh model AI belum diaktifkan pada halaman ini.</p>
       </div>
     </header>
     <div className="mx-auto max-w-6xl space-y-14 px-5 py-12 sm:px-8 sm:py-16">
+      <section id="video-pembelajaran" aria-labelledby="video-title" className="scroll-mt-28 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-9">
+        <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Video pembelajaran · 25 menit 12 detik</p>
+        <h2 id="video-title" className="mt-3 text-2xl font-bold sm:text-3xl">AI Masih Ngasal? Begini Cara Membuat SOP AI dengan Agent Skills</h2>
+        <p className="mt-4 max-w-4xl leading-8 text-slate-700">Pelajari perbedaan prompt, skill, dan alat; lima langkah merancang SOP; serta cara memeriksa hasil AI untuk riset, pendidikan, dan otomasi. Materi Dr. Hos Arie Sibarani disajikan sebagai dialog pembelajaran berbantuan AI dengan subtitle bahasa Indonesia.</p>
+        <div className="mt-6 aspect-video overflow-hidden rounded-xl bg-slate-950">
+          <iframe src="https://www.youtube-nocookie.com/embed/nzZKJJjECkY" title="Agent Skills: Merancang SOP AI untuk Riset, Pendidikan, dan Otomasi" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="h-full w-full border-0" />
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="/downloads/agent-skills/panduan-sop-agen-ai.pdf" download className={button + " bg-slate-950 text-white hover:bg-slate-800"}>Unduh panduan PDF · 15 halaman</a>
+          <a href="https://youtu.be/nzZKJJjECkY" target="_blank" rel="noopener noreferrer" className={button + " border border-slate-300 hover:bg-white"}>Buka di YouTube</a>
+          <a href="#praktikum" className={button + " border border-slate-300 hover:bg-white"}>Lanjut ke praktikum</a>
+        </div>
+      </section>
       <section aria-labelledby="konsep">
         <h2 id="konsep" className="text-2xl font-bold">Apa itu Agent Skills?</h2>
         <p className="mt-4 max-w-4xl leading-8 text-slate-700">Agent Skills mengemas instruksi, sumber daya, dan bila diperlukan skrip dalam sebuah folder. Berkas <code>SKILL.md</code> menjelaskan nama, kegunaan, dan langkah kerja. Agen yang mendukungnya dapat memuat panduan tersebut ketika tugas yang sesuai muncul.</p>
