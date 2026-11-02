@@ -1,0 +1,32 @@
+AI GOVERNANCE — HUKUM DAN PENDIDIKAN
+Dr. Hos Arie Sibarani · AI & Digital Systems Lab
+https://www.hossibarani.com/ai-lab/ai-governance
+Template latihan mandiri. Isi berdasarkan bukti; tandai hal yang belum diketahui.
+Gunakan dokumen publik atau data sintetis untuk latihan.
+
+DAFTAR RISIKO
+Proyek / versi / tanggal / penyusun:
+
+Salin blok berikut untuk setiap risiko.
+ID dan nama risiko:
+Skenario kegagalan dan penyebab:
+Pihak terdampak:
+Bukti atau dasar penilaian:
+Kemungkinan: rendah / sedang / tinggi, beserta alasan:
+Dampak: rendah / sedang / tinggi, beserta alasan:
+Pengendalian yang SUDAH diterapkan dan buktinya:
+Pengendalian yang DIRENCANAKAN:
+Pemilik risiko:
+Pemeriksa independen/penelaah:
+Tenggat:
+Metode uji pengendalian dan hasilnya:
+Risiko tersisa setelah pengendalian:
+Keputusan: lanjut terbatas / perbaiki / tahan penggunaan:
+Pengambil keputusan dan tanggal:
+Tindak lanjut serta tanggal peninjauan:
+
+Contoh hipotetis: kutipan hukum tidak dapat diverifikasi.
+Pengendalian yang direncanakan: pemeriksa mencocokkan sumber dan relevansinya;
+hasil ditahan sampai klaim diperbaiki atau rujukan tervalidasi.
+Bukti yang diperlukan: matriks klaim-sumber dan catatan pemeriksa.
+Contoh ini bukan temuan audit terhadap LexNusa.

@@ -1,0 +1,35 @@
+AI GOVERNANCE — HUKUM DAN PENDIDIKAN
+Dr. Hos Arie Sibarani · AI & Digital Systems Lab
+https://www.hossibarani.com/ai-lab/ai-governance
+Template latihan mandiri. Isi berdasarkan bukti; tandai hal yang belum diketahui.
+Gunakan dokumen publik atau data sintetis untuk latihan.
+
+LEMBAR VERIFIKASI HASIL AI
+Jalur: hukum / pendidikan
+Judul tugas / tanggal / pemeriksa:
+Dokumen publik atau tugas sintetis yang digunakan:
+Sumber dan tanggal pemeriksaan:
+Layanan/model/versi (jika diketahui):
+Instruksi lengkap:
+Keluaran asli AI:
+
+Salin blok untuk setiap klaim atau umpan balik penting.
+ID:
+Pernyataan AI:
+Sumber/rubrik pembanding:
+Bagian sumber (halaman/paragraf/kriteria):
+Apakah sumber ada dan relevan? Jelaskan:
+Temuan: didukung / tidak didukung / tidak lengkap / belum terverifikasi
+Dampak kesalahan:
+Perbaikan pemeriksa:
+Bukti pemeriksaan ulang:
+
+Keputusan keseluruhan: dapat digunakan / perlu diperbaiki / ditolak
+Alasan dan batas penggunaan:
+Pemeriksa / tanggal:
+Informasi yang masih belum terverifikasi:
+Tindakan berikutnya:
+
+Contoh: tautan putusan dapat dibuka tetapi tidak membahas isu yang diklaim AI.
+Temuan: sumber ada, namun klaim tidak didukung. Perbaiki atau hapus klaim;
+jangan menyatakan kesimpulan telah terverifikasi hanya karena tautannya aktif.

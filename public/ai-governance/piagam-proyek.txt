@@ -1,0 +1,24 @@
+AI GOVERNANCE — HUKUM DAN PENDIDIKAN
+Dr. Hos Arie Sibarani · AI & Digital Systems Lab
+https://www.hossibarani.com/ai-lab/ai-governance
+Template latihan mandiri. Isi berdasarkan bukti; tandai hal yang belum diketahui.
+Gunakan dokumen publik atau data sintetis untuk latihan.
+
+PIAGAM PROYEK
+Nama proyek / versi / tanggal:
+Penyusun dan penelaah:
+1. Masalah yang hendak diselesaikan:
+2. Pengguna dan pihak terdampak:
+3. Penggunaan AI yang diizinkan:
+4. Penggunaan di luar ruang lingkup:
+5. Masukan, sumber data, model/layanan, keluaran:
+6. Peta alur data (termasuk pihak eksternal):
+7. Informasi teknis yang belum diketahui dan cara memverifikasinya:
+8. Penanggung jawab operasional:
+9. Pemeriksa hasil dan kewenangannya:
+10. Kapan hasil harus ditahan atau sistem dihentikan:
+11. Risiko awal dan bukti yang diperlukan:
+12. Ukuran keberhasilan dan kriteria penerimaan:
+13. Rencana uji, jadwal, dan penelaahan ulang:
+14. Status: rancangan / diuji terbatas / ditelaah (pilih sesuai bukti):
+15. Batas kesimpulan:

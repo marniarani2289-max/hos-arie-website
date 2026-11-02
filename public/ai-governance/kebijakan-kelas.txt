@@ -1,0 +1,28 @@
+AI GOVERNANCE — HUKUM DAN PENDIDIKAN
+Dr. Hos Arie Sibarani · AI & Digital Systems Lab
+https://www.hossibarani.com/ai-lab/ai-governance
+Template latihan mandiri. Isi berdasarkan bukti; tandai hal yang belum diketahui.
+Gunakan dokumen publik atau data sintetis untuk latihan.
+
+RANCANGAN KEBIJAKAN PENGGUNAAN AI DI KELAS
+Nama mata kuliah / pengajar / semester:
+Versi / tanggal / status persetujuan institusi:
+
+1. Tujuan penggunaan AI dalam pembelajaran:
+2. Aktivitas yang diizinkan (contoh: umpan balik formatif):
+3. Aktivitas yang dibatasi atau dilarang, beserta alasan:
+4. Cara mahasiswa mengungkapkan penggunaan AI:
+   Layanan/model, tanggal, bagian tugas yang dibantu, dan verifikasi yang dilakukan.
+5. Data yang boleh dimasukkan:
+6. Data yang tidak boleh dimasukkan dan prosedur anonimisasi:
+7. Rubrik dan pemeriksaan pengajar:
+8. Tanggung jawab mahasiswa atas ketepatan isi dan sumber:
+9. Alternatif bagi mahasiswa yang tidak menggunakan layanan AI:
+10. Cara meminta pemeriksaan ulang, kontak pengajar, dan target waktu respons:
+11. Penanganan kesalahan hasil AI dan perubahan penilaian:
+12. Penyimpanan serta penghapusan catatan:
+13. Jadwal peninjauan kebijakan:
+
+Untuk latihan: gunakan tugas sintetis; jangan masukkan identitas mahasiswa.
+Umpan balik AI diperiksa dosen sebelum dipakai. Template ini perlu disesuaikan
+dan disahkan sesuai tata kelola institusi; bukan kebijakan kampus yang sudah berlaku.

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 };
 
 const groups = [
+  { id: "tata-kelola", title: "Tata kelola AI", description: "Nilai risiko, periksa bukti, dan tetapkan tanggung jawab.", items: [
+    { id: "ai-governance-title", title: "AI Governance", description: "Jalur 12 minggu dengan praktik layanan hukum LexNusa dan pendidikan.", href: "/ai-lab/ai-governance", status: "Program mandiri · panduan & template" },
+  ]},
   { id: "belajar", title: "Belajar & membuat materi", description: "Mulai dari SOP AI hingga video pembelajaran.", items: [
     { id: "agent-skills-title", title: "Agent Skills", description: "Rancang SOP AI, tentukan standar hasil, dan gunakan lembar kerja.", href: "/ai-lab/agent-skills", status: "Panduan & lembar kerja" },
     { id: "concat", title: "Concat", description: "Susun slide, narasi, subtitle, dan alur ekspor video pembelajaran.", href: "/ai-lab/concat", status: "Panduan · aplikasi eksternal" },
@@ -62,6 +65,8 @@ export default function AiLabPage() {
           </div>
         </div>
       </header>
+
+      <section aria-labelledby="governance-program-title" className="border-b border-teal-200 bg-teal-50"><div className="mx-auto max-w-6xl px-5 py-8 sm:px-8"><p className="text-sm font-semibold text-teal-800">Program praktik · 12 minggu · Hukum dan pendidikan</p><h2 id="governance-program-title" className="mt-2 text-3xl font-bold">AI Governance: dari risiko ke bukti praktik.</h2><p className="mt-3 max-w-3xl leading-7 text-slate-700">Pelajari tata kelola AI melalui jalur layanan hukum LexNusa dan praktik pendidikan. Mulai dengan verifikasi hasil AI, lalu susun daftar risiko dan SOP pengawasan manusia.</p><Link href="/ai-lab/ai-governance" className={`mt-5 inline-flex min-h-12 items-center rounded-lg bg-teal-900 px-5 py-3 font-semibold text-white hover:bg-teal-800 ${focus}`}>Buka program AI Governance →</Link></div></section>
 
       <section aria-labelledby="openmaic-title" className="border-b border-amber-200 bg-amber-50">
         <div className="mx-auto grid max-w-6xl gap-5 px-5 py-8 sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
