@@ -1,0 +1,77 @@
+{
+  "context": {
+    "date": "2026-11-02",
+    "sourceCommit": "633bab2962b9a627dc893e0c52ce22804eaf174c",
+    "hallmarkCommit": "4f6a46c6dc325d40ab268c93e25c7b96676ebccd",
+    "target": "app/ai-lab/page.tsx",
+    "mode": "static only; historical baseline, not a certification or current page score"
+  },
+  "summary": {
+    "fails": 3,
+    "reflex": 1,
+    "warns": 2,
+    "waived": 0,
+    "rejected": 0,
+    "answered": 0,
+    "dismissed": 0,
+    "notes": 0,
+    "files": 1,
+    "render": "off"
+  },
+  "findings": [
+    {
+      "gate": "26a",
+      "grade": "FAIL",
+      "tier": "floor",
+      "file": "app/ai-lab/page.tsx",
+      "line": 1,
+      "evidence": "no :focus-visible styling anywhere",
+      "fix": "A focus ring at 3:1 or better, instant"
+    },
+    {
+      "gate": "63",
+      "grade": "FAIL",
+      "tier": "floor",
+      "file": "app/ai-lab/page.tsx",
+      "line": 68,
+      "evidence": "middle-dot meta string \"Mulai di sini \u00b7 Kelas percontohan \u00b7 45 menit\"",
+      "fix": "Line breaks, columns or hairlines; one dot in a byline at most"
+    },
+    {
+      "gate": "63",
+      "grade": "FAIL",
+      "tier": "floor",
+      "file": "app/ai-lab/page.tsx",
+      "line": 125,
+      "evidence": "middle-dot meta string \"Prototype: rancangan awal \u00b7 Pilot: uji terbatas \u00b7\u2026\"",
+      "fix": "Line breaks, columns or hairlines; one dot in a byline at most"
+    },
+    {
+      "gate": "26b",
+      "grade": "REFLEX",
+      "tier": "reflex",
+      "file": "app/ai-lab/page.tsx",
+      "line": 1,
+      "evidence": "no :active styling anywhere",
+      "fix": "All eight states; guard: not a form control, no aria-disabled anywhere"
+    },
+    {
+      "gate": "58",
+      "grade": "WARN",
+      "tier": "floor",
+      "file": "app/ai-lab/page.tsx",
+      "line": 57,
+      "evidence": "hero paragraph runs 13 words",
+      "fix": "One sentence, twelve words or fewer"
+    },
+    {
+      "gate": "74",
+      "grade": "WARN",
+      "tier": "reflex",
+      "file": "app/ai-lab/page.tsx",
+      "line": 59,
+      "evidence": "default palette instead of theme tokens: 22 distinct palette classes (bg-stone-50 text-slate-950 bg-slate-950 text-slat\u2026",
+      "fix": "Extend the Tailwind theme with the Hallmark tokens and use those names"
+    }
+  ]
+}

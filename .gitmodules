@@ -1,0 +1,3 @@
+[submodule ".agents/skills/hallmark-source"]
+	path = .agents/skills/hallmark-source
+	url = https://github.com/Nutlope/hallmark.git

@@ -24,6 +24,7 @@ const groups = [
     { id: "agents-md", title: "AGENTS.md", description: "Tulis panduan proyek yang terukur untuk agen pemrograman AI.", href: "/ai-lab/referensi#agents-md", status: "Panduan & latihan" },
     { id: "agency-agents-title", title: "Agency Agents", description: "Pilih agen spesialis dan susun brief untuk riset serta pengembangan.", href: "/ai-lab/agency-agents", status: "Katalog · eksekusi otomatis belum aktif" },
     { id: "nakama-title", title: "Nakama", description: "Rancang peran agen untuk riset, pembelajaran, dan kolaborasi tim.", href: "/ai-lab/nakama", status: "Panduan eksplorasi" },
+    { id: "hallmark", title: "Hallmark", description: "Audit dan perbaiki desain bersama agen, lalu nilai hasil dengan bukti.", href: "/ai-lab/hallmark", status: "Praktikum & rubrik mandiri" },
     { id: "antislop-title", title: "Anti-Slop", description: "Tinjau kejelasan desain, tulisan, dan kode hasil AI.", href: "/ai-lab/anti-slop", status: "Panduan evaluasi manual" },
   ]},
   { id: "keamanan", title: "Keamanan & analisis aplikasi", description: "Pelajari risiko dan periksa bukti teknis.", items: [

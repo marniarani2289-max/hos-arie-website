@@ -1,0 +1,48 @@
+PRAKTIKUM HALLMARK — AI & DIGITAL SYSTEMS LAB
+Dr. Hos Arie Sibarani
+Durasi: 60 menit. Gunakan salinan proyek.
+
+1. KONTEKS
+Nama peserta:
+Halaman / berkas:
+Tanggal dan versi / commit:
+Audiens:
+Tindakan utama pengunjung:
+Konten dan fungsi yang wajib dipertahankan:
+
+2. AUDIT AWAL
+Perintah audit:
+Versi Hallmark:
+Mode: statis / render / pemeriksaan manual
+Temuan | bukti (baris / tangkapan layar) | dampak | prioritas:
+1.
+2.
+3.
+Tandai: terkonfirmasi / positif palsu / belum diperiksa.
+
+3. PERBAIKAN
+Satu masalah prioritas:
+Hipotesis perbaikan:
+Berkas yang diubah:
+Ringkasan sebelum / sesudah:
+
+4. VERIFIKASI
+Ukuran layar dan browser:
+Navigasi keyboard / fokus:
+Tautan dan anchor:
+Konten serta fungsi yang dipertahankan:
+Build / pemeriksaan tipe:
+Hasil audit ulang dan temuan terbuka:
+Batas pemeriksaan:
+
+5. REFLEKSI
+Apa yang membaik menurut bukti?
+Temuan otomatis mana yang perlu interpretasi?
+Apa yang masih harus diuji dengan pengguna?
+
+RUBRIK MANDIRI (0–4 untuk masing-masing)
+Kejelasan tujuan; navigasi; keterbacaan & aksesibilitas;
+keutuhan konten & fungsi; bukti pengujian.
+0: belum diperiksa. 1: masalah besar. 2: sebagian memenuhi.
+3: memenuhi dengan bukti. 4: memenuhi dan teruji pada konteks tambahan.
+Nilai ini bukan sertifikasi Hallmark. Jangan isi skor tanpa bukti.
