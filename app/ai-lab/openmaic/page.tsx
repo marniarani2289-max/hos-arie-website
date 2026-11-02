@@ -21,10 +21,25 @@ export default function OpenMAICPilot() { return <main lang="id" className="bg-w
 <p className="mt-8 text-xs font-bold uppercase tracking-widest text-amber-300">Kelas percontohan 01 · 45 menit · Bahasa Indonesia</p>
 <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-6xl">Agent Skill:<br/>Merancang SOP AI</h1>
 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Dari instruksi umum menjadi prosedur yang bisa diuji. Susun satu SOP, periksa bukti hasilnya, lalu diskusikan rancangan Anda bersama pengajar dan teman AI di OpenMAIC.</p>
-<div className="mt-8 flex flex-wrap gap-3"><a href="#mulai" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Mulai kelas percontohan</a><Link href="/ai-lab/agent-skills#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton materi pengantar</Link></div>
+<div className="mt-8 flex flex-wrap gap-3"><a href="#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton video OpenMAIC</a><a href="#mulai" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Mulai kelas percontohan</a><Link href="/ai-lab/agent-skills#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton materi pengantar</Link></div>
 <p className="mt-5 text-sm leading-7 text-slate-300">Materi dan latihan tersedia di Lab. Sesi AI berjalan pada layanan eksternal OpenMAIC; akun, kuota, dan penyimpanan mengikuti layanan tersebut.</p>
 </div></header>
 <div className="mx-auto max-w-6xl space-y-12 px-5 py-12 sm:px-8">
+<section id="video-pembelajaran" aria-labelledby="openmaic-video-title" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+<p className="text-xs font-bold uppercase tracking-widest text-amber-800">Video pembelajaran · 22 menit 49 detik</p>
+<h2 id="openmaic-video-title" className="mt-3 text-2xl font-bold sm:text-3xl">PDF Jadi Kelas AI Interaktif? Mengenal OpenMAIC</h2>
+<p className="mt-4 max-w-4xl leading-8 text-slate-700">Pelajari konsep guru dan teman AI, kuis, simulasi, alur generasi kelas, serta pilihan penyimpanan dan ekspor. Materi Dr. Hos Arie Sibarani disajikan melalui dialog berbantuan AI dengan subtitle bahasa Indonesia.</p>
+<div className="mt-6 aspect-video overflow-hidden rounded-xl bg-slate-950">
+<iframe src="https://www.youtube-nocookie.com/embed/uFDaxg5VyV0" title="PDF Jadi Kelas AI Interaktif? Mengenal OpenMAIC — Dr. Hos Arie Sibarani" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="h-full w-full border-0" />
+</div>
+<div className="mt-6 flex flex-wrap gap-3">
+<a href="/downloads/openmaic/openmaic-interactive-ai-classroom.pdf" download className={button + " bg-slate-950 text-white hover:bg-slate-800"}>Unduh materi presentasi PDF · 21 halaman</a>
+<a href="https://youtu.be/uFDaxg5VyV0" target="_blank" rel="noopener noreferrer" className={button + " border border-slate-300 hover:bg-white"}>Tonton di YouTube ↗</a>
+<a href="#mulai" className={button + " border border-slate-300 hover:bg-white"}>Lanjut ke kelas percontohan</a>
+</div>
+<p className="mt-5 text-sm leading-7 text-slate-600">Video membahas konsep dan fitur; bukan bukti bahwa seluruh fitur telah diuji. Kemampuan bergantung pada versi, model, perangkat, dan konfigurasi. Penerapan lokal tidak otomatis menjamin keamanan 100%, dan ekspor luring tidak berarti seluruh interaksi AI berjalan tanpa layanan model.</p>
+</section>
+
 <section><h2 className="text-2xl font-bold">Hasil yang akan Anda buat</h2><p className="mt-4 max-w-4xl leading-8 text-slate-700">Satu SOP ekstraksi tindak lanjut rapat, tiga catatan pengujian, dan satu versi perbaikan. Kelas ditujukan untuk dosen, peneliti, serta pengelola kegiatan yang baru mempelajari agen AI.</p></section>
 <section id="mulai" className="scroll-mt-24 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8"><h2 className="text-2xl font-bold">Lanjutkan ke OpenMAIC</h2><ol className="mt-5 list-decimal space-y-3 pl-6 leading-8"><li>Baca materi dan contoh di bawah; siapkan lembar kerja.</li><li>Buka aplikasi OpenMAIC. Untuk membuat sesi sendiri, unduh brief lalu salin isinya ke kolom topik.</li><li>Pilih Enter Classroom dan ikuti pembelajaran. Jika layanan meminta akun atau kuota, ikuti pilihan yang tersedia pada akun Anda.</li><li>Kembali ke halaman ini untuk memeriksa hasil dengan rubrik.</li></ol>
 <div className="mt-6 flex flex-wrap gap-3"><a href="https://open.maic.chat/" target="_blank" rel="noopener noreferrer" className={button + " bg-slate-950 text-white hover:bg-slate-800"}>Buka aplikasi OpenMAIC ↗</a><a href="/downloads/openmaic/brief-agent-skill-sop-ai.txt" download className={button + " border border-slate-300 hover:bg-white"}>Unduh brief kelas (.txt)</a><a href="/downloads/agent-skills/lembar-kerja-sop-ai.txt" download className={button + " border border-slate-300 hover:bg-white"}>Unduh lembar kerja SOP</a></div>
