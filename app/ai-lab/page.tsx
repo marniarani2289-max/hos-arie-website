@@ -23,6 +23,7 @@ const groups = [
     { id: "humanize-writing", title: "Humanize Writing AI", description: "Sunting bahasa sambil menjaga makna, kutipan, dan kepastian klaim.", href: "/ai-lab/humanize-writing", status: "Panduan praktik" },
   ]},
   { id: "pengembangan", title: "Agen & pengembangan aplikasi", description: "Rancang cara kerja agen dan evaluasi hasil pengembangan.", items: [
+    { id: "hermes-agent", title: "Hermes Agent", description: "Latih agen menyusun memo riset hukum dan periksa sumbernya.", href: "/ai-lab/hermes", status: "Praktikum riset hukum" },
     { id: "engineering-skills-title", title: "AI Engineering Skills", description: "Perjelas kebutuhan, susun spesifikasi, uji fitur, dan perbaiki aplikasi.", href: "/ai-lab/engineering-skills", status: "Panduan praktik" },
     { id: "agents-md", title: "AGENTS.md", description: "Tulis panduan proyek yang terukur untuk agen pemrograman AI.", href: "/ai-lab/referensi#agents-md", status: "Panduan & latihan" },
     { id: "agency-agents-title", title: "Agency Agents", description: "Pilih agen spesialis dan susun brief untuk riset serta pengembangan.", href: "/ai-lab/agency-agents", status: "Katalog · eksekusi otomatis belum aktif" },
