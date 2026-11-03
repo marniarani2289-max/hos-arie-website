@@ -3,11 +3,12 @@ import Link from "next/link";
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; next?: string; success?: string }> }) {
   const { error, next, success } = await searchParams;
   const kuliah = next?.startsWith("/kuliah/");
+  const mayantara = kuliah && (next?.includes("course=may") || next?.startsWith("/kuliah/hukum-kejahatan-mayantara"));
   const notaris = next?.startsWith("/lexnusa/notaris");
   const cji = next?.startsWith("/constitutional-justice/workspace");
   const persis = next?.startsWith("/persis-kepri/");
   return <main className="min-h-screen bg-[#070916] px-5 py-20 text-white"><section className="mx-auto max-w-lg border border-white/15 bg-[#111526] p-8 sm:p-12">
-    <p className="text-xs font-bold uppercase tracking-[.28em] text-amber-400">{kuliah ? "Kelas Politik Hukum Pidana" : notaris ? "LexNusa Notaris · Ruang kerja kantor" : cji ? "Constitutional Justice Initiative" : persis ? "Iuran anggota PW Persis Kepri" : "Learning platform"}</p><h1 className="mt-4 text-4xl font-black">Masuk</h1>
+    <p className="text-xs font-bold uppercase tracking-[.28em] text-amber-400">{kuliah ? (mayantara ? "Kelas Hukum Kejahatan Mayantara" : "Kelas Politik Hukum Pidana") : notaris ? "LexNusa Notaris · Ruang kerja kantor" : cji ? "Constitutional Justice Initiative" : persis ? "Iuran anggota PW Persis Kepri" : "Learning platform"}</p><h1 className="mt-4 text-4xl font-black">Masuk</h1>
     {success === "password-updated" && <p className="mt-6 border border-emerald-400/40 bg-emerald-950/40 p-4 text-emerald-100">Kata sandi berhasil diperbarui. Silakan masuk dengan kata sandi baru.</p>}
     {error && <p className="mt-6 border border-red-400/40 bg-red-950/40 p-4 text-red-100">{error}</p>}
     <form action="/auth/sign-in" method="post" className="mt-8 grid gap-5">
@@ -17,7 +18,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <button className="bg-amber-400 px-6 py-4 font-bold text-slate-950 hover:bg-amber-300">{kuliah ? "Masuk ke kelas online" : notaris ? "Masuk ke kantor notaris" : cji ? "Masuk ke ruang kerja advokasi" : persis ? "Masuk ke iuran Persis" : next?.startsWith("/lexnusa/cohort")?"Masuk ke kelas LexNusa":"Masuk ke dashboard"}</button>
     </form>
     <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
-      <p>Belum punya akun? <Link href={kuliah ? "/kuliah/daftar" : notaris ? "/lexnusa/notaris/register" : persis ? "/persis-kepri/daftar" : next?.startsWith("/lexnusa/cohort")?"/lexnusa/cohort/register":"/register"} className="font-bold text-amber-400">Daftar</Link></p>
+      <p>Belum punya akun? <Link href={kuliah ? (mayantara ? "/kuliah/daftar?course=may" : "/kuliah/daftar") : notaris ? "/lexnusa/notaris/register" : persis ? "/persis-kepri/daftar" : next?.startsWith("/lexnusa/cohort")?"/lexnusa/cohort/register":"/register"} className="font-bold text-amber-400">Daftar</Link></p>
       <Link href="/forgot-password" className="font-bold text-amber-400">Lupa kata sandi?</Link>
     </div>
   </section></main>;

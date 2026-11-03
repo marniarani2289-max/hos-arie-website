@@ -1,9 +1,10 @@
 /* Online UTS transport. The classroom retains a local backup; server responses
    alone establish saved drafts and final receipts. No public database key here. */
 const utsOnline={loaded:false,loading:false,user:null,record:null,revision:0,busy:false,dirty:false,message:'Memeriksa akun dan draf online…',candidate:null,conflict:null};
-const UTS_API='/api/kuliah/politik-uts';
+const UTS_COURSE=new URLSearchParams(location.search).get('course')==='pol'?'pol':'may';
+const UTS_API='/api/kuliah/'+(UTS_COURSE==='may'?'mayantara':'politik')+'-uts';
 async function utsFetch(options){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),20000);try{return await fetch(UTS_API,{...options,signal:controller.signal})}finally{clearTimeout(timer)}}
-function utsOnScreen(){return typeof course!=='undefined'&&course==='pol'&&idx===7&&tab===0&&$('uts-online-status')}
+function utsOnScreen(){return typeof course!=='undefined'&&course===UTS_COURSE&&idx===7&&tab===0&&$('uts-online-status')}
 function utsServerTime(value){return new Date(value).toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB'}
 function utsDraftFromRecord(r){
   const d={'uts-name':r.display_name,'uts-nim':r.student_number,'uts-class':r.class_name,updatedAt:r.updated_at};
@@ -37,7 +38,7 @@ function utsOnlinePaint(){
 }
 async function utsOnlineLoad(){
   if(utsOnline.loading||utsOnline.busy)return;
-  if(!/^https?:$/.test(location.protocol)){utsOnline.loaded=true;utsOnline.message='Pengumpulan online tersedia di https://www.hossibarani.com/kuliah/modul.html?course=pol&meeting=8';utsOnlinePaint();return}
+  if(!/^https?:$/.test(location.protocol)){utsOnline.loaded=true;utsOnline.message='Pengumpulan online tersedia di https://www.hossibarani.com/kuliah/modul.html?course='+UTS_COURSE+'&meeting=8';utsOnlinePaint();return}
   utsOnline.loading=true;utsOnline.loaded=false;utsOnline.message='Memuat akun dan jawaban dari server…';utsOnlinePaint();
   try{
     const response=await utsFetch({credentials:'same-origin',cache:'no-store'});
@@ -46,7 +47,7 @@ async function utsOnlineLoad(){
     if(!response.ok)throw Error(data.error||'Server belum dapat diakses.');
     const sameAccount=utsOnline.user?.id===data.user.id;
     const previousDraft=utsDraft;
-    utsOnline.user=data.user;UTS_STORAGE_KEY='ruang-hukum-uts-pol-v1:'+data.user.id;
+    utsOnline.user=data.user;UTS_STORAGE_KEY='ruang-hukum-uts-'+UTS_COURSE+'-v1:'+data.user.id;
     let local={};try{const stored=JSON.parse(localStorage.getItem(UTS_STORAGE_KEY)||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))local=stored;}catch{}
     if(sameAccount&&utsOnline.dirty){utsOnline.conflict=data.record;utsOnline.message='Versi server diperiksa. Jawaban di layar tetap dipertahankan; pilih Muat versi server jika ingin menggantinya.';}
     else{

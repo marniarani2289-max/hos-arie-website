@@ -18,7 +18,7 @@ export const assessmentPlan = [
     "when": "Minggu 4"
   },
   {
-    "label": "UTS · Memorandum pertanggungjawaban pidana",
+    "label": "UTS · Lima soal esai",
     "weight": 25,
     "when": "Minggu 8"
   },
@@ -55,8 +55,8 @@ export const assignments = [
       "Persoalan administratif, perdata, dan pidana apa yang perlu dianalisis secara terpisah?",
       "Bukti tambahan apa yang dapat mengubah kesimpulan sementara?"
     ],
-    "suggested": "Minggu 8 · Usulan bobot 25%",
-    "title": "UTS · Memorandum pertanggungjawaban pidana"
+    "suggested": "Arsip format sebelumnya · UTS terbaru menggunakan lima soal esai online",
+    "title": "Latihan memorandum · Arsip format UTS lama"
   },
   {
     "case": "Kasus fiktif HKM-03: KanalPesisir. Akun anonim mengancam pelaku usaha dan memublikasikan nomor telepon pribadi. Bahan yang tersedia berupa potongan tangkapan layar, salinan percakapan, dan catatan saksi yang ditulis dua hari kemudian. Kepemilikan akun dan identitas pembuat pesan belum terbukti.",
@@ -279,12 +279,12 @@ export const units = [
     "title": "Konten digital, ekspresi, dan korban"
   },
   {
-    "activity": "Penilaian berkas kasus secara individu. Penugasan terstruktur: selesaikan memorandum sesuai petunjuk dosen. Belajar mandiri: siapkan dan verifikasi sumber.",
-    "assessment": "Kumpulkan UTS: usulan bobot 25% dari nilai akhir; 800–1.200 kata.",
+    "activity": "Kerjakan lima soal esai pada formulir UTS online di pertemuan 8. Waktu 100 menit; buku terbuka.",
+    "assessment": "UTS: 100 poin; usulan bobot 25% dari nilai akhir. Nama, NIM, kelas, dan lima jawaban wajib diisi.",
     "cpmk": "CPMK-2, 4",
     "meetings": "8",
     "n": 8,
-    "note": "Gunakan kasus KampusLink untuk mengintegrasikan minggu 1–7. Hubungkan setiap pernyataan dengan sumber primer relevan dan tanggal kejadian. Jelaskan penjelasan tandingan terkuat serta bukti yang dapat mengubah kesimpulan. Nyatakan ketidakpastian secara tegas.",
+    "note": "Analisis konsep, akses tanpa hak, yurisdiksi, bukti elektronik, dan pertanggungjawaban korporasi. Simpan draf online lalu kirim jawaban final.",
     "outcome": "Menulis pendapat hukum sementara tentang unsur dan pertanggungjawaban berdasarkan catatan terbatas.",
     "reading": [
       1,
@@ -294,7 +294,7 @@ export const units = [
       5,
       6
     ],
-    "title": "UTS · Memorandum pertanggungjawaban pidana"
+    "title": "UTS · Lima soal esai"
   },
   {
     "activity": "Tinjau paket bukti KanalPesisir. Penugasan terstruktur: buat register bukti. Belajar mandiri: R4 dan R6.",
