@@ -18,6 +18,17 @@ export default function HallmarkPage() {
       <p className="mt-5 text-sm leading-6 text-slate-600">Materi oleh Dr. Hos Arie Sibarani. Untuk mahasiswa, dosen, peneliti, dan pengembang yang sudah mengenal berkas proyek serta terminal.</p>
     </div></header>
     <div className="mx-auto max-w-4xl space-y-10 px-5 py-10 sm:px-8">
+      <section id="video" aria-labelledby="video-title" className="scroll-mt-6">
+        <h2 id="video-title" className="text-2xl font-bold">Video pembelajaran dan materi presentasi</h2>
+        <p className="mt-3 leading-8 text-slate-700">Jangan Asal Suruh AI! Pelajari cara mengaudit dan memperbaiki website dengan Hallmark, menetapkan batas kerja agen, serta memeriksa hasilnya. Materi oleh Dr. Hos Arie Sibarani; video berdurasi sekitar 20 menit dengan subtitle bahasa Indonesia.</p>
+        <div className="mt-5 aspect-video overflow-hidden rounded-xl border border-slate-300 bg-slate-950">
+          <iframe src="https://www.youtube-nocookie.com/embed/F8iAcDLHALQ" title="Jangan Asal Suruh AI! Cara Audit dan Perbaiki Website dengan Hallmark — Dr. Hos Arie Sibarani" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="h-full w-full border-0" />
+        </div>
+        <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a href="/downloads/hallmark/audit-desain-web-berbasis-ai.pdf" download className="inline-flex min-h-12 items-center rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">Unduh materi presentasi PDF · 15 halaman</a>
+          <a href="https://youtu.be/F8iAcDLHALQ" target="_blank" rel="noopener noreferrer" className={linkStyle}>Tonton di YouTube</a>
+        </div>
+      </section>
       <section aria-labelledby="hasil"><h2 id="hasil" className="text-2xl font-bold">Hasil yang Anda buat</h2>
         <p className="mt-3 leading-8 text-slate-700">Satu laporan audit, satu perbaikan halaman pada salinan proyek, bukti sebelum dan sesudah, serta refleksi berbasis rubrik. Pilih halaman sederhana dengan satu tujuan pengunjung.</p>
         <p className="mt-3 leading-8 text-slate-700">Hallmark adalah skill untuk agen pengembang seperti Codex, Claude Code, dan Cursor. Ia menyediakan aturan desain, referensi tema, dan pemeriksa statis. Halaman ini menyediakan materi praktik dan rubrik; tidak menjalankan agen atau memindai URL pengunjung secara otomatis.</p>
