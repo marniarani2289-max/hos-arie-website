@@ -15,6 +15,7 @@ const groups = [
   ]},
   { id: "belajar", title: "Belajar & membuat materi", description: "Mulai dari SOP AI hingga video pembelajaran.", items: [
     { id: "agent-skills-title", title: "Agent Skills", description: "Rancang SOP AI, tentukan standar hasil, dan gunakan lembar kerja.", href: "/ai-lab/agent-skills", status: "Panduan & lembar kerja" },
+    { id: "video-studio", title: "AI Video Studio", description: "Siapkan brief, naskah, dan rencana produksi video dengan MoneyPrinterTurbo.", href: "/ai-lab/video-studio", status: "Ruang persiapan aktif · rendering belum terhubung" },
     { id: "concat", title: "Concat", description: "Susun slide, narasi, subtitle, dan alur ekspor video pembelajaran.", href: "/ai-lab/concat", status: "Panduan · aplikasi eksternal" },
   ]},
   { id: "riset", title: "Riset & publikasi", description: "Telusuri literatur, bangun argumen, dan perjelas tulisan.", items: [

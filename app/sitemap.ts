@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/ai-lab/ai-governance", 0.85, "monthly"],
     ["/ai-lab/openmaic", 0.8, "monthly"],
     ["/ai-lab/agent-skills", 0.8, "monthly"],
+    ["/ai-lab/video-studio", 0.8, "monthly"],
     ["/ai-lab/concat", 0.8, "monthly"],
     ["/ai-lab/agency-agents", 0.8, "monthly"],
     ["/ai-lab/nakama", 0.8, "monthly"],
