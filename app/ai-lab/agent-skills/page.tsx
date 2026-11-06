@@ -30,6 +30,7 @@ export default function AgentSkillsPage() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/ai-lab/openmaic" className={button + " bg-white text-slate-950 hover:bg-amber-100"}>Kelas percontohan OpenMAIC →</Link>
           <a href="#video-pembelajaran" className={button + " border border-slate-500 hover:bg-slate-800"}>Tonton video pembelajaran</a>
+          <a href="#ai-design-skills" className={button + " border border-slate-500 hover:bg-slate-800"}>Materi pendamping AI Design Skills</a>
           <a href="#sanity" className={button + " border border-slate-500 hover:bg-slate-800"}>Materi pendamping SANITY</a>
           <a href="#praktikum" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Mulai merancang SOP</a>
           <a href="/downloads/agent-skills/lembar-kerja-sop-ai.txt" download className={button + " border border-slate-500 hover:bg-slate-800"}>Unduh lembar kerja</a>
@@ -103,6 +104,20 @@ export default function AgentSkillsPage() {
           <a href="https://github.com/verycoolapps/sanity-anti-hallucination-skill/blob/main/sanity.md" target="_blank" rel="noopener noreferrer" className={button + " border border-teal-300 hover:bg-white"}>Baca instruksi sumber ↗</a>
         </div>
         <p className="mt-5 text-sm leading-7 text-slate-600">Materi pendamping disusun oleh AI &amp; Digital Systems Lab berdasarkan README dan sanity.md SANITY v3.0. Adaptasi pembelajaran independen; tidak berafiliasi dengan verycoolapps. Ditinjau 1 November 2026.</p>
+      </section>
+      <section id="ai-design-skills" aria-labelledby="ai-design-skills-title" className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 sm:p-9">
+        <p className="text-xs font-bold uppercase tracking-widest text-amber-800">Materi pendamping · Desain website dengan agen AI</p>
+        <h2 id="ai-design-skills-title" className="mt-3 text-2xl font-bold sm:text-3xl">AI Design Skills: Merancang Landing Page dan Desain Figma</h2>
+        <p className="mt-4 max-w-4xl leading-8 text-slate-700">Koleksi panduan desain dari elayadesign untuk agen AI seperti Codex, Claude Code, dan Cursor. Pelajari bagaimana instruksi yang dapat digunakan kembali mengatur struktur halaman, tipografi, jarak, dan komponen antarmuka.</p>
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <article className="rounded-xl bg-stone-100 p-6"><h3 className="text-xl font-bold">Landing Page Design</h3><p className="mt-3 leading-7 text-slate-700">Panduan merancang halaman dari awal: menggali kebutuhan, menyusun konten dan ajakan bertindak, serta menetapkan sistem visual.</p></article>
+          <article className="rounded-xl bg-stone-100 p-6"><h3 className="text-xl font-bold">Figma Designer</h3><p className="mt-3 leading-7 text-slate-700">Panduan desain terstruktur di Figma dengan variabel warna dan jarak, gaya teks, auto layout, serta komponen dan variasi kondisinya.</p></article>
+        </div>
+        <p className="mt-6 leading-8 text-slate-700"><strong>Ide praktikum:</strong> rancang landing page layanan hukum atau program pendidikan. Tetapkan sasaran pengunjung, susun informasi utama dan tombol tindakan, lalu periksa keterbacaan serta tampilan pada ponsel.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="https://github.com/elayadesign/ai-design-skills" target="_blank" rel="noopener noreferrer" className={button + " bg-slate-950 text-white hover:bg-slate-800"}>Buka AI Design Skills di GitHub ↗</a>
+        </div>
+        <p className="mt-5 text-sm leading-7 text-slate-600">Tautan ini membuka materi dan petunjuk penggunaan di GitHub. Untuk menjalankan skill, gunakan lingkungan agen AI dan alat yang mendukungnya. Materi pendamping ini tidak mengaktifkan editor desain otomatis di website.</p>
       </section>
       <section aria-labelledby="menjalankan" className="rounded-2xl bg-slate-950 p-6 text-white sm:p-8">
         <h2 id="menjalankan" className="text-2xl font-bold">Bagaimana skill digunakan?</h2>
