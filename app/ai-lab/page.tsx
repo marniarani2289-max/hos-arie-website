@@ -14,6 +14,7 @@ const groups = [
     { id: "ai-governance-title", title: "AI Governance", description: "Jalur 12 minggu dengan praktik layanan hukum LexNusa dan pendidikan.", href: "/ai-lab/ai-governance", status: "Program mandiri · panduan & template" },
   ]},
   { id: "belajar", title: "Belajar & membuat materi", description: "Mulai dari SOP AI hingga video pembelajaran.", items: [
+    { id: "examgo", title: "ExamGO · Asesmen Digital", description: "Kenali platform CBT dan rencanakan asesmen untuk kelas hukum.", href: "/ai-lab/examgo", status: "Panduan & tautan resmi · server belum terhubung" },
     { id: "agent-skills-title", title: "Agent Skills", description: "Rancang SOP AI, tentukan standar hasil, dan gunakan lembar kerja.", href: "/ai-lab/agent-skills", status: "Panduan & lembar kerja" },
     { id: "video-studio", title: "AI Video Studio", description: "Siapkan brief, naskah, dan rencana produksi video dengan MoneyPrinterTurbo.", href: "/ai-lab/video-studio", status: "Ruang persiapan aktif · rendering belum terhubung" },
     { id: "concat", title: "Concat", description: "Susun slide, narasi, subtitle, dan alur ekspor video pembelajaran.", href: "/ai-lab/concat", status: "Panduan · aplikasi eksternal" },

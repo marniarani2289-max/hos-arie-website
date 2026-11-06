@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/raja-ali-haji", 0.95, "monthly"],
     ["/gurindam/index.html", 0.8, "monthly"],
     ["/ai-lab", 0.9, "monthly"],
+    ["/ai-lab/examgo", 0.8, "monthly"],
     ["/ai-lab/ai-governance", 0.85, "monthly"],
     ["/ai-lab/openmaic", 0.8, "monthly"],
     ["/ai-lab/agent-skills", 0.8, "monthly"],
