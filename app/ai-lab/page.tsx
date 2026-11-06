@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 const groups = [
   { id: "tata-kelola", title: "Tata kelola AI", description: "Nilai risiko, periksa bukti, dan tetapkan tanggung jawab.", items: [
+    { id: "chathpt", title: "ChatHPT · Studi kasus RAG", description: "Periksa sumber, hierarki otoritas, dan batas kewenangan AI melalui praktikum 60 menit.", href: "/ai-lab/chathpt", status: "Studi dokumentasi · praktikum & rubrik mandiri" },
     { id: "ai-governance-title", title: "AI Governance", description: "Jalur 12 minggu dengan praktik layanan hukum LexNusa dan pendidikan.", href: "/ai-lab/ai-governance", status: "Program mandiri · panduan & template" },
   ]},
   { id: "belajar", title: "Belajar & membuat materi", description: "Mulai dari SOP AI hingga video pembelajaran.", items: [
