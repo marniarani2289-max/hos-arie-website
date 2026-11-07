@@ -119,6 +119,12 @@ export default function AgentSkillsPage() {
         </div>
         <p className="mt-5 text-sm leading-7 text-slate-600">Tautan ini membuka materi dan petunjuk penggunaan di GitHub. Untuk menjalankan skill, gunakan lingkungan agen AI dan alat yang mendukungnya. Materi pendamping ini tidak mengaktifkan editor desain otomatis di website.</p>
       </section>
+      <section aria-labelledby="konoha-title" className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8">
+        <h2 id="konoha-title" className="text-2xl font-semibold">Konoha: dari SOP ke tim agen AI</h2>
+        <p className="mt-4 leading-8 text-slate-700">Pelajari pembagian tugas delapan agen spesialis, pemasangan lokal, dan pemeriksaan hasil dengan bukti. Tersedia praktikum halaman kelas dan lembar kerja unduhan.</p>
+        <Link href="/ai-lab/konoha" className={button + " mt-4 bg-slate-950 text-white hover:bg-slate-800"}>Buka panduan Konoha</Link>
+        <p className="mt-4 text-sm text-slate-600">Materi tersedia; dashboard dan eksekusi agen Konoha belum aktif di website.</p>
+      </section>
       <section aria-labelledby="menjalankan" className="rounded-2xl bg-slate-950 p-6 text-white sm:p-8">
         <h2 id="menjalankan" className="text-2xl font-bold">Bagaimana skill digunakan?</h2>
         <p className="mt-4 leading-8 text-slate-300">Repositori Anthropic menyediakan contoh dan petunjuk penggunaan melalui Claude Code, Claude.ai, dan Claude API. Ikuti dokumentasi resmi sesuai lingkungan dan paket layanan Anda. Portabilitas ke agen lain bergantung pada dukungan format, alat, dan dependensinya.</p>

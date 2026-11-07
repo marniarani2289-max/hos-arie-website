@@ -1,0 +1,63 @@
+LEMBAR KERJA KONOHA
+AI & Digital Systems Lab | Dr. Hos Arie Sibarani
+Versi 1 | 7 November 2026
+
+Status: praktikum lokal, bukan layanan eksekusi agen di website.
+Isi dan simpan sendiri. Berkas ini tidak dikirim otomatis.
+
+1. IDENTITAS PRAKTIKUM
+Nama:
+Tanggal:
+Proyek latihan:
+Versi Konoha / Node.js:
+Coding client / model:
+
+2. BRIEF
+Tujuan halaman kelas:
+Peserta:
+Materi sumber:
+Keluaran wajib:
+Batas akses dan file yang boleh diubah:
+Kriteria keberhasilan:
+
+3. PEMBAGIAN TUGAS
+Perencana / pembagi tugas:
+Penelusur kode:
+Peneliti sumber:
+Pelaksana tampilan:
+Pelaksana backend / pengujian (jika diperlukan):
+Dokumentasi:
+Reviewer:
+Pemeriksa keamanan (lingkup berizin):
+
+4. RENCANA DAN PERSETUJUAN
+Rencana perubahan:
+Risiko dan mitigasi:
+Keputusan sebelum implementasi:
+
+5. BUKTI UJI
+Tautan dan navigasi:
+Tampilan ponsel (lebar 390px):
+Navigasi keyboard:
+Ketepatan materi dan sumber:
+Perintah build / hasil aktual:
+Daftar file berubah:
+Kegagalan dan perbaikan:
+Bagian yang belum diuji:
+
+6. RUBRIK LAB
+Skor 0: belum ada bukti; 1: bukti belum lengkap; 2: memenuhi kriteria.
+Ketepatan materi: __ / 2
+Kepatuhan lingkup tugas: __ / 2
+Fungsi halaman: __ / 2
+Keterlacakan hasil uji: __ / 2
+Total: __ / 8
+Bukan sertifikasi atau ukuran akurasi Konoha.
+
+7. KEPUTUSAN REVIEW
+Diterima / perlu revisi:
+Alasan berdasarkan bukti:
+Reviewer:
+Tindak lanjut:
+
+Sumber resmi: https://github.com/andycungkrinx91/konoha
