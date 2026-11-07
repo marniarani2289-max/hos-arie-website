@@ -45,7 +45,9 @@ export async function POST(req:NextRequest){
    if(!validCitations(result.output,new Set(research.answers.map(a=>a.id))))throw Error('citation_validation');
    await rpc('finish',{requestId,status:'completed',usage:result.usage});
    return send({data:{mode:'ai',notice:'Draf AI berbasis korpus. Belum disahkan penelaah dan bukan keputusan DKPP. Periksa kecocokan setiap sumber sebelum digunakan.',answer:result.output,research,model}});
-  }catch{
+  }catch(error){
+   const failure=error as {name?:string;statusCode?:number;finishReason?:string;cause?:{name?:string;statusCode?:number}};
+   console.warn('etik_generation_failed',JSON.stringify({name:failure?.name,status:failure?.statusCode,finishReason:failure?.finishReason,causeName:failure?.cause?.name,causeStatus:failure?.cause?.statusCode}));
    await rpc('finish',{requestId,status:'failed'}).catch(()=>{});
    return send({data:{mode:'retrieval',notice:'AI generatif belum berhasil merespons. Yang ditampilkan adalah bahan acuan dari database, bukan jawaban AI baru.',research}});
   }
