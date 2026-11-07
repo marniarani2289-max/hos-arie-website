@@ -18,6 +18,7 @@ const groups = [
     { id: "examgo", title: "ExamGO · Asesmen Digital", description: "Kenali platform CBT dan rencanakan asesmen untuk kelas hukum.", href: "/ai-lab/examgo", status: "Panduan & tautan resmi · server belum terhubung" },
     { id: "agent-skills-title", title: "Agent Skills", description: "Rancang SOP AI, tentukan standar hasil, dan gunakan lembar kerja.", href: "/ai-lab/agent-skills", status: "Panduan & lembar kerja" },
     { id: "video-studio", title: "AI Video Studio", description: "Siapkan brief, naskah, dan rencana produksi video dengan MoneyPrinterTurbo.", href: "/ai-lab/video-studio", status: "Ruang persiapan aktif · rendering belum terhubung" },
+    { id: "zenlink", title: "ZenLink · Demonstrasi layar iPhone/iPad", description: "Tampilkan layar iPhone atau iPad di komputer Windows melalui USB atau Wi-Fi untuk demonstrasi aplikasi dan materi pembelajaran.", href: "https://zenvyzenshiro.github.io/zenlink/", status: "Tautan resmi · aplikasi Windows eksternal · kontrol sesuai kompatibilitas perangkat" },
     { id: "concat", title: "Concat", description: "Susun slide, narasi, subtitle, dan alur ekspor video pembelajaran.", href: "/ai-lab/concat", status: "Panduan · aplikasi eksternal" },
   ]},
   { id: "riset", title: "Riset & publikasi", description: "Telusuri literatur, bangun argumen, dan perjelas tulisan.", items: [
