@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import ts from 'typescript';
+const source=fs.readFileSync(new URL('../lib/etik-pemilu/model.ts',import.meta.url),'utf8');
+const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ES2022,target:ts.ScriptTarget.ES2022}}).outputText;
+const {generationGate,validCitations}=await import('data:text/javascript;base64,'+Buffer.from(compiled).toString('base64'));
+const candidate={id:'Q23',ai_disposition:'Tahan operasional',issues:[{id:'A01',status:'open'}]};
+test('empty retrieval must not call model',()=>assert.equal(generationGate({answers:[]}), 'insufficient'));
+test('unresolved procedural conflict blocks generation',()=>assert.equal(generationGate({answers:[candidate]}),'held'));
+test('draft without blocking conflict may be summarized as research',()=>assert.equal(generationGate({answers:[{...candidate,ai_disposition:'Koreksi',issues:[]}]}),'ready'));
+test('unrecognized citation rejected',()=>assert.equal(validCitations({points:[{text:'Claim',citationIds:['Q99']}]},new Set(['Q01'])),false));
+test('uncited claim rejected',()=>assert.equal(validCitations({points:[{text:'Claim',citationIds:[]}]},new Set(['Q01'])),false));
+test('known citation retained',()=>assert.equal(validCitations({points:[{text:'Claim',citationIds:['Q01']}]},new Set(['Q01'])),true));

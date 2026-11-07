@@ -75,12 +75,12 @@ export default function AiLabPage() {
 
       <section id="asisten-etik-pemilu" aria-labelledby="asisten-etik-title" className="mx-auto max-w-6xl scroll-mt-6 px-5 py-8 sm:px-8">
         <div className="rounded-xl border border-teal-200 bg-white p-6 sm:p-8">
-          <p className="text-sm font-semibold text-teal-800">Prototipe v0.3 · Akses pribadi · Korpus dalam penelaahan</p>
+          <p className="text-sm font-semibold text-teal-800">Prototipe AI · Tahap 3 · Korpus dalam penelaahan</p>
           <h2 id="asisten-etik-title" className="mt-2 text-3xl font-bold">Asisten Etik Pemilu</h2>
           <p className="mt-4 max-w-3xl leading-7 text-slate-700">Telusuri 30 jawaban acuan, 12 peraturan, dan 6 putusan pilihan. Pelajari pemisahan dalil, pertimbangan, serta amar putusan, lalu periksa 7 isu terbuka melalui lembar validasi v0.3.</p>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">Prototipe riset AI &amp; Digital System Lab ini menggunakan pencarian korpus dan belum terhubung ke model AI generatif. Semua jawaban masih menunggu pengesahan penelaah. Bukan layanan resmi DKPP.</p>
-          <a href="https://asisten-etik-pemilu-lab.hossibarani.chatgpt.site" target="_blank" rel="noopener noreferrer" className={`mt-5 inline-flex min-h-12 items-center gap-2 rounded-lg bg-teal-900 px-4 py-2 font-semibold text-white hover:bg-teal-800 ${focus}`}>Buka prototipe pribadi <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> di tab baru</span></a>
-          <p className="mt-3 text-sm leading-6 text-slate-600">Memerlukan masuk dengan akun ChatGPT pemilik. Pengunjung umum belum memiliki akses. Unduhan korpus PDF dan lembar validasi Excel tersedia di dalam prototipe.</p>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">Ruang riset berbasis database dengan penyusunan draf AI, sumber yang dapat diperiksa, serta alur penelaahan manusia. Keluaran generatif belum disahkan. Bukan layanan resmi DKPP.</p>
+          <a href="/ai-lab/asisten-etik-pemilu" className={`mt-5 inline-flex min-h-12 items-center gap-2 rounded-lg bg-teal-900 px-4 py-2 font-semibold text-white hover:bg-teal-800 ${focus}`}>Buka Asisten Etik Pemilu <ArrowRight size={18} aria-hidden="true" /></a>
+          <p className="mt-3 text-sm leading-6 text-slate-600">Memerlukan akun website dengan akses koordinator atau penelaah. Draf dan catatan penelaahan tidak terbuka untuk pengunjung umum.</p>
         </div>
       </section>
 
