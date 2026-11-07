@@ -40,6 +40,7 @@ export default function HumanizeWritingPage() {
         <h1 className="mt-4 max-w-5xl font-academic text-3xl font-bold leading-tight sm:text-5xl">{title}</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Buat tulisan lebih jernih dan mudah dibaca. Pertahankan suara penulis, ketepatan sumber, serta makna setiap klaim selama proses penyuntingan.</p>
         <nav aria-label="Jalur belajar Humanize Writing AI" className="mt-8 flex flex-wrap gap-3">
+          <a href="#humanizer-id" className={button + " border border-slate-500 hover:bg-slate-800"}>Gunakan Humanizer ID</a>
           <a href="#alur" className={button + " bg-amber-400 text-slate-950 hover:bg-amber-300"}>Pelajari alur penyuntingan</a>
           <a href="#penyuntingan-naskah" className={button + " border border-slate-500 hover:bg-slate-800"}>Untuk penulis RAHRN</a>
           <a href="#bahasa-hukum" className={button + " border border-slate-500 hover:bg-slate-800"}>Ketepatan bahasa hukum</a>
@@ -52,6 +53,39 @@ export default function HumanizeWritingPage() {
         <p className="mt-4 max-w-4xl leading-8 text-slate-700">Humanize Writing dari bimajanuri merupakan paket instruksi untuk membantu agen AI menyunting teks bahasa Indonesia dan Inggris. Dokumentasinya menekankan penjagaan makna, larangan mengarang fakta, dan pemilihan gaya sesuai pembaca. Bahasa keluaran mengikuti masukan kecuali penerjemahan diminta.</p>
         <p className="mt-3 max-w-4xl leading-8 text-slate-700">Halaman ini adalah panduan penerapan independen. Tidak ada pengunggahan naskah atau penyuntingan otomatis di halaman ini. Penggunaan paket dilakukan pada lingkungan agen yang mendukungnya, mengikuti petunjuk repositori.</p>
         <a href="https://github.com/bimajanuri/humanize-writing" className={button + " mt-5 bg-slate-950 text-white hover:bg-amber-800"}>Buka repositori dan petunjuk penggunaan ↗</a>
+      </section>
+      <section id="humanizer-id" aria-labelledby="humanizer-id-title" className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+        <p className="text-sm font-medium text-amber-800">Materi pendamping · Bahasa Indonesia akademik</p>
+        <h2 id="humanizer-id-title" className="mt-4 text-3xl font-semibold">Humanizer ID: tulisan lebih lugas, makna tetap utuh</h2>
+        <p className="mt-4 text-base leading-6 text-slate-700">Humanizer ID dari apissaj menyediakan panduan penyuntingan untuk mengurangi kalimat berbelit, ungkapan klise, dan terjemahan yang kaku. Gunakan untuk meninjau abstrak, artikel, materi kuliah, atau opini dengan tetap menjaga suara penulis.</p>
+        <p className="mt-4 text-sm leading-5 text-slate-600">Tersedia sebagai materi dan instruksi untuk layanan AI pilihan Anda. Halaman ini tidak mengirim atau menyunting naskah secara otomatis.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="https://github.com/apissaj/humanizer-id/blob/main/PROMPT.md" target="_blank" rel="noopener noreferrer" className={button + " bg-slate-950 text-white hover:bg-slate-800"}>Buka instruksi siap pakai ↗</a>
+          <a href="https://github.com/apissaj/humanizer-id" target="_blank" rel="noopener noreferrer" className={button + " border border-slate-300 hover:bg-slate-100"}>Lihat sumber Humanizer ID ↗</a>
+        </div>
+        <h3 className="mt-8 text-xl font-semibold">Mulai dalam tiga langkah</h3>
+        <ol className="mt-4 list-decimal space-y-3 pl-6 text-base leading-6 text-slate-700">
+          <li>Buka instruksi siap pakai, lalu salin ke layanan AI yang Anda gunakan.</li>
+          <li>Sertakan satu bagian naskah, tujuan penyuntingan, pembaca, dan istilah yang harus dipertahankan.</li>
+          <li>Bandingkan hasil dengan draf asli. Periksa angka, kutipan, sumber, lingkup, serta tingkat kepastian setiap klaim.</li>
+        </ol>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <article className="rounded-xl border border-slate-200 p-6"><h3 className="text-lg font-medium">Sebelum</h3><p className="mt-3 text-base leading-6 text-slate-700">Penelitian ini melakukan analisis terhadap pelaksanaan kebijakan pendidikan.</p></article>
+          <article className="rounded-xl border border-slate-200 p-6"><h3 className="text-lg font-medium">Sesudah</h3><p className="mt-3 text-base leading-6 text-slate-700">Penelitian ini menganalisis pelaksanaan kebijakan pendidikan.</p></article>
+        </div>
+        <p className="mt-3 text-sm leading-5 text-slate-600">Contoh ilustratif AI Lab. Kalimat dipadatkan tanpa menambahkan hasil penelitian.</p>
+        <details className="mt-6 rounded-xl border border-slate-200 p-6">
+          <summary className="cursor-pointer text-base font-semibold focus-visible:outline-2 focus-visible:outline-offset-4">Instruksi latihan untuk naskah akademik</summary>
+          <p className="mt-4 select-text text-base leading-6 text-slate-700">Sunting paragraf berikut agar lebih lugas dan alami dalam bahasa Indonesia akademik. Pertahankan makna, angka, nama, istilah teknis, kutipan, sitasi, syarat, dan tingkat kepastian. Jangan menambah fakta atau sumber. Tampilkan naskah revisi dan catatan perubahan. Tandai bagian yang memerlukan keputusan penulis. Naskah: [tempel paragraf Anda].</p>
+        </details>
+        <h3 className="mt-8 text-xl font-semibold">Jaga kendali penulis</h3>
+        <p className="mt-4 text-base leading-6 text-slate-700">Jangan mengubah kutipan langsung, instrumen penelitian tervalidasi, kontrak, atau paten menggunakan latihan ini. Cocokkan preset kampus dengan pedoman fakultas atau jurnal tujuan. Kelancaran bahasa tidak membuktikan kebenaran isi dan tidak menjamin hasil alat deteksi AI.</p>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+          <a className="underline underline-offset-4" href="https://github.com/apissaj/humanizer-id/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer">Panduan agen AI ↗</a>
+          <a className="underline underline-offset-4" href="https://github.com/apissaj/humanizer-id/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Lisensi MIT ↗</a>
+          <Link className="underline underline-offset-4" href="/ai-lab/agent-skills">Pelajari Agent Skills</Link>
+        </div>
+        <p className="mt-4 text-sm leading-5 text-slate-600">Sumber: apissaj/humanizer-id, ditinjau 7 November 2026. Materi ini merupakan panduan penerapan independen; paket dan auditor Python belum diuji langsung oleh AI Lab.</p>
       </section>
       <section aria-labelledby="fitur">
         <h2 id="fitur" className="text-2xl font-bold">Pilih bagian yang perlu diperbaiki</h2>
