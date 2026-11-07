@@ -1,0 +1,1397 @@
+{
+  "date": "2026-11-07",
+  "scope": "retrieval-only; evaluator-authored sets, not independent legal validation",
+  "baseline": [
+    {
+      "id": "N01",
+      "expected": null,
+      "query": "Bagaimana cara membuat kue cokelat?",
+      "found": [
+        "Q11",
+        "Q13",
+        "Q25"
+      ],
+      "pass": false
+    },
+    {
+      "id": "N02",
+      "expected": null,
+      "query": "Apa dosis obat diabetes yang tepat untuk saya?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "N03",
+      "expected": null,
+      "query": "Berapa harga saham perusahaan hari ini?",
+      "found": [
+        "Q10",
+        "Q15",
+        "Q25"
+      ],
+      "pass": false
+    },
+    {
+      "id": "N04",
+      "expected": null,
+      "query": "Bagaimana menghitung pajak restoran yang menjual makan malam?",
+      "found": [
+        "Q01",
+        "Q15"
+      ],
+      "pass": false
+    },
+    {
+      "id": "Q01-E",
+      "expected": "Q01",
+      "query": "Saya diundang makan oleh calon yang sedang mengikuti pemilihan. Apa batas etiknya?",
+      "found": [
+        "Q01",
+        "Q02",
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q01-P",
+      "expected": "Q01",
+      "query": "Calon bupati mentraktir anggota KPU makan malam. Bagaimana menyikapinya?",
+      "found": [
+        "Q01",
+        "Q12",
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q02-E",
+      "expected": "Q02",
+      "query": "Saudara kandung saya menjadi calon. Apa yang harus saya ungkapkan dan langkah apa yang perlu ditempuh?",
+      "found": [
+        "Q02",
+        "Q01",
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q02-P",
+      "expected": "Q02",
+      "query": "Kakak kandung maju sebagai calon legislatif. Saya penyelenggara pemilu, perlu deklarasi konflik kepentingan?",
+      "found": [
+        "Q02",
+        "Q05",
+        "Q01"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q03-E",
+      "expected": "Q03",
+      "query": "Bolehkah saya menyukai atau membagikan unggahan kampanye di akun pribadi?",
+      "found": [
+        "Q03",
+        "Q27",
+        "Q22"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q03-P",
+      "expected": "Q03",
+      "query": "Saya memberi like dan repost konten kampanye dari akun medsos pribadi.",
+      "found": [
+        "Q03",
+        "Q22",
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q04-E",
+      "expected": "Q04",
+      "query": "Peserta pemilu mengirim bingkisan ke rumah saya. Apa yang harus saya lakukan?",
+      "found": [
+        "Q04",
+        "Q13",
+        "Q22"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q04-P",
+      "expected": "Q04",
+      "query": "Ada parcel dari peserta pemilu dikirim ke rumah penyelenggara. Bagaimana penanganannya?",
+      "found": [
+        "Q04",
+        "Q13",
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q05-E",
+      "expected": "Q05",
+      "query": "Saya bertemu calon karena urusan keluarga. Bagaimana membedakan hubungan sosial dan keberpihakan?",
+      "found": [
+        "Q05",
+        "Q02",
+        "Q21"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q05-P",
+      "expected": "Q05",
+      "query": "Acara keluarga mempertemukan saya dengan kandidat. Apa indikator keberpihakan?",
+      "found": [
+        "Q05",
+        "Q06",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q06-E",
+      "expected": "Q06",
+      "query": "Ketua meminta saya menandatangani berita acara yang datanya belum saya periksa. Apa kewajiban etik saya?",
+      "found": [
+        "Q06",
+        "Q08",
+        "Q13"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q06-P",
+      "expected": "Q06",
+      "query": "Pimpinan menyuruh tanda tangan berita acara tanpa kesempatan mengecek angka.",
+      "found": [
+        "Q06",
+        "Q08",
+        "Q07"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q07-E",
+      "expected": "Q07",
+      "query": "Saya berbeda pendapat dalam pleno. Bagaimana mencatatnya tanpa merusak kerja kolektif?",
+      "found": [
+        "Q07",
+        "Q28",
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q07-P",
+      "expected": "Q07",
+      "query": "Pendapat saya tidak sama dengan mayoritas rapat pleno. Bagaimana mencatat dissenting opinion?",
+      "found": [
+        "Q07",
+        "Q28",
+        "Q21"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q08-E",
+      "expected": "Q08",
+      "query": "Data yang saya kirim kepada publik berbeda dengan berita acara. Apakah saya pasti melanggar etik?",
+      "found": [
+        "Q08",
+        "Q06",
+        "Q10"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q08-P",
+      "expected": "Q08",
+      "query": "Angka publikasi saya tidak cocok dengan berita acara. Apakah otomatis pelanggaran etik?",
+      "found": [
+        "Q06",
+        "Q13",
+        "Q08"
+      ],
+      "pass": false
+    },
+    {
+      "id": "Q09-E",
+      "expected": "Q09",
+      "query": "Saya pernah tercatat sebagai anggota parpol. Bagaimana memeriksa kelayakan dan risiko etiknya?",
+      "found": [
+        "Q09",
+        "Q18",
+        "Q01"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q09-P",
+      "expected": "Q09",
+      "query": "Riwayat saya pernah masuk partai politik. Apa akibatnya untuk kelayakan penyelenggara?",
+      "found": [
+        "Q09",
+        "Q18",
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q10-E",
+      "expected": "Q10",
+      "query": "Surat suara kurang pada hari pemungutan. Apakah tindakan darurat selalu melanggar etik?",
+      "found": [
+        "Q10",
+        "Q08",
+        "Q15"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q10-P",
+      "expected": "Q10",
+      "query": "TPS kekurangan surat suara. Bagaimana menilai keputusan darurat penyelenggara?",
+      "found": [
+        "Q10",
+        "Q20",
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q11-E",
+      "expected": "Q11",
+      "query": "Siapa yang dapat mengadu ke DKPP dan apa yang perlu dijelaskan dalam pengaduan?",
+      "found": [
+        "Q11",
+        "Q12",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q11-P",
+      "expected": "Q11",
+      "query": "Apakah warga biasa bisa mengadukan penyelenggara kepada DKPP?",
+      "found": [
+        "Q20",
+        "Q11",
+        "Q12"
+      ],
+      "pass": false
+    },
+    {
+      "id": "Q12-E",
+      "expected": "Q12",
+      "query": "Yang saya adukan anggota KPPS, bukan komisioner KPU. Ke mana pengaduan diajukan?",
+      "found": [
+        "Q12",
+        "Q11",
+        "Q15"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q12-P",
+      "expected": "Q12",
+      "query": "Saya ingin melaporkan petugas KPPS. Siapa yang berwenang menangani etiknya?",
+      "found": [
+        "Q12",
+        "Q01",
+        "Q09"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q13-E",
+      "expected": "Q13",
+      "query": "Apa perbedaan pelanggaran etik, pelanggaran administrasi, dan tindak pidana pemilu?",
+      "found": [
+        "Q13",
+        "Q20",
+        "Q06"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q13-P",
+      "expected": "Q13",
+      "query": "Bagaimana membedakan ranah etik, administrasi dan pidana dalam pemilu?",
+      "found": [
+        "Q13",
+        "Q04",
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q14-E",
+      "expected": "Q14",
+      "query": "Apakah tangkapan layar WhatsApp saja cukup sebagai bukti pengaduan?",
+      "found": [
+        "Q14",
+        "Q11",
+        "Q12"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q14-P",
+      "expected": "Q14",
+      "query": "Bukti saya hanya screenshot percakapan WA. Apakah sudah memadai?",
+      "found": [
+        "Q14",
+        "Q16",
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q15-E",
+      "expected": "Q15",
+      "query": "Pengaduan saya diminta diperbaiki. Berapa tenggatnya dan sejak kapan dihitung?",
+      "found": [
+        "Q15",
+        "Q11",
+        "Q12"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q15-P",
+      "expected": "Q15",
+      "query": "Pengadu diminta melengkapi berkas. Berapa lama batas perbaikan aduan?",
+      "found": [
+        "Q15",
+        "Q23",
+        "Q24"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q16-E",
+      "expected": "Q16",
+      "query": "Teradu sudah berhenti menjabat. Apakah pengaduan saya masih dapat diperiksa?",
+      "found": [
+        "Q16",
+        "Q17",
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q16-P",
+      "expected": "Q16",
+      "query": "Pejabat yang diadukan sudah mengundurkan diri. Masih dapat disidang?",
+      "found": [
+        "Q16",
+        "Q20",
+        "Q09"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q17-E",
+      "expected": "Q17",
+      "query": "Jika pengaduan saya cabut, apakah pemeriksaan otomatis berhenti?",
+      "found": [
+        "Q17",
+        "Q16",
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q17-P",
+      "expected": "Q17",
+      "query": "Apakah pencabutan aduan langsung mengakhiri sidang etik?",
+      "found": [
+        "Q13",
+        "Q23",
+        "Q06"
+      ],
+      "pass": false
+    },
+    {
+      "id": "Q18-E",
+      "expected": "Q18",
+      "query": "Perkara yang mirip pernah diputus. Apakah pengaduan baru pasti ne bis in idem?",
+      "found": [
+        "Q18",
+        "Q08",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q18-P",
+      "expected": "Q18",
+      "query": "Aduan baru mirip perkara terdahulu. Bagaimana menilai ne bis in idem?",
+      "found": [
+        "Q18",
+        "Q23",
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q19-E",
+      "expected": "Q19",
+      "query": "Putusan menyebut rehabilitasi. Apakah itu berarti semua tindakan saya telah dibenarkan?",
+      "found": [
+        "Q19",
+        "Q10",
+        "Q20"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q19-P",
+      "expected": "Q19",
+      "query": "Apa arti rehabilitasi dalam amar DKPP, apakah semua perbuatan dibenarkan?",
+      "found": [
+        "Q19",
+        "Q20",
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q20-E",
+      "expected": "Q20",
+      "query": "Jika putusan DKPP final dan mengikat, apakah keputusan tindak lanjutnya masih dapat digugat?",
+      "found": [
+        "Q20",
+        "Q13",
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q20-P",
+      "expected": "Q20",
+      "query": "Bisakah keputusan pemberhentian sebagai tindak lanjut putusan DKPP diuji di pengadilan?",
+      "found": [
+        "Q20",
+        "Q13",
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q21-E",
+      "expected": "Q21",
+      "query": "Saya mengenal salah satu pihak. Kapan hubungan itu harus diungkapkan dan kepada siapa?",
+      "found": [
+        "Q21",
+        "Q22",
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q21-P",
+      "expected": "Q21",
+      "query": "Sebagai pemeriksa, saya punya hubungan pribadi dengan pihak berperkara. Apa yang perlu diungkap?",
+      "found": [
+        "Q21",
+        "Q22",
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q22-E",
+      "expected": "Q22",
+      "query": "Salah satu pihak mengirim penjelasan pribadi di luar sidang. Bagaimana saya merespons?",
+      "found": [
+        "Q22",
+        "Q21",
+        "Q03"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q22-P",
+      "expected": "Q22",
+      "query": "Teradu mengirim DM menjelaskan perkara di luar persidangan. Apa respons pemeriksa?",
+      "found": [
+        "Q22",
+        "Q16",
+        "Q18"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q23-E",
+      "expected": "Q23",
+      "query": "Bolehkah saya mengajukan pertanyaan di luar pokok aduan?",
+      "found": [
+        "Q23",
+        "Q22",
+        "Q27"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q23-P",
+      "expected": "Q23",
+      "query": "Apakah ketua bisa mengizinkan TPD bertanya melampaui pokok pengaduan?",
+      "found": [
+        "Q23",
+        "Q18",
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q24-E",
+      "expected": "Q24",
+      "query": "Bagaimana membedakan dalil pengadu, jawaban teradu, dan fakta yang terbukti dalam resume?",
+      "found": [
+        "Q24",
+        "Q25",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q24-P",
+      "expected": "Q24",
+      "query": "Dalam resume, bagaimana memisahkan tuduhan pengadu dari fakta hasil pemeriksaan?",
+      "found": [
+        "Q24",
+        "Q26",
+        "Q25"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q25-E",
+      "expected": "Q25",
+      "query": "Berapa tenggat penyampaian resume dan rekomendasi TPD, serta apa formatnya?",
+      "found": [
+        "Q25",
+        "Q24",
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q25-P",
+      "expected": "Q25",
+      "query": "Kapan resume serta rekomendasi tim pemeriksa daerah diserahkan dan memakai format apa?",
+      "found": [
+        "Q25",
+        "Q24",
+        "Q21"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q26-E",
+      "expected": "Q26",
+      "query": "Jika bukti baru muncul setelah pemeriksaan ditutup, siapa yang dapat membuka kembali pemeriksaan?",
+      "found": [
+        "Q26",
+        "Q14",
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q26-P",
+      "expected": "Q26",
+      "query": "Sidang sudah ditutup tetapi ada bukti baru. Siapa berwenang membukanya kembali?",
+      "found": [
+        "Q26",
+        "Q14",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q27-E",
+      "expected": "Q27",
+      "query": "Bolehkah saya mengomentari perkara yang sedang saya periksa di media sosial?",
+      "found": [
+        "Q27",
+        "Q05",
+        "Q18"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q27-P",
+      "expected": "Q27",
+      "query": "Anggota TPD ingin menulis opini tentang perkara yang sedang ditangani di Instagram.",
+      "found": [
+        "Q27",
+        "Q18",
+        "Q25"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q28-E",
+      "expected": "Q28",
+      "query": "Tanggal pada katalog dan penutup PDF berbeda. Tanggal mana yang harus digunakan?",
+      "found": [
+        "Q28",
+        "Q08",
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q28-P",
+      "expected": "Q28",
+      "query": "Metadata katalog mencantumkan tanggal berbeda dengan bagian penutup dokumen PDF.",
+      "found": [
+        "Q28",
+        "Q29",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q29-E",
+      "expected": "Q29",
+      "query": "Dua putusan bertema serupa memberi hasil berbeda. Bagaimana menjelaskannya?",
+      "found": [
+        "Q29",
+        "Q20",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q29-P",
+      "expected": "Q29",
+      "query": "Mengapa dua perkara yang terlihat sama bisa menghasilkan amar berbeda?",
+      "found": [
+        "Q29",
+        "Q18",
+        "Q14"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q30-E",
+      "expected": "Q30",
+      "query": "Saya tidak punya dokumen lengkap. Bisakah AI memastikan orang ini bersalah dan menentukan sanksinya?",
+      "found": [
+        "Q30"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q30-P",
+      "expected": "Q30",
+      "query": "Tanpa berkas lengkap, tentukan bahwa teradu bersalah dan harus diberhentikan.",
+      "found": [
+        "Q16",
+        "Q30",
+        "Q24"
+      ],
+      "pass": false
+    }
+  ],
+  "regression": [
+    {
+      "id": "N01",
+      "expected": null,
+      "query": "Bagaimana cara membuat kue cokelat?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "N02",
+      "expected": null,
+      "query": "Apa dosis obat diabetes yang tepat untuk saya?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "N03",
+      "expected": null,
+      "query": "Berapa harga saham perusahaan hari ini?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "N04",
+      "expected": null,
+      "query": "Bagaimana menghitung pajak restoran yang menjual makan malam?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "Q01-E",
+      "expected": "Q01",
+      "query": "Saya diundang makan oleh calon yang sedang mengikuti pemilihan. Apa batas etiknya?",
+      "found": [
+        "Q01"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q01-P",
+      "expected": "Q01",
+      "query": "Calon bupati mentraktir anggota KPU makan malam. Bagaimana menyikapinya?",
+      "found": [
+        "Q01"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q02-E",
+      "expected": "Q02",
+      "query": "Saudara kandung saya menjadi calon. Apa yang harus saya ungkapkan dan langkah apa yang perlu ditempuh?",
+      "found": [
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q02-P",
+      "expected": "Q02",
+      "query": "Kakak kandung maju sebagai calon legislatif. Saya penyelenggara pemilu, perlu deklarasi konflik kepentingan?",
+      "found": [
+        "Q02"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q03-E",
+      "expected": "Q03",
+      "query": "Bolehkah saya menyukai atau membagikan unggahan kampanye di akun pribadi?",
+      "found": [
+        "Q03"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q03-P",
+      "expected": "Q03",
+      "query": "Saya memberi like dan repost konten kampanye dari akun medsos pribadi.",
+      "found": [
+        "Q03"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q04-E",
+      "expected": "Q04",
+      "query": "Peserta pemilu mengirim bingkisan ke rumah saya. Apa yang harus saya lakukan?",
+      "found": [
+        "Q04"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q04-P",
+      "expected": "Q04",
+      "query": "Ada parcel dari peserta pemilu dikirim ke rumah penyelenggara. Bagaimana penanganannya?",
+      "found": [
+        "Q04"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q05-E",
+      "expected": "Q05",
+      "query": "Saya bertemu calon karena urusan keluarga. Bagaimana membedakan hubungan sosial dan keberpihakan?",
+      "found": [
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q05-P",
+      "expected": "Q05",
+      "query": "Acara keluarga mempertemukan saya dengan kandidat. Apa indikator keberpihakan?",
+      "found": [
+        "Q05"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q06-E",
+      "expected": "Q06",
+      "query": "Ketua meminta saya menandatangani berita acara yang datanya belum saya periksa. Apa kewajiban etik saya?",
+      "found": [
+        "Q06",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q06-P",
+      "expected": "Q06",
+      "query": "Pimpinan menyuruh tanda tangan berita acara tanpa kesempatan mengecek angka.",
+      "found": [
+        "Q06",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q07-E",
+      "expected": "Q07",
+      "query": "Saya berbeda pendapat dalam pleno. Bagaimana mencatatnya tanpa merusak kerja kolektif?",
+      "found": [
+        "Q07"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q07-P",
+      "expected": "Q07",
+      "query": "Pendapat saya tidak sama dengan mayoritas rapat pleno. Bagaimana mencatat dissenting opinion?",
+      "found": [
+        "Q07"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q08-E",
+      "expected": "Q08",
+      "query": "Data yang saya kirim kepada publik berbeda dengan berita acara. Apakah saya pasti melanggar etik?",
+      "found": [
+        "Q08",
+        "Q06",
+        "Q10"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q08-P",
+      "expected": "Q08",
+      "query": "Angka publikasi saya tidak cocok dengan berita acara. Apakah otomatis pelanggaran etik?",
+      "found": [
+        "Q08",
+        "Q06",
+        "Q13"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q09-E",
+      "expected": "Q09",
+      "query": "Saya pernah tercatat sebagai anggota parpol. Bagaimana memeriksa kelayakan dan risiko etiknya?",
+      "found": [
+        "Q09"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q09-P",
+      "expected": "Q09",
+      "query": "Riwayat saya pernah masuk partai politik. Apa akibatnya untuk kelayakan penyelenggara?",
+      "found": [
+        "Q09"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q10-E",
+      "expected": "Q10",
+      "query": "Surat suara kurang pada hari pemungutan. Apakah tindakan darurat selalu melanggar etik?",
+      "found": [
+        "Q10",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q10-P",
+      "expected": "Q10",
+      "query": "TPS kekurangan surat suara. Bagaimana menilai keputusan darurat penyelenggara?",
+      "found": [
+        "Q10"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q11-E",
+      "expected": "Q11",
+      "query": "Siapa yang dapat mengadu ke DKPP dan apa yang perlu dijelaskan dalam pengaduan?",
+      "found": [
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q11-P",
+      "expected": "Q11",
+      "query": "Apakah warga biasa bisa mengadukan penyelenggara kepada DKPP?",
+      "found": [
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q12-E",
+      "expected": "Q12",
+      "query": "Yang saya adukan anggota KPPS, bukan komisioner KPU. Ke mana pengaduan diajukan?",
+      "found": [
+        "Q12"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q12-P",
+      "expected": "Q12",
+      "query": "Saya ingin melaporkan petugas KPPS. Siapa yang berwenang menangani etiknya?",
+      "found": [
+        "Q12"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q13-E",
+      "expected": "Q13",
+      "query": "Apa perbedaan pelanggaran etik, pelanggaran administrasi, dan tindak pidana pemilu?",
+      "found": [
+        "Q13",
+        "Q08"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q13-P",
+      "expected": "Q13",
+      "query": "Bagaimana membedakan ranah etik, administrasi dan pidana dalam pemilu?",
+      "found": [
+        "Q13"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q14-E",
+      "expected": "Q14",
+      "query": "Apakah tangkapan layar WhatsApp saja cukup sebagai bukti pengaduan?",
+      "found": [
+        "Q14"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q14-P",
+      "expected": "Q14",
+      "query": "Bukti saya hanya screenshot percakapan WA. Apakah sudah memadai?",
+      "found": [
+        "Q14"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q15-E",
+      "expected": "Q15",
+      "query": "Pengaduan saya diminta diperbaiki. Berapa tenggatnya dan sejak kapan dihitung?",
+      "found": [
+        "Q15"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q15-P",
+      "expected": "Q15",
+      "query": "Pengadu diminta melengkapi berkas. Berapa lama batas perbaikan aduan?",
+      "found": [
+        "Q15"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q16-E",
+      "expected": "Q16",
+      "query": "Teradu sudah berhenti menjabat. Apakah pengaduan saya masih dapat diperiksa?",
+      "found": [
+        "Q16",
+        "Q17"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q16-P",
+      "expected": "Q16",
+      "query": "Pejabat yang diadukan sudah mengundurkan diri. Masih dapat disidang?",
+      "found": [
+        "Q16",
+        "Q17"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q17-E",
+      "expected": "Q17",
+      "query": "Jika pengaduan saya cabut, apakah pemeriksaan otomatis berhenti?",
+      "found": [
+        "Q17",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q17-P",
+      "expected": "Q17",
+      "query": "Apakah pencabutan aduan langsung mengakhiri sidang etik?",
+      "found": [
+        "Q17",
+        "Q16",
+        "Q06"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q18-E",
+      "expected": "Q18",
+      "query": "Perkara yang mirip pernah diputus. Apakah pengaduan baru pasti ne bis in idem?",
+      "found": [
+        "Q18"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q18-P",
+      "expected": "Q18",
+      "query": "Aduan baru mirip perkara terdahulu. Bagaimana menilai ne bis in idem?",
+      "found": [
+        "Q18"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q19-E",
+      "expected": "Q19",
+      "query": "Putusan menyebut rehabilitasi. Apakah itu berarti semua tindakan saya telah dibenarkan?",
+      "found": [
+        "Q19"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q19-P",
+      "expected": "Q19",
+      "query": "Apa arti rehabilitasi dalam amar DKPP, apakah semua perbuatan dibenarkan?",
+      "found": [
+        "Q19"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q20-E",
+      "expected": "Q20",
+      "query": "Jika putusan DKPP final dan mengikat, apakah keputusan tindak lanjutnya masih dapat digugat?",
+      "found": [
+        "Q20"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q20-P",
+      "expected": "Q20",
+      "query": "Bisakah keputusan pemberhentian sebagai tindak lanjut putusan DKPP diuji di pengadilan?",
+      "found": [
+        "Q20"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q21-E",
+      "expected": "Q21",
+      "query": "Saya mengenal salah satu pihak. Kapan hubungan itu harus diungkapkan dan kepada siapa?",
+      "found": [
+        "Q21"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q21-P",
+      "expected": "Q21",
+      "query": "Sebagai pemeriksa, saya punya hubungan pribadi dengan pihak berperkara. Apa yang perlu diungkap?",
+      "found": [
+        "Q21",
+        "Q22"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q22-E",
+      "expected": "Q22",
+      "query": "Salah satu pihak mengirim penjelasan pribadi di luar sidang. Bagaimana saya merespons?",
+      "found": [
+        "Q22"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q22-P",
+      "expected": "Q22",
+      "query": "Teradu mengirim DM menjelaskan perkara di luar persidangan. Apa respons pemeriksa?",
+      "found": [
+        "Q22",
+        "Q27",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q23-E",
+      "expected": "Q23",
+      "query": "Bolehkah saya mengajukan pertanyaan di luar pokok aduan?",
+      "found": [
+        "Q23"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q23-P",
+      "expected": "Q23",
+      "query": "Apakah ketua bisa mengizinkan TPD bertanya melampaui pokok pengaduan?",
+      "found": [
+        "Q23"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q24-E",
+      "expected": "Q24",
+      "query": "Bagaimana membedakan dalil pengadu, jawaban teradu, dan fakta yang terbukti dalam resume?",
+      "found": [
+        "Q24"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q24-P",
+      "expected": "Q24",
+      "query": "Dalam resume, bagaimana memisahkan tuduhan pengadu dari fakta hasil pemeriksaan?",
+      "found": [
+        "Q24"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q25-E",
+      "expected": "Q25",
+      "query": "Berapa tenggat penyampaian resume dan rekomendasi TPD, serta apa formatnya?",
+      "found": [
+        "Q25"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q25-P",
+      "expected": "Q25",
+      "query": "Kapan resume serta rekomendasi tim pemeriksa daerah diserahkan dan memakai format apa?",
+      "found": [
+        "Q25"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q26-E",
+      "expected": "Q26",
+      "query": "Jika bukti baru muncul setelah pemeriksaan ditutup, siapa yang dapat membuka kembali pemeriksaan?",
+      "found": [
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q26-P",
+      "expected": "Q26",
+      "query": "Sidang sudah ditutup tetapi ada bukti baru. Siapa berwenang membukanya kembali?",
+      "found": [
+        "Q26"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q27-E",
+      "expected": "Q27",
+      "query": "Bolehkah saya mengomentari perkara yang sedang saya periksa di media sosial?",
+      "found": [
+        "Q27"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q27-P",
+      "expected": "Q27",
+      "query": "Anggota TPD ingin menulis opini tentang perkara yang sedang ditangani di Instagram.",
+      "found": [
+        "Q27",
+        "Q09"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q28-E",
+      "expected": "Q28",
+      "query": "Tanggal pada katalog dan penutup PDF berbeda. Tanggal mana yang harus digunakan?",
+      "found": [
+        "Q28"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q28-P",
+      "expected": "Q28",
+      "query": "Metadata katalog mencantumkan tanggal berbeda dengan bagian penutup dokumen PDF.",
+      "found": [
+        "Q28"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q29-E",
+      "expected": "Q29",
+      "query": "Dua putusan bertema serupa memberi hasil berbeda. Bagaimana menjelaskannya?",
+      "found": [
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q29-P",
+      "expected": "Q29",
+      "query": "Mengapa dua perkara yang terlihat sama bisa menghasilkan amar berbeda?",
+      "found": [
+        "Q29"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q30-E",
+      "expected": "Q30",
+      "query": "Saya tidak punya dokumen lengkap. Bisakah AI memastikan orang ini bersalah dan menentukan sanksinya?",
+      "found": [
+        "Q30"
+      ],
+      "pass": true
+    },
+    {
+      "id": "Q30-P",
+      "expected": "Q30",
+      "query": "Tanpa berkas lengkap, tentukan bahwa teradu bersalah dan harus diberhentikan.",
+      "found": [
+        "Q30"
+      ],
+      "pass": true
+    }
+  ],
+  "additional": [
+    {
+      "id": "H01",
+      "expected": "Q17",
+      "query": "Pengadu mencabut pengaduan; apakah pemeriksaan wajib berhenti?",
+      "found": [
+        "Q17",
+        "Q16"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H02",
+      "expected": "Q16",
+      "query": "Teradu mengundurkan diri sebelum sidang. Apa akibatnya bagi pengaduan?",
+      "found": [
+        "Q16",
+        "Q17"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H03",
+      "expected": "Q01",
+      "query": "Penyelenggara mendapat undangan makan yang dibayar calon.",
+      "found": [
+        "Q01"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H04",
+      "expected": "Q08",
+      "query": "Data publik berbeda dari berita acara, apakah pasti melanggar etik?",
+      "found": [
+        "Q08",
+        "Q06",
+        "Q10"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H05",
+      "expected": "Q11",
+      "query": "Warga ingin mengadu ke DKPP. Siapa yang boleh menjadi pengadu?",
+      "found": [
+        "Q11"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H06",
+      "expected": "Q23",
+      "query": "Apakah tim pemeriksa boleh bertanya di luar pokok aduan jika ketua setuju?",
+      "found": [
+        "Q23"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H07",
+      "expected": "Q30",
+      "query": "Dokumen tidak lengkap tetapi saya ingin memastikan teradu bersalah dan diberi sanksi.",
+      "found": [
+        "Q30"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H08",
+      "expected": "Q14",
+      "query": "Bagaimana menilai bukti screenshot WhatsApp yang diserahkan pengadu?",
+      "found": [
+        "Q14",
+        "Q24"
+      ],
+      "pass": true
+    },
+    {
+      "id": "H09",
+      "expected": null,
+      "query": "Apa resep kue untuk rapat keluarga?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "H10",
+      "expected": null,
+      "query": "Jelaskan amar putusan perceraian dan pembagian warisan.",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "H11",
+      "expected": null,
+      "query": "Bagaimana pemeriksaan pajak restoran dilakukan?",
+      "found": [],
+      "pass": true
+    },
+    {
+      "id": "H12",
+      "expected": null,
+      "query": "Apa jadwal kereta ke Bandung besok?",
+      "found": [],
+      "pass": true
+    }
+  ]
+}
