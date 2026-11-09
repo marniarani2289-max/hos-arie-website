@@ -22,6 +22,7 @@ const groups = [
     { id: "concat", title: "Concat", description: "Susun slide, narasi, subtitle, dan alur ekspor video pembelajaran.", href: "/ai-lab/concat", status: "Panduan · aplikasi eksternal" },
   ]},
   { id: "riset", title: "Riset & publikasi", description: "Telusuri literatur, bangun argumen, dan perjelas tulisan.", items: [
+    { id: "chanelify", title: "Chanelify · Riset & optimasi SEO", description: "Riset kata kunci, audit website, dan pantau peringkat pencarian serta visibilitas konten di pencarian AI.", href: "https://seo.chanelify.com/?lang=id", status: "Tautan resmi · layanan eksternal" },
     { id: "academic-writing", title: "Academic Writing AI", description: "Pelajari alur literatur, argumentasi, dan persiapan publikasi ilmiah.", href: "/ai-lab/academic-writing", status: "Panduan praktik" },
     { id: "paper-review", title: "Paper Review AI", description: "Bandingkan artikel dan susun matriks bukti sebelum menulis.", href: "/ai-lab/paper-review", status: "Panduan praktik" },
     { id: "humanize-writing", title: "Humanize Writing AI", description: "Sunting bahasa sambil menjaga makna, kutipan, dan kepastian klaim.", href: "/ai-lab/humanize-writing", status: "Panduan praktik" },
