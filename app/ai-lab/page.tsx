@@ -74,6 +74,26 @@ export default function AiLabPage() {
         </div>
       </header>
 
+      <section id="video-pengawasan-ai" aria-labelledby="video-pengawasan-ai-title" className="bg-white">
+        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
+          <p className="text-sm font-semibold text-teal-800">Video pembelajaran · Pengawasan manusia atas AI</p>
+          <h2 id="video-pengawasan-ai-title" className="mt-2 max-w-4xl text-2xl font-bold sm:text-3xl">AI Bisa Mengarang Pasal! Pentingnya Pengawasan Manusia atas AI</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-700">Pelajari pentingnya memeriksa keluaran AI dan menjaga peran manusia dalam penggunaan AI untuk hukum, pendidikan, serta riset.</p>
+          <div className="mt-6 aspect-video overflow-hidden rounded-xl bg-slate-950">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/9rmmJim3AUI"
+              title="AI Bisa Mengarang Pasal! Pentingnya Pengawasan Manusia atas AI"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          </div>
+          <a href="https://www.youtube.com/watch?v=9rmmJim3AUI" target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-semibold text-teal-900 underline underline-offset-4 hover:bg-teal-50 ${focus}`}>Tonton di YouTube</a>
+        </div>
+      </section>
+
       <section aria-labelledby="governance-program-title" className="border-b border-teal-200 bg-teal-50"><div className="mx-auto max-w-6xl px-5 py-8 sm:px-8"><p className="text-sm font-semibold text-teal-800">Program praktik · 12 minggu · Hukum dan pendidikan</p><h2 id="governance-program-title" className="mt-2 text-3xl font-bold">AI Governance: dari risiko ke bukti praktik.</h2><p className="mt-3 max-w-3xl leading-7 text-slate-700">Pelajari tata kelola AI melalui jalur layanan hukum LexNusa dan praktik pendidikan. Mulai dengan verifikasi hasil AI, lalu susun daftar risiko dan SOP pengawasan manusia.</p><Link href="/ai-lab/ai-governance" className={`mt-5 inline-flex min-h-12 items-center rounded-lg bg-teal-900 px-5 py-3 font-semibold text-white hover:bg-teal-800 ${focus}`}>Buka program AI Governance →</Link></div></section>
 
 
