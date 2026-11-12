@@ -1,0 +1,26 @@
+name: Training assistant checks
+on:
+  pull_request:
+    paths:
+      - 'app/pelatihan-ai/**'
+      - 'app/control-center/pelatihan-ai/**'
+      - 'app/api/training-assistant/**'
+      - 'lib/training-assistant/**'
+      - 'tests/training-assistant*'
+      - '.github/workflows/training-assistant-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/training-assistant.test.mjs
+      - run: npx tsc --noEmit
