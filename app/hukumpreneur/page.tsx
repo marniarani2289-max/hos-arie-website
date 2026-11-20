@@ -246,6 +246,57 @@ export default function HukumPreneurPage() {
         </div>
       </section>
 
+      <section id="kepala-sekolah-strategis" aria-labelledby="kepala-sekolah-video-title" className="scroll-mt-24 px-5 pt-16 sm:px-6 lg:px-8" lang="id">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-white shadow-sm">
+          <div className="grid lg:grid-cols-[1.2fr_1fr]">
+            <div className="self-center bg-black">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/iPH7dtKTW9o?rel=0&hl=id"
+                title="Kepala Sekolah sebagai Pemimpin Strategis — Jebakan Pemimpin Sibuk di Sekolah"
+                className="aspect-video w-full border-0"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-7 sm:p-10">
+              <p className="text-sm font-bold uppercase tracking-widest text-emerald-700">Kepemimpinan Pendidikan · Video + PDF</p>
+              <h2 id="kepala-sekolah-video-title" className="mt-4 text-3xl font-bold leading-tight">Kepala Sekolah sebagai Pemimpin Strategis</h2>
+              <p className="mt-3 text-xl font-semibold text-slate-800">Sibuk belum tentu berdampak.</p>
+              <p className="mt-4 leading-7 text-slate-600">Pelajari cara mendiagnosis akar masalah, memilih prioritas, mendampingi guru, dan menyusun rencana 90 hari yang berfokus pada hasil belajar murid.</p>
+              <p className="mt-4 text-sm font-semibold text-slate-700">19 menit 50 detik · Subtitle bahasa Indonesia</p>
+              <p className="mt-2 text-sm text-slate-600">Materi: Dr. Hos Arie Sibarani</p>
+              <a href="https://youtu.be/iPH7dtKTW9o" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">
+                <Play size={18} aria-hidden="true" /> Tonton di YouTube
+              </a>
+            </div>
+          </div>
+          <div className="border-t border-emerald-100 p-7 sm:p-10">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900">Cetak Biru Pemimpin Strategis</h3>
+                <p className="mt-2 leading-7 text-slate-600">Mengubah rutinitas menjadi dampak pembelajaran.</p>
+                <p className="mt-1 text-sm text-slate-500">Presentasi pendamping · 20 slide · PDF</p>
+              </div>
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <a href="/materials/kepala-sekolah-strategis.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-emerald-300 px-5 py-3 font-bold text-emerald-900 hover:bg-emerald-50">
+                  <BookOpen size={18} aria-hidden="true" /> Buka PDF
+                </a>
+                <a href="/materials/kepala-sekolah-strategis.pdf" download="Kepala_Sekolah_Strategis.pdf" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">
+                  <Download size={18} aria-hidden="true" /> Unduh PDF
+                </a>
+              </div>
+            </div>
+            <details className="mt-6 rounded-2xl border border-slate-200 p-5">
+              <summary className="cursor-pointer font-semibold text-emerald-900">Baca presentasi di halaman ini</summary>
+              <iframe src="/materials/kepala-sekolah-strategis.pdf#view=FitH" title="Cetak Biru Pemimpin Strategis — presentasi 20 slide" loading="lazy" className="mt-5 h-[420px] w-full border-0 sm:h-[680px]" />
+              <p className="mt-3 text-sm leading-6 text-slate-500">Jika pratinjau tidak tampil, gunakan tombol Buka PDF atau Unduh PDF.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section id="hukum-pidana-korporasi" aria-labelledby="korporasi-video-title" className="scroll-mt-24 px-5 pt-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-white shadow-sm">
           <div className="grid lg:grid-cols-[1.2fr_1fr]">
