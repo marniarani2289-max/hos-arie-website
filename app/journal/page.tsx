@@ -461,7 +461,7 @@ export default function JournalPage() {
             {/* OJS EDITORIAL TEAM */}
             <div className="mt-10">
               <a
-                href="https://journal.hossibarani.com/jmcs/about/editorialTeam"
+                href="https://journal.hossibarani.com/jmcs/editorial-team"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center border border-slate-950 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-950 hover:text-white"

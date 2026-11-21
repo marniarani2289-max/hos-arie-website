@@ -5,7 +5,7 @@ const journalLinks = [
   ["Official JMCS website", "https://journal.hossibarani.com/jmcs"],
   ["Current issue", "https://journal.hossibarani.com/jmcs/issue/current"],
   ["Journal archives", "https://journal.hossibarani.com/jmcs/issue/archive"],
-  ["Editorial team", "https://journal.hossibarani.com/jmcs/about/editorialTeam"],
+  ["Editorial team", "https://journal.hossibarani.com/jmcs/editorial-team"],
 ] as const;
 
 const authorLinks = [
