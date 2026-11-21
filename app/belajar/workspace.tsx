@@ -30,6 +30,7 @@ const presets = [
   "Penalaran hukum",
 ];
 const links = [
+  ["Manajemen Kepemimpinan Strategis", "/kelas/manajemen-kepemimpinan-strategis"],
   ["Raja Ali Haji Institute", "/raja-ali-haji"],
   ["Kelas Hukum Mayantara", "/lexnusa/mayantara"],
   ["AI Lab", "/ai-lab"],

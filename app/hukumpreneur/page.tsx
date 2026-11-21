@@ -267,6 +267,7 @@ export default function HukumPreneurPage() {
               <p className="mt-4 leading-7 text-slate-600">Pelajari cara mendiagnosis akar masalah, memilih prioritas, mendampingi guru, dan menyusun rencana 90 hari yang berfokus pada hasil belajar murid.</p>
               <p className="mt-4 text-sm font-semibold text-slate-700">19 menit 50 detik · Subtitle bahasa Indonesia</p>
               <p className="mt-2 text-sm text-slate-600">Materi: Dr. Hos Arie Sibarani</p>
+              <a href="/kelas/manajemen-kepemimpinan-strategis" className="mt-5 inline-flex min-h-12 items-center rounded-xl border border-emerald-700 px-5 py-3 font-bold text-emerald-900 hover:bg-emerald-50">Masuk kelas Manajemen Kepemimpinan Strategis</a>
               <a href="https://youtu.be/iPH7dtKTW9o" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]">
                 <Play size={18} aria-hidden="true" /> Tonton di YouTube
               </a>
