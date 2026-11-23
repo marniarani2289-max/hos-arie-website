@@ -1,3 +1,4 @@
+import RetehVideo from "@/app/components/RetehVideo";
 import { institutePilot } from "@/lib/programmes/catalogue";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -216,6 +217,8 @@ export default function RajaAliHajiInstitutePage() {
           </div>
         </div>
       </section>
+
+      <RetehVideo context="institute" />
 
       <section id="dari-gurindam-ke-tata-kelola" lang="id" aria-labelledby="gurindam-title" className="scroll-mt-24 border-b border-stone-200 bg-[#faf8f2] px-5 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">

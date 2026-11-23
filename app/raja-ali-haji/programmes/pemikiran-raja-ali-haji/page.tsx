@@ -1,3 +1,4 @@
+import RetehVideo from "@/app/components/RetehVideo";
 import type { Metadata } from "next";
 import { institutePilot } from "@/lib/programmes/catalogue";
 import Link from "next/link";
@@ -151,6 +152,8 @@ export default function PemikiranRajaAliHajiProgrammePage() {
           </div>
         </div>
       </section>
+
+      <RetehVideo context="programme" />
 
       <section className="bg-slate-950 px-5 py-16 text-white sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto max-w-7xl">

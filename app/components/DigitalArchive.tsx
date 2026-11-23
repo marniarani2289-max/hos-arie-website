@@ -1,3 +1,5 @@
+import RetehVideo from "./RetehVideo";
+
 export default function DigitalArchive() {
   const archives = [
     {
@@ -42,6 +44,8 @@ export default function DigitalArchive() {
           scholarship, and intellectual projects on law, governance, and Malay
           civilization.
         </p>
+
+        <RetehVideo context="archive" />
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {archives.map((item) => (
