@@ -52,6 +52,19 @@ export default function RetehVideo({ context }: RetehVideoProps) {
         <a href="https://youtu.be/7tIzZIuZU_c" target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex min-h-11 items-center font-semibold underline underline-offset-4 ${dark ? "text-amber-300 hover:text-white" : "text-amber-800 hover:text-slate-950"}`}>
           Tonton di YouTube <span aria-hidden="true" className="ml-2">↗</span><span className="sr-only"> (tab baru)</span>
         </a>
+        <div className={`mt-8 rounded-2xl border p-5 sm:p-7 ${dark ? "border-white/15 bg-slate-900" : "border-stone-200 bg-stone-50"}`}>
+          <h3 className={`text-xl font-bold ${dark ? "text-white" : "text-slate-950"}`}>Materi PDF · Peristiwa Reteh 1858</h3>
+          <p className={`mt-3 leading-7 ${dark ? "text-gray-300" : "text-slate-600"}`}>Baca 12 halaman materi pendamping tentang hukum, fitnah, dan perlindungan korban perang dalam kajian pemikiran Raja Ali Haji.</p>
+          <div className="mt-5 flex flex-wrap gap-4">
+            <a href="/materials/kajian-hukum-peristiwa-reteh-1858.pdf" download="Kajian_Hukum_Peristiwa_Reteh_1858.pdf" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-600 px-5 py-3 font-semibold text-white hover:bg-amber-700">Unduh materi PDF</a>
+            <a href="/materials/kajian-hukum-peristiwa-reteh-1858.pdf" target="_blank" rel="noopener noreferrer" className={`inline-flex min-h-12 items-center font-semibold underline underline-offset-4 ${dark ? "text-amber-300 hover:text-white" : "text-amber-800 hover:text-slate-950"}`}>Buka PDF di tab baru <span aria-hidden="true" className="ml-2">↗</span></a>
+          </div>
+          <details className="mt-6">
+            <summary className={`cursor-pointer py-3 text-lg font-bold ${dark ? "text-white" : "text-slate-950"}`}>Baca materi PDF di halaman ini</summary>
+            <p className={`mt-2 text-sm leading-6 ${dark ? "text-gray-300" : "text-slate-600"}`}>Jika pratinjau tidak tersedia di perangkat Anda, gunakan tombol buka atau unduh PDF di atas.</p>
+            <iframe src="/materials/kajian-hukum-peristiwa-reteh-1858.pdf" title="Materi PDF Kajian Hukum Peristiwa Reteh 1858 — Dr. Hos Arie Sibarani" loading="lazy" className="mt-4 h-[70vh] min-h-80 w-full rounded-lg border border-stone-300 bg-white" />
+          </details>
+        </div>
       </div>
     </section>
   );
