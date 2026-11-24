@@ -120,6 +120,16 @@ const POL10_TABS=["<section class=\"card pol10\" id=\"materi-restoratif-pertemua
 function renderPol10(){
   $('notice').textContent='Materi diperbarui 17 November 2026. Rujukan utama: KUHP, KUHAP baru, dan aturan kelembagaan. Status aturan pelaksanaan dijelaskan pada materi. Bobot penilaian akhir mengikuti RPS yang disahkan.';
   $('panel').innerHTML=POL10_TABS[tab];
+  if(tab===0)$('panel').insertAdjacentHTML('afterbegin',`<section class="card" id="video-keadilan-restoratif" aria-labelledby="restoratif-video-title">
+<p class="label">Video &amp; presentasi · Pertemuan 10</p>
+<h2 id="restoratif-video-title">Keadilan Restoratif dalam Politik Hukum Pidana</h2>
+<p>Landasan filosofis, perdebatan teori, dan implikasi kebijakan. Tonton video pembelajaran dan baca presentasi pendamping karya Dr. Hos Arie Sibarani.</p>
+<div style="aspect-ratio:16/9;width:100%;background:#102536;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube-nocookie.com/embed/15S464BX6eM" title="Keadilan Restoratif dalam Politik Hukum Pidana — Dr. Hos Arie Sibarani" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe></div>
+<p style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px"><a href="https://youtu.be/15S464BX6eM" target="_blank" rel="noopener noreferrer">Tonton di YouTube ↗</a><a href="https://www.hossibarani.com/kuliah/materi/keadilan-restoratif-dr-hos-arie-sibarani.pdf" target="_blank" rel="noopener noreferrer">Buka PDF · 15 halaman ↗</a><a href="https://www.hossibarani.com/kuliah/materi/keadilan-restoratif-dr-hos-arie-sibarani.pdf" download="Keadilan_Restoratif_Dr_Hos_Arie_Sibarani.pdf">Unduh PDF</a></p>
+<details><summary>Baca PDF di halaman ini</summary><iframe src="https://www.hossibarani.com/kuliah/materi/keadilan-restoratif-dr-hos-arie-sibarani.pdf#view=FitH" title="Presentasi Keadilan Restoratif — 15 halaman" loading="lazy" style="width:100%;height:560px;border:1px solid #dce3db;margin-top:12px"></iframe></details>
+<p class="muted">Video dan PDF memerlukan koneksi internet. Jika pratinjau PDF tidak tampil di perangkat Anda, gunakan Buka PDF atau Unduh PDF.</p>
+</section>`);
+
   for(const id of ['caseNote','answer','reflection','sources']){
     const field=$(id);if(field){field.value=record()[id]||'';field.oninput=e=>{record()[id]=e.target.value;save()};}
   }
