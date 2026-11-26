@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/blue-education/panduan", 0.75, "monthly"],
     ["/about", 0.9, "monthly"],
     ["/research", 0.95, "monthly"],
+    ["/research/budaya-cetak-riau-lingga", 0.85, "monthly"],
     ["/research/malay-ethical-constitutionalism", 0.95, "monthly"],
     ["/publications", 0.9, "monthly"],
     ["/books", 0.8, "monthly"],

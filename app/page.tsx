@@ -1,3 +1,4 @@
+import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import HomeContact from "./components/home/HomeContact";
 import BiafInvitation from "./components/home/BiafInvitation";
 import type { Metadata } from "next";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <HeroV6 />
       <HomeHighlights />
+      <BudayaCetakFeature />
       <SelectedWork />
       <ProgrammeCards />
       <BiafInvitation />

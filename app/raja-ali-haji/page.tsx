@@ -1,3 +1,4 @@
+import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import RetehVideo from "@/app/components/RetehVideo";
 import { institutePilot } from "@/lib/programmes/catalogue";
 import type { Metadata } from "next";
@@ -218,6 +219,7 @@ export default function RajaAliHajiInstitutePage() {
         </div>
       </section>
 
+      <BudayaCetakFeature context="institute" />
       <RetehVideo context="institute" />
 
       <section id="dari-gurindam-ke-tata-kelola" lang="id" aria-labelledby="gurindam-title" className="scroll-mt-24 border-b border-stone-200 bg-[#faf8f2] px-5 py-16 sm:px-6 md:py-20 lg:px-8">

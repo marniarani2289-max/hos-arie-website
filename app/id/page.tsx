@@ -1,3 +1,4 @@
+import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import HomeContact from "../components/home/HomeContact";
 import HeroV6 from "../components/home/HeroV6";
 import BiafInvitation from "../components/home/BiafInvitation";
@@ -18,6 +19,7 @@ export default function IndonesianHomePage() {
   return <div lang="id" className="bg-white text-slate-900">
     <HeroV6 locale="id" />
     <HomeHighlights locale="id" />
+    <BudayaCetakFeature />
     <SelectedWork locale="id" />
     <ProgrammeCards locale="id" />
     <BiafInvitation locale="id" />

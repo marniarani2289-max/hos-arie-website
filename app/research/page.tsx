@@ -1,3 +1,4 @@
+import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -134,6 +135,8 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
+
+      <BudayaCetakFeature context="research" />
 
       {/* Research statistics */}
 
