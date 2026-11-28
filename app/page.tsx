@@ -1,3 +1,4 @@
+import TuhfatFeature from "@/app/components/TuhfatFeature";
 import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import HomeContact from "./components/home/HomeContact";
 import BiafInvitation from "./components/home/BiafInvitation";
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <HeroV6 />
       <HomeHighlights />
+      <TuhfatFeature />
       <BudayaCetakFeature />
       <SelectedWork />
       <ProgrammeCards />
