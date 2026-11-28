@@ -1,5 +1,6 @@
 import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import RetehVideo from "@/app/components/RetehVideo";
+import TuhfatFeature from "@/app/components/TuhfatFeature";
 import { institutePilot } from "@/lib/programmes/catalogue";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -219,6 +220,7 @@ export default function RajaAliHajiInstitutePage() {
         </div>
       </section>
 
+      <TuhfatFeature />
       <BudayaCetakFeature context="institute" />
       <RetehVideo context="institute" />
 

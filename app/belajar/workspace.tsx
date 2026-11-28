@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import TuhfatFeature from "@/app/components/TuhfatFeature";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -237,6 +238,7 @@ export default function AlterWorkspace({ signedIn }: { signedIn: boolean }) {
           </div>
         )}
       </header>
+      <TuhfatFeature compact />
       {!signedIn ? (
         <section className={styles.signin}>
           <BookOpen size={36} />
