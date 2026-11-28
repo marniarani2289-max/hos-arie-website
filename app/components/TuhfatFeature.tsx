@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const tuhfatPath = "/kelas/tuhfat-al-nafis";
+export const tuhfatPath = "/research/tuhfat-al-nafis";
 
 export default function TuhfatFeature({ compact = false }: { compact?: boolean }) {
   return (

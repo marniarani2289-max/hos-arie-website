@@ -1,3 +1,4 @@
+import TuhfatFeature from "@/app/components/TuhfatFeature";
 import BudayaCetakFeature from "@/app/components/BudayaCetakFeature";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -136,6 +137,7 @@ export default function ResearchPage() {
         </div>
       </section>
 
+      <TuhfatFeature />
       <BudayaCetakFeature context="research" />
 
       {/* Research statistics */}
