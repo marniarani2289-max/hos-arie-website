@@ -21,6 +21,7 @@ function alternateLinkHeader(enPath: string, idPath: string) {
 const nextConfig: NextConfig = {
   async rewrites() {
     return { beforeFiles: [
+      { source: "/materials/tuhfat-al-nafis/unduh", destination: "/materials/tuhfat-al-nafis/presentasi.pdf" },
       { source: "/dkpp", destination: "/dkpp/index.html" },
       { source: "/coaching-mentoring", destination: "/coaching-mentoring/index.html" },
       { source: "/clip-studio", destination: "/clip-studio/index.html" },
@@ -46,6 +47,13 @@ const nextConfig: NextConfig = {
 
     return [
       ...bilingualHeaders,
+      {
+        source: "/materials/tuhfat-al-nafis/unduh",
+        headers: [
+          { key: "Content-Type", value: "application/pdf" },
+          { key: "Content-Disposition", value: 'attachment; filename="Tuhfat_al_Nafis_Dr_Hos_Arie_Sibarani.pdf"' },
+        ],
+      },
       {
         source: "/biaf/documents/ASEAN_Summit_Working_Draft_v1_1.pdf",
         headers: [

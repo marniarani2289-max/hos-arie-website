@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/blue-education", 0.85, "monthly"],
     ["/coaching-mentoring", 0.85, "monthly"],
     ["/kelas/manajemen-kepemimpinan-strategis", 0.85, "monthly"],
+    ["/kelas/tuhfat-al-nafis", 0.85, "monthly"],
     ["/blue-education/jbe", 0.8, "monthly"],
     ["/blue-education/panduan", 0.75, "monthly"],
     ["/about", 0.9, "monthly"],
