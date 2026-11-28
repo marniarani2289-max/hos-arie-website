@@ -298,6 +298,19 @@ export default function HukumPreneurPage() {
         </div>
       </section>
 
+      <section id="melembagakan-perubahan-sekolah" aria-labelledby="pelembagaan-video-title" className="scroll-mt-24 px-5 pt-10 sm:px-6 lg:px-8" lang="id">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-emerald-200 bg-white p-7 sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-widest text-emerald-700">Lanjutan Kepemimpinan Strategis · Video + PDF + Artikel</p>
+          <h2 id="pelembagaan-video-title" className="mt-4 text-3xl font-bold leading-tight">Pemimpin Pergi, Inovasi Mati?</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600">Melembagakan perubahan sekolah agar manfaat pembelajaran tetap terjaga ketika penggagas berpindah tugas. Telaah regenerasi, batas kewenangan, pembelajaran organisasi, dan ukuran keberlanjutan.</p>
+          <p className="mt-4 text-sm font-semibold text-slate-700">Dr. Hos Arie Sibarani · 13:32 · Subtitle bahasa Indonesia · Presentasi 15 halaman</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/kelas/manajemen-kepemimpinan-strategis#melembagakan-perubahan" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#347e5c] px-5 py-3 font-bold text-white hover:bg-[#286548]"><BookOpen size={18} aria-hidden="true" /> Tonton dan buka materi lengkap</Link>
+            <a href="https://youtu.be/gnOB01xx0ws" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-emerald-300 px-5 py-3 font-bold text-emerald-900 hover:bg-emerald-50"><Play size={18} aria-hidden="true" /> Buka di YouTube</a>
+          </div>
+        </div>
+      </section>
+
       <section id="hukum-pidana-korporasi" aria-labelledby="korporasi-video-title" className="scroll-mt-24 px-5 pt-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-emerald-200 bg-white shadow-sm">
           <div className="grid lg:grid-cols-[1.2fr_1fr]">

@@ -3,7 +3,7 @@ import Classroom from "./Classroom";
 
 export const metadata: Metadata = {
   title: "Manajemen Kepemimpinan Strategis — Ruang Belajar",
-  description: "Kelas terbuka Dr. Hos Arie Sibarani: kepala sekolah sebagai pemimpin strategis, video pembelajaran, presentasi 20 slide, kuis, dan rencana aksi 90 hari.",
+  description: "Kelas terbuka Dr. Hos Arie Sibarani: kepemimpinan strategis dan pelembagaan perubahan sekolah, dua video, presentasi PDF, artikel akademik, kuis, dan rencana 90 hari.",
   alternates: { canonical: "/kelas/manajemen-kepemimpinan-strategis" },
   openGraph: {
     title: "Manajemen Kepemimpinan Strategis",
